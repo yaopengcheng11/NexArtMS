@@ -1,0 +1,780 @@
+[
+  {
+    "id": "S01",
+    "start": 0.0,
+    "end": 0.5,
+    "seconds": 0.5,
+    "size": "medium-close",
+    "category": "subject",
+    "camera": "static",
+    "subjects": [
+      "P1"
+    ],
+    "frame": "灰绿上衣武者在山坡前攥拳，突然向镜头方向挥臂冲近。",
+    "rhythm": "hook",
+    "startFrame": 0,
+    "endFrameExclusive": 12
+  },
+  {
+    "id": "S02",
+    "start": 0.5,
+    "end": 0.9583333333333334,
+    "seconds": 0.4583333333333333,
+    "size": "close",
+    "category": "insert",
+    "camera": "tilt-up",
+    "subjects": [
+      "P1"
+    ],
+    "frame": "低机位贴着草地拍白鞋踏起尘土，褐色裤脚随跃起掠过画面。",
+    "rhythm": "beat",
+    "startFrame": 12,
+    "endFrameExclusive": 23
+  },
+  {
+    "id": "S03",
+    "start": 0.9583333333333334,
+    "end": 1.2083333333333333,
+    "seconds": 0.25,
+    "size": "medium-wide",
+    "category": "subject",
+    "camera": "static",
+    "subjects": [
+      "P1",
+      "P2"
+    ],
+    "frame": "灰绿上衣武者从低机位上方腾空，远处的灰蓝立领装武者站在地面。",
+    "rhythm": "build",
+    "startFrame": 23,
+    "endFrameExclusive": 29
+  },
+  {
+    "id": "S04",
+    "start": 1.2083333333333333,
+    "end": 1.625,
+    "seconds": 0.4166666666666667,
+    "size": "medium-close",
+    "category": "reaction",
+    "camera": "static",
+    "subjects": [
+      "P2"
+    ],
+    "frame": "灰蓝立领装武者在石墓旁张口抬头，视线追向空中的对手。",
+    "rhythm": "setup",
+    "startFrame": 29,
+    "endFrameExclusive": 39
+  },
+  {
+    "id": "S05",
+    "start": 1.625,
+    "end": 2.3333333333333335,
+    "seconds": 0.7083333333333334,
+    "size": "medium-wide",
+    "category": "subject",
+    "camera": "static",
+    "subjects": [
+      "P1"
+    ],
+    "frame": "灰绿上衣武者双腿在蓝天前展开，褐色裤摆被腾空动作甩开。",
+    "rhythm": "build",
+    "startFrame": 39,
+    "endFrameExclusive": 56
+  },
+  {
+    "id": "S06",
+    "start": 2.3333333333333335,
+    "end": 3.2083333333333335,
+    "seconds": 0.875,
+    "size": "medium-close",
+    "category": "subject",
+    "camera": "static",
+    "subjects": [
+      "P1",
+      "P2"
+    ],
+    "frame": "白鞋从右上方踢向灰蓝立领装武者，他抬起双臂护住头部。",
+    "rhythm": "beat",
+    "startFrame": 56,
+    "endFrameExclusive": 77
+  },
+  {
+    "id": "S07",
+    "start": 3.2083333333333335,
+    "end": 4.083333333333333,
+    "seconds": 0.875,
+    "size": "close",
+    "category": "insert",
+    "camera": "static",
+    "subjects": [
+      "P2"
+    ],
+    "frame": "贴地画面里灰蓝裤腿快速交错，黑鞋踩过墓前的干草地。",
+    "rhythm": "build",
+    "startFrame": 77,
+    "endFrameExclusive": 98
+  },
+  {
+    "id": "S08",
+    "start": 4.083333333333333,
+    "end": 4.458333333333333,
+    "seconds": 0.375,
+    "size": "close",
+    "category": "insert",
+    "camera": "static",
+    "subjects": [
+      "P1"
+    ],
+    "frame": "褐色宽裤下的白鞋在草地上落下又弹起，身后是斜坡与灌木。",
+    "rhythm": "beat",
+    "startFrame": 98,
+    "endFrameExclusive": 107
+  },
+  {
+    "id": "S09",
+    "start": 4.458333333333333,
+    "end": 5.375,
+    "seconds": 0.9166666666666666,
+    "size": "medium",
+    "category": "subject",
+    "camera": "static",
+    "subjects": [
+      "P2"
+    ],
+    "frame": "灰蓝立领装武者侧身张开手臂，背后山坡随着动作掠过。",
+    "rhythm": "build",
+    "startFrame": 107,
+    "endFrameExclusive": 129
+  },
+  {
+    "id": "S10",
+    "start": 5.375,
+    "end": 5.708333333333333,
+    "seconds": 0.3333333333333333,
+    "size": "close",
+    "category": "insert",
+    "camera": "static",
+    "subjects": [
+      "P1"
+    ],
+    "frame": "褐色裤摆几乎盖满画框，两只白鞋在草屑上并拢起跳。",
+    "rhythm": "beat",
+    "startFrame": 129,
+    "endFrameExclusive": 137
+  },
+  {
+    "id": "S11",
+    "start": 5.708333333333333,
+    "end": 6.416666666666667,
+    "seconds": 0.7083333333333334,
+    "size": "wide",
+    "category": "subject",
+    "camera": "static",
+    "subjects": [
+      "P1",
+      "P2"
+    ],
+    "frame": "墓前空地上灰绿上衣武者跃向灰蓝立领装武者，二人被同框交代距离。",
+    "rhythm": "payoff",
+    "startFrame": 137,
+    "endFrameExclusive": 154
+  },
+  {
+    "id": "S12",
+    "start": 6.416666666666667,
+    "end": 6.958333333333333,
+    "seconds": 0.5416666666666666,
+    "size": "medium-close",
+    "category": "subject",
+    "camera": "static",
+    "subjects": [
+      "P1",
+      "P2"
+    ],
+    "frame": "低角度近看灰蓝立领装武者举臂格挡，白鞋从右侧擦向他的头。",
+    "rhythm": "beat",
+    "startFrame": 154,
+    "endFrameExclusive": 167
+  },
+  {
+    "id": "S13",
+    "start": 6.958333333333333,
+    "end": 7.5,
+    "seconds": 0.5416666666666666,
+    "size": "close",
+    "category": "insert",
+    "camera": "static",
+    "subjects": [
+      "P2"
+    ],
+    "frame": "镜头贴着灰蓝裤腿与黑鞋，脚步在草地上迅速调整重心。",
+    "rhythm": "build",
+    "startFrame": 167,
+    "endFrameExclusive": 180
+  },
+  {
+    "id": "S14",
+    "start": 7.5,
+    "end": 8.166666666666666,
+    "seconds": 0.6666666666666666,
+    "size": "medium-wide",
+    "category": "subject",
+    "camera": "static",
+    "subjects": [
+      "P1",
+      "P2"
+    ],
+    "frame": "灰绿上衣武者从正面抬腿踢来，灰蓝立领装武者向后弯身避让。",
+    "rhythm": "beat",
+    "startFrame": 180,
+    "endFrameExclusive": 196
+  },
+  {
+    "id": "S15",
+    "start": 8.166666666666666,
+    "end": 9.625,
+    "seconds": 1.4583333333333333,
+    "size": "wide",
+    "category": "subject",
+    "camera": "static",
+    "subjects": [
+      "P1",
+      "P2"
+    ],
+    "frame": "墓地前的开阔草地上，一人腾身扫腿，另一人后退跌向地面。",
+    "rhythm": "payoff",
+    "startFrame": 196,
+    "endFrameExclusive": 231
+  },
+  {
+    "id": "S16",
+    "start": 9.625,
+    "end": 10.166666666666666,
+    "seconds": 0.5416666666666666,
+    "size": "medium",
+    "category": "subject",
+    "camera": "static",
+    "subjects": [
+      "P2"
+    ],
+    "frame": "灰蓝立领装武者在山坡前回头，双拳举到胸前重新摆出架势。",
+    "rhythm": "breath",
+    "startFrame": 231,
+    "endFrameExclusive": 244
+  },
+  {
+    "id": "S17",
+    "start": 10.166666666666666,
+    "end": 10.666666666666666,
+    "seconds": 0.5,
+    "size": "medium-wide",
+    "category": "subject",
+    "camera": "static",
+    "subjects": [
+      "P1"
+    ],
+    "frame": "灰绿上衣武者在低角度画面里翻起身，褐色裤脚扫过天空。",
+    "rhythm": "build",
+    "startFrame": 244,
+    "endFrameExclusive": 256
+  },
+  {
+    "id": "S18",
+    "start": 10.666666666666666,
+    "end": 12.083333333333334,
+    "seconds": 1.4166666666666667,
+    "size": "medium-close",
+    "category": "subject",
+    "camera": "static",
+    "subjects": [
+      "P1",
+      "P2"
+    ],
+    "frame": "灰蓝立领装武者贴近对方腿部挥臂，白鞋横扫过他的肩前。",
+    "rhythm": "beat",
+    "startFrame": 256,
+    "endFrameExclusive": 290
+  },
+  {
+    "id": "S19",
+    "start": 12.083333333333334,
+    "end": 13.333333333333334,
+    "seconds": 1.25,
+    "size": "medium-wide",
+    "category": "subject",
+    "camera": "static",
+    "subjects": [
+      "P1",
+      "P2"
+    ],
+    "frame": "两人在石墓旁错身交手，灰蓝衣武者的上身被对方踢得后仰。",
+    "rhythm": "payoff",
+    "startFrame": 290,
+    "endFrameExclusive": 320
+  },
+  {
+    "id": "S20",
+    "start": 13.333333333333334,
+    "end": 14.708333333333334,
+    "seconds": 1.375,
+    "size": "medium",
+    "category": "subject",
+    "camera": "static",
+    "subjects": [
+      "P2"
+    ],
+    "frame": "灰蓝立领装武者独自面对山坡站稳，双拳一前一后守在身前。",
+    "rhythm": "breath",
+    "startFrame": 320,
+    "endFrameExclusive": 353
+  },
+  {
+    "id": "S21",
+    "start": 14.708333333333334,
+    "end": 15.291666666666666,
+    "seconds": 0.5833333333333334,
+    "size": "medium-close",
+    "category": "subject",
+    "camera": "static",
+    "subjects": [
+      "P1"
+    ],
+    "frame": "灰绿上衣武者在石墓前转头举手，眼睛盯住画外的灰蓝衣对手。",
+    "rhythm": "build",
+    "startFrame": 353,
+    "endFrameExclusive": 367
+  },
+  {
+    "id": "S22",
+    "start": 15.291666666666666,
+    "end": 16.083333333333332,
+    "seconds": 0.7916666666666666,
+    "size": "medium-wide",
+    "category": "subject",
+    "camera": "static",
+    "subjects": [
+      "P2"
+    ],
+    "frame": "灰蓝立领装武者靠着山坡向前挪步，双拳收回胸前。",
+    "rhythm": "setup",
+    "startFrame": 367,
+    "endFrameExclusive": 386
+  },
+  {
+    "id": "S23",
+    "start": 16.083333333333332,
+    "end": 16.625,
+    "seconds": 0.5416666666666666,
+    "size": "medium-close",
+    "category": "subject",
+    "camera": "static",
+    "subjects": [
+      "P1"
+    ],
+    "frame": "灰绿上衣武者双手在脸前摆出防守，石墓与树影留在身后。",
+    "rhythm": "build",
+    "startFrame": 386,
+    "endFrameExclusive": 399
+  },
+  {
+    "id": "S24",
+    "start": 16.625,
+    "end": 17.458333333333332,
+    "seconds": 0.8333333333333334,
+    "size": "wide",
+    "category": "subject",
+    "camera": "static",
+    "subjects": [
+      "P1",
+      "P2"
+    ],
+    "frame": "墓前空地里灰绿上衣武者腾身踢向灰蓝衣武者，双方站位分列两侧。",
+    "rhythm": "beat",
+    "startFrame": 399,
+    "endFrameExclusive": 419
+  },
+  {
+    "id": "S25",
+    "start": 17.458333333333332,
+    "end": 18.666666666666668,
+    "seconds": 1.2083333333333333,
+    "size": "medium-close",
+    "category": "subject",
+    "camera": "static",
+    "subjects": [
+      "P1",
+      "P2"
+    ],
+    "frame": "灰蓝立领装武者被来脚逼退，后仰倒地，双腿向上抬起翻滚。",
+    "rhythm": "payoff",
+    "startFrame": 419,
+    "endFrameExclusive": 448
+  },
+  {
+    "id": "S26",
+    "start": 18.666666666666668,
+    "end": 18.958333333333332,
+    "seconds": 0.2916666666666667,
+    "size": "medium",
+    "category": "subject",
+    "camera": "static",
+    "subjects": [
+      "P1",
+      "P2"
+    ],
+    "frame": "灰绿上衣武者伸手追打，灰蓝立领装武者从画面右侧闪开。",
+    "rhythm": "beat",
+    "startFrame": 448,
+    "endFrameExclusive": 455
+  },
+  {
+    "id": "S27",
+    "start": 18.958333333333332,
+    "end": 19.458333333333332,
+    "seconds": 0.5,
+    "size": "close",
+    "category": "subject",
+    "camera": "static",
+    "subjects": [
+      "P2"
+    ],
+    "frame": "灰蓝立领装武者倒在干草上，双臂护头且一条腿从镜前掠过。",
+    "rhythm": "payoff",
+    "startFrame": 455,
+    "endFrameExclusive": 467
+  },
+  {
+    "id": "S28",
+    "start": 19.458333333333332,
+    "end": 20.333333333333332,
+    "seconds": 0.875,
+    "size": "wide",
+    "category": "subject",
+    "camera": "static",
+    "subjects": [
+      "P1",
+      "P2"
+    ],
+    "frame": "广角里灰绿上衣武者在左侧追进，灰蓝衣武者翻身后横向飞起。",
+    "rhythm": "turn",
+    "startFrame": 467,
+    "endFrameExclusive": 488
+  },
+  {
+    "id": "S29",
+    "start": 20.333333333333332,
+    "end": 20.833333333333332,
+    "seconds": 0.5,
+    "size": "medium-close",
+    "category": "subject",
+    "camera": "static",
+    "subjects": [
+      "P1",
+      "P2"
+    ],
+    "frame": "灰绿上衣武者张开双臂迎击，灰蓝袖口从右前景横穿画面。",
+    "rhythm": "beat",
+    "startFrame": 488,
+    "endFrameExclusive": 500
+  },
+  {
+    "id": "S30",
+    "start": 20.833333333333332,
+    "end": 22.416666666666668,
+    "seconds": 1.5833333333333333,
+    "size": "wide",
+    "category": "subject",
+    "camera": "static",
+    "subjects": [
+      "P1",
+      "P2"
+    ],
+    "frame": "灰蓝衣武者在开阔草地上倒立旋身，用伸直的腿扫向灰绿衣武者。",
+    "rhythm": "payoff",
+    "startFrame": 500,
+    "endFrameExclusive": 538
+  },
+  {
+    "id": "S31",
+    "start": 22.416666666666668,
+    "end": 24.083333333333332,
+    "seconds": 1.6666666666666667,
+    "size": "medium",
+    "category": "subject",
+    "camera": "static",
+    "subjects": [
+      "P1"
+    ],
+    "frame": "灰绿上衣武者转身抬掌，褐色裤腰与空旷天空留在画面下方。",
+    "rhythm": "breath",
+    "startFrame": 538,
+    "endFrameExclusive": 578
+  },
+  {
+    "id": "S32",
+    "start": 24.083333333333332,
+    "end": 27.625,
+    "seconds": 3.5416666666666665,
+    "size": "medium-wide",
+    "category": "subject",
+    "camera": "pan-right",
+    "subjects": [
+      "P1",
+      "P2"
+    ],
+    "frame": "灰蓝衣武者从石墓旁冲向灰绿衣武者，两人贴近后连续挡拳换位。",
+    "rhythm": "build",
+    "startFrame": 578,
+    "endFrameExclusive": 663
+  },
+  {
+    "id": "S33",
+    "start": 27.625,
+    "end": 29.583333333333332,
+    "seconds": 1.9583333333333333,
+    "size": "wide",
+    "category": "subject",
+    "camera": "static",
+    "subjects": [
+      "P1",
+      "P2"
+    ],
+    "frame": "墓前全景里灰绿衣武者摆臂逼近，灰蓝衣武者后撤并准备反拳。",
+    "rhythm": "build",
+    "startFrame": 663,
+    "endFrameExclusive": 710
+  },
+  {
+    "id": "S34",
+    "start": 29.583333333333332,
+    "end": 30.958333333333332,
+    "seconds": 1.375,
+    "size": "medium",
+    "category": "subject",
+    "camera": "static",
+    "subjects": [
+      "P2"
+    ],
+    "frame": "灰蓝立领装武者正面举起两拳，身后的石墓与山坡轻微失焦。",
+    "rhythm": "breath",
+    "startFrame": 710,
+    "endFrameExclusive": 743
+  },
+  {
+    "id": "S35",
+    "start": 30.958333333333332,
+    "end": 32.541666666666664,
+    "seconds": 1.5833333333333333,
+    "size": "medium-close",
+    "category": "subject",
+    "camera": "static",
+    "subjects": [
+      "P1"
+    ],
+    "frame": "灰绿上衣武者在树和墓碑前攥紧双拳，身体略向镜头前倾。",
+    "rhythm": "setup",
+    "startFrame": 743,
+    "endFrameExclusive": 781
+  },
+  {
+    "id": "S36",
+    "start": 32.541666666666664,
+    "end": 37.25,
+    "seconds": 4.708333333333333,
+    "size": "medium-wide",
+    "category": "subject",
+    "camera": "static",
+    "subjects": [
+      "P1",
+      "P2"
+    ],
+    "frame": "两人在石墓前贴身换拳，灰绿衣武者从左侧抡臂打向蓝衣武者。",
+    "rhythm": "build",
+    "startFrame": 781,
+    "endFrameExclusive": 894
+  },
+  {
+    "id": "S37",
+    "start": 37.25,
+    "end": 39.041666666666664,
+    "seconds": 1.7916666666666667,
+    "size": "medium-wide",
+    "category": "subject",
+    "camera": "static",
+    "subjects": [
+      "P1",
+      "P2"
+    ],
+    "frame": "切到另一角度，灰绿衣武者抬拳直指灰蓝衣武者的侧脸。",
+    "rhythm": "beat",
+    "startFrame": 894,
+    "endFrameExclusive": 937
+  },
+  {
+    "id": "S38",
+    "start": 39.041666666666664,
+    "end": 39.875,
+    "seconds": 0.8333333333333334,
+    "size": "medium-close",
+    "category": "subject",
+    "camera": "static",
+    "subjects": [
+      "P1",
+      "P2"
+    ],
+    "frame": "灰绿衣武者低头举掌遮住耳侧，蓝衣武者的拳从右侧逼近。",
+    "rhythm": "beat",
+    "startFrame": 937,
+    "endFrameExclusive": 957
+  },
+  {
+    "id": "S39",
+    "start": 39.875,
+    "end": 42.25,
+    "seconds": 2.375,
+    "size": "medium-wide",
+    "category": "subject",
+    "camera": "static",
+    "subjects": [
+      "P1",
+      "P2"
+    ],
+    "frame": "两人在墓墙前左右交错换拳，灰蓝衣武者向前压住对方手臂。",
+    "rhythm": "build",
+    "startFrame": 957,
+    "endFrameExclusive": 1014
+  },
+  {
+    "id": "S40",
+    "start": 42.25,
+    "end": 43.0,
+    "seconds": 0.75,
+    "size": "medium-close",
+    "category": "subject",
+    "camera": "static",
+    "subjects": [
+      "P1",
+      "P2"
+    ],
+    "frame": "低机位近景：灰蓝衣武者贴近灰绿衣武者腰腹抓抱，屈腿抬膝，随后两人分开。",
+    "rhythm": "beat",
+    "startFrame": 1014,
+    "endFrameExclusive": 1032
+  },
+  {
+    "id": "S41",
+    "start": 43.0,
+    "end": 43.541666666666664,
+    "seconds": 0.5416666666666666,
+    "size": "medium",
+    "category": "subject",
+    "camera": "static",
+    "subjects": [
+      "P1",
+      "P2"
+    ],
+    "frame": "灰绿衣武者侧身张手避开来拳，蓝衣武者从右边挤进画面。",
+    "rhythm": "beat",
+    "startFrame": 1032,
+    "endFrameExclusive": 1045
+  },
+  {
+    "id": "S42",
+    "start": 43.541666666666664,
+    "end": 44.083333333333336,
+    "seconds": 0.5416666666666666,
+    "size": "medium-wide",
+    "category": "subject",
+    "camera": "static",
+    "subjects": [
+      "P2"
+    ],
+    "frame": "低机位向上拍灰蓝衣武者抬腿旋踢，鞋底从天空前扫过。",
+    "rhythm": "turn",
+    "startFrame": 1045,
+    "endFrameExclusive": 1058
+  },
+  {
+    "id": "S43",
+    "start": 44.083333333333336,
+    "end": 44.833333333333336,
+    "seconds": 0.75,
+    "size": "wide",
+    "category": "subject",
+    "camera": "static",
+    "subjects": [
+      "P1",
+      "P2"
+    ],
+    "frame": "仰拍两人腾挪相撞，灰蓝衣武者的腿伸向灰绿衣武者腰侧。",
+    "rhythm": "payoff",
+    "startFrame": 1058,
+    "endFrameExclusive": 1076
+  },
+  {
+    "id": "S44",
+    "start": 44.833333333333336,
+    "end": 45.625,
+    "seconds": 0.7916666666666666,
+    "size": "medium-close",
+    "category": "subject",
+    "camera": "static",
+    "subjects": [
+      "P1",
+      "P2"
+    ],
+    "frame": "灰蓝衣武者双手抓近灰绿衣武者颈肩，头从右下进入；灰绿衣武者后仰转头，随后挣开。",
+    "rhythm": "beat",
+    "startFrame": 1076,
+    "endFrameExclusive": 1095
+  },
+  {
+    "id": "S45",
+    "start": 45.625,
+    "end": 47.0,
+    "seconds": 1.375,
+    "size": "close",
+    "category": "insert",
+    "camera": "static",
+    "subjects": [
+      "P1",
+      "P2"
+    ],
+    "frame": "低机位只见褐色裤腿与灰蓝裤腿缠在一起，白鞋和黑鞋交错踏地。",
+    "rhythm": "beat",
+    "startFrame": 1095,
+    "endFrameExclusive": 1128
+  },
+  {
+    "id": "S46",
+    "start": 47.0,
+    "end": 49.333333333333336,
+    "seconds": 2.3333333333333335,
+    "size": "medium-wide",
+    "category": "subject",
+    "camera": "static",
+    "subjects": [
+      "P1",
+      "P2"
+    ],
+    "frame": "灰蓝衣武者双手抓住灰绿衣武者上身，两人顶着墓墙背景互相推压。",
+    "rhythm": "build",
+    "startFrame": 1128,
+    "endFrameExclusive": 1184
+  },
+  {
+    "id": "S47",
+    "start": 49.333333333333336,
+    "end": 50.125,
+    "seconds": 0.7916666666666666,
+    "size": "medium",
+    "category": "subject",
+    "camera": "static",
+    "subjects": [
+      "P2"
+    ],
+    "frame": "灰蓝立领装武者脱离缠斗后正面挥拳，身后墓墙与山坡重新露出。",
+    "rhythm": "build",
+    "startFrame": 1184,
+    "endFrameExclusive": 1203
+  }
+]

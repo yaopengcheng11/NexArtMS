@@ -1,0 +1,37 @@
+{
+  "rig": {
+    "counts": [
+      {
+        "level": "CL0",
+        "bones": 22,
+        "parts": 2
+      },
+      {
+        "level": "CL1",
+        "bones": 22,
+        "parts": 6
+      },
+      {
+        "level": "CL2",
+        "bones": 22,
+        "parts": 27
+      }
+    ],
+    "actors": "Synthetic technical fixtures; not approved production characters"
+  },
+  "scene": {
+    "fixedAcrossShotSwitch": true,
+    "actorCount": 0,
+    "canvas": [
+      1280,
+      720
+    ]
+  },
+  "approvalGuard": {
+    "status": 422,
+    "body": {
+      "error": "机位参照点测量尚未完成，不能把 G1 标为通过。场景意见可先保存。"
+    }
+  },
+  "errors": []
+}

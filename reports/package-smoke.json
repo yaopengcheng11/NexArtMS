@@ -1,0 +1,121 @@
+{
+  "url": "http://127.0.0.1:8200",
+  "scene": {
+    "actorCount": 0,
+    "nodeCount": 4,
+    "sceneId": "jwm-field",
+    "sceneRevision": "scene-r1",
+    "camera": [
+      9,
+      7.000000000000003,
+      10.000000000000002
+    ],
+    "worldTransforms": [
+      {
+        "id": "ground",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "id": "main-tomb",
+        "position": [
+          -2.8,
+          0,
+          -7
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "id": "west-screen",
+        "position": [
+          -10.2,
+          1.38,
+          0.3
+        ],
+        "quaternion": [
+          0,
+          0.7071067811865475,
+          0,
+          0.7071067811865476
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "id": "west-tree",
+        "position": [
+          -7,
+          0,
+          -3.8
+        ],
+        "quaternion": [
+          0,
+          0.12467473338522769,
+          0,
+          0.992197667229329
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    ],
+    "canvas": [
+      1280,
+      720
+    ]
+  },
+  "rig": {
+    "counts": [
+      {
+        "level": "CL0",
+        "bones": 22,
+        "parts": 2
+      },
+      {
+        "level": "CL1",
+        "bones": 22,
+        "parts": 6
+      },
+      {
+        "level": "CL2",
+        "bones": 22,
+        "parts": 27
+      }
+    ],
+    "actors": "Synthetic technical fixtures; not approved production characters"
+  },
+  "freshUserData": true,
+  "referenceImageMime": "image/jpeg",
+  "previousV2Unchanged": true,
+  "dccInputHashMatches": true,
+  "errors": []
+}

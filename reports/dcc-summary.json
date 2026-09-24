@@ -1,0 +1,148 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-24T08:24:13.400751+00:00",
+  "status": "passed-limited-M0-technical-probe",
+  "source": "public/probes/rig.glb",
+  "sourceSha256": "61510da6ea9b525b5be12dfae17dba4f8a514c19c24c6eaa21f3d5b54bbe6273",
+  "environment": {
+    "blenderVersion": "5.2.1 LTS",
+    "background": true
+  },
+  "results": [
+    {
+      "mode": "glb",
+      "status": "passed-in-blender",
+      "boneCount": 22,
+      "vertices": 18264,
+      "invalidSingleBoneWeights": 0,
+      "actionFrameRange": [
+        0,
+        47
+      ],
+      "fps": 24,
+      "maxThreeSampleHandErrorVersusGlbMeters": 0,
+      "manualElbowRotation": {
+        "affectedVertices": 3312,
+        "affectedMaxDisplacementMeters": 0.3815000901964962,
+        "unaffectedMaxDisplacementMeters": 0,
+        "restoredMaxErrorMeters": 6.006850114687196e-8,
+        "passed": true
+      },
+      "report": "dcc-glb.json"
+    },
+    {
+      "mode": "blend",
+      "status": "passed-in-blender",
+      "boneCount": 22,
+      "vertices": 18264,
+      "invalidSingleBoneWeights": 0,
+      "actionFrameRange": [
+        0,
+        47
+      ],
+      "fps": 24,
+      "maxThreeSampleHandErrorVersusGlbMeters": 6.143906154658885e-8,
+      "manualElbowRotation": {
+        "affectedVertices": 3312,
+        "affectedMaxDisplacementMeters": 0.38150000228424835,
+        "unaffectedMaxDisplacementMeters": 0,
+        "restoredMaxErrorMeters": 6.006850114687196e-8,
+        "passed": true
+      },
+      "report": "dcc-blend.json"
+    },
+    {
+      "mode": "fbx",
+      "status": "passed-in-blender",
+      "boneCount": 22,
+      "vertices": 18264,
+      "invalidSingleBoneWeights": 0,
+      "actionFrameRange": [
+        0,
+        47
+      ],
+      "fps": 24,
+      "maxThreeSampleHandErrorVersusGlbMeters": 0.000004544438866886352,
+      "manualElbowRotation": {
+        "affectedVertices": 3312,
+        "affectedMaxDisplacementMeters": 0.3814998852586061,
+        "unaffectedMaxDisplacementMeters": 0,
+        "restoredMaxErrorMeters": 0,
+        "passed": true
+      },
+      "report": "dcc-fbx.json"
+    },
+    {
+      "mode": "usd",
+      "status": "passed-in-blender",
+      "boneCount": 22,
+      "vertices": 18264,
+      "invalidSingleBoneWeights": 0,
+      "actionFrameRange": [
+        0,
+        47
+      ],
+      "fps": 24,
+      "maxThreeSampleHandErrorVersusGlbMeters": 0.000004525637453252844,
+      "manualElbowRotation": {
+        "affectedVertices": 3312,
+        "affectedMaxDisplacementMeters": 0.3815001192669427,
+        "unaffectedMaxDisplacementMeters": 0,
+        "restoredMaxErrorMeters": 0,
+        "passed": true
+      },
+      "report": "dcc-usd.json"
+    }
+  ],
+  "usdStructure": {
+    "skeletonPrims": [
+      "/root/probe__skin_CL2/Armature"
+    ],
+    "animationPrims": [
+      "/root/probe__skin_CL2/Armature/probe_elbow_48frames"
+    ],
+    "upAxis": "Z",
+    "metersPerUnit": 1,
+    "timeCodesPerSecond": 24,
+    "startTimeCode": 0,
+    "endTimeCode": 47
+  },
+  "verifiedScope": [
+    "Blender background GLB import with one real Armature and 22 semantic bones",
+    "18264 vertices with exactly one nonzero weight of 1",
+    "Elbow clip at 0–47 frames, 24fps; 3 pose samples",
+    "Manual elbow rotation moves 3312 forearm/hand vertices; unrelated parts remain fixed; undo equivalent restores pose",
+    "Separate Blender processes reopened .blend and imported FBX/USD",
+    "USD has actual Skeleton and SkelAnimation prims"
+  ],
+  "formatAdapterFinding": {
+    "issue": "Blender FBX default anim_offset=1 shifts 0–47 to 1–48",
+    "resolution": "Import with anim_offset=0.0; retested 0–47",
+    "originalEvidence": "dcc-fbx-default-import.json"
+  },
+  "notVerified": [
+    "Maya import",
+    "Houdini import",
+    "Camera/lens exchange",
+    "Whole-source-film character animation",
+    "All-frame numeric equivalence across formats",
+    "G2 asset acceptance or G5 delivery acceptance"
+  ],
+  "artifacts": [
+    {
+      "path": "public/probes/dcc/rig.blend",
+      "bytes": 351001,
+      "sha256": "1090ca401ef52c36bc6b6370e1bf611ab94b097dead2759556051e2f05e30822"
+    },
+    {
+      "path": "public/probes/dcc/rig.fbx",
+      "bytes": 570124,
+      "sha256": "8c632edbcd3e1c18ee11c17170ec58454e83da3fe261b98646eea95ab3c39e2a"
+    },
+    {
+      "path": "public/probes/dcc/rig.usdc",
+      "bytes": 466678,
+      "sha256": "6a92a0e8cbb4e78afe12a4cb39a6ec8c86233f459c6c90c512a345e2c9687061"
+    }
+  ]
+}

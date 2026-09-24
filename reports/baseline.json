@@ -1,0 +1,50 @@
+{
+  "version": "V2-preserved",
+  "source": {
+    "path": "source-media/jwm.mov",
+    "width": 1280,
+    "height": 720,
+    "fps": [
+      24,
+      1
+    ],
+    "frames": 1203,
+    "duration": 50.125
+  },
+  "shotCount": 47,
+  "cutFrameS08": 98,
+  "sourceFiles": {
+    "src/scene.js": "597440c9a172d3de63011e4a8a51398ae5731dc1fdda5613993b91915138729c",
+    "src/pose-data.json": "e4008fbb5cf06d7fdc3b9112d91e52ea8630ab0ba53a13db9d0cfb63011782d0",
+    "src/background-data.json": "53429f6756d0f70453a1467f402ee6f630171f65be5bef7459e9137f69e65568",
+    "shots.json": "8b2260ae23e25e32648e858cb8e4ea8bc00c2d805258a99c0cddb52a6df15e5c",
+    "app.bundle.js": "fe5240eb54d6edb1ffe1785465d19b9f73795bd8cb98461af1373d3fcaf0e97a"
+  },
+  "export": {
+    "output": "public/demo/v2.mp4",
+    "source": "source-media/jwm.mov",
+    "frames": 1203,
+    "fps": 24,
+    "width": 1280,
+    "height": 720,
+    "audio": "Original source audio from zero",
+    "duration": 50.125,
+    "errors": [],
+    "elapsedSeconds": 19.73
+  },
+  "audioCheck": {
+    "audio_correlation": 0.999807,
+    "detected_lag_ms": 0,
+    "source_audio_seconds": 50.125,
+    "export_audio_seconds": 50.134
+  },
+  "currentCapabilities": [
+    "V2离线MP4导出",
+    "精确源帧边界迁移"
+  ],
+  "notYetPassed": [
+    "G1 场景空间与机位误差验收",
+    "G2 正式角色资产确认",
+    "Maya/Houdini真实导入"
+  ]
+}

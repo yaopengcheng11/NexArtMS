@@ -1,0 +1,16 @@
+node_modules/
+dist/
+/data/
+.checks/
+/examples/jwm-v2/app.bundle.js
+coverage/
+test-results/
+playwright-report/
+.env
+.env.*
+!.env.example
+.DS_Store
+*.log
+*.tmp
+*.blend1
+*.tsbuildinfo

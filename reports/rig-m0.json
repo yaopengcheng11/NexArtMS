@@ -1,0 +1,270 @@
+{
+  "schemaVersion": 1,
+  "probe": "M0 / rigid-human-22 / fixed bones and rigid skin compiler",
+  "generatedAt": "2026-09-24T08:17:21.436Z",
+  "environment": {
+    "node": "v22.22.3",
+    "platform": "darwin",
+    "architecture": "arm64",
+    "threeRevision": "186"
+  },
+  "scope": "Synthetic technical fixture only; not a confirmed source-video character asset.",
+  "status": "passed-local-probe",
+  "coordinates": {
+    "units": "meters",
+    "upAxis": "Y",
+    "forward": "+Z",
+    "characterLeft": "+X",
+    "height": 1.75
+  },
+  "joints": [
+    {
+      "id": "root",
+      "parent": null,
+      "restOffsetMeters": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "pelvis",
+      "parent": "root",
+      "restOffsetMeters": [
+        0,
+        0.9275,
+        0
+      ]
+    },
+    {
+      "id": "spine",
+      "parent": "pelvis",
+      "restOffsetMeters": [
+        0,
+        0.1925,
+        0
+      ]
+    },
+    {
+      "id": "chest",
+      "parent": "spine",
+      "restOffsetMeters": [
+        0,
+        0.21,
+        0
+      ]
+    },
+    {
+      "id": "neck",
+      "parent": "chest",
+      "restOffsetMeters": [
+        0,
+        0.14,
+        0
+      ]
+    },
+    {
+      "id": "head",
+      "parent": "neck",
+      "restOffsetMeters": [
+        0,
+        0.13125,
+        0
+      ]
+    },
+    {
+      "id": "shoulder_L",
+      "parent": "chest",
+      "restOffsetMeters": [
+        0.16625,
+        0.02625,
+        0
+      ]
+    },
+    {
+      "id": "upperArm_L",
+      "parent": "shoulder_L",
+      "restOffsetMeters": [
+        0.09625,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "forearm_L",
+      "parent": "upperArm_L",
+      "restOffsetMeters": [
+        0.29750000000000004,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "hand_L",
+      "parent": "forearm_L",
+      "restOffsetMeters": [
+        0.2625,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "shoulder_R",
+      "parent": "chest",
+      "restOffsetMeters": [
+        -0.16625,
+        0.02625,
+        0
+      ]
+    },
+    {
+      "id": "upperArm_R",
+      "parent": "shoulder_R",
+      "restOffsetMeters": [
+        -0.09625,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "forearm_R",
+      "parent": "upperArm_R",
+      "restOffsetMeters": [
+        -0.29750000000000004,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "hand_R",
+      "parent": "forearm_R",
+      "restOffsetMeters": [
+        -0.2625,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "thigh_L",
+      "parent": "pelvis",
+      "restOffsetMeters": [
+        0.12250000000000001,
+        -0.061250000000000006,
+        0
+      ]
+    },
+    {
+      "id": "shin_L",
+      "parent": "thigh_L",
+      "restOffsetMeters": [
+        0,
+        -0.39375,
+        0
+      ]
+    },
+    {
+      "id": "foot_L",
+      "parent": "shin_L",
+      "restOffsetMeters": [
+        0,
+        -0.4025,
+        0
+      ]
+    },
+    {
+      "id": "toe_L",
+      "parent": "foot_L",
+      "restOffsetMeters": [
+        0,
+        -0.00875,
+        0.17500000000000002
+      ]
+    },
+    {
+      "id": "thigh_R",
+      "parent": "pelvis",
+      "restOffsetMeters": [
+        -0.12250000000000001,
+        -0.061250000000000006,
+        0
+      ]
+    },
+    {
+      "id": "shin_R",
+      "parent": "thigh_R",
+      "restOffsetMeters": [
+        0,
+        -0.39375,
+        0
+      ]
+    },
+    {
+      "id": "foot_R",
+      "parent": "shin_R",
+      "restOffsetMeters": [
+        0,
+        -0.4025,
+        0
+      ]
+    },
+    {
+      "id": "toe_R",
+      "parent": "foot_R",
+      "restOffsetMeters": [
+        0,
+        -0.00875,
+        0.17500000000000002
+      ]
+    }
+  ],
+  "checks": {
+    "testsExitCode": 0,
+    "tests": 8,
+    "passed": 8,
+    "sampledFrames": 120,
+    "constrainedSegments": 21,
+    "maxRelativeBoneLengthError": 2.220446049250313e-16,
+    "boneLengthThreshold": 0.0001,
+    "looks": [
+      {
+        "level": "CL0",
+        "parts": 2,
+        "vertices": 2304,
+        "exportedBones": 22,
+        "invalidWeights": 0,
+        "maxWorldVertexErrorMeters": 5.722045928248523e-8
+      },
+      {
+        "level": "CL1",
+        "parts": 6,
+        "vertices": 2688,
+        "exportedBones": 22,
+        "invalidWeights": 0,
+        "maxWorldVertexErrorMeters": 5.78656431935731e-8
+      },
+      {
+        "level": "CL2",
+        "parts": 27,
+        "vertices": 18264,
+        "exportedBones": 22,
+        "invalidWeights": 0,
+        "maxWorldVertexErrorMeters": 6.337479816170851e-8
+      }
+    ]
+  },
+  "rules": [
+    "CL changes visibility only, retaining all 22 joints and pose",
+    "CL1 whole limbs use shoulder/hip direction and fixed length; no elbow/knee stretch",
+    "GLB export representation is a SkinnedMesh with real Skeleton and inverse bind matrices",
+    "Each vertex has weight [1,0,0,0] and one valid joint index",
+    "toSkinnedMesh binds in T Pose before copying current pose; live character is unchanged"
+  ],
+  "notVerifiedHere": [
+    "Actual GLB binary serialization and reimport",
+    "Blender / Maya / Houdini import",
+    "Source-video retargeting or jitter reduction",
+    "Browser appearance approval",
+    "G2 formal character/T Pose confirmation"
+  ],
+  "testOutput": "TAP version 13\n# Subtest: 22 semantic joints form the specified hierarchy, T Pose has a ground baseline and fixed rest offsets\nok 1 - 22 semantic joints form the specified hierarchy, T Pose has a ground baseline and fixed rest offsets\n  ---\n  duration_ms: 11.388541\n  type: 'test'\n  ...\n# Subtest: poses preserve every constrained bone length over 120 distinct articulated frames\nok 2 - poses preserve every constrained bone length over 120 distinct articulated frames\n  ---\n  duration_ms: 17.119625\n  type: 'test'\n  ...\n# Subtest: shoulder moves the full arm, elbow moves only descendants and retains segment length\nok 3 - shoulder moves the full arm, elbow moves only descendants and retains segment length\n  ---\n  duration_ms: 1.583125\n  type: 'test'\n  ...\n# Subtest: three looks have 2/6/27 parts; switching preserves roots, all joint poses and shared bone instances\nok 4 - three looks have 2/6/27 parts; switching preserves roots, all joint poses and shared bone instances\n  ---\n  duration_ms: 1.786209\n  type: 'test'\n  ...\n# Subtest: CL1 whole limbs keep fixed geometry and shoulder/hip directions when elbows and knees bend\nok 5 - CL1 whole limbs keep fixed geometry and shoulder/hip directions when elbows and knees bend\n  ---\n  duration_ms: 1.431875\n  type: 'test'\n  ...\n# Subtest: export contains a true 22-joint skin with only single-bone unit weights for each selected look\nok 6 - export contains a true 22-joint skin with only single-bone unit weights for each selected look\n  ---\n  duration_ms: 37.813167\n  type: 'test'\n  ...\n# Subtest: skin vertices match posed rigid geometry, including nonzero actor transform; export does not reset live pose\nok 7 - skin vertices match posed rigid geometry, including nonzero actor transform; export does not reset live pose\n  ---\n  duration_ms: 26.437958\n  type: 'test'\n  ...\n# Subtest: pose errors fail atomically; reset restores T Pose without changing look\nok 8 - pose errors fail atomically; reset restores T Pose without changing look\n  ---\n  duration_ms: 1.680667\n  type: 'test'\n  ...\n1..8\n# tests 8\n# suites 0\n# pass 8\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 559.406708\n"
+}

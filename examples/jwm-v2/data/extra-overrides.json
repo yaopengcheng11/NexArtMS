@@ -1,0 +1,884 @@
+{
+  "schemaVersion": 1,
+  "coordinateSystem": "normalized source UV, x right/y down; joints outside frame preserve crop",
+  "sourceFrames": [
+    1045,
+    1048,
+    1051,
+    1054,
+    1057,
+    1058,
+    1062,
+    1066,
+    1070,
+    1075
+  ],
+  "shots": [
+    {
+      "id": "S42",
+      "notes": "B approaches camera, raises both arms, lifts right knee toward lens; limbs below/above crop remain offscreen.",
+      "manualKeyframes": [
+        {
+          "t": 43.541666666666664,
+          "frame": 1045,
+          "actor": "B",
+          "mode": "replace",
+          "scope": "fullbody",
+          "visible": true,
+          "confidence": "source-checked manual silhouette; measured upper body retained where visible, cropped endpoints extrapolated",
+          "joints": {
+            "nose": [
+              0.63426,
+              0.11812
+            ],
+            "leftEye": [
+              0.64474,
+              0.10357
+            ],
+            "rightEye": [
+              0.62208,
+              0.10333
+            ],
+            "leftEar": [
+              0.65719,
+              0.1313
+            ],
+            "rightEar": [
+              0.60373,
+              0.12958
+            ],
+            "leftShoulder": [
+              0.68207,
+              0.24984
+            ],
+            "rightShoulder": [
+              0.57309,
+              0.22952
+            ],
+            "leftElbow": [
+              0.73686,
+              0.34238
+            ],
+            "rightElbow": [
+              0.50599,
+              0.27532
+            ],
+            "leftWrist": [
+              0.73432,
+              0.32342
+            ],
+            "rightWrist": [
+              0.55706,
+              0.25274
+            ],
+            "leftHip": [
+              0.65479,
+              0.52931
+            ],
+            "rightHip": [
+              0.58835,
+              0.53372
+            ],
+            "leftKnee": [
+              0.66134,
+              0.71599
+            ],
+            "rightKnee": [
+              0.59392,
+              0.76412
+            ],
+            "leftAnkle": [
+              0.64955,
+              0.87764
+            ],
+            "rightAnkle": [
+              0.60494,
+              0.94134
+            ],
+            "leftToe": [
+              0.681,
+              0.953
+            ],
+            "rightToe": [
+              0.596,
+              1.008
+            ]
+          }
+        },
+        {
+          "t": 43.666666666666664,
+          "frame": 1048,
+          "actor": "B",
+          "mode": "replace",
+          "scope": "fullbody",
+          "visible": true,
+          "confidence": "source-checked manual silhouette; measured upper body retained where visible, cropped endpoints extrapolated",
+          "joints": {
+            "nose": [
+              0.62322,
+              0.12987
+            ],
+            "leftEye": [
+              0.63313,
+              0.12033
+            ],
+            "rightEye": [
+              0.60735,
+              0.11888
+            ],
+            "leftEar": [
+              0.64598,
+              0.16646
+            ],
+            "rightEar": [
+              0.58591,
+              0.16804
+            ],
+            "leftShoulder": [
+              0.6674,
+              0.30528
+            ],
+            "rightShoulder": [
+              0.55315,
+              0.30797
+            ],
+            "leftElbow": [
+              0.70212,
+              0.45798
+            ],
+            "rightElbow": [
+              0.52541,
+              0.45296
+            ],
+            "leftWrist": [
+              0.76614,
+              0.52095
+            ],
+            "rightWrist": [
+              0.58151,
+              0.3975
+            ],
+            "leftHip": [
+              0.65572,
+              0.63054
+            ],
+            "rightHip": [
+              0.57893,
+              0.6382
+            ],
+            "leftKnee": [
+              0.68,
+              0.99
+            ],
+            "rightKnee": [
+              0.57,
+              0.99
+            ],
+            "leftAnkle": [
+              0.66,
+              1.32
+            ],
+            "rightAnkle": [
+              0.6,
+              1.33
+            ],
+            "leftToe": [
+              0.68,
+              1.39
+            ],
+            "rightToe": [
+              0.61,
+              1.4
+            ]
+          }
+        },
+        {
+          "t": 43.791666666666664,
+          "frame": 1051,
+          "actor": "B",
+          "mode": "replace",
+          "scope": "fullbody",
+          "visible": true,
+          "confidence": "source-checked manual silhouette; measured upper body retained where visible, cropped endpoints extrapolated",
+          "joints": {
+            "nose": [
+              0.62162,
+              0.21836
+            ],
+            "leftEye": [
+              0.62997,
+              0.19769
+            ],
+            "rightEye": [
+              0.60792,
+              0.19767
+            ],
+            "leftEar": [
+              0.6369,
+              0.21473
+            ],
+            "rightEar": [
+              0.58618,
+              0.21441
+            ],
+            "leftShoulder": [
+              0.65975,
+              0.36571
+            ],
+            "rightShoulder": [
+              0.54938,
+              0.33762
+            ],
+            "leftElbow": [
+              0.73434,
+              0.40276
+            ],
+            "rightElbow": [
+              0.5113,
+              0.26957
+            ],
+            "leftWrist": [
+              0.778,
+              0.204
+            ],
+            "rightWrist": [
+              0.621,
+              0.092
+            ],
+            "leftHip": [
+              0.64,
+              0.75
+            ],
+            "rightHip": [
+              0.562,
+              0.75
+            ],
+            "leftKnee": [
+              0.64878,
+              0.96382
+            ],
+            "rightKnee": [
+              0.57583,
+              0.99226
+            ],
+            "leftAnkle": [
+              0.65,
+              1.33
+            ],
+            "rightAnkle": [
+              0.575,
+              1.37
+            ],
+            "leftToe": [
+              0.67,
+              1.4
+            ],
+            "rightToe": [
+              0.58,
+              1.44
+            ]
+          }
+        },
+        {
+          "t": 43.916666666666664,
+          "frame": 1054,
+          "actor": "B",
+          "mode": "replace",
+          "scope": "fullbody",
+          "visible": true,
+          "confidence": "source-checked manual silhouette; measured upper body retained where visible, cropped endpoints extrapolated",
+          "joints": {
+            "nose": [
+              0.58653,
+              0.24212
+            ],
+            "leftEye": [
+              0.60272,
+              0.21363
+            ],
+            "rightEye": [
+              0.57021,
+              0.21506
+            ],
+            "leftEar": [
+              0.62948,
+              0.22096
+            ],
+            "rightEar": [
+              0.55383,
+              0.22508
+            ],
+            "leftShoulder": [
+              0.65373,
+              0.32105
+            ],
+            "rightShoulder": [
+              0.53577,
+              0.31941
+            ],
+            "leftElbow": [
+              0.662,
+              0.02
+            ],
+            "rightElbow": [
+              0.519,
+              0.02
+            ],
+            "leftWrist": [
+              0.656,
+              -0.24
+            ],
+            "rightWrist": [
+              0.519,
+              -0.24
+            ],
+            "leftHip": [
+              0.61622,
+              0.70154
+            ],
+            "rightHip": [
+              0.53231,
+              0.69303
+            ],
+            "leftKnee": [
+              0.595,
+              1.05
+            ],
+            "rightKnee": [
+              0.481,
+              1.06
+            ],
+            "leftAnkle": [
+              0.63,
+              1.43
+            ],
+            "rightAnkle": [
+              0.47,
+              1.43
+            ],
+            "leftToe": [
+              0.65,
+              1.5
+            ],
+            "rightToe": [
+              0.46,
+              1.5
+            ]
+          }
+        },
+        {
+          "t": 44.041666666666664,
+          "frame": 1057,
+          "actor": "B",
+          "mode": "replace",
+          "scope": "fullbody",
+          "visible": true,
+          "confidence": "source-checked manual silhouette; measured upper body retained where visible, cropped endpoints extrapolated",
+          "joints": {
+            "nose": [
+              0.54323,
+              0.18771
+            ],
+            "leftEye": [
+              0.56655,
+              0.15289
+            ],
+            "rightEye": [
+              0.52766,
+              0.15412
+            ],
+            "leftEar": [
+              0.61032,
+              0.17695
+            ],
+            "rightEar": [
+              0.50991,
+              0.17951
+            ],
+            "leftShoulder": [
+              0.66033,
+              0.38694
+            ],
+            "rightShoulder": [
+              0.44673,
+              0.35248
+            ],
+            "leftElbow": [
+              0.66155,
+              0.69828
+            ],
+            "rightElbow": [
+              0.453,
+              0.577
+            ],
+            "leftWrist": [
+              0.61662,
+              0.90401
+            ],
+            "rightWrist": [
+              0.395,
+              0.866
+            ],
+            "leftHip": [
+              0.58,
+              0.86
+            ],
+            "rightHip": [
+              0.465,
+              0.85
+            ],
+            "leftKnee": [
+              0.594,
+              1.19
+            ],
+            "rightKnee": [
+              0.356,
+              0.314
+            ],
+            "leftAnkle": [
+              0.611,
+              1.52
+            ],
+            "rightAnkle": [
+              0.352,
+              0.903
+            ],
+            "rightToe": [
+              0.403,
+              1.056
+            ],
+            "leftToe": [
+              0.63,
+              1.59
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "S43",
+      "notes": "B right thigh rises horizontally into A waist; right shin bends down with visible light sock, then knee retracts. This is bent knee/leg contact rather than a straight vertical leg.",
+      "manualKeyframes": [
+        {
+          "t": 44.083333333333336,
+          "frame": 1058,
+          "actor": "B",
+          "mode": "replace",
+          "scope": "fullbody",
+          "visible": true,
+          "confidence": "source-checked manual silhouette; measured upper body retained where visible, cropped endpoints extrapolated",
+          "joints": {
+            "nose": [
+              0.796,
+              0.176
+            ],
+            "leftEye": [
+              0.811,
+              0.146
+            ],
+            "rightEye": [
+              0.789,
+              0.162
+            ],
+            "leftEar": [
+              0.848,
+              0.209
+            ],
+            "leftShoulder": [
+              0.869,
+              0.283
+            ],
+            "rightShoulder": [
+              0.786,
+              0.344
+            ],
+            "leftElbow": [
+              0.858,
+              0.182
+            ],
+            "rightElbow": [
+              0.739,
+              0.365
+            ],
+            "leftWrist": [
+              0.759,
+              0.094
+            ],
+            "rightWrist": [
+              0.696,
+              0.424
+            ],
+            "leftHip": [
+              0.775,
+              0.672
+            ],
+            "rightHip": [
+              0.708,
+              0.681
+            ],
+            "leftKnee": [
+              0.825,
+              1.04
+            ],
+            "rightKnee": [
+              0.545,
+              0.955
+            ],
+            "leftAnkle": [
+              0.917,
+              1.3
+            ],
+            "rightAnkle": [
+              0.349,
+              1.18
+            ],
+            "rightEar": [
+              0.783,
+              0.199
+            ],
+            "rightToe": [
+              0.25,
+              1.16
+            ],
+            "leftToe": [
+              0.97,
+              1.35
+            ]
+          }
+        },
+        {
+          "t": 44.25,
+          "frame": 1062,
+          "actor": "B",
+          "mode": "replace",
+          "scope": "fullbody",
+          "visible": true,
+          "confidence": "source-checked manual silhouette; measured upper body retained where visible, cropped endpoints extrapolated",
+          "joints": {
+            "nose": [
+              0.73874,
+              0.17979
+            ],
+            "leftEye": [
+              0.74647,
+              0.15509
+            ],
+            "rightEye": [
+              0.73,
+              0.173
+            ],
+            "leftEar": [
+              0.79092,
+              0.15009
+            ],
+            "leftShoulder": [
+              0.80998,
+              0.22834
+            ],
+            "rightShoulder": [
+              0.73093,
+              0.26748
+            ],
+            "leftElbow": [
+              0.74542,
+              0.24265
+            ],
+            "rightElbow": [
+              0.68698,
+              0.38153
+            ],
+            "leftWrist": [
+              0.61328,
+              0.25002
+            ],
+            "rightWrist": [
+              0.62515,
+              0.42722
+            ],
+            "leftHip": [
+              0.72427,
+              0.5523
+            ],
+            "rightHip": [
+              0.64639,
+              0.54154
+            ],
+            "leftKnee": [
+              0.834,
+              0.799
+            ],
+            "rightKnee": [
+              0.507,
+              0.63
+            ],
+            "leftAnkle": [
+              0.94,
+              0.885
+            ],
+            "rightAnkle": [
+              0.51,
+              0.841
+            ],
+            "rightToe": [
+              0.533,
+              0.87
+            ],
+            "leftToe": [
+              0.971,
+              0.848
+            ]
+          }
+        },
+        {
+          "t": 44.416666666666664,
+          "frame": 1066,
+          "actor": "B",
+          "mode": "replace",
+          "scope": "fullbody",
+          "visible": true,
+          "confidence": "source-checked manual silhouette; measured upper body retained where visible, cropped endpoints extrapolated",
+          "joints": {
+            "nose": [
+              0.65256,
+              0.20547
+            ],
+            "leftEye": [
+              0.6564,
+              0.17232
+            ],
+            "rightEye": [
+              0.6484,
+              0.1985
+            ],
+            "leftEar": [
+              0.70413,
+              0.14089
+            ],
+            "leftShoulder": [
+              0.74185,
+              0.19945
+            ],
+            "rightShoulder": [
+              0.71135,
+              0.27952
+            ],
+            "leftElbow": [
+              0.825,
+              0.423
+            ],
+            "rightElbow": [
+              0.644,
+              0.408
+            ],
+            "leftWrist": [
+              0.894,
+              0.661
+            ],
+            "rightWrist": [
+              0.598,
+              0.44
+            ],
+            "leftHip": [
+              0.70057,
+              0.55584
+            ],
+            "rightHip": [
+              0.6683,
+              0.56522
+            ],
+            "leftKnee": [
+              0.719,
+              0.842
+            ],
+            "rightKnee": [
+              0.441,
+              0.59
+            ],
+            "leftAnkle": [
+              0.78,
+              1.071
+            ],
+            "rightAnkle": [
+              0.385,
+              0.787
+            ],
+            "rightToe": [
+              0.319,
+              0.842
+            ],
+            "leftToe": [
+              0.82,
+              1.11
+            ]
+          }
+        },
+        {
+          "t": 44.583333333333336,
+          "frame": 1070,
+          "actor": "B",
+          "mode": "replace",
+          "scope": "fullbody",
+          "visible": true,
+          "confidence": "source-checked manual silhouette; measured upper body retained where visible, cropped endpoints extrapolated",
+          "joints": {
+            "nose": [
+              0.62829,
+              0.18183
+            ],
+            "leftEye": [
+              0.63125,
+              0.14958
+            ],
+            "rightEye": [
+              0.62322,
+              0.17008
+            ],
+            "leftEar": [
+              0.67708,
+              0.11471
+            ],
+            "leftShoulder": [
+              0.74347,
+              0.17302
+            ],
+            "rightShoulder": [
+              0.6663,
+              0.25514
+            ],
+            "leftElbow": [
+              0.877,
+              0.158
+            ],
+            "rightElbow": [
+              0.767,
+              0.55
+            ],
+            "leftWrist": [
+              1.046,
+              0.168
+            ],
+            "rightWrist": [
+              0.798,
+              0.704
+            ],
+            "leftHip": [
+              0.65579,
+              0.54169
+            ],
+            "rightHip": [
+              0.59531,
+              0.5264
+            ],
+            "leftKnee": [
+              0.667,
+              0.917
+            ],
+            "rightKnee": [
+              0.431,
+              0.661
+            ],
+            "leftAnkle": [
+              0.72,
+              1.19
+            ],
+            "rightAnkle": [
+              0.488,
+              0.839
+            ],
+            "rightToe": [
+              0.561,
+              0.906
+            ],
+            "leftToe": [
+              0.76,
+              1.26
+            ]
+          }
+        },
+        {
+          "t": 44.791666666666664,
+          "frame": 1075,
+          "actor": "B",
+          "mode": "replace",
+          "scope": "fullbody",
+          "visible": true,
+          "confidence": "source-checked manual silhouette; measured upper body retained where visible, cropped endpoints extrapolated",
+          "joints": {
+            "nose": [
+              0.59708,
+              0.17686
+            ],
+            "leftEye": [
+              0.6061,
+              0.1441
+            ],
+            "rightEye": [
+              0.59463,
+              0.15597
+            ],
+            "leftEar": [
+              0.64986,
+              0.12553
+            ],
+            "leftShoulder": [
+              0.70724,
+              0.19224
+            ],
+            "rightShoulder": [
+              0.62927,
+              0.29804
+            ],
+            "leftElbow": [
+              0.837,
+              0.058
+            ],
+            "rightElbow": [
+              0.57399,
+              0.4702
+            ],
+            "leftWrist": [
+              0.973,
+              -0.147
+            ],
+            "rightWrist": [
+              0.50979,
+              0.57288
+            ],
+            "leftHip": [
+              0.61282,
+              0.59562
+            ],
+            "rightHip": [
+              0.57385,
+              0.6033
+            ],
+            "leftKnee": [
+              0.557,
+              0.97
+            ],
+            "rightKnee": [
+              0.422,
+              0.778
+            ],
+            "leftAnkle": [
+              0.497,
+              1.25
+            ],
+            "rightAnkle": [
+              0.448,
+              1.025
+            ],
+            "rightToe": [
+              0.386,
+              1.05
+            ],
+            "leftToe": [
+              0.467,
+              1.34
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

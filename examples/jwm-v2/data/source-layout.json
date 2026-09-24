@@ -1,0 +1,7491 @@
+{
+  "schemaVersion": 1,
+  "source": "jwm.mov",
+  "coordinateSystem": "Normalized image UV; x right, y down. Joint coordinates outside [0,1] intentionally preserve source crop. A=P1 green/brown/white shoes, B=P2 greyblue/black shoes.",
+  "measurementMethod": "manual visual silhouettes from source frames; skyline/tomb bounds approximate; joint limbs occluded by loose clothes estimated",
+  "shots": [
+    {
+      "id": "S01",
+      "start": 0,
+      "end": 0.5,
+      "dominant": "A",
+      "order": [
+        "A"
+      ],
+      "background": "hill",
+      "horizonY": 0.20666666666666667,
+      "skyline": [
+        [
+          0,
+          0.01
+        ],
+        [
+          0.24,
+          0.01
+        ],
+        [
+          0.45,
+          0.1
+        ],
+        [
+          0.66,
+          0.24
+        ],
+        [
+          0.84,
+          0.38
+        ],
+        [
+          1,
+          0.5
+        ]
+      ],
+      "groundY": 0.6,
+      "tombs": [],
+      "orientation": "source-camera screen plane; depth estimated",
+      "notes": "A rushes toward camera; frame crops below waist.",
+      "manualKeyframes": []
+    },
+    {
+      "id": "S02",
+      "start": 0.5,
+      "end": 0.96,
+      "dominant": "A",
+      "order": [
+        "A"
+      ],
+      "background": "ground",
+      "horizonY": -0.15,
+      "skyline": [
+        [
+          0,
+          -0.15
+        ],
+        [
+          0.2,
+          -0.15
+        ],
+        [
+          0.4,
+          -0.15
+        ],
+        [
+          0.6,
+          -0.15
+        ],
+        [
+          0.8,
+          -0.15
+        ],
+        [
+          1,
+          -0.15
+        ]
+      ],
+      "groundY": 0,
+      "tombs": [],
+      "orientation": "source-camera screen plane; depth estimated",
+      "notes": "Foot insert; upper body must remain outside top; rapid launch and dust.",
+      "manualKeyframes": [
+        {
+          "t": 0.5,
+          "actor": "A",
+          "confidence": "manual silhouette estimate; anatomical side inferred",
+          "joints": {
+            "leftHip": [
+              1.08,
+              -0.82
+            ],
+            "rightHip": [
+              0.89,
+              -0.82
+            ],
+            "leftKnee": [
+              1.03,
+              -0.2
+            ],
+            "rightKnee": [
+              0.9,
+              -0.2
+            ],
+            "leftAnkle": [
+              1.1,
+              0.53
+            ],
+            "rightAnkle": [
+              0.86,
+              0.54
+            ],
+            "leftToe": [
+              1.06,
+              0.69
+            ],
+            "rightToe": [
+              0.97,
+              0.66
+            ]
+          },
+          "mode": "replace",
+          "visible": true
+        },
+        {
+          "t": 0.58333,
+          "actor": "A",
+          "confidence": "manual silhouette estimate; anatomical side inferred",
+          "joints": {
+            "leftHip": [
+              0.69,
+              -0.84
+            ],
+            "rightHip": [
+              0.47,
+              -0.84
+            ],
+            "leftKnee": [
+              0.7,
+              -0.1
+            ],
+            "rightKnee": [
+              0.4,
+              -0.1
+            ],
+            "leftAnkle": [
+              0.59,
+              0.68
+            ],
+            "rightAnkle": [
+              0.35,
+              0.45
+            ],
+            "leftToe": [
+              0.55,
+              0.8
+            ],
+            "rightToe": [
+              0.27,
+              0.48
+            ]
+          },
+          "mode": "replace",
+          "visible": true
+        },
+        {
+          "t": 0.70833,
+          "actor": "A",
+          "confidence": "manual silhouette estimate; anatomical side inferred",
+          "joints": {
+            "leftHip": [
+              0.5,
+              -1.0
+            ],
+            "rightHip": [
+              0.28,
+              -1.0
+            ],
+            "leftKnee": [
+              0.51,
+              -0.35
+            ],
+            "rightKnee": [
+              0.24,
+              -0.28
+            ],
+            "leftAnkle": [
+              0.5,
+              0.4
+            ],
+            "rightAnkle": [
+              0.3,
+              0.42
+            ],
+            "leftToe": [
+              0.5,
+              0.5
+            ],
+            "rightToe": [
+              0.21,
+              0.51
+            ]
+          },
+          "mode": "replace",
+          "visible": true
+        },
+        {
+          "t": 0.83333,
+          "actor": "A",
+          "confidence": "manual silhouette estimate; anatomical side inferred",
+          "joints": {
+            "leftHip": [
+              0.5,
+              -1.38
+            ],
+            "rightHip": [
+              0.29,
+              -1.32
+            ],
+            "leftKnee": [
+              0.49,
+              -0.72
+            ],
+            "rightKnee": [
+              0.25,
+              -0.66
+            ],
+            "leftAnkle": [
+              0.54,
+              -0.03
+            ],
+            "rightAnkle": [
+              0.3,
+              -0.05
+            ],
+            "leftToe": [
+              0.53,
+              0.13
+            ],
+            "rightToe": [
+              0.24,
+              0.09
+            ]
+          },
+          "mode": "replace",
+          "visible": true
+        },
+        {
+          "t": 0.91667,
+          "actor": "A",
+          "confidence": "manual silhouette estimate; anatomical side inferred",
+          "joints": {
+            "leftHip": [
+              0.58,
+              -1.67
+            ],
+            "rightHip": [
+              0.37,
+              -1.66
+            ],
+            "leftKnee": [
+              0.47,
+              -1.0
+            ],
+            "rightKnee": [
+              0.29,
+              -0.97
+            ],
+            "leftAnkle": [
+              0.46,
+              -0.31
+            ],
+            "rightAnkle": [
+              0.25,
+              -0.31
+            ],
+            "leftToe": [
+              0.54,
+              -0.17
+            ],
+            "rightToe": [
+              0.28,
+              -0.12
+            ]
+          },
+          "mode": "replace",
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": "S03",
+      "start": 0.96,
+      "end": 1.21,
+      "dominant": "A",
+      "order": [
+        "B",
+        "A"
+      ],
+      "background": "sky",
+      "horizonY": 0.6233333333333334,
+      "skyline": [
+        [
+          0,
+          0.53
+        ],
+        [
+          0.2,
+          0.58
+        ],
+        [
+          0.4,
+          0.64
+        ],
+        [
+          0.6,
+          0.72
+        ],
+        [
+          0.8,
+          0.66
+        ],
+        [
+          1,
+          0.61
+        ]
+      ],
+      "groundY": 0.87,
+      "tombs": [
+        [
+          0,
+          0.66,
+          0.22,
+          0.23
+        ]
+      ],
+      "orientation": "source-camera screen plane; depth estimated",
+      "notes": "A is overhead much larger than distant B; do not put both on same depth plane.",
+      "manualKeyframes": []
+    },
+    {
+      "id": "S04",
+      "start": 1.21,
+      "end": 1.63,
+      "dominant": "B",
+      "order": [
+        "B"
+      ],
+      "background": "tomb",
+      "horizonY": 0.235,
+      "skyline": [
+        [
+          0,
+          0.35
+        ],
+        [
+          0.2,
+          0.34
+        ],
+        [
+          0.4,
+          0.3
+        ],
+        [
+          0.6,
+          0.24
+        ],
+        [
+          0.8,
+          0.12
+        ],
+        [
+          1,
+          0.06
+        ]
+      ],
+      "groundY": 0.77,
+      "tombs": [
+        [
+          0.79,
+          0.58,
+          0.21,
+          0.42
+        ]
+      ],
+      "orientation": "source-camera screen plane; depth estimated",
+      "notes": "B looks upward right; medium close-up.",
+      "manualKeyframes": []
+    },
+    {
+      "id": "S05",
+      "start": 1.63,
+      "end": 2.33,
+      "dominant": "A",
+      "order": [
+        "A"
+      ],
+      "background": "sky",
+      "horizonY": 0.9183333333333333,
+      "skyline": [
+        [
+          0,
+          0.88
+        ],
+        [
+          0.2,
+          0.9
+        ],
+        [
+          0.4,
+          0.91
+        ],
+        [
+          0.6,
+          0.95
+        ],
+        [
+          0.8,
+          0.92
+        ],
+        [
+          1,
+          0.95
+        ]
+      ],
+      "groundY": 0.98,
+      "tombs": [],
+      "orientation": "source-camera screen plane; depth estimated",
+      "notes": "A airborne sideways tuck-to-extended kicks; no ground contact.",
+      "manualKeyframes": [
+        {
+          "t": 1.66667,
+          "actor": "A",
+          "mode": "replace",
+          "scope": "fullbody",
+          "visible": true,
+          "confidence": "manual acrobatic silhouette approximation; occluded joints and anatomical sides inferred",
+          "joints": {
+            "nose": [
+              0.704,
+              0.216
+            ],
+            "leftEye": [
+              0.7216,
+              0.208
+            ],
+            "rightEye": [
+              0.6864,
+              0.208
+            ],
+            "leftEar": [
+              0.7448,
+              0.22
+            ],
+            "rightEar": [
+              0.6632,
+              0.22
+            ],
+            "leftShoulder": [
+              0.656,
+              0.31
+            ],
+            "rightShoulder": [
+              0.746,
+              0.337
+            ],
+            "leftElbow": [
+              0.515,
+              0.3
+            ],
+            "rightElbow": [
+              0.78,
+              0.456
+            ],
+            "leftWrist": [
+              0.496,
+              0.26
+            ],
+            "rightWrist": [
+              0.728,
+              0.363
+            ],
+            "leftHip": [
+              0.604,
+              0.56
+            ],
+            "rightHip": [
+              0.553,
+              0.563
+            ],
+            "leftKnee": [
+              0.759,
+              0.449
+            ],
+            "rightKnee": [
+              0.539,
+              0.741
+            ],
+            "leftAnkle": [
+              0.652,
+              0.606
+            ],
+            "rightAnkle": [
+              0.496,
+              1.024
+            ],
+            "leftToe": [
+              0.622,
+              0.64
+            ],
+            "rightToe": [
+              0.48,
+              1.065
+            ]
+          }
+        },
+        {
+          "t": 1.83333,
+          "actor": "A",
+          "mode": "replace",
+          "scope": "fullbody",
+          "visible": true,
+          "confidence": "manual acrobatic silhouette approximation; occluded joints and anatomical sides inferred",
+          "joints": {
+            "nose": [
+              0.746,
+              0.423
+            ],
+            "leftEye": [
+              0.76278,
+              0.42086
+            ],
+            "rightEye": [
+              0.73336,
+              0.41176
+            ],
+            "leftEar": [
+              0.77907,
+              0.43689
+            ],
+            "rightEar": [
+              0.71086,
+              0.41579
+            ],
+            "leftShoulder": [
+              0.724,
+              0.537
+            ],
+            "rightShoulder": [
+              0.643,
+              0.464
+            ],
+            "leftElbow": [
+              0.686,
+              0.742
+            ],
+            "rightElbow": [
+              0.515,
+              0.53
+            ],
+            "leftWrist": [
+              0.68,
+              0.818
+            ],
+            "rightWrist": [
+              0.584,
+              0.719
+            ],
+            "leftHip": [
+              0.643,
+              0.764
+            ],
+            "rightHip": [
+              0.553,
+              0.673
+            ],
+            "leftKnee": [
+              0.57,
+              0.822
+            ],
+            "rightKnee": [
+              0.474,
+              0.42
+            ],
+            "leftAnkle": [
+              0.591,
+              0.902
+            ],
+            "rightAnkle": [
+              0.552,
+              0.307
+            ],
+            "leftToe": [
+              0.62,
+              0.93
+            ],
+            "rightToe": [
+              0.57,
+              0.255
+            ]
+          }
+        },
+        {
+          "t": 2.0,
+          "actor": "A",
+          "mode": "replace",
+          "scope": "fullbody",
+          "visible": true,
+          "confidence": "manual acrobatic silhouette approximation; occluded joints and anatomical sides inferred",
+          "joints": {
+            "nose": [
+              0.786,
+              0.145
+            ],
+            "leftEye": [
+              0.8025,
+              0.1375
+            ],
+            "rightEye": [
+              0.7695,
+              0.1375
+            ],
+            "leftEar": [
+              0.82425,
+              0.14875
+            ],
+            "rightEar": [
+              0.74775,
+              0.14875
+            ],
+            "leftShoulder": [
+              0.798,
+              0.281
+            ],
+            "rightShoulder": [
+              0.69,
+              0.26
+            ],
+            "leftElbow": [
+              0.821,
+              0.215
+            ],
+            "rightElbow": [
+              0.664,
+              0.06
+            ],
+            "leftWrist": [
+              0.76,
+              0.168
+            ],
+            "rightWrist": [
+              0.701,
+              -0.075
+            ],
+            "leftHip": [
+              0.75,
+              0.493
+            ],
+            "rightHip": [
+              0.675,
+              0.449
+            ],
+            "leftKnee": [
+              0.729,
+              0.533
+            ],
+            "rightKnee": [
+              0.589,
+              0.23
+            ],
+            "leftAnkle": [
+              0.659,
+              0.405
+            ],
+            "rightAnkle": [
+              0.45,
+              0.222
+            ],
+            "leftToe": [
+              0.62,
+              0.23
+            ],
+            "rightToe": [
+              0.402,
+              0.07
+            ]
+          }
+        },
+        {
+          "t": 2.125,
+          "actor": "A",
+          "mode": "replace",
+          "scope": "fullbody",
+          "visible": true,
+          "confidence": "manual acrobatic silhouette approximation; occluded joints and anatomical sides inferred",
+          "joints": {
+            "nose": [
+              0.77,
+              0.16
+            ],
+            "leftEye": [
+              0.7865,
+              0.1525
+            ],
+            "rightEye": [
+              0.7535,
+              0.1525
+            ],
+            "leftEar": [
+              0.80825,
+              0.16375
+            ],
+            "rightEar": [
+              0.73175,
+              0.16375
+            ],
+            "leftShoulder": [
+              0.798,
+              0.273
+            ],
+            "rightShoulder": [
+              0.687,
+              0.231
+            ],
+            "leftElbow": [
+              0.825,
+              0.39
+            ],
+            "rightElbow": [
+              0.684,
+              0.034
+            ],
+            "leftWrist": [
+              0.772,
+              0.218
+            ],
+            "rightWrist": [
+              0.716,
+              -0.081
+            ],
+            "leftHip": [
+              0.744,
+              0.49
+            ],
+            "rightHip": [
+              0.662,
+              0.433
+            ],
+            "leftKnee": [
+              0.728,
+              0.534
+            ],
+            "rightKnee": [
+              0.488,
+              0.285
+            ],
+            "leftAnkle": [
+              0.626,
+              0.4
+            ],
+            "rightAnkle": [
+              0.365,
+              0.162
+            ],
+            "leftToe": [
+              0.594,
+              0.23
+            ],
+            "rightToe": [
+              0.306,
+              0.029
+            ]
+          }
+        },
+        {
+          "t": 2.29167,
+          "actor": "A",
+          "mode": "replace",
+          "scope": "fullbody",
+          "visible": true,
+          "confidence": "manual acrobatic silhouette approximation; occluded joints and anatomical sides inferred",
+          "joints": {
+            "nose": [
+              0.78,
+              0.2
+            ],
+            "leftEye": [
+              0.7965,
+              0.1925
+            ],
+            "rightEye": [
+              0.7635,
+              0.1925
+            ],
+            "leftEar": [
+              0.81825,
+              0.20375
+            ],
+            "rightEar": [
+              0.74175,
+              0.20375
+            ],
+            "leftShoulder": [
+              0.8,
+              0.329
+            ],
+            "rightShoulder": [
+              0.68,
+              0.26
+            ],
+            "leftElbow": [
+              0.807,
+              0.465
+            ],
+            "rightElbow": [
+              0.62,
+              0.028
+            ],
+            "leftWrist": [
+              0.771,
+              0.389
+            ],
+            "rightWrist": [
+              0.599,
+              -0.1
+            ],
+            "leftHip": [
+              0.722,
+              0.5
+            ],
+            "rightHip": [
+              0.648,
+              0.426
+            ],
+            "leftKnee": [
+              0.7,
+              0.547
+            ],
+            "rightKnee": [
+              0.5,
+              0.299
+            ],
+            "leftAnkle": [
+              0.579,
+              0.441
+            ],
+            "rightAnkle": [
+              0.329,
+              0.248
+            ],
+            "leftToe": [
+              0.554,
+              0.244
+            ],
+            "rightToe": [
+              0.271,
+              0.092
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "S06",
+      "start": 2.33,
+      "end": 3.21,
+      "dominant": "B",
+      "order": [
+        "B",
+        "A"
+      ],
+      "background": "tomb",
+      "horizonY": 0.235,
+      "skyline": [
+        [
+          0,
+          0.35
+        ],
+        [
+          0.2,
+          0.34
+        ],
+        [
+          0.4,
+          0.3
+        ],
+        [
+          0.6,
+          0.24
+        ],
+        [
+          0.8,
+          0.12
+        ],
+        [
+          1,
+          0.06
+        ]
+      ],
+      "groundY": 0.83,
+      "tombs": [
+        [
+          0.79,
+          0.62,
+          0.21,
+          0.38
+        ]
+      ],
+      "orientation": "source-camera screen plane; depth estimated",
+      "notes": "A is an incoming leg from upper right, not a full standing foreground body.",
+      "manualKeyframes": [
+        {
+          "t": 2.375,
+          "actor": "A",
+          "mode": "fragment",
+          "visible": false,
+          "depth": "foreground",
+          "confidence": "manually estimated visible limb silhouette; left-right anatomical side partly uncertain",
+          "joints": {
+            "leftKnee": [
+              1.3,
+              0.5
+            ],
+            "leftAnkle": [
+              1.14,
+              0.6
+            ],
+            "leftToe": [
+              1.03,
+              0.64
+            ]
+          }
+        },
+        {
+          "t": 2.58333,
+          "actor": "A",
+          "mode": "fragment",
+          "visible": true,
+          "depth": "foreground",
+          "confidence": "manually estimated visible limb silhouette; left-right anatomical side partly uncertain",
+          "joints": {
+            "leftKnee": [
+              1.25,
+              0.35
+            ],
+            "leftAnkle": [
+              1.02,
+              0.52
+            ],
+            "leftToe": [
+              0.91,
+              0.59
+            ]
+          }
+        },
+        {
+          "t": 2.75,
+          "actor": "A",
+          "mode": "fragment",
+          "visible": true,
+          "depth": "foreground",
+          "confidence": "manually estimated visible limb silhouette; left-right anatomical side partly uncertain",
+          "joints": {
+            "leftKnee": [
+              1.24,
+              0.35
+            ],
+            "leftAnkle": [
+              0.95,
+              0.33
+            ],
+            "leftToe": [
+              0.79,
+              0.3
+            ]
+          }
+        },
+        {
+          "t": 2.95833,
+          "actor": "A",
+          "mode": "fragment",
+          "visible": true,
+          "depth": "foreground",
+          "confidence": "manually estimated visible limb silhouette; left-right anatomical side partly uncertain",
+          "joints": {
+            "leftKnee": [
+              1.2,
+              0.23
+            ],
+            "leftAnkle": [
+              0.91,
+              0.2
+            ],
+            "leftToe": [
+              0.65,
+              0.17
+            ]
+          }
+        },
+        {
+          "t": 3.16667,
+          "actor": "A",
+          "mode": "fragment",
+          "visible": true,
+          "depth": "foreground",
+          "confidence": "manually estimated visible limb silhouette; left-right anatomical side partly uncertain",
+          "joints": {
+            "leftKnee": [
+              1.3,
+              0.1
+            ],
+            "leftAnkle": [
+              1.04,
+              0.11
+            ],
+            "leftToe": [
+              0.94,
+              0.2
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "S07",
+      "start": 3.21,
+      "end": 4.083333333333333,
+      "dominant": "B",
+      "order": [
+        "B"
+      ],
+      "background": "tomb",
+      "horizonY": -0.15,
+      "skyline": [
+        [
+          0,
+          -0.15
+        ],
+        [
+          0.2,
+          -0.15
+        ],
+        [
+          0.4,
+          -0.15
+        ],
+        [
+          0.6,
+          -0.15
+        ],
+        [
+          0.8,
+          -0.15
+        ],
+        [
+          1,
+          -0.15
+        ]
+      ],
+      "groundY": 0.61,
+      "tombs": [
+        [
+          0.09,
+          -0.02,
+          0.88,
+          0.65
+        ]
+      ],
+      "orientation": "source-camera screen plane; depth estimated",
+      "notes": "Foot crop; B crosses feet while moving left then right.",
+      "manualKeyframes": [
+        {
+          "t": 3.20833,
+          "actor": "B",
+          "confidence": "manual silhouette estimate; anatomical side inferred",
+          "joints": {
+            "leftHip": [
+              0.89,
+              -0.29
+            ],
+            "rightHip": [
+              0.78,
+              -0.29
+            ],
+            "leftKnee": [
+              0.79,
+              0.25
+            ],
+            "rightKnee": [
+              0.69,
+              0.16
+            ],
+            "leftAnkle": [
+              0.62,
+              0.61
+            ],
+            "rightAnkle": [
+              0.85,
+              0.58
+            ],
+            "leftToe": [
+              0.57,
+              0.7
+            ],
+            "rightToe": [
+              0.95,
+              0.61
+            ]
+          },
+          "mode": "replace",
+          "visible": true
+        },
+        {
+          "t": 3.41667,
+          "actor": "B",
+          "confidence": "manual silhouette estimate; anatomical side inferred",
+          "joints": {
+            "leftHip": [
+              0.69,
+              -0.3
+            ],
+            "rightHip": [
+              0.55,
+              -0.3
+            ],
+            "leftKnee": [
+              0.67,
+              0.22
+            ],
+            "rightKnee": [
+              0.61,
+              0.28
+            ],
+            "leftAnkle": [
+              0.61,
+              0.6
+            ],
+            "rightAnkle": [
+              0.77,
+              0.55
+            ],
+            "leftToe": [
+              0.54,
+              0.66
+            ],
+            "rightToe": [
+              0.87,
+              0.56
+            ]
+          },
+          "mode": "replace",
+          "visible": true
+        },
+        {
+          "t": 3.58333,
+          "actor": "B",
+          "confidence": "manual silhouette estimate; anatomical side inferred",
+          "joints": {
+            "leftHip": [
+              0.61,
+              -0.29
+            ],
+            "rightHip": [
+              0.48,
+              -0.29
+            ],
+            "leftKnee": [
+              0.62,
+              0.29
+            ],
+            "rightKnee": [
+              0.53,
+              0.21
+            ],
+            "leftAnkle": [
+              0.57,
+              0.79
+            ],
+            "rightAnkle": [
+              0.66,
+              0.68
+            ],
+            "leftToe": [
+              0.52,
+              0.88
+            ],
+            "rightToe": [
+              0.71,
+              0.77
+            ]
+          },
+          "mode": "replace",
+          "visible": true
+        },
+        {
+          "t": 3.79167,
+          "actor": "B",
+          "confidence": "manual silhouette estimate; anatomical side inferred",
+          "joints": {
+            "leftHip": [
+              0.56,
+              -0.28
+            ],
+            "rightHip": [
+              0.43,
+              -0.28
+            ],
+            "leftKnee": [
+              0.7,
+              0.27
+            ],
+            "rightKnee": [
+              0.45,
+              0.26
+            ],
+            "leftAnkle": [
+              0.86,
+              0.77
+            ],
+            "rightAnkle": [
+              0.39,
+              0.77
+            ],
+            "leftToe": [
+              0.93,
+              0.86
+            ],
+            "rightToe": [
+              0.34,
+              0.86
+            ]
+          },
+          "mode": "replace",
+          "visible": true
+        },
+        {
+          "t": 4.0,
+          "actor": "B",
+          "confidence": "manual silhouette estimate; anatomical side inferred",
+          "joints": {
+            "leftHip": [
+              0.52,
+              -0.27
+            ],
+            "rightHip": [
+              0.65,
+              -0.28
+            ],
+            "leftKnee": [
+              0.48,
+              0.26
+            ],
+            "rightKnee": [
+              0.68,
+              0.22
+            ],
+            "leftAnkle": [
+              0.4,
+              0.75
+            ],
+            "rightAnkle": [
+              0.67,
+              0.6
+            ],
+            "leftToe": [
+              0.35,
+              0.85
+            ],
+            "rightToe": [
+              0.77,
+              0.7
+            ]
+          },
+          "mode": "replace",
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": "S08",
+      "start": 4.083333333333333,
+      "end": 4.46,
+      "dominant": "A",
+      "order": [
+        "A"
+      ],
+      "background": "hill",
+      "horizonY": -0.15,
+      "skyline": [
+        [
+          0,
+          -0.15
+        ],
+        [
+          0.2,
+          -0.15
+        ],
+        [
+          0.4,
+          -0.15
+        ],
+        [
+          0.6,
+          -0.15
+        ],
+        [
+          0.8,
+          -0.15
+        ],
+        [
+          1,
+          -0.15
+        ]
+      ],
+      "groundY": 0.62,
+      "tombs": [],
+      "orientation": "source-camera screen plane; depth estimated",
+      "notes": "A feet approaching camera; actual new source shot begins frame98 / 4.0833s.",
+      "manualKeyframes": [
+        {
+          "t": 4.08333,
+          "actor": "A",
+          "confidence": "manual silhouette estimate; anatomical side inferred",
+          "joints": {
+            "leftHip": [
+              0.55,
+              -0.2
+            ],
+            "rightHip": [
+              0.45,
+              -0.2
+            ],
+            "leftKnee": [
+              0.55,
+              0.17
+            ],
+            "rightKnee": [
+              0.49,
+              0.2
+            ],
+            "leftAnkle": [
+              0.59,
+              0.43
+            ],
+            "rightAnkle": [
+              0.47,
+              0.54
+            ],
+            "leftToe": [
+              0.59,
+              0.48
+            ],
+            "rightToe": [
+              0.48,
+              0.6
+            ]
+          },
+          "mode": "replace",
+          "visible": true
+        },
+        {
+          "t": 4.16667,
+          "actor": "A",
+          "confidence": "manual silhouette estimate; anatomical side inferred",
+          "joints": {
+            "leftHip": [
+              0.56,
+              -0.29
+            ],
+            "rightHip": [
+              0.47,
+              -0.29
+            ],
+            "leftKnee": [
+              0.55,
+              0.15
+            ],
+            "rightKnee": [
+              0.46,
+              0.04
+            ],
+            "leftAnkle": [
+              0.55,
+              0.56
+            ],
+            "rightAnkle": [
+              0.45,
+              0.35
+            ],
+            "leftToe": [
+              0.54,
+              0.62
+            ],
+            "rightToe": [
+              0.47,
+              0.42
+            ]
+          },
+          "mode": "replace",
+          "visible": true
+        },
+        {
+          "t": 4.25,
+          "actor": "A",
+          "confidence": "manual silhouette estimate; anatomical side inferred",
+          "joints": {
+            "leftHip": [
+              0.54,
+              -0.33
+            ],
+            "rightHip": [
+              0.44,
+              -0.33
+            ],
+            "leftKnee": [
+              0.54,
+              0.12
+            ],
+            "rightKnee": [
+              0.49,
+              0.07
+            ],
+            "leftAnkle": [
+              0.58,
+              0.49
+            ],
+            "rightAnkle": [
+              0.5,
+              0.63
+            ],
+            "leftToe": [
+              0.59,
+              0.55
+            ],
+            "rightToe": [
+              0.5,
+              0.69
+            ]
+          },
+          "mode": "replace",
+          "visible": true
+        },
+        {
+          "t": 4.33333,
+          "actor": "A",
+          "confidence": "manual silhouette estimate; anatomical side inferred",
+          "joints": {
+            "leftHip": [
+              0.58,
+              -0.32
+            ],
+            "rightHip": [
+              0.45,
+              -0.31
+            ],
+            "leftKnee": [
+              0.58,
+              0.16
+            ],
+            "rightKnee": [
+              0.5,
+              0.13
+            ],
+            "leftAnkle": [
+              0.61,
+              0.62
+            ],
+            "rightAnkle": [
+              0.5,
+              0.54
+            ],
+            "leftToe": [
+              0.61,
+              0.7
+            ],
+            "rightToe": [
+              0.48,
+              0.61
+            ]
+          },
+          "mode": "replace",
+          "visible": true
+        },
+        {
+          "t": 4.41667,
+          "actor": "A",
+          "confidence": "manual silhouette estimate; anatomical side inferred",
+          "joints": {
+            "leftHip": [
+              0.57,
+              -0.31
+            ],
+            "rightHip": [
+              0.43,
+              -0.31
+            ],
+            "leftKnee": [
+              0.58,
+              0.18
+            ],
+            "rightKnee": [
+              0.48,
+              0.03
+            ],
+            "leftAnkle": [
+              0.59,
+              0.68
+            ],
+            "rightAnkle": [
+              0.42,
+              0.47
+            ],
+            "leftToe": [
+              0.59,
+              0.77
+            ],
+            "rightToe": [
+              0.43,
+              0.55
+            ]
+          },
+          "mode": "replace",
+          "visible": true
+        }
+      ],
+      "verifiedCutFrame": 98,
+      "cutEvidence": "Exact decode select frames97/98; frame97 blue-trouser B, frame98 brown-trouser A."
+    },
+    {
+      "id": "S09",
+      "start": 4.46,
+      "end": 5.38,
+      "dominant": "B",
+      "order": [
+        "B"
+      ],
+      "background": "hill",
+      "horizonY": 0.145,
+      "skyline": [
+        [
+          0,
+          0.32
+        ],
+        [
+          0.2,
+          0.23
+        ],
+        [
+          0.4,
+          0.15
+        ],
+        [
+          0.6,
+          0.1
+        ],
+        [
+          0.8,
+          0.05
+        ],
+        [
+          1,
+          0.02
+        ]
+      ],
+      "groundY": 0.88,
+      "tombs": [],
+      "orientation": "source-camera screen plane; depth estimated",
+      "notes": "B arms extend; torso large; hillside nearly fills background.",
+      "manualKeyframes": []
+    },
+    {
+      "id": "S10",
+      "start": 5.38,
+      "end": 5.71,
+      "dominant": "A",
+      "order": [
+        "A"
+      ],
+      "background": "hill",
+      "horizonY": 0.145,
+      "skyline": [
+        [
+          0,
+          0.32
+        ],
+        [
+          0.2,
+          0.23
+        ],
+        [
+          0.4,
+          0.15
+        ],
+        [
+          0.6,
+          0.1
+        ],
+        [
+          0.8,
+          0.05
+        ],
+        [
+          1,
+          0.02
+        ]
+      ],
+      "groundY": 0.63,
+      "tombs": [],
+      "orientation": "source-camera screen plane; depth estimated",
+      "notes": "Feet first land at5.50 then launch at5.66; upper body outside frame.",
+      "manualKeyframes": [
+        {
+          "t": 5.375,
+          "actor": "A",
+          "confidence": "manual silhouette estimate; anatomical side inferred",
+          "joints": {
+            "leftHip": [
+              0.6,
+              -0.57
+            ],
+            "rightHip": [
+              0.39,
+              -0.56
+            ],
+            "leftKnee": [
+              0.62,
+              -0.06
+            ],
+            "rightKnee": [
+              0.35,
+              0.06
+            ],
+            "leftAnkle": [
+              0.55,
+              0.46
+            ],
+            "rightAnkle": [
+              0.44,
+              0.22
+            ],
+            "leftToe": [
+              0.55,
+              0.63
+            ],
+            "rightToe": [
+              0.38,
+              0.35
+            ]
+          },
+          "mode": "replace",
+          "visible": true
+        },
+        {
+          "t": 5.45833,
+          "actor": "A",
+          "confidence": "manual silhouette estimate; anatomical side inferred",
+          "joints": {
+            "leftHip": [
+              0.61,
+              -0.6
+            ],
+            "rightHip": [
+              0.36,
+              -0.59
+            ],
+            "leftKnee": [
+              0.59,
+              -0.1
+            ],
+            "rightKnee": [
+              0.38,
+              -0.07
+            ],
+            "leftAnkle": [
+              0.58,
+              0.51
+            ],
+            "rightAnkle": [
+              0.35,
+              0.53
+            ],
+            "leftToe": [
+              0.66,
+              0.62
+            ],
+            "rightToe": [
+              0.35,
+              0.7
+            ]
+          },
+          "mode": "replace",
+          "visible": true
+        },
+        {
+          "t": 5.5,
+          "actor": "A",
+          "confidence": "manual silhouette estimate; anatomical side inferred",
+          "joints": {
+            "leftHip": [
+              0.58,
+              -0.42
+            ],
+            "rightHip": [
+              0.35,
+              -0.42
+            ],
+            "leftKnee": [
+              0.59,
+              0.15
+            ],
+            "rightKnee": [
+              0.36,
+              0.13
+            ],
+            "leftAnkle": [
+              0.59,
+              0.65
+            ],
+            "rightAnkle": [
+              0.35,
+              0.65
+            ],
+            "leftToe": [
+              0.72,
+              0.8
+            ],
+            "rightToe": [
+              0.27,
+              0.8
+            ]
+          },
+          "mode": "replace",
+          "visible": true
+        },
+        {
+          "t": 5.58333,
+          "actor": "A",
+          "confidence": "manual silhouette estimate; anatomical side inferred",
+          "joints": {
+            "leftHip": [
+              0.62,
+              -0.31
+            ],
+            "rightHip": [
+              0.36,
+              -0.3
+            ],
+            "leftKnee": [
+              0.66,
+              0.24
+            ],
+            "rightKnee": [
+              0.34,
+              0.24
+            ],
+            "leftAnkle": [
+              0.62,
+              0.67
+            ],
+            "rightAnkle": [
+              0.35,
+              0.68
+            ],
+            "leftToe": [
+              0.7,
+              0.8
+            ],
+            "rightToe": [
+              0.24,
+              0.8
+            ]
+          },
+          "mode": "replace",
+          "visible": true
+        },
+        {
+          "t": 5.66667,
+          "actor": "A",
+          "confidence": "manual silhouette estimate; anatomical side inferred",
+          "joints": {
+            "leftHip": [
+              0.67,
+              -0.72
+            ],
+            "rightHip": [
+              0.42,
+              -0.71
+            ],
+            "leftKnee": [
+              0.64,
+              -0.18
+            ],
+            "rightKnee": [
+              0.41,
+              -0.18
+            ],
+            "leftAnkle": [
+              0.65,
+              0.5
+            ],
+            "rightAnkle": [
+              0.39,
+              0.48
+            ],
+            "leftToe": [
+              0.65,
+              0.74
+            ],
+            "rightToe": [
+              0.38,
+              0.73
+            ]
+          },
+          "mode": "replace",
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": "S11",
+      "start": 5.71,
+      "end": 6.42,
+      "dominant": "A",
+      "order": [
+        "B",
+        "A"
+      ],
+      "background": "tomb",
+      "horizonY": 0.135,
+      "skyline": [
+        [
+          0,
+          0.15
+        ],
+        [
+          0.2,
+          0.13
+        ],
+        [
+          0.4,
+          0.16
+        ],
+        [
+          0.6,
+          0.17
+        ],
+        [
+          0.8,
+          0.11
+        ],
+        [
+          1,
+          0.09
+        ]
+      ],
+      "groundY": 0.66,
+      "tombs": [
+        [
+          0.015,
+          0.33,
+          0.4,
+          0.29
+        ]
+      ],
+      "orientation": "source-camera screen plane; depth estimated",
+      "notes": "B on left ground, A right airborne kicking toward left.",
+      "manualKeyframes": []
+    },
+    {
+      "id": "S12",
+      "start": 6.42,
+      "end": 6.96,
+      "dominant": "B",
+      "order": [
+        "B",
+        "A"
+      ],
+      "background": "sky",
+      "horizonY": 0.6233333333333334,
+      "skyline": [
+        [
+          0,
+          0.53
+        ],
+        [
+          0.2,
+          0.58
+        ],
+        [
+          0.4,
+          0.64
+        ],
+        [
+          0.6,
+          0.72
+        ],
+        [
+          0.8,
+          0.66
+        ],
+        [
+          1,
+          0.61
+        ]
+      ],
+      "groundY": 0.95,
+      "tombs": [],
+      "orientation": "source-camera screen plane; depth estimated",
+      "notes": "Low angle; incoming white foot upper right; only B upper torso.",
+      "manualKeyframes": [
+        {
+          "t": 6.45833,
+          "actor": "A",
+          "mode": "fragment",
+          "visible": false,
+          "depth": "foreground",
+          "confidence": "manually estimated visible limb silhouette; left-right anatomical side partly uncertain",
+          "joints": {
+            "leftKnee": [
+              1.3,
+              -0.16
+            ],
+            "leftAnkle": [
+              1.17,
+              -0.14
+            ],
+            "leftToe": [
+              1.02,
+              -0.2
+            ]
+          }
+        },
+        {
+          "t": 6.58333,
+          "actor": "A",
+          "mode": "fragment",
+          "visible": true,
+          "depth": "foreground",
+          "confidence": "manually estimated visible limb silhouette; left-right anatomical side partly uncertain",
+          "joints": {
+            "leftKnee": [
+              1.05,
+              0.22
+            ],
+            "leftAnkle": [
+              0.7,
+              0.17
+            ],
+            "leftToe": [
+              0.62,
+              0.025
+            ]
+          }
+        },
+        {
+          "t": 6.66667,
+          "actor": "A",
+          "mode": "fragment",
+          "visible": true,
+          "depth": "foreground",
+          "confidence": "manually estimated visible limb silhouette; left-right anatomical side partly uncertain",
+          "joints": {
+            "leftKnee": [
+              1.06,
+              0.2
+            ],
+            "leftAnkle": [
+              0.73,
+              0.16
+            ],
+            "leftToe": [
+              0.65,
+              0.025
+            ]
+          }
+        },
+        {
+          "t": 6.79167,
+          "actor": "A",
+          "mode": "fragment",
+          "visible": true,
+          "depth": "foreground",
+          "confidence": "manually estimated visible limb silhouette; left-right anatomical side partly uncertain",
+          "joints": {
+            "leftKnee": [
+              1.08,
+              0.37
+            ],
+            "leftAnkle": [
+              0.71,
+              0.33
+            ],
+            "leftToe": [
+              0.63,
+              0.1
+            ]
+          }
+        },
+        {
+          "t": 6.91667,
+          "actor": "A",
+          "mode": "fragment",
+          "visible": true,
+          "depth": "foreground",
+          "confidence": "manually estimated visible limb silhouette; left-right anatomical side partly uncertain",
+          "joints": {
+            "leftKnee": [
+              1.06,
+              0.71
+            ],
+            "leftAnkle": [
+              0.61,
+              0.68
+            ],
+            "leftToe": [
+              0.55,
+              0.39
+            ]
+          }
+        },
+        {
+          "t": 6.458333333333333,
+          "actor": "B",
+          "mode": "replace",
+          "scope": "fullbody",
+          "visible": true,
+          "confidence": "manual visible upper body; head partly occluded by raised arms; source silhouette estimate",
+          "joints": {
+            "nose": [
+              0.438,
+              0.411
+            ],
+            "leftEye": [
+              0.4686,
+              0.33099999999999996
+            ],
+            "rightEye": [
+              0.4074,
+              0.33099999999999996
+            ],
+            "leftEar": [
+              0.5179,
+              0.377
+            ],
+            "rightEar": [
+              0.3581,
+              0.377
+            ],
+            "leftShoulder": [
+              0.408,
+              0.728
+            ],
+            "rightShoulder": [
+              0.223,
+              0.684
+            ],
+            "leftElbow": [
+              0.589,
+              0.746
+            ],
+            "rightElbow": [
+              0.403,
+              0.839
+            ],
+            "leftWrist": [
+              0.705,
+              0.536
+            ],
+            "rightWrist": [
+              0.517,
+              0.91
+            ],
+            "leftHip": [
+              0.437,
+              1.3
+            ],
+            "rightHip": [
+              0.231,
+              1.285
+            ]
+          },
+          "notes": "Only named upper-body joints; knees and ankles absent intentionally; hips below crop. Head partly covered by arm."
+        },
+        {
+          "t": 6.583333333333333,
+          "actor": "B",
+          "mode": "replace",
+          "scope": "fullbody",
+          "visible": true,
+          "confidence": "manual visible upper body; head partly occluded by raised arms; source silhouette estimate",
+          "joints": {
+            "nose": [
+              0.42,
+              0.51
+            ],
+            "leftEye": [
+              0.4461,
+              0.43
+            ],
+            "rightEye": [
+              0.3939,
+              0.43
+            ],
+            "leftEar": [
+              0.48815,
+              0.476
+            ],
+            "rightEar": [
+              0.35185,
+              0.476
+            ],
+            "leftShoulder": [
+              0.48,
+              0.834
+            ],
+            "rightShoulder": [
+              0.266,
+              0.704
+            ],
+            "leftElbow": [
+              0.628,
+              0.471
+            ],
+            "rightElbow": [
+              0.391,
+              0.417
+            ],
+            "leftWrist": [
+              0.667,
+              0.27
+            ],
+            "rightWrist": [
+              0.62,
+              0.176
+            ],
+            "leftHip": [
+              0.527,
+              1.331
+            ],
+            "rightHip": [
+              0.285,
+              1.234
+            ]
+          },
+          "notes": "Only named upper-body joints; knees and ankles absent intentionally; hips below crop. Head partly covered by arm."
+        },
+        {
+          "t": 6.666666666666667,
+          "actor": "B",
+          "mode": "replace",
+          "scope": "fullbody",
+          "visible": true,
+          "confidence": "manual visible upper body; head partly occluded by raised arms; source silhouette estimate",
+          "joints": {
+            "nose": [
+              0.405,
+              0.571
+            ],
+            "leftEye": [
+              0.43110000000000004,
+              0.49099999999999994
+            ],
+            "rightEye": [
+              0.3789,
+              0.49099999999999994
+            ],
+            "leftEar": [
+              0.47315,
+              0.5369999999999999
+            ],
+            "rightEar": [
+              0.33685000000000004,
+              0.5369999999999999
+            ],
+            "leftShoulder": [
+              0.475,
+              0.889
+            ],
+            "rightShoulder": [
+              0.261,
+              0.747
+            ],
+            "leftElbow": [
+              0.625,
+              0.507
+            ],
+            "rightElbow": [
+              0.377,
+              0.457
+            ],
+            "leftWrist": [
+              0.667,
+              0.282
+            ],
+            "rightWrist": [
+              0.617,
+              0.189
+            ],
+            "leftHip": [
+              0.515,
+              1.376
+            ],
+            "rightHip": [
+              0.279,
+              1.282
+            ]
+          },
+          "notes": "Only named upper-body joints; knees and ankles absent intentionally; hips below crop. Head partly covered by arm."
+        },
+        {
+          "t": 6.791666666666667,
+          "actor": "B",
+          "mode": "replace",
+          "scope": "fullbody",
+          "visible": true,
+          "confidence": "manual visible upper body; head partly occluded by raised arms; source silhouette estimate",
+          "joints": {
+            "nose": [
+              0.395,
+              0.748
+            ],
+            "leftEye": [
+              0.4238,
+              0.668
+            ],
+            "rightEye": [
+              0.3662,
+              0.668
+            ],
+            "leftEar": [
+              0.4702,
+              0.714
+            ],
+            "rightEar": [
+              0.31980000000000003,
+              0.714
+            ],
+            "leftShoulder": [
+              0.469,
+              1.075
+            ],
+            "rightShoulder": [
+              0.258,
+              0.931
+            ],
+            "leftElbow": [
+              0.619,
+              0.698
+            ],
+            "rightElbow": [
+              0.42,
+              0.662
+            ],
+            "leftWrist": [
+              0.649,
+              0.44
+            ],
+            "rightWrist": [
+              0.587,
+              0.371
+            ],
+            "leftHip": [
+              0.531,
+              1.55
+            ],
+            "rightHip": [
+              0.284,
+              1.466
+            ]
+          },
+          "notes": "Only named upper-body joints; knees and ankles absent intentionally; hips below crop. Head partly covered by arm."
+        },
+        {
+          "t": 6.916666666666667,
+          "actor": "B",
+          "mode": "replace",
+          "scope": "fullbody",
+          "visible": true,
+          "confidence": "manual visible upper body; head partly occluded by raised arms; source silhouette estimate",
+          "joints": {
+            "nose": [
+              0.372,
+              0.92
+            ],
+            "leftEye": [
+              0.4026,
+              0.8400000000000001
+            ],
+            "rightEye": [
+              0.3414,
+              0.8400000000000001
+            ],
+            "leftEar": [
+              0.45189999999999997,
+              0.886
+            ],
+            "rightEar": [
+              0.2921,
+              0.886
+            ],
+            "leftShoulder": [
+              0.462,
+              1.234
+            ],
+            "rightShoulder": [
+              0.228,
+              1.104
+            ],
+            "leftElbow": [
+              0.613,
+              1.0
+            ],
+            "rightElbow": [
+              0.457,
+              0.945
+            ],
+            "leftWrist": [
+              0.598,
+              0.838
+            ],
+            "rightWrist": [
+              0.557,
+              0.718
+            ],
+            "leftHip": [
+              0.494,
+              1.68
+            ],
+            "rightHip": [
+              0.243,
+              1.616
+            ]
+          },
+          "notes": "Only named upper-body joints; knees and ankles absent intentionally; hips below crop. Head partly covered by arm."
+        }
+      ]
+    },
+    {
+      "id": "S13",
+      "start": 6.96,
+      "end": 7.5,
+      "dominant": "B",
+      "order": [
+        "B"
+      ],
+      "background": "ground",
+      "horizonY": 0.145,
+      "skyline": [
+        [
+          0,
+          0.32
+        ],
+        [
+          0.2,
+          0.23
+        ],
+        [
+          0.4,
+          0.15
+        ],
+        [
+          0.6,
+          0.1
+        ],
+        [
+          0.8,
+          0.05
+        ],
+        [
+          1,
+          0.02
+        ]
+      ],
+      "groundY": 0.34,
+      "tombs": [],
+      "orientation": "source-camera screen plane; depth estimated",
+      "notes": "Feet very near lens; front shoe bottom left; distant rear shoe middle.",
+      "manualKeyframes": [
+        {
+          "t": 6.95833,
+          "actor": "B",
+          "confidence": "manual silhouette estimate; anatomical side inferred",
+          "joints": {
+            "leftHip": [
+              0.49,
+              -0.83
+            ],
+            "rightHip": [
+              0.23,
+              -0.76
+            ],
+            "leftKnee": [
+              0.47,
+              -0.14
+            ],
+            "rightKnee": [
+              0.24,
+              0.05
+            ],
+            "leftAnkle": [
+              0.51,
+              0.62
+            ],
+            "rightAnkle": [
+              0.26,
+              0.82
+            ],
+            "leftToe": [
+              0.59,
+              0.69
+            ],
+            "rightToe": [
+              0.36,
+              0.98
+            ]
+          },
+          "mode": "replace",
+          "visible": true
+        },
+        {
+          "t": 7.08333,
+          "actor": "B",
+          "confidence": "manual silhouette estimate; anatomical side inferred",
+          "joints": {
+            "leftHip": [
+              0.54,
+              -0.86
+            ],
+            "rightHip": [
+              0.25,
+              -0.79
+            ],
+            "leftKnee": [
+              0.59,
+              -0.06
+            ],
+            "rightKnee": [
+              0.23,
+              0.14
+            ],
+            "leftAnkle": [
+              0.6,
+              0.57
+            ],
+            "rightAnkle": [
+              0.26,
+              0.87
+            ],
+            "leftToe": [
+              0.62,
+              0.66
+            ],
+            "rightToe": [
+              0.31,
+              1.02
+            ]
+          },
+          "mode": "replace",
+          "visible": true
+        },
+        {
+          "t": 7.20833,
+          "actor": "B",
+          "confidence": "manual silhouette estimate; anatomical side inferred",
+          "joints": {
+            "leftHip": [
+              0.57,
+              -0.85
+            ],
+            "rightHip": [
+              0.23,
+              -0.78
+            ],
+            "leftKnee": [
+              0.65,
+              -0.01
+            ],
+            "rightKnee": [
+              0.23,
+              0.12
+            ],
+            "leftAnkle": [
+              0.69,
+              0.73
+            ],
+            "rightAnkle": [
+              0.27,
+              0.85
+            ],
+            "leftToe": [
+              0.68,
+              0.84
+            ],
+            "rightToe": [
+              0.31,
+              1.02
+            ]
+          },
+          "mode": "replace",
+          "visible": true
+        },
+        {
+          "t": 7.33333,
+          "actor": "B",
+          "confidence": "manual silhouette estimate; anatomical side inferred",
+          "joints": {
+            "leftHip": [
+              0.57,
+              -0.84
+            ],
+            "rightHip": [
+              0.23,
+              -0.78
+            ],
+            "leftKnee": [
+              0.63,
+              0.02
+            ],
+            "rightKnee": [
+              0.23,
+              0.14
+            ],
+            "leftAnkle": [
+              0.68,
+              0.73
+            ],
+            "rightAnkle": [
+              0.26,
+              0.87
+            ],
+            "leftToe": [
+              0.67,
+              0.84
+            ],
+            "rightToe": [
+              0.31,
+              1.02
+            ]
+          },
+          "mode": "replace",
+          "visible": true
+        },
+        {
+          "t": 7.45833,
+          "actor": "B",
+          "confidence": "manual silhouette estimate; anatomical side inferred",
+          "joints": {
+            "leftHip": [
+              0.58,
+              -0.84
+            ],
+            "rightHip": [
+              0.25,
+              -0.78
+            ],
+            "leftKnee": [
+              0.61,
+              0.02
+            ],
+            "rightKnee": [
+              0.22,
+              0.14
+            ],
+            "leftAnkle": [
+              0.67,
+              0.72
+            ],
+            "rightAnkle": [
+              0.24,
+              0.88
+            ],
+            "leftToe": [
+              0.67,
+              0.84
+            ],
+            "rightToe": [
+              0.28,
+              1.02
+            ]
+          },
+          "mode": "replace",
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": "S14",
+      "start": 7.5,
+      "end": 8.17,
+      "dominant": "A",
+      "order": [
+        "B",
+        "A"
+      ],
+      "background": "sky",
+      "horizonY": 0.9183333333333333,
+      "skyline": [
+        [
+          0,
+          0.88
+        ],
+        [
+          0.2,
+          0.9
+        ],
+        [
+          0.4,
+          0.91
+        ],
+        [
+          0.6,
+          0.95
+        ],
+        [
+          0.8,
+          0.92
+        ],
+        [
+          1,
+          0.95
+        ]
+      ],
+      "groundY": 0.98,
+      "tombs": [],
+      "orientation": "source-camera screen plane; depth estimated",
+      "notes": "B left foreground back facing camera; A right kicks toward lens.",
+      "manualKeyframes": []
+    },
+    {
+      "id": "S15",
+      "start": 8.17,
+      "end": 9.63,
+      "dominant": "A",
+      "order": [
+        "A",
+        "B"
+      ],
+      "background": "tomb",
+      "horizonY": 0.3116666666666667,
+      "skyline": [
+        [
+          0,
+          0.3
+        ],
+        [
+          0.2,
+          0.3
+        ],
+        [
+          0.4,
+          0.34
+        ],
+        [
+          0.6,
+          0.35
+        ],
+        [
+          0.8,
+          0.3
+        ],
+        [
+          1,
+          0.28
+        ]
+      ],
+      "groundY": 0.76,
+      "tombs": [
+        [
+          0.08,
+          0.52,
+          0.35,
+          0.24
+        ]
+      ],
+      "orientation": "source-camera screen plane; depth estimated",
+      "notes": "A above B; B horizontal falling. Hands/heads must not pass below ground.",
+      "manualKeyframes": [
+        {
+          "t": 8.20833,
+          "actor": "B",
+          "mode": "replace",
+          "scope": "fullbody",
+          "visible": true,
+          "confidence": "manual acrobatic silhouette approximation; occluded joints and anatomical sides inferred",
+          "joints": {
+            "nose": [
+              0.377,
+              0.52
+            ],
+            "leftEye": [
+              0.38273,
+              0.51378
+            ],
+            "rightEye": [
+              0.36854,
+              0.51977
+            ],
+            "leftEar": [
+              0.39412,
+              0.51466
+            ],
+            "rightEar": [
+              0.36124,
+              0.52856
+            ],
+            "leftShoulder": [
+              0.386,
+              0.585
+            ],
+            "rightShoulder": [
+              0.405,
+              0.561
+            ],
+            "leftElbow": [
+              0.4,
+              0.691
+            ],
+            "rightElbow": [
+              0.426,
+              0.647
+            ],
+            "leftWrist": [
+              0.43,
+              0.731
+            ],
+            "rightWrist": [
+              0.451,
+              0.71
+            ],
+            "leftHip": [
+              0.425,
+              0.734
+            ],
+            "rightHip": [
+              0.457,
+              0.748
+            ],
+            "leftKnee": [
+              0.47,
+              0.788
+            ],
+            "rightKnee": [
+              0.484,
+              0.805
+            ],
+            "leftAnkle": [
+              0.482,
+              0.87
+            ],
+            "rightAnkle": [
+              0.526,
+              0.845
+            ]
+          }
+        },
+        {
+          "t": 8.54167,
+          "actor": "B",
+          "mode": "replace",
+          "scope": "fullbody",
+          "visible": true,
+          "confidence": "manual acrobatic silhouette approximation; occluded joints and anatomical sides inferred",
+          "joints": {
+            "nose": [
+              0.35,
+              0.87
+            ],
+            "leftEye": [
+              0.35037,
+              0.86155
+            ],
+            "rightEye": [
+              0.34339,
+              0.87527
+            ],
+            "leftEar": [
+              0.35966,
+              0.85489
+            ],
+            "rightEar": [
+              0.34346,
+              0.8867
+            ],
+            "leftShoulder": [
+              0.384,
+              0.864
+            ],
+            "rightShoulder": [
+              0.38,
+              0.901
+            ],
+            "leftElbow": [
+              0.405,
+              0.817
+            ],
+            "rightElbow": [
+              0.4,
+              0.938
+            ],
+            "leftWrist": [
+              0.434,
+              0.816
+            ],
+            "rightWrist": [
+              0.437,
+              0.893
+            ],
+            "leftHip": [
+              0.451,
+              0.867
+            ],
+            "rightHip": [
+              0.46,
+              0.834
+            ],
+            "leftKnee": [
+              0.485,
+              0.682
+            ],
+            "rightKnee": [
+              0.433,
+              0.774
+            ],
+            "leftAnkle": [
+              0.475,
+              0.575
+            ],
+            "rightAnkle": [
+              0.39,
+              0.721
+            ]
+          }
+        },
+        {
+          "t": 8.91667,
+          "actor": "B",
+          "mode": "replace",
+          "scope": "fullbody",
+          "visible": true,
+          "confidence": "manual acrobatic silhouette approximation; occluded joints and anatomical sides inferred",
+          "joints": {
+            "nose": [
+              0.36,
+              0.885
+            ],
+            "leftEye": [
+              0.35876,
+              0.87712
+            ],
+            "rightEye": [
+              0.35488,
+              0.89111
+            ],
+            "leftEar": [
+              0.36609,
+              0.86922
+            ],
+            "rightEar": [
+              0.35709,
+              0.90166
+            ],
+            "leftShoulder": [
+              0.382,
+              0.873
+            ],
+            "rightShoulder": [
+              0.382,
+              0.914
+            ],
+            "leftElbow": [
+              0.394,
+              0.83
+            ],
+            "rightElbow": [
+              0.425,
+              0.93
+            ],
+            "leftWrist": [
+              0.445,
+              0.82
+            ],
+            "rightWrist": [
+              0.446,
+              0.886
+            ],
+            "leftHip": [
+              0.452,
+              0.856
+            ],
+            "rightHip": [
+              0.438,
+              0.87
+            ],
+            "leftKnee": [
+              0.46,
+              0.7
+            ],
+            "rightKnee": [
+              0.42,
+              0.762
+            ],
+            "leftAnkle": [
+              0.458,
+              0.562
+            ],
+            "rightAnkle": [
+              0.365,
+              0.753
+            ]
+          }
+        },
+        {
+          "t": 9.25,
+          "actor": "B",
+          "mode": "replace",
+          "scope": "fullbody",
+          "visible": true,
+          "confidence": "manual acrobatic silhouette approximation; occluded joints and anatomical sides inferred",
+          "joints": {
+            "nose": [
+              0.42,
+              0.651
+            ],
+            "leftEye": [
+              0.42685,
+              0.64604
+            ],
+            "rightEye": [
+              0.41176,
+              0.6491
+            ],
+            "leftEar": [
+              0.43784,
+              0.64917
+            ],
+            "rightEar": [
+              0.40285,
+              0.65626
+            ],
+            "leftShoulder": [
+              0.449,
+              0.696
+            ],
+            "rightShoulder": [
+              0.427,
+              0.707
+            ],
+            "leftElbow": [
+              0.47,
+              0.765
+            ],
+            "rightElbow": [
+              0.442,
+              0.788
+            ],
+            "leftWrist": [
+              0.479,
+              0.811
+            ],
+            "rightWrist": [
+              0.42,
+              0.86
+            ],
+            "leftHip": [
+              0.483,
+              0.826
+            ],
+            "rightHip": [
+              0.467,
+              0.838
+            ],
+            "leftKnee": [
+              0.552,
+              0.832
+            ],
+            "rightKnee": [
+              0.5,
+              0.88
+            ],
+            "leftAnkle": [
+              0.565,
+              0.883
+            ],
+            "rightAnkle": [
+              0.464,
+              0.905
+            ]
+          }
+        },
+        {
+          "t": 9.58333,
+          "actor": "B",
+          "mode": "replace",
+          "scope": "fullbody",
+          "visible": true,
+          "confidence": "manual acrobatic silhouette approximation; occluded joints and anatomical sides inferred",
+          "joints": {
+            "nose": [
+              0.446,
+              0.486
+            ],
+            "leftEye": [
+              0.4537,
+              0.4825
+            ],
+            "rightEye": [
+              0.4383,
+              0.4825
+            ],
+            "leftEar": [
+              0.46385,
+              0.48775
+            ],
+            "rightEar": [
+              0.42815,
+              0.48775
+            ],
+            "leftShoulder": [
+              0.46,
+              0.553
+            ],
+            "rightShoulder": [
+              0.435,
+              0.565
+            ],
+            "leftElbow": [
+              0.494,
+              0.652
+            ],
+            "rightElbow": [
+              0.427,
+              0.661
+            ],
+            "leftWrist": [
+              0.5,
+              0.7
+            ],
+            "rightWrist": [
+              0.453,
+              0.684
+            ],
+            "leftHip": [
+              0.481,
+              0.733
+            ],
+            "rightHip": [
+              0.452,
+              0.735
+            ],
+            "leftKnee": [
+              0.53,
+              0.79
+            ],
+            "rightKnee": [
+              0.466,
+              0.815
+            ],
+            "leftAnkle": [
+              0.516,
+              0.89
+            ],
+            "rightAnkle": [
+              0.45,
+              0.907
+            ]
+          }
+        }
+      ],
+      "actorVisibility": [
+        {
+          "actor": "A",
+          "start": 8.916666666666666,
+          "end": 9.63,
+          "visible": false,
+          "reason": "Exact source frame214 onward A has left image to left; suppress held previous detection."
+        }
+      ]
+    },
+    {
+      "id": "S16",
+      "start": 9.63,
+      "end": 10.17,
+      "dominant": "B",
+      "order": [
+        "B"
+      ],
+      "background": "hill",
+      "horizonY": 0.20666666666666667,
+      "skyline": [
+        [
+          0,
+          0.01
+        ],
+        [
+          0.24,
+          0.01
+        ],
+        [
+          0.45,
+          0.1
+        ],
+        [
+          0.66,
+          0.24
+        ],
+        [
+          0.84,
+          0.38
+        ],
+        [
+          1,
+          0.5
+        ]
+      ],
+      "groundY": 0.98,
+      "tombs": [],
+      "orientation": "source-camera screen plane; depth estimated",
+      "notes": "B waist-up, turned left guard.",
+      "manualKeyframes": []
+    },
+    {
+      "id": "S17",
+      "start": 10.17,
+      "end": 10.67,
+      "dominant": "A",
+      "order": [
+        "A"
+      ],
+      "background": "sky",
+      "horizonY": 0.6233333333333334,
+      "skyline": [
+        [
+          0,
+          0.53
+        ],
+        [
+          0.2,
+          0.58
+        ],
+        [
+          0.4,
+          0.64
+        ],
+        [
+          0.6,
+          0.72
+        ],
+        [
+          0.8,
+          0.66
+        ],
+        [
+          1,
+          0.61
+        ]
+      ],
+      "groundY": 0.71,
+      "tombs": [
+        [
+          0.92,
+          0.5,
+          0.08,
+          0.29
+        ]
+      ],
+      "orientation": "source-camera screen plane; depth estimated",
+      "notes": "A forward torso rotation and leg swings toward lens; lower body becomes large foreground.",
+      "manualKeyframes": []
+    },
+    {
+      "id": "S18",
+      "start": 10.67,
+      "end": 12.08,
+      "dominant": "B",
+      "order": [
+        "A",
+        "B"
+      ],
+      "background": "hill",
+      "horizonY": 0.145,
+      "skyline": [
+        [
+          0,
+          0.32
+        ],
+        [
+          0.2,
+          0.23
+        ],
+        [
+          0.4,
+          0.15
+        ],
+        [
+          0.6,
+          0.1
+        ],
+        [
+          0.8,
+          0.05
+        ],
+        [
+          1,
+          0.02
+        ]
+      ],
+      "groundY": 0.88,
+      "tombs": [],
+      "orientation": "source-camera screen plane; depth estimated",
+      "notes": "B right close-up; A leg enters left/bottom, other A body outside frame.",
+      "manualKeyframes": [
+        {
+          "t": 10.70833,
+          "actor": "A",
+          "mode": "fragment",
+          "visible": true,
+          "depth": "foreground",
+          "confidence": "manually estimated visible limb silhouette; left-right anatomical side partly uncertain",
+          "joints": {
+            "leftKnee": [
+              -0.1,
+              0.6
+            ],
+            "leftAnkle": [
+              0.31,
+              0.52
+            ],
+            "leftToe": [
+              0.39,
+              0.48
+            ]
+          }
+        },
+        {
+          "t": 11.04167,
+          "actor": "A",
+          "mode": "fragment",
+          "visible": true,
+          "depth": "foreground",
+          "confidence": "manually estimated visible limb silhouette; left-right anatomical side partly uncertain",
+          "joints": {
+            "leftKnee": [
+              -0.08,
+              0.57
+            ],
+            "leftAnkle": [
+              0.45,
+              0.65
+            ],
+            "leftToe": [
+              0.54,
+              0.45
+            ]
+          }
+        },
+        {
+          "t": 11.375,
+          "actor": "A",
+          "mode": "fragment",
+          "visible": true,
+          "depth": "foreground",
+          "confidence": "manually estimated visible limb silhouette; left-right anatomical side partly uncertain",
+          "joints": {
+            "leftKnee": [
+              0.11,
+              0.97
+            ],
+            "leftAnkle": [
+              0.77,
+              1.05
+            ],
+            "leftToe": [
+              0.91,
+              1.01
+            ]
+          }
+        },
+        {
+          "t": 11.70833,
+          "actor": "A",
+          "mode": "fragment",
+          "visible": true,
+          "depth": "foreground",
+          "confidence": "manually estimated visible limb silhouette; left-right anatomical side partly uncertain",
+          "joints": {
+            "leftKnee": [
+              -0.2,
+              0.98
+            ],
+            "leftAnkle": [
+              0.04,
+              0.76
+            ],
+            "leftToe": [
+              0.15,
+              0.6
+            ]
+          }
+        },
+        {
+          "t": 12.04167,
+          "actor": "A",
+          "mode": "fragment",
+          "visible": false,
+          "depth": "foreground",
+          "confidence": "manually estimated visible limb silhouette; left-right anatomical side partly uncertain",
+          "joints": {
+            "leftKnee": [
+              -0.25,
+              1.25
+            ],
+            "leftAnkle": [
+              -0.1,
+              1.18
+            ],
+            "leftToe": [
+              0.03,
+              1.1
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "S19",
+      "start": 12.08,
+      "end": 13.33,
+      "dominant": "B",
+      "order": [
+        "A",
+        "B"
+      ],
+      "background": "tomb",
+      "horizonY": 0.3116666666666667,
+      "skyline": [
+        [
+          0,
+          0.3
+        ],
+        [
+          0.2,
+          0.3
+        ],
+        [
+          0.4,
+          0.34
+        ],
+        [
+          0.6,
+          0.35
+        ],
+        [
+          0.8,
+          0.3
+        ],
+        [
+          1,
+          0.28
+        ]
+      ],
+      "groundY": 0.77,
+      "tombs": [
+        [
+          0.71,
+          0.56,
+          0.29,
+          0.43
+        ]
+      ],
+      "orientation": "source-camera screen plane; depth estimated",
+      "notes": "A left leg toward B right; B recoils backward, both below-waist cropped.",
+      "manualKeyframes": []
+    },
+    {
+      "id": "S20",
+      "start": 13.33,
+      "end": 14.71,
+      "dominant": "B",
+      "order": [
+        "B"
+      ],
+      "background": "hill",
+      "horizonY": 0.135,
+      "skyline": [
+        [
+          0,
+          0.15
+        ],
+        [
+          0.2,
+          0.13
+        ],
+        [
+          0.4,
+          0.16
+        ],
+        [
+          0.6,
+          0.17
+        ],
+        [
+          0.8,
+          0.11
+        ],
+        [
+          1,
+          0.09
+        ]
+      ],
+      "groundY": 0.9,
+      "tombs": [],
+      "orientation": "source-camera screen plane; depth estimated",
+      "notes": "B steps backward then guard; initial body partly left-cropped.",
+      "manualKeyframes": []
+    },
+    {
+      "id": "S21",
+      "start": 14.71,
+      "end": 15.29,
+      "dominant": "A",
+      "order": [
+        "A"
+      ],
+      "background": "tomb",
+      "horizonY": 0.235,
+      "skyline": [
+        [
+          0,
+          0.35
+        ],
+        [
+          0.2,
+          0.34
+        ],
+        [
+          0.4,
+          0.3
+        ],
+        [
+          0.6,
+          0.24
+        ],
+        [
+          0.8,
+          0.12
+        ],
+        [
+          1,
+          0.06
+        ]
+      ],
+      "groundY": 0.68,
+      "tombs": [
+        [
+          0.57,
+          0.46,
+          0.43,
+          0.48
+        ]
+      ],
+      "orientation": "source-camera screen plane; depth estimated",
+      "notes": "A waist-up guard centered, watching camera-right.",
+      "manualKeyframes": []
+    },
+    {
+      "id": "S22",
+      "start": 15.29,
+      "end": 16.08,
+      "dominant": "B",
+      "order": [
+        "B"
+      ],
+      "background": "hill",
+      "horizonY": 0.135,
+      "skyline": [
+        [
+          0,
+          0.15
+        ],
+        [
+          0.2,
+          0.13
+        ],
+        [
+          0.4,
+          0.16
+        ],
+        [
+          0.6,
+          0.17
+        ],
+        [
+          0.8,
+          0.11
+        ],
+        [
+          1,
+          0.09
+        ]
+      ],
+      "groundY": 0.88,
+      "tombs": [],
+      "orientation": "source-camera screen plane; depth estimated",
+      "notes": "B three-quarter body approaches.",
+      "manualKeyframes": []
+    },
+    {
+      "id": "S23",
+      "start": 16.08,
+      "end": 16.63,
+      "dominant": "A",
+      "order": [
+        "A"
+      ],
+      "background": "tomb",
+      "horizonY": 0.235,
+      "skyline": [
+        [
+          0,
+          0.35
+        ],
+        [
+          0.2,
+          0.34
+        ],
+        [
+          0.4,
+          0.3
+        ],
+        [
+          0.6,
+          0.24
+        ],
+        [
+          0.8,
+          0.12
+        ],
+        [
+          1,
+          0.06
+        ]
+      ],
+      "groundY": 0.75,
+      "tombs": [
+        [
+          0.57,
+          0.46,
+          0.43,
+          0.48
+        ]
+      ],
+      "orientation": "source-camera screen plane; depth estimated",
+      "notes": "A fists near lens; large head/torso.",
+      "manualKeyframes": []
+    },
+    {
+      "id": "S24",
+      "start": 16.63,
+      "end": 17.46,
+      "dominant": "A",
+      "order": [
+        "A",
+        "B"
+      ],
+      "background": "tomb",
+      "horizonY": 0.135,
+      "skyline": [
+        [
+          0,
+          0.15
+        ],
+        [
+          0.2,
+          0.13
+        ],
+        [
+          0.4,
+          0.16
+        ],
+        [
+          0.6,
+          0.17
+        ],
+        [
+          0.8,
+          0.11
+        ],
+        [
+          1,
+          0.09
+        ]
+      ],
+      "groundY": 0.77,
+      "tombs": [
+        [
+          0,
+          0.34,
+          0.24,
+          0.43
+        ]
+      ],
+      "orientation": "source-camera screen plane; depth estimated",
+      "notes": "A left airborne moving toward B right; B stays grounded.",
+      "manualKeyframes": [
+        {
+          "t": 16.66667,
+          "actor": "A",
+          "mode": "replace",
+          "scope": "fullbody",
+          "visible": true,
+          "confidence": "manual acrobatic silhouette approximation; occluded joints and anatomical sides inferred",
+          "joints": {
+            "nose": [
+              0.258,
+              0.422
+            ],
+            "leftEye": [
+              0.2657,
+              0.4185
+            ],
+            "rightEye": [
+              0.2503,
+              0.4185
+            ],
+            "leftEar": [
+              0.27585,
+              0.42375
+            ],
+            "rightEar": [
+              0.24015,
+              0.42375
+            ],
+            "leftShoulder": [
+              0.27,
+              0.476
+            ],
+            "rightShoulder": [
+              0.241,
+              0.478
+            ],
+            "leftElbow": [
+              0.295,
+              0.547
+            ],
+            "rightElbow": [
+              0.228,
+              0.564
+            ],
+            "leftWrist": [
+              0.32,
+              0.541
+            ],
+            "rightWrist": [
+              0.224,
+              0.561
+            ],
+            "leftHip": [
+              0.294,
+              0.658
+            ],
+            "rightHip": [
+              0.255,
+              0.654
+            ],
+            "leftKnee": [
+              0.318,
+              0.773
+            ],
+            "rightKnee": [
+              0.214,
+              0.764
+            ],
+            "leftAnkle": [
+              0.332,
+              0.867
+            ],
+            "rightAnkle": [
+              0.225,
+              0.845
+            ]
+          }
+        },
+        {
+          "t": 16.83333,
+          "actor": "A",
+          "mode": "replace",
+          "scope": "fullbody",
+          "visible": true,
+          "confidence": "manual acrobatic silhouette approximation; occluded joints and anatomical sides inferred",
+          "joints": {
+            "nose": [
+              0.31,
+              0.302
+            ],
+            "leftEye": [
+              0.3177,
+              0.2985
+            ],
+            "rightEye": [
+              0.3023,
+              0.2985
+            ],
+            "leftEar": [
+              0.32785,
+              0.30375
+            ],
+            "rightEar": [
+              0.29215,
+              0.30375
+            ],
+            "leftShoulder": [
+              0.332,
+              0.358
+            ],
+            "rightShoulder": [
+              0.302,
+              0.337
+            ],
+            "leftElbow": [
+              0.369,
+              0.318
+            ],
+            "rightElbow": [
+              0.276,
+              0.407
+            ],
+            "leftWrist": [
+              0.389,
+              0.277
+            ],
+            "rightWrist": [
+              0.304,
+              0.484
+            ],
+            "leftHip": [
+              0.338,
+              0.517
+            ],
+            "rightHip": [
+              0.308,
+              0.517
+            ],
+            "leftKnee": [
+              0.391,
+              0.51
+            ],
+            "rightKnee": [
+              0.332,
+              0.658
+            ],
+            "leftAnkle": [
+              0.43,
+              0.584
+            ],
+            "rightAnkle": [
+              0.333,
+              0.778
+            ]
+          }
+        },
+        {
+          "t": 17.04167,
+          "actor": "A",
+          "mode": "replace",
+          "scope": "fullbody",
+          "visible": true,
+          "confidence": "manual acrobatic silhouette approximation; occluded joints and anatomical sides inferred",
+          "joints": {
+            "nose": [
+              0.342,
+              0.301
+            ],
+            "leftEye": [
+              0.34773,
+              0.29478
+            ],
+            "rightEye": [
+              0.33354,
+              0.30077
+            ],
+            "leftEar": [
+              0.35912,
+              0.29566
+            ],
+            "rightEar": [
+              0.32624,
+              0.30956
+            ],
+            "leftShoulder": [
+              0.36,
+              0.365
+            ],
+            "rightShoulder": [
+              0.32,
+              0.375
+            ],
+            "leftElbow": [
+              0.38,
+              0.4
+            ],
+            "rightElbow": [
+              0.287,
+              0.445
+            ],
+            "leftWrist": [
+              0.43,
+              0.399
+            ],
+            "rightWrist": [
+              0.254,
+              0.411
+            ],
+            "leftHip": [
+              0.422,
+              0.473
+            ],
+            "rightHip": [
+              0.394,
+              0.46
+            ],
+            "leftKnee": [
+              0.491,
+              0.375
+            ],
+            "rightKnee": [
+              0.451,
+              0.527
+            ],
+            "leftAnkle": [
+              0.564,
+              0.354
+            ],
+            "rightAnkle": [
+              0.487,
+              0.484
+            ],
+            "leftToe": [
+              0.593,
+              0.351
+            ],
+            "rightToe": [
+              0.5,
+              0.449
+            ]
+          }
+        },
+        {
+          "t": 17.25,
+          "actor": "A",
+          "mode": "replace",
+          "scope": "fullbody",
+          "visible": true,
+          "confidence": "manual acrobatic silhouette approximation; occluded joints and anatomical sides inferred",
+          "joints": {
+            "nose": [
+              0.385,
+              0.385
+            ],
+            "leftEye": [
+              0.38785,
+              0.37704
+            ],
+            "rightEye": [
+              0.37712,
+              0.38809
+            ],
+            "leftEar": [
+              0.39869,
+              0.37341
+            ],
+            "rightEar": [
+              0.37382,
+              0.39902
+            ],
+            "leftShoulder": [
+              0.425,
+              0.41
+            ],
+            "rightShoulder": [
+              0.401,
+              0.433
+            ],
+            "leftElbow": [
+              0.444,
+              0.297
+            ],
+            "rightElbow": [
+              0.361,
+              0.453
+            ],
+            "leftWrist": [
+              0.426,
+              0.237
+            ],
+            "rightWrist": [
+              0.353,
+              0.382
+            ],
+            "leftHip": [
+              0.494,
+              0.483
+            ],
+            "rightHip": [
+              0.464,
+              0.493
+            ],
+            "leftKnee": [
+              0.546,
+              0.448
+            ],
+            "rightKnee": [
+              0.488,
+              0.532
+            ],
+            "leftAnkle": [
+              0.589,
+              0.417
+            ],
+            "rightAnkle": [
+              0.526,
+              0.522
+            ],
+            "leftToe": [
+              0.604,
+              0.388
+            ],
+            "rightToe": [
+              0.547,
+              0.503
+            ]
+          }
+        },
+        {
+          "t": 17.41667,
+          "actor": "A",
+          "mode": "replace",
+          "scope": "fullbody",
+          "visible": true,
+          "confidence": "manual acrobatic silhouette approximation; occluded joints and anatomical sides inferred",
+          "joints": {
+            "nose": [
+              0.432,
+              0.382
+            ],
+            "leftEye": [
+              0.43485,
+              0.37404
+            ],
+            "rightEye": [
+              0.42412,
+              0.38509
+            ],
+            "leftEar": [
+              0.44569,
+              0.37041
+            ],
+            "rightEar": [
+              0.42082,
+              0.39602
+            ],
+            "leftShoulder": [
+              0.47,
+              0.426
+            ],
+            "rightShoulder": [
+              0.446,
+              0.446
+            ],
+            "leftElbow": [
+              0.507,
+              0.357
+            ],
+            "rightElbow": [
+              0.416,
+              0.497
+            ],
+            "leftWrist": [
+              0.501,
+              0.321
+            ],
+            "rightWrist": [
+              0.402,
+              0.426
+            ],
+            "leftHip": [
+              0.536,
+              0.5
+            ],
+            "rightHip": [
+              0.499,
+              0.531
+            ],
+            "leftKnee": [
+              0.574,
+              0.414
+            ],
+            "rightKnee": [
+              0.55,
+              0.562
+            ],
+            "leftAnkle": [
+              0.62,
+              0.395
+            ],
+            "rightAnkle": [
+              0.589,
+              0.503
+            ],
+            "leftToe": [
+              0.633,
+              0.383
+            ],
+            "rightToe": [
+              0.61,
+              0.483
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "S25",
+      "start": 17.46,
+      "end": 18.67,
+      "dominant": "B",
+      "order": [
+        "A",
+        "B"
+      ],
+      "background": "hill",
+      "horizonY": 0.135,
+      "skyline": [
+        [
+          0,
+          0.15
+        ],
+        [
+          0.2,
+          0.13
+        ],
+        [
+          0.4,
+          0.16
+        ],
+        [
+          0.6,
+          0.17
+        ],
+        [
+          0.8,
+          0.11
+        ],
+        [
+          1,
+          0.09
+        ]
+      ],
+      "groundY": 0.76,
+      "tombs": [],
+      "orientation": "source-camera screen plane; depth estimated",
+      "notes": "A only white shoe and brown lower leg enter left; B falls down out of right frame.",
+      "manualKeyframes": [
+        {
+          "t": 17.5,
+          "actor": "A",
+          "mode": "fragment",
+          "visible": true,
+          "depth": "foreground",
+          "confidence": "manually estimated visible limb silhouette; left-right anatomical side partly uncertain",
+          "joints": {
+            "leftKnee": [
+              -0.07,
+              0.38
+            ],
+            "leftAnkle": [
+              0.37,
+              0.5
+            ],
+            "leftToe": [
+              0.47,
+              0.54
+            ]
+          }
+        },
+        {
+          "t": 17.79167,
+          "actor": "A",
+          "mode": "fragment",
+          "visible": true,
+          "depth": "foreground",
+          "confidence": "manually estimated visible limb silhouette; left-right anatomical side partly uncertain",
+          "joints": {
+            "leftKnee": [
+              -0.17,
+              0.69
+            ],
+            "leftAnkle": [
+              0.03,
+              0.75
+            ],
+            "leftToe": [
+              0.19,
+              0.81
+            ]
+          }
+        },
+        {
+          "t": 18.0,
+          "actor": "A",
+          "mode": "fragment",
+          "visible": false,
+          "depth": "foreground",
+          "confidence": "manually estimated visible limb silhouette; left-right anatomical side partly uncertain",
+          "joints": {
+            "leftKnee": [
+              -0.25,
+              0.82
+            ],
+            "leftAnkle": [
+              -0.12,
+              0.83
+            ],
+            "leftToe": [
+              -0.03,
+              0.88
+            ]
+          }
+        },
+        {
+          "t": 18.625,
+          "actor": "A",
+          "mode": "fragment",
+          "visible": false,
+          "depth": "foreground",
+          "confidence": "manually estimated visible limb silhouette; left-right anatomical side partly uncertain",
+          "joints": {
+            "leftKnee": [
+              -0.25,
+              0.82
+            ],
+            "leftAnkle": [
+              -0.12,
+              0.83
+            ],
+            "leftToe": [
+              -0.03,
+              0.88
+            ]
+          }
+        },
+        {
+          "t": 17.5,
+          "actor": "B",
+          "mode": "replace",
+          "scope": "fullbody",
+          "visible": true,
+          "confidence": "manual falling/rolling silhouette; head obscured nearground on last frames, anatomy inferred",
+          "joints": {
+            "nose": [
+              0.663,
+              0.259
+            ],
+            "leftEye": [
+              0.6927,
+              0.2455
+            ],
+            "rightEye": [
+              0.6333,
+              0.2455
+            ],
+            "leftEar": [
+              0.73185,
+              0.26575
+            ],
+            "rightEar": [
+              0.59415,
+              0.26575
+            ],
+            "leftShoulder": [
+              0.728,
+              0.425
+            ],
+            "rightShoulder": [
+              0.527,
+              0.435
+            ],
+            "leftElbow": [
+              0.617,
+              0.728
+            ],
+            "rightElbow": [
+              0.365,
+              0.442
+            ],
+            "leftWrist": [
+              0.377,
+              0.685
+            ],
+            "rightWrist": [
+              0.412,
+              0.505
+            ],
+            "leftHip": [
+              0.681,
+              0.98
+            ],
+            "rightHip": [
+              0.51,
+              0.946
+            ],
+            "leftKnee": [
+              0.674,
+              1.5
+            ],
+            "rightKnee": [
+              0.5,
+              1.47
+            ],
+            "leftAnkle": [
+              0.67,
+              2.04
+            ],
+            "rightAnkle": [
+              0.49,
+              2.0
+            ]
+          }
+        },
+        {
+          "t": 17.791666666666668,
+          "actor": "B",
+          "mode": "replace",
+          "scope": "fullbody",
+          "visible": true,
+          "confidence": "manual falling/rolling silhouette; head obscured nearground on last frames, anatomy inferred",
+          "joints": {
+            "nose": [
+              0.935,
+              0.537
+            ],
+            "leftEye": [
+              0.96137,
+              0.53364
+            ],
+            "rightEye": [
+              0.91513,
+              0.51934
+            ],
+            "leftEar": [
+              0.98697,
+              0.55883
+            ],
+            "rightEar": [
+              0.87978,
+              0.52568
+            ],
+            "leftShoulder": [
+              0.982,
+              0.714
+            ],
+            "rightShoulder": [
+              0.827,
+              0.651
+            ],
+            "leftElbow": [
+              1.06,
+              0.93
+            ],
+            "rightElbow": [
+              0.627,
+              0.434
+            ],
+            "leftWrist": [
+              1.0,
+              1.15
+            ],
+            "rightWrist": [
+              0.478,
+              0.393
+            ],
+            "leftHip": [
+              1.08,
+              1.11
+            ],
+            "rightHip": [
+              0.895,
+              1.087
+            ],
+            "leftKnee": [
+              1.07,
+              1.65
+            ],
+            "rightKnee": [
+              0.88,
+              1.61
+            ],
+            "leftAnkle": [
+              1.03,
+              2.15
+            ],
+            "rightAnkle": [
+              0.83,
+              2.12
+            ]
+          }
+        },
+        {
+          "t": 18.083333333333332,
+          "actor": "B",
+          "mode": "replace",
+          "scope": "fullbody",
+          "visible": true,
+          "confidence": "manual falling/rolling silhouette; head obscured nearground on last frames, anatomy inferred",
+          "joints": {
+            "nose": [
+              0.577,
+              0.702
+            ],
+            "leftEye": [
+              0.58679,
+              0.69491
+            ],
+            "rightEye": [
+              0.56523,
+              0.69929
+            ],
+            "leftEar": [
+              0.60249,
+              0.69938
+            ],
+            "rightEar": [
+              0.5525,
+              0.70952
+            ],
+            "leftShoulder": [
+              0.555,
+              0.8
+            ],
+            "rightShoulder": [
+              0.52,
+              0.836
+            ],
+            "leftElbow": [
+              0.57,
+              0.886
+            ],
+            "rightElbow": [
+              0.527,
+              0.896
+            ],
+            "leftWrist": [
+              0.54,
+              0.929
+            ],
+            "rightWrist": [
+              0.49,
+              0.914
+            ],
+            "leftHip": [
+              0.459,
+              0.777
+            ],
+            "rightHip": [
+              0.408,
+              0.786
+            ],
+            "leftKnee": [
+              0.439,
+              0.44
+            ],
+            "rightKnee": [
+              0.374,
+              0.438
+            ],
+            "leftAnkle": [
+              0.465,
+              0.092
+            ],
+            "rightAnkle": [
+              0.385,
+              0.066
+            ]
+          }
+        },
+        {
+          "t": 18.333333333333332,
+          "actor": "B",
+          "mode": "replace",
+          "scope": "fullbody",
+          "visible": true,
+          "confidence": "manual falling/rolling silhouette; head obscured nearground on last frames, anatomy inferred",
+          "joints": {
+            "nose": [
+              0.408,
+              0.787
+            ],
+            "leftEye": [
+              0.41556,
+              0.79303
+            ],
+            "rightEye": [
+              0.40757,
+              0.77734
+            ],
+            "leftEar": [
+              0.41547,
+              0.80609
+            ],
+            "rightEar": [
+              0.39696,
+              0.76973
+            ],
+            "leftShoulder": [
+              0.45,
+              0.783
+            ],
+            "rightShoulder": [
+              0.453,
+              0.827
+            ],
+            "leftElbow": [
+              0.488,
+              0.87
+            ],
+            "rightElbow": [
+              0.423,
+              0.842
+            ],
+            "leftWrist": [
+              0.533,
+              0.885
+            ],
+            "rightWrist": [
+              0.485,
+              0.878
+            ],
+            "leftHip": [
+              0.482,
+              0.65
+            ],
+            "rightHip": [
+              0.52,
+              0.661
+            ],
+            "leftKnee": [
+              0.592,
+              0.642
+            ],
+            "rightKnee": [
+              0.518,
+              0.537
+            ],
+            "leftAnkle": [
+              0.705,
+              0.529
+            ],
+            "rightAnkle": [
+              0.554,
+              0.441
+            ]
+          }
+        },
+        {
+          "t": 18.625,
+          "actor": "B",
+          "mode": "replace",
+          "scope": "fullbody",
+          "visible": true,
+          "confidence": "manual falling/rolling silhouette; head obscured nearground on last frames, anatomy inferred",
+          "joints": {
+            "nose": [
+              0.561,
+              0.824
+            ],
+            "leftEye": [
+              0.56705,
+              0.82991
+            ],
+            "rightEye": [
+              0.56147,
+              0.81556
+            ],
+            "leftEar": [
+              0.56584,
+              0.84127
+            ],
+            "rightEar": [
+              0.5529,
+              0.808
+            ],
+            "leftShoulder": [
+              0.531,
+              0.795
+            ],
+            "rightShoulder": [
+              0.5,
+              0.825
+            ],
+            "leftElbow": [
+              0.57,
+              0.879
+            ],
+            "rightElbow": [
+              0.469,
+              0.865
+            ],
+            "leftWrist": [
+              0.594,
+              0.898
+            ],
+            "rightWrist": [
+              0.517,
+              0.902
+            ],
+            "leftHip": [
+              0.519,
+              0.614
+            ],
+            "rightHip": [
+              0.473,
+              0.646
+            ],
+            "leftKnee": [
+              0.649,
+              0.631
+            ],
+            "rightKnee": [
+              0.589,
+              0.72
+            ],
+            "leftAnkle": [
+              0.731,
+              0.633
+            ],
+            "rightAnkle": [
+              0.646,
+              0.807
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "S26",
+      "start": 18.67,
+      "end": 18.96,
+      "dominant": "A",
+      "order": [
+        "A"
+      ],
+      "background": "sky",
+      "horizonY": 0.9183333333333333,
+      "skyline": [
+        [
+          0,
+          0.88
+        ],
+        [
+          0.2,
+          0.9
+        ],
+        [
+          0.4,
+          0.91
+        ],
+        [
+          0.6,
+          0.95
+        ],
+        [
+          0.8,
+          0.92
+        ],
+        [
+          1,
+          0.95
+        ]
+      ],
+      "groundY": 0.98,
+      "tombs": [],
+      "orientation": "source-camera screen plane; depth estimated",
+      "notes": "Exact 5-frame audit: only A torso/head is visible; blue B absent from image. Suppress phantom second person and assign main detection to A.",
+      "manualKeyframes": [
+        {
+          "t": 18.666667,
+          "actor": "B",
+          "mode": "fragment",
+          "visible": false,
+          "joints": {},
+          "confidence": "outside source image"
+        },
+        {
+          "t": 18.958333,
+          "actor": "B",
+          "mode": "fragment",
+          "visible": false,
+          "joints": {},
+          "confidence": "outside source image"
+        }
+      ]
+    },
+    {
+      "id": "S27",
+      "start": 18.96,
+      "end": 19.46,
+      "dominant": "B",
+      "order": [
+        "B"
+      ],
+      "background": "ground",
+      "horizonY": -0.15,
+      "skyline": [
+        [
+          0,
+          -0.15
+        ],
+        [
+          0.2,
+          -0.15
+        ],
+        [
+          0.4,
+          -0.15
+        ],
+        [
+          0.6,
+          -0.15
+        ],
+        [
+          0.8,
+          -0.15
+        ],
+        [
+          1,
+          -0.15
+        ]
+      ],
+      "groundY": 0,
+      "tombs": [],
+      "orientation": "source-camera screen plane; depth estimated",
+      "notes": "Camera looks down at B lying on straw; no sky or horizon.",
+      "manualKeyframes": []
+    },
+    {
+      "id": "S28",
+      "start": 19.46,
+      "end": 20.33,
+      "dominant": "B",
+      "order": [
+        "A",
+        "B"
+      ],
+      "background": "hill",
+      "horizonY": 0.135,
+      "skyline": [
+        [
+          0,
+          0.15
+        ],
+        [
+          0.2,
+          0.13
+        ],
+        [
+          0.4,
+          0.16
+        ],
+        [
+          0.6,
+          0.17
+        ],
+        [
+          0.8,
+          0.11
+        ],
+        [
+          1,
+          0.09
+        ]
+      ],
+      "groundY": 0.79,
+      "tombs": [],
+      "orientation": "source-camera screen plane; depth estimated",
+      "notes": "A left stands/chases; B right rotates horizontally around planted hand then flies.",
+      "manualKeyframes": [
+        {
+          "t": 19.5,
+          "actor": "B",
+          "mode": "replace",
+          "scope": "fullbody",
+          "visible": true,
+          "confidence": "manual source silhouette; obscured joints and anatomical side approximate",
+          "joints": {
+            "nose": [
+              0.769,
+              0.909
+            ],
+            "leftEye": [
+              0.76706,
+              0.91523
+            ],
+            "rightEye": [
+              0.77497,
+              0.90637
+            ],
+            "leftEar": [
+              0.75882,
+              0.91837
+            ],
+            "rightEar": [
+              0.77717,
+              0.89783
+            ],
+            "leftShoulder": [
+              0.735,
+              0.854
+            ],
+            "rightShoulder": [
+              0.707,
+              0.874
+            ],
+            "leftElbow": [
+              0.813,
+              0.786
+            ],
+            "rightElbow": [
+              0.644,
+              0.851
+            ],
+            "leftWrist": [
+              0.831,
+              0.729
+            ],
+            "rightWrist": [
+              0.615,
+              0.837
+            ],
+            "leftHip": [
+              0.64,
+              0.766
+            ],
+            "rightHip": [
+              0.615,
+              0.791
+            ],
+            "leftKnee": [
+              0.596,
+              0.659
+            ],
+            "rightKnee": [
+              0.553,
+              0.721
+            ],
+            "leftAnkle": [
+              0.541,
+              0.763
+            ],
+            "rightAnkle": [
+              0.521,
+              0.803
+            ]
+          }
+        },
+        {
+          "t": 19.70833,
+          "actor": "B",
+          "mode": "replace",
+          "scope": "fullbody",
+          "visible": true,
+          "confidence": "manual source silhouette; obscured joints and anatomical side approximate",
+          "joints": {
+            "nose": [
+              0.708,
+              0.409
+            ],
+            "leftEye": [
+              0.71441,
+              0.40683
+            ],
+            "rightEye": [
+              0.70215,
+              0.4056
+            ],
+            "leftEar": [
+              0.72207,
+              0.41182
+            ],
+            "rightEar": [
+              0.69365,
+              0.40897
+            ],
+            "leftShoulder": [
+              0.695,
+              0.476
+            ],
+            "rightShoulder": [
+              0.72,
+              0.478
+            ],
+            "leftElbow": [
+              0.658,
+              0.508
+            ],
+            "rightElbow": [
+              0.671,
+              0.563
+            ],
+            "leftWrist": [
+              0.599,
+              0.5
+            ],
+            "rightWrist": [
+              0.626,
+              0.547
+            ],
+            "leftHip": [
+              0.678,
+              0.646
+            ],
+            "rightHip": [
+              0.646,
+              0.648
+            ],
+            "leftKnee": [
+              0.596,
+              0.708
+            ],
+            "rightKnee": [
+              0.587,
+              0.739
+            ],
+            "leftAnkle": [
+              0.608,
+              0.858
+            ],
+            "rightAnkle": [
+              0.585,
+              0.839
+            ]
+          }
+        },
+        {
+          "t": 19.91667,
+          "actor": "B",
+          "mode": "replace",
+          "scope": "fullbody",
+          "visible": true,
+          "confidence": "manual source silhouette; obscured joints and anatomical side approximate",
+          "joints": {
+            "nose": [
+              0.592,
+              0.335
+            ],
+            "leftEye": [
+              0.59816,
+              0.3322
+            ],
+            "rightEye": [
+              0.58584,
+              0.3322
+            ],
+            "leftEar": [
+              0.60628,
+              0.3364
+            ],
+            "rightEar": [
+              0.57772,
+              0.3364
+            ],
+            "leftShoulder": [
+              0.596,
+              0.421
+            ],
+            "rightShoulder": [
+              0.62,
+              0.404
+            ],
+            "leftElbow": [
+              0.539,
+              0.467
+            ],
+            "rightElbow": [
+              0.606,
+              0.495
+            ],
+            "leftWrist": [
+              0.517,
+              0.451
+            ],
+            "rightWrist": [
+              0.631,
+              0.579
+            ],
+            "leftHip": [
+              0.625,
+              0.607
+            ],
+            "rightHip": [
+              0.655,
+              0.592
+            ],
+            "leftKnee": [
+              0.629,
+              0.752
+            ],
+            "rightKnee": [
+              0.65,
+              0.775
+            ],
+            "leftAnkle": [
+              0.684,
+              0.843
+            ],
+            "rightAnkle": [
+              0.715,
+              0.797
+            ]
+          }
+        },
+        {
+          "t": 20.08333,
+          "actor": "B",
+          "mode": "replace",
+          "scope": "fullbody",
+          "visible": true,
+          "confidence": "manual source silhouette; obscured joints and anatomical side approximate",
+          "joints": {
+            "nose": [
+              0.539,
+              0.375
+            ],
+            "leftEye": [
+              0.54428,
+              0.37076
+            ],
+            "rightEye": [
+              0.53234,
+              0.37381
+            ],
+            "leftEar": [
+              0.55318,
+              0.37282
+            ],
+            "rightEar": [
+              0.52551,
+              0.37989
+            ],
+            "leftShoulder": [
+              0.546,
+              0.466
+            ],
+            "rightShoulder": [
+              0.568,
+              0.453
+            ],
+            "leftElbow": [
+              0.49,
+              0.466
+            ],
+            "rightElbow": [
+              0.526,
+              0.502
+            ],
+            "leftWrist": [
+              0.468,
+              0.474
+            ],
+            "rightWrist": [
+              0.48,
+              0.472
+            ],
+            "leftHip": [
+              0.623,
+              0.621
+            ],
+            "rightHip": [
+              0.642,
+              0.6
+            ],
+            "leftKnee": [
+              0.641,
+              0.753
+            ],
+            "rightKnee": [
+              0.713,
+              0.751
+            ],
+            "leftAnkle": [
+              0.697,
+              0.844
+            ],
+            "rightAnkle": [
+              0.781,
+              0.683
+            ]
+          }
+        },
+        {
+          "t": 20.29167,
+          "actor": "B",
+          "mode": "replace",
+          "scope": "fullbody",
+          "visible": true,
+          "confidence": "manual source silhouette; obscured joints and anatomical side approximate",
+          "joints": {
+            "nose": [
+              0.516,
+              0.397
+            ],
+            "leftEye": [
+              0.52128,
+              0.39276
+            ],
+            "rightEye": [
+              0.50934,
+              0.39581
+            ],
+            "leftEar": [
+              0.53018,
+              0.39482
+            ],
+            "rightEar": [
+              0.50251,
+              0.40189
+            ],
+            "leftShoulder": [
+              0.535,
+              0.48
+            ],
+            "rightShoulder": [
+              0.55,
+              0.451
+            ],
+            "leftElbow": [
+              0.486,
+              0.47
+            ],
+            "rightElbow": [
+              0.512,
+              0.515
+            ],
+            "leftWrist": [
+              0.455,
+              0.458
+            ],
+            "rightWrist": [
+              0.478,
+              0.489
+            ],
+            "leftHip": [
+              0.631,
+              0.636
+            ],
+            "rightHip": [
+              0.647,
+              0.599
+            ],
+            "leftKnee": [
+              0.674,
+              0.768
+            ],
+            "rightKnee": [
+              0.735,
+              0.694
+            ],
+            "leftAnkle": [
+              0.732,
+              0.836
+            ],
+            "rightAnkle": [
+              0.782,
+              0.575
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "S29",
+      "start": 20.33,
+      "end": 20.83,
+      "dominant": "A",
+      "order": [
+        "A",
+        "B"
+      ],
+      "background": "sky",
+      "horizonY": 0.145,
+      "skyline": [
+        [
+          0,
+          0.32
+        ],
+        [
+          0.2,
+          0.23
+        ],
+        [
+          0.4,
+          0.15
+        ],
+        [
+          0.6,
+          0.1
+        ],
+        [
+          0.8,
+          0.05
+        ],
+        [
+          1,
+          0.02
+        ]
+      ],
+      "groundY": 0.94,
+      "tombs": [],
+      "orientation": "source-camera screen plane; depth estimated",
+      "notes": "A upper torso centered; B foreground arm enters right.",
+      "manualKeyframes": [
+        {
+          "t": 20.375,
+          "actor": "B",
+          "mode": "fragment",
+          "visible": true,
+          "depth": "foreground",
+          "confidence": "manually estimated visible limb silhouette; left-right anatomical side partly uncertain",
+          "joints": {
+            "rightShoulder": [
+              1.12,
+              0.52
+            ],
+            "rightElbow": [
+              0.8,
+              0.63
+            ],
+            "rightWrist": [
+              0.47,
+              0.51
+            ]
+          }
+        },
+        {
+          "t": 20.5,
+          "actor": "B",
+          "mode": "fragment",
+          "visible": true,
+          "depth": "foreground",
+          "confidence": "manually estimated visible limb silhouette; left-right anatomical side partly uncertain",
+          "joints": {
+            "rightShoulder": [
+              1.1,
+              0.41
+            ],
+            "rightElbow": [
+              0.73,
+              0.67
+            ],
+            "rightWrist": [
+              0.43,
+              0.49
+            ]
+          }
+        },
+        {
+          "t": 20.58333,
+          "actor": "B",
+          "mode": "fragment",
+          "visible": true,
+          "depth": "foreground",
+          "confidence": "manually estimated visible limb silhouette; left-right anatomical side partly uncertain",
+          "joints": {
+            "rightShoulder": [
+              1.1,
+              0.6
+            ],
+            "rightElbow": [
+              0.78,
+              0.76
+            ],
+            "rightWrist": [
+              0.44,
+              0.76
+            ]
+          }
+        },
+        {
+          "t": 20.66667,
+          "actor": "B",
+          "mode": "fragment",
+          "visible": false,
+          "depth": "foreground",
+          "confidence": "manually estimated visible limb silhouette; left-right anatomical side partly uncertain",
+          "joints": {
+            "rightShoulder": [
+              1.3,
+              0.85
+            ],
+            "rightElbow": [
+              1.12,
+              0.9
+            ],
+            "rightWrist": [
+              1.02,
+              0.96
+            ]
+          }
+        },
+        {
+          "t": 20.79167,
+          "actor": "B",
+          "mode": "fragment",
+          "visible": false,
+          "depth": "foreground",
+          "confidence": "manually estimated visible limb silhouette; left-right anatomical side partly uncertain",
+          "joints": {
+            "rightShoulder": [
+              1.3,
+              0.85
+            ],
+            "rightElbow": [
+              1.12,
+              0.9
+            ],
+            "rightWrist": [
+              1.02,
+              0.96
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "S30",
+      "start": 20.83,
+      "end": 22.42,
+      "dominant": "B",
+      "order": [
+        "A",
+        "B"
+      ],
+      "background": "tomb",
+      "horizonY": 0.3116666666666667,
+      "skyline": [
+        [
+          0,
+          0.3
+        ],
+        [
+          0.2,
+          0.3
+        ],
+        [
+          0.4,
+          0.34
+        ],
+        [
+          0.6,
+          0.35
+        ],
+        [
+          0.8,
+          0.3
+        ],
+        [
+          1,
+          0.28
+        ]
+      ],
+      "groundY": 0.89,
+      "tombs": [
+        [
+          0,
+          0.54,
+          0.14,
+          0.33
+        ]
+      ],
+      "orientation": "source-camera screen plane; depth estimated",
+      "notes": "A left upright; B right hand supports at ground, head stays above; leg sweeps left.",
+      "manualKeyframes": [
+        {
+          "t": 20.875,
+          "actor": "B",
+          "mode": "replace",
+          "scope": "fullbody",
+          "visible": true,
+          "confidence": "manual acrobatic silhouette approximation; occluded joints and anatomical sides inferred",
+          "joints": {
+            "nose": [
+              0.535,
+              0.563
+            ],
+            "leftEye": [
+              0.54226,
+              0.5597
+            ],
+            "rightEye": [
+              0.52774,
+              0.5597
+            ],
+            "leftEar": [
+              0.55183,
+              0.56465
+            ],
+            "rightEar": [
+              0.51817,
+              0.56465
+            ],
+            "leftShoulder": [
+              0.55,
+              0.633
+            ],
+            "rightShoulder": [
+              0.53,
+              0.639
+            ],
+            "leftElbow": [
+              0.613,
+              0.654
+            ],
+            "rightElbow": [
+              0.5,
+              0.692
+            ],
+            "leftWrist": [
+              0.671,
+              0.728
+            ],
+            "rightWrist": [
+              0.47,
+              0.636
+            ],
+            "leftHip": [
+              0.581,
+              0.791
+            ],
+            "rightHip": [
+              0.553,
+              0.79
+            ],
+            "leftKnee": [
+              0.608,
+              0.851
+            ],
+            "rightKnee": [
+              0.531,
+              0.859
+            ],
+            "leftAnkle": [
+              0.634,
+              0.906
+            ],
+            "rightAnkle": [
+              0.52,
+              0.916
+            ]
+          }
+        },
+        {
+          "t": 21.25,
+          "actor": "B",
+          "mode": "replace",
+          "scope": "fullbody",
+          "visible": true,
+          "confidence": "manual acrobatic silhouette approximation; occluded joints and anatomical sides inferred",
+          "joints": {
+            "nose": [
+              0.692,
+              0.705
+            ],
+            "leftEye": [
+              0.69943,
+              0.70791
+            ],
+            "rightEye": [
+              0.68931,
+              0.69749
+            ],
+            "leftEar": [
+              0.70254,
+              0.71822
+            ],
+            "rightEar": [
+              0.67909,
+              0.69408
+            ],
+            "leftShoulder": [
+              0.66,
+              0.755
+            ],
+            "rightShoulder": [
+              0.65,
+              0.695
+            ],
+            "leftElbow": [
+              0.694,
+              0.811
+            ],
+            "rightElbow": [
+              0.609,
+              0.788
+            ],
+            "leftWrist": [
+              0.692,
+              0.892
+            ],
+            "rightWrist": [
+              0.671,
+              0.889
+            ],
+            "leftHip": [
+              0.578,
+              0.767
+            ],
+            "rightHip": [
+              0.571,
+              0.727
+            ],
+            "leftKnee": [
+              0.597,
+              0.86
+            ],
+            "rightKnee": [
+              0.56,
+              0.826
+            ],
+            "leftAnkle": [
+              0.667,
+              0.891
+            ],
+            "rightAnkle": [
+              0.613,
+              0.893
+            ]
+          }
+        },
+        {
+          "t": 21.625,
+          "actor": "B",
+          "mode": "replace",
+          "scope": "fullbody",
+          "visible": true,
+          "confidence": "manual acrobatic silhouette approximation; occluded joints and anatomical sides inferred",
+          "joints": {
+            "nose": [
+              0.566,
+              0.475
+            ],
+            "leftEye": [
+              0.57246,
+              0.47032
+            ],
+            "rightEye": [
+              0.55823,
+              0.47321
+            ],
+            "leftEar": [
+              0.58282,
+              0.47327
+            ],
+            "rightEar": [
+              0.54983,
+              0.47996
+            ],
+            "leftShoulder": [
+              0.603,
+              0.53
+            ],
+            "rightShoulder": [
+              0.585,
+              0.572
+            ],
+            "leftElbow": [
+              0.596,
+              0.675
+            ],
+            "rightElbow": [
+              0.546,
+              0.526
+            ],
+            "leftWrist": [
+              0.62,
+              0.865
+            ],
+            "rightWrist": [
+              0.491,
+              0.529
+            ],
+            "leftHip": [
+              0.677,
+              0.703
+            ],
+            "rightHip": [
+              0.644,
+              0.733
+            ],
+            "leftKnee": [
+              0.747,
+              0.803
+            ],
+            "rightKnee": [
+              0.656,
+              0.824
+            ],
+            "leftAnkle": [
+              0.8,
+              0.857
+            ],
+            "rightAnkle": [
+              0.621,
+              0.897
+            ]
+          }
+        },
+        {
+          "t": 22.0,
+          "actor": "B",
+          "mode": "replace",
+          "scope": "fullbody",
+          "visible": true,
+          "confidence": "manual acrobatic silhouette approximation; occluded joints and anatomical sides inferred",
+          "joints": {
+            "nose": [
+              0.775,
+              0.586
+            ],
+            "leftEye": [
+              0.78123,
+              0.59097
+            ],
+            "rightEye": [
+              0.77465,
+              0.57803
+            ],
+            "leftEar": [
+              0.78116,
+              0.60175
+            ],
+            "rightEar": [
+              0.7659,
+              0.57175
+            ],
+            "leftShoulder": [
+              0.756,
+              0.65
+            ],
+            "rightShoulder": [
+              0.736,
+              0.574
+            ],
+            "leftElbow": [
+              0.742,
+              0.798
+            ],
+            "rightElbow": [
+              0.73,
+              0.464
+            ],
+            "leftWrist": [
+              0.723,
+              0.947
+            ],
+            "rightWrist": [
+              0.696,
+              0.369
+            ],
+            "leftHip": [
+              0.697,
+              0.52
+            ],
+            "rightHip": [
+              0.701,
+              0.477
+            ],
+            "leftKnee": [
+              0.59,
+              0.407
+            ],
+            "rightKnee": [
+              0.749,
+              0.497
+            ],
+            "leftAnkle": [
+              0.486,
+              0.358
+            ],
+            "rightAnkle": [
+              0.711,
+              0.424
+            ],
+            "leftToe": [
+              0.468,
+              0.32
+            ],
+            "rightToe": [
+              0.7,
+              0.391
+            ]
+          }
+        },
+        {
+          "t": 22.375,
+          "actor": "B",
+          "mode": "replace",
+          "scope": "fullbody",
+          "visible": true,
+          "confidence": "manual acrobatic silhouette approximation; occluded joints and anatomical sides inferred",
+          "joints": {
+            "nose": [
+              0.747,
+              0.58
+            ],
+            "leftEye": [
+              0.75298,
+              0.58528
+            ],
+            "rightEye": [
+              0.74705,
+              0.57203
+            ],
+            "leftEar": [
+              0.75237,
+              0.59604
+            ],
+            "rightEar": [
+              0.73862,
+              0.56531
+            ],
+            "leftShoulder": [
+              0.73,
+              0.641
+            ],
+            "rightShoulder": [
+              0.701,
+              0.58
+            ],
+            "leftElbow": [
+              0.738,
+              0.8
+            ],
+            "rightElbow": [
+              0.692,
+              0.409
+            ],
+            "leftWrist": [
+              0.746,
+              0.96
+            ],
+            "rightWrist": [
+              0.696,
+              0.23
+            ],
+            "leftHip": [
+              0.638,
+              0.579
+            ],
+            "rightHip": [
+              0.633,
+              0.516
+            ],
+            "leftKnee": [
+              0.563,
+              0.67
+            ],
+            "rightKnee": [
+              0.543,
+              0.462
+            ],
+            "leftAnkle": [
+              0.534,
+              0.754
+            ],
+            "rightAnkle": [
+              0.446,
+              0.43
+            ],
+            "leftToe": [
+              0.535,
+              0.821
+            ],
+            "rightToe": [
+              0.427,
+              0.392
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "S31",
+      "start": 22.42,
+      "end": 24.08,
+      "dominant": "A",
+      "order": [
+        "A"
+      ],
+      "background": "sky",
+      "horizonY": 0.9183333333333333,
+      "skyline": [
+        [
+          0,
+          0.88
+        ],
+        [
+          0.2,
+          0.9
+        ],
+        [
+          0.4,
+          0.91
+        ],
+        [
+          0.6,
+          0.95
+        ],
+        [
+          0.8,
+          0.92
+        ],
+        [
+          1,
+          0.95
+        ]
+      ],
+      "groundY": 1.12,
+      "tombs": [
+        [
+          0.7,
+          0.59,
+          0.3,
+          0.41
+        ]
+      ],
+      "orientation": "source-camera screen plane; depth estimated",
+      "notes": "Low camera shows A chest/head, waist clipped; no ground in most frame.",
+      "manualKeyframes": []
+    },
+    {
+      "id": "S32",
+      "start": 24.08,
+      "end": 27.63,
+      "dominant": "B",
+      "order": [
+        "B",
+        "A"
+      ],
+      "background": "tomb",
+      "horizonY": 0.235,
+      "skyline": [
+        [
+          0,
+          0.35
+        ],
+        [
+          0.2,
+          0.34
+        ],
+        [
+          0.4,
+          0.3
+        ],
+        [
+          0.6,
+          0.24
+        ],
+        [
+          0.8,
+          0.12
+        ],
+        [
+          1,
+          0.06
+        ]
+      ],
+      "groundY": 0.64,
+      "tombs": [
+        [
+          0.6,
+          0.4,
+          0.4,
+          0.47
+        ]
+      ],
+      "orientation": "source-camera screen plane; depth estimated",
+      "notes": "Starts B screen-left rushing right, ends A left/B right after camera pans. Order changes.",
+      "manualKeyframes": []
+    },
+    {
+      "id": "S33",
+      "start": 27.63,
+      "end": 29.58,
+      "dominant": "A",
+      "order": [
+        "A",
+        "B"
+      ],
+      "background": "tomb",
+      "horizonY": 0.3116666666666667,
+      "skyline": [
+        [
+          0,
+          0.3
+        ],
+        [
+          0.2,
+          0.3
+        ],
+        [
+          0.4,
+          0.34
+        ],
+        [
+          0.6,
+          0.35
+        ],
+        [
+          0.8,
+          0.3
+        ],
+        [
+          1,
+          0.28
+        ]
+      ],
+      "groundY": 0.83,
+      "tombs": [
+        [
+          0.13,
+          0.52,
+          0.58,
+          0.34
+        ]
+      ],
+      "orientation": "source-camera screen plane; depth estimated",
+      "notes": "A left B right, both feet visible, full-body stance.",
+      "manualKeyframes": []
+    },
+    {
+      "id": "S34",
+      "start": 29.58,
+      "end": 30.96,
+      "dominant": "B",
+      "order": [
+        "B"
+      ],
+      "background": "hill",
+      "horizonY": -0.15,
+      "skyline": [
+        [
+          0,
+          -0.15
+        ],
+        [
+          0.2,
+          -0.15
+        ],
+        [
+          0.4,
+          -0.15
+        ],
+        [
+          0.6,
+          -0.15
+        ],
+        [
+          0.8,
+          -0.15
+        ],
+        [
+          1,
+          -0.15
+        ]
+      ],
+      "groundY": 0.75,
+      "tombs": [
+        [
+          0,
+          0.37,
+          0.35,
+          0.62
+        ]
+      ],
+      "orientation": "source-camera screen plane; depth estimated",
+      "notes": "B centered waist-up; sky absent in head background.",
+      "manualKeyframes": []
+    },
+    {
+      "id": "S35",
+      "start": 30.96,
+      "end": 32.54,
+      "dominant": "A",
+      "order": [
+        "A"
+      ],
+      "background": "hill",
+      "horizonY": 0.145,
+      "skyline": [
+        [
+          0,
+          0.32
+        ],
+        [
+          0.2,
+          0.23
+        ],
+        [
+          0.4,
+          0.15
+        ],
+        [
+          0.6,
+          0.1
+        ],
+        [
+          0.8,
+          0.05
+        ],
+        [
+          1,
+          0.02
+        ]
+      ],
+      "groundY": 0.7,
+      "tombs": [],
+      "orientation": "source-camera screen plane; depth estimated",
+      "notes": "A frontal medium close, stationary clenched fists.",
+      "manualKeyframes": []
+    },
+    {
+      "id": "S36",
+      "start": 32.54,
+      "end": 37.25,
+      "dominant": "A",
+      "order": [
+        "A",
+        "B"
+      ],
+      "background": "tomb",
+      "horizonY": 0.135,
+      "skyline": [
+        [
+          0,
+          0.15
+        ],
+        [
+          0.2,
+          0.13
+        ],
+        [
+          0.4,
+          0.16
+        ],
+        [
+          0.6,
+          0.17
+        ],
+        [
+          0.8,
+          0.11
+        ],
+        [
+          1,
+          0.09
+        ]
+      ],
+      "groundY": 0.77,
+      "tombs": [
+        [
+          0.38,
+          0.34,
+          0.49,
+          0.35
+        ]
+      ],
+      "orientation": "source-camera screen plane; depth estimated",
+      "notes": "A left near camera B right; shoulders/hands overlap; legs mostly clipped.",
+      "manualKeyframes": []
+    },
+    {
+      "id": "S37",
+      "start": 37.25,
+      "end": 39.04,
+      "dominant": "A",
+      "order": [
+        "A",
+        "B"
+      ],
+      "background": "tomb",
+      "horizonY": 0.145,
+      "skyline": [
+        [
+          0,
+          0.32
+        ],
+        [
+          0.2,
+          0.23
+        ],
+        [
+          0.4,
+          0.15
+        ],
+        [
+          0.6,
+          0.1
+        ],
+        [
+          0.8,
+          0.05
+        ],
+        [
+          1,
+          0.02
+        ]
+      ],
+      "groundY": 0.81,
+      "tombs": [
+        [
+          0.7,
+          0.35,
+          0.3,
+          0.64
+        ]
+      ],
+      "orientation": "source-camera screen plane; depth estimated",
+      "notes": "A left frontal, B right back shoulder; foreground B bigger.",
+      "manualKeyframes": [
+        {
+          "t": 37.29167,
+          "actor": "B",
+          "mode": "replace",
+          "scope": "fullbody",
+          "visible": true,
+          "confidence": "manual source silhouette; obscured joints and anatomical side approximate",
+          "joints": {
+            "nose": [
+              0.724,
+              0.25
+            ],
+            "leftEye": [
+              0.7471,
+              0.2395
+            ],
+            "rightEye": [
+              0.7009,
+              0.2395
+            ],
+            "leftEar": [
+              0.77755,
+              0.25525
+            ],
+            "rightEar": [
+              0.67045,
+              0.25525
+            ],
+            "leftShoulder": [
+              0.832,
+              0.456
+            ],
+            "rightShoulder": [
+              0.615,
+              0.432
+            ],
+            "leftElbow": [
+              0.969,
+              0.917
+            ],
+            "rightElbow": [
+              0.537,
+              0.657
+            ],
+            "leftWrist": [
+              1.016,
+              1.11
+            ],
+            "rightWrist": [
+              0.565,
+              0.522
+            ],
+            "leftHip": [
+              0.816,
+              1.03
+            ],
+            "rightHip": [
+              0.59,
+              1.07
+            ],
+            "leftKnee": [
+              0.82,
+              1.65
+            ],
+            "rightKnee": [
+              0.58,
+              1.66
+            ],
+            "leftAnkle": [
+              0.84,
+              2.2
+            ],
+            "rightAnkle": [
+              0.58,
+              2.22
+            ]
+          }
+        },
+        {
+          "t": 37.70833,
+          "actor": "B",
+          "mode": "replace",
+          "scope": "fullbody",
+          "visible": true,
+          "confidence": "manual source silhouette; obscured joints and anatomical side approximate",
+          "joints": {
+            "nose": [
+              0.546,
+              0.25
+            ],
+            "leftEye": [
+              0.5691,
+              0.2395
+            ],
+            "rightEye": [
+              0.5229,
+              0.2395
+            ],
+            "leftEar": [
+              0.59955,
+              0.25525
+            ],
+            "rightEar": [
+              0.49245,
+              0.25525
+            ],
+            "leftShoulder": [
+              0.707,
+              0.488
+            ],
+            "rightShoulder": [
+              0.439,
+              0.479
+            ],
+            "leftElbow": [
+              0.819,
+              0.828
+            ],
+            "rightElbow": [
+              0.333,
+              0.675
+            ],
+            "leftWrist": [
+              0.812,
+              1.1
+            ],
+            "rightWrist": [
+              0.426,
+              0.521
+            ],
+            "leftHip": [
+              0.682,
+              1.08
+            ],
+            "rightHip": [
+              0.451,
+              1.11
+            ],
+            "leftKnee": [
+              0.681,
+              1.66
+            ],
+            "rightKnee": [
+              0.431,
+              1.68
+            ],
+            "leftAnkle": [
+              0.69,
+              2.23
+            ],
+            "rightAnkle": [
+              0.41,
+              2.25
+            ]
+          }
+        },
+        {
+          "t": 38.16667,
+          "actor": "B",
+          "mode": "replace",
+          "scope": "fullbody",
+          "visible": true,
+          "confidence": "manual source silhouette; obscured joints and anatomical side approximate",
+          "joints": {
+            "nose": [
+              0.331,
+              1.018
+            ],
+            "leftEye": [
+              0.32241,
+              0.99489
+            ],
+            "rightEye": [
+              0.31924,
+              1.03966
+            ],
+            "leftEar": [
+              0.33977,
+              0.96647
+            ],
+            "rightEar": [
+              0.33241,
+              1.07025
+            ],
+            "leftShoulder": [
+              0.571,
+              0.782
+            ],
+            "rightShoulder": [
+              0.45,
+              0.892
+            ],
+            "leftElbow": [
+              0.722,
+              1.02
+            ],
+            "rightElbow": [
+              0.422,
+              1.19
+            ],
+            "leftWrist": [
+              0.784,
+              1.2
+            ],
+            "rightWrist": [
+              0.55,
+              1.32
+            ],
+            "leftHip": [
+              0.781,
+              1.11
+            ],
+            "rightHip": [
+              0.659,
+              1.198
+            ],
+            "leftKnee": [
+              0.9,
+              1.61
+            ],
+            "rightKnee": [
+              0.75,
+              1.72
+            ],
+            "leftAnkle": [
+              1.0,
+              2.17
+            ],
+            "rightAnkle": [
+              0.83,
+              2.2
+            ]
+          }
+        },
+        {
+          "t": 38.58333,
+          "actor": "B",
+          "mode": "replace",
+          "scope": "fullbody",
+          "visible": true,
+          "confidence": "manual source silhouette; obscured joints and anatomical side approximate",
+          "joints": {
+            "nose": [
+              0.724,
+              0.331
+            ],
+            "leftEye": [
+              0.74072,
+              0.3234
+            ],
+            "rightEye": [
+              0.70728,
+              0.3234
+            ],
+            "leftEar": [
+              0.76276,
+              0.3348
+            ],
+            "rightEar": [
+              0.68524,
+              0.3348
+            ],
+            "leftShoulder": [
+              0.81,
+              0.463
+            ],
+            "rightShoulder": [
+              0.658,
+              0.477
+            ],
+            "leftElbow": [
+              0.831,
+              0.674
+            ],
+            "rightElbow": [
+              0.521,
+              0.59
+            ],
+            "leftWrist": [
+              0.727,
+              0.681
+            ],
+            "rightWrist": [
+              0.467,
+              0.591
+            ],
+            "leftHip": [
+              0.82,
+              1.081
+            ],
+            "rightHip": [
+              0.672,
+              1.06
+            ],
+            "leftKnee": [
+              0.82,
+              1.66
+            ],
+            "rightKnee": [
+              0.65,
+              1.65
+            ],
+            "leftAnkle": [
+              0.83,
+              2.22
+            ],
+            "rightAnkle": [
+              0.62,
+              2.21
+            ]
+          }
+        },
+        {
+          "t": 39.0,
+          "actor": "B",
+          "mode": "replace",
+          "scope": "fullbody",
+          "visible": true,
+          "confidence": "manual source silhouette; obscured joints and anatomical side approximate",
+          "joints": {
+            "nose": [
+              0.522,
+              0.339
+            ],
+            "leftEye": [
+              0.5374,
+              0.332
+            ],
+            "rightEye": [
+              0.5066,
+              0.332
+            ],
+            "leftEar": [
+              0.5577,
+              0.3425
+            ],
+            "rightEar": [
+              0.4863,
+              0.3425
+            ],
+            "leftShoulder": [
+              0.608,
+              0.472
+            ],
+            "rightShoulder": [
+              0.469,
+              0.48
+            ],
+            "leftElbow": [
+              0.62,
+              0.731
+            ],
+            "rightElbow": [
+              0.417,
+              0.593
+            ],
+            "leftWrist": [
+              0.46,
+              0.73
+            ],
+            "rightWrist": [
+              0.33,
+              0.49
+            ],
+            "leftHip": [
+              0.647,
+              1.081
+            ],
+            "rightHip": [
+              0.492,
+              1.036
+            ],
+            "leftKnee": [
+              0.65,
+              1.65
+            ],
+            "rightKnee": [
+              0.48,
+              1.6
+            ],
+            "leftAnkle": [
+              0.66,
+              2.2
+            ],
+            "rightAnkle": [
+              0.46,
+              2.18
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "S38",
+      "start": 39.04,
+      "end": 39.88,
+      "dominant": "A",
+      "order": [
+        "A",
+        "B"
+      ],
+      "background": "hill",
+      "horizonY": 0.145,
+      "skyline": [
+        [
+          0,
+          0.32
+        ],
+        [
+          0.2,
+          0.23
+        ],
+        [
+          0.4,
+          0.15
+        ],
+        [
+          0.6,
+          0.1
+        ],
+        [
+          0.8,
+          0.05
+        ],
+        [
+          1,
+          0.02
+        ]
+      ],
+      "groundY": 0.83,
+      "tombs": [],
+      "orientation": "source-camera screen plane; depth estimated",
+      "notes": "A ducks low with hand at ear; B sleeve/fist in right foreground.",
+      "manualKeyframes": [
+        {
+          "t": 39.08333,
+          "actor": "B",
+          "mode": "fragment",
+          "visible": true,
+          "depth": "foreground",
+          "confidence": "manually estimated visible limb silhouette; left-right anatomical side partly uncertain",
+          "joints": {
+            "rightShoulder": [
+              1.02,
+              0.38
+            ],
+            "rightElbow": [
+              0.86,
+              0.45
+            ],
+            "rightWrist": [
+              0.87,
+              0.66
+            ]
+          }
+        },
+        {
+          "t": 39.25,
+          "actor": "B",
+          "mode": "fragment",
+          "visible": true,
+          "depth": "foreground",
+          "confidence": "manually estimated visible limb silhouette; left-right anatomical side partly uncertain",
+          "joints": {
+            "rightShoulder": [
+              0.95,
+              0.48
+            ],
+            "rightElbow": [
+              0.78,
+              0.53
+            ],
+            "rightWrist": [
+              0.78,
+              0.87
+            ]
+          }
+        },
+        {
+          "t": 39.45833,
+          "actor": "B",
+          "mode": "fragment",
+          "visible": true,
+          "depth": "foreground",
+          "confidence": "manually estimated visible limb silhouette; left-right anatomical side partly uncertain",
+          "joints": {
+            "rightShoulder": [
+              0.96,
+              0.54
+            ],
+            "rightElbow": [
+              0.8,
+              0.66
+            ],
+            "rightWrist": [
+              0.85,
+              0.89
+            ]
+          }
+        },
+        {
+          "t": 39.66667,
+          "actor": "B",
+          "mode": "fragment",
+          "visible": true,
+          "depth": "foreground",
+          "confidence": "manually estimated visible limb silhouette; left-right anatomical side partly uncertain",
+          "joints": {
+            "rightShoulder": [
+              0.96,
+              0.59
+            ],
+            "rightElbow": [
+              0.79,
+              0.61
+            ],
+            "rightWrist": [
+              0.85,
+              0.94
+            ]
+          }
+        },
+        {
+          "t": 39.83333,
+          "actor": "B",
+          "mode": "fragment",
+          "visible": true,
+          "depth": "foreground",
+          "confidence": "manually estimated visible limb silhouette; left-right anatomical side partly uncertain",
+          "joints": {
+            "rightShoulder": [
+              0.96,
+              0.59
+            ],
+            "rightElbow": [
+              0.79,
+              0.62
+            ],
+            "rightWrist": [
+              0.84,
+              0.94
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "S39",
+      "start": 39.88,
+      "end": 42.25,
+      "dominant": "B",
+      "order": [
+        "A",
+        "B"
+      ],
+      "background": "tomb",
+      "horizonY": 0.135,
+      "skyline": [
+        [
+          0,
+          0.15
+        ],
+        [
+          0.2,
+          0.13
+        ],
+        [
+          0.4,
+          0.16
+        ],
+        [
+          0.6,
+          0.17
+        ],
+        [
+          0.8,
+          0.11
+        ],
+        [
+          1,
+          0.09
+        ]
+      ],
+      "groundY": 0.78,
+      "tombs": [
+        [
+          0.39,
+          0.19,
+          0.61,
+          0.56
+        ]
+      ],
+      "orientation": "source-camera screen plane; depth estimated",
+      "notes": "A left back/side, B right facing left; alternating close hand contact.",
+      "manualKeyframes": []
+    },
+    {
+      "id": "S40",
+      "start": 42.25,
+      "end": 43,
+      "dominant": "B",
+      "order": [
+        "A",
+        "B"
+      ],
+      "background": "sky",
+      "horizonY": 0.6233333333333334,
+      "skyline": [
+        [
+          0,
+          0.53
+        ],
+        [
+          0.2,
+          0.58
+        ],
+        [
+          0.4,
+          0.64
+        ],
+        [
+          0.6,
+          0.72
+        ],
+        [
+          0.8,
+          0.66
+        ],
+        [
+          1,
+          0.61
+        ]
+      ],
+      "groundY": 0.96,
+      "tombs": [],
+      "orientation": "source-camera screen plane; depth estimated",
+      "notes": "SOURCE AUDIT CORRECTION: low-angle B grips A waist/upper body and raises bent leg; pair separates by end. This shot is NOT a palm collision at faces. Follow detected full-body data.",
+      "manualKeyframes": []
+    },
+    {
+      "id": "S41",
+      "start": 43,
+      "end": 43.54,
+      "dominant": "A",
+      "order": [
+        "A",
+        "B"
+      ],
+      "background": "sky",
+      "horizonY": 0.9183333333333333,
+      "skyline": [
+        [
+          0,
+          0.88
+        ],
+        [
+          0.2,
+          0.9
+        ],
+        [
+          0.4,
+          0.91
+        ],
+        [
+          0.6,
+          0.95
+        ],
+        [
+          0.8,
+          0.92
+        ],
+        [
+          1,
+          0.95
+        ]
+      ],
+      "groundY": 0.93,
+      "tombs": [
+        [
+          0.94,
+          0.68,
+          0.06,
+          0.28
+        ]
+      ],
+      "orientation": "source-camera screen plane; depth estimated",
+      "notes": "A waist-up; B only arm at right edge.",
+      "manualKeyframes": []
+    },
+    {
+      "id": "S42",
+      "start": 43.54,
+      "end": 44.08,
+      "dominant": "B",
+      "order": [
+        "B"
+      ],
+      "background": "sky",
+      "horizonY": 0.9183333333333333,
+      "skyline": [
+        [
+          0,
+          0.88
+        ],
+        [
+          0.2,
+          0.9
+        ],
+        [
+          0.4,
+          0.91
+        ],
+        [
+          0.6,
+          0.95
+        ],
+        [
+          0.8,
+          0.92
+        ],
+        [
+          1,
+          0.95
+        ]
+      ],
+      "groundY": 1.1,
+      "tombs": [
+        [
+          0.08,
+          0.67,
+          0.2,
+          0.33
+        ]
+      ],
+      "orientation": "source-camera screen plane; depth estimated",
+      "notes": "Low-angle frontal B kick: shoe enlarges in foreground, torso leans back.",
+      "manualKeyframes": []
+    },
+    {
+      "id": "S43",
+      "start": 44.08,
+      "end": 44.83,
+      "dominant": "B",
+      "order": [
+        "A",
+        "B"
+      ],
+      "background": "sky",
+      "horizonY": 0.9183333333333333,
+      "skyline": [
+        [
+          0,
+          0.88
+        ],
+        [
+          0.2,
+          0.9
+        ],
+        [
+          0.4,
+          0.91
+        ],
+        [
+          0.6,
+          0.95
+        ],
+        [
+          0.8,
+          0.92
+        ],
+        [
+          1,
+          0.95
+        ]
+      ],
+      "groundY": 1.1,
+      "tombs": [],
+      "orientation": "source-camera screen plane; depth estimated",
+      "notes": "A left bent body, B right upright high leg; ground outside frame.",
+      "manualKeyframes": []
+    },
+    {
+      "id": "S44",
+      "start": 44.83,
+      "end": 45.63,
+      "dominant": "A",
+      "order": [
+        "A",
+        "B"
+      ],
+      "background": "sky",
+      "horizonY": 0.145,
+      "skyline": [
+        [
+          0,
+          0.32
+        ],
+        [
+          0.2,
+          0.23
+        ],
+        [
+          0.4,
+          0.15
+        ],
+        [
+          0.6,
+          0.1
+        ],
+        [
+          0.8,
+          0.05
+        ],
+        [
+          1,
+          0.02
+        ]
+      ],
+      "groundY": 0.95,
+      "tombs": [],
+      "orientation": "source-camera screen plane; depth estimated",
+      "notes": "SOURCE AUDIT CORRECTION: B grips A neck/shoulders with both hands; B head enters lower right. A recoils then twists free. Do not synthesize a lone face punch.",
+      "manualKeyframes": [
+        {
+          "t": 44.875,
+          "actor": "B",
+          "mode": "fragment",
+          "visible": false,
+          "depth": "foreground",
+          "confidence": "manually estimated visible limb silhouette; left-right anatomical side partly uncertain",
+          "joints": {
+            "rightShoulder": [
+              1.13,
+              1.06
+            ],
+            "rightElbow": [
+              0.93,
+              0.89
+            ],
+            "rightWrist": [
+              0.75,
+              0.73
+            ]
+          }
+        },
+        {
+          "t": 45.04167,
+          "actor": "B",
+          "mode": "fragment",
+          "visible": true,
+          "depth": "foreground",
+          "confidence": "manually estimated visible limb silhouette; left-right anatomical side partly uncertain",
+          "joints": {
+            "rightShoulder": [
+              1.06,
+              0.83
+            ],
+            "rightElbow": [
+              0.76,
+              0.99
+            ],
+            "rightWrist": [
+              0.32,
+              0.61
+            ]
+          }
+        },
+        {
+          "t": 45.25,
+          "actor": "B",
+          "mode": "fragment",
+          "visible": true,
+          "depth": "foreground",
+          "confidence": "manually estimated visible limb silhouette; left-right anatomical side partly uncertain",
+          "joints": {
+            "rightShoulder": [
+              0.81,
+              1.03
+            ],
+            "rightElbow": [
+              0.43,
+              0.94
+            ],
+            "rightWrist": [
+              0.33,
+              0.71
+            ]
+          }
+        },
+        {
+          "t": 45.41667,
+          "actor": "B",
+          "mode": "fragment",
+          "visible": true,
+          "depth": "foreground",
+          "confidence": "manually estimated visible limb silhouette; left-right anatomical side partly uncertain",
+          "joints": {
+            "rightShoulder": [
+              0.81,
+              1.1
+            ],
+            "rightElbow": [
+              0.53,
+              1.05
+            ],
+            "rightWrist": [
+              0.31,
+              0.7
+            ]
+          }
+        },
+        {
+          "t": 45.58333,
+          "actor": "B",
+          "mode": "fragment",
+          "visible": false,
+          "depth": "foreground",
+          "confidence": "manually estimated visible limb silhouette; left-right anatomical side partly uncertain",
+          "joints": {
+            "rightShoulder": [
+              0.16,
+              1.14
+            ],
+            "rightElbow": [
+              0.14,
+              0.99
+            ],
+            "rightWrist": [
+              0.01,
+              0.91
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "S45",
+      "start": 45.63,
+      "end": 47,
+      "dominant": "B",
+      "order": [
+        "A",
+        "B"
+      ],
+      "background": "ground",
+      "horizonY": -0.15,
+      "skyline": [
+        [
+          0,
+          -0.15
+        ],
+        [
+          0.2,
+          -0.15
+        ],
+        [
+          0.4,
+          -0.15
+        ],
+        [
+          0.6,
+          -0.15
+        ],
+        [
+          0.8,
+          -0.15
+        ],
+        [
+          1,
+          -0.15
+        ]
+      ],
+      "groundY": 0,
+      "tombs": [],
+      "orientation": "source-camera screen plane; depth estimated",
+      "notes": "Both hip/leg crop fills screen; feet often below frame; B knee lifts into A stance.",
+      "manualKeyframes": [
+        {
+          "t": 45.625,
+          "actor": "A",
+          "confidence": "manual silhouette estimate; anatomical side inferred",
+          "joints": {
+            "leftHip": [
+              0.3,
+              0.25
+            ],
+            "rightHip": [
+              0.18,
+              0.19
+            ],
+            "leftKnee": [
+              0.35,
+              0.79
+            ],
+            "rightKnee": [
+              0.01,
+              0.62
+            ],
+            "leftAnkle": [
+              0.42,
+              1.39
+            ],
+            "rightAnkle": [
+              -0.12,
+              1.06
+            ]
+          },
+          "mode": "replace",
+          "visible": true
+        },
+        {
+          "t": 45.625,
+          "actor": "B",
+          "confidence": "manual silhouette estimate; anatomical side inferred",
+          "joints": {
+            "leftHip": [
+              0.7,
+              0.12
+            ],
+            "rightHip": [
+              0.56,
+              0.2
+            ],
+            "leftKnee": [
+              0.78,
+              0.48
+            ],
+            "rightKnee": [
+              0.59,
+              0.54
+            ],
+            "leftAnkle": [
+              0.69,
+              0.72
+            ],
+            "rightAnkle": [
+              0.6,
+              0.88
+            ],
+            "leftToe": [
+              0.64,
+              0.8
+            ],
+            "rightToe": [
+              0.64,
+              0.95
+            ]
+          },
+          "mode": "replace",
+          "visible": true
+        },
+        {
+          "t": 45.95833,
+          "actor": "A",
+          "confidence": "manual silhouette estimate; anatomical side inferred",
+          "joints": {
+            "leftHip": [
+              0.42,
+              0.2
+            ],
+            "rightHip": [
+              0.29,
+              0.19
+            ],
+            "leftKnee": [
+              0.49,
+              0.67
+            ],
+            "rightKnee": [
+              0.17,
+              0.81
+            ],
+            "leftAnkle": [
+              0.51,
+              1.18
+            ],
+            "rightAnkle": [
+              0.21,
+              1.41
+            ]
+          },
+          "mode": "replace",
+          "visible": true
+        },
+        {
+          "t": 45.95833,
+          "actor": "B",
+          "confidence": "manual silhouette estimate; anatomical side inferred",
+          "joints": {
+            "leftHip": [
+              0.67,
+              0.08
+            ],
+            "rightHip": [
+              0.54,
+              0.1
+            ],
+            "leftKnee": [
+              0.7,
+              0.51
+            ],
+            "rightKnee": [
+              0.67,
+              0.28
+            ],
+            "leftAnkle": [
+              0.75,
+              0.89
+            ],
+            "rightAnkle": [
+              0.63,
+              0.57
+            ],
+            "leftToe": [
+              0.79,
+              0.97
+            ],
+            "rightToe": [
+              0.55,
+              0.65
+            ]
+          },
+          "mode": "replace",
+          "visible": true
+        },
+        {
+          "t": 46.29167,
+          "actor": "A",
+          "confidence": "manual silhouette estimate; anatomical side inferred",
+          "joints": {
+            "leftHip": [
+              0.29,
+              0.16
+            ],
+            "rightHip": [
+              0.13,
+              0.16
+            ],
+            "leftKnee": [
+              0.34,
+              0.66
+            ],
+            "rightKnee": [
+              0.1,
+              0.72
+            ],
+            "leftAnkle": [
+              0.39,
+              1.19
+            ],
+            "rightAnkle": [
+              0.06,
+              1.22
+            ]
+          },
+          "mode": "replace",
+          "visible": true
+        },
+        {
+          "t": 46.29167,
+          "actor": "B",
+          "confidence": "manual silhouette estimate; anatomical side inferred",
+          "joints": {
+            "leftHip": [
+              0.68,
+              0.11
+            ],
+            "rightHip": [
+              0.53,
+              0.12
+            ],
+            "leftKnee": [
+              0.73,
+              0.45
+            ],
+            "rightKnee": [
+              0.49,
+              0.45
+            ],
+            "leftAnkle": [
+              0.78,
+              0.83
+            ],
+            "rightAnkle": [
+              0.62,
+              0.59
+            ],
+            "leftToe": [
+              0.81,
+              0.91
+            ],
+            "rightToe": [
+              0.62,
+              0.75
+            ]
+          },
+          "mode": "replace",
+          "visible": true
+        },
+        {
+          "t": 46.625,
+          "actor": "A",
+          "confidence": "manual silhouette estimate; anatomical side inferred",
+          "joints": {
+            "leftHip": [
+              0.09,
+              0.22
+            ],
+            "rightHip": [
+              -0.03,
+              0.2
+            ],
+            "leftKnee": [
+              0.13,
+              0.66
+            ],
+            "rightKnee": [
+              -0.12,
+              0.64
+            ],
+            "leftAnkle": [
+              0.18,
+              1.21
+            ],
+            "rightAnkle": [
+              -0.22,
+              1.2
+            ]
+          },
+          "mode": "replace",
+          "visible": true
+        },
+        {
+          "t": 46.625,
+          "actor": "B",
+          "confidence": "manual silhouette estimate; anatomical side inferred",
+          "joints": {
+            "leftHip": [
+              0.74,
+              0.21
+            ],
+            "rightHip": [
+              0.51,
+              0.2
+            ],
+            "leftKnee": [
+              0.78,
+              0.55
+            ],
+            "rightKnee": [
+              0.7,
+              0.51
+            ],
+            "leftAnkle": [
+              0.83,
+              1.07
+            ],
+            "rightAnkle": [
+              0.59,
+              0.88
+            ],
+            "leftToe": [
+              0.9,
+              1.15
+            ],
+            "rightToe": [
+              0.53,
+              1.01
+            ]
+          },
+          "mode": "replace",
+          "visible": true
+        },
+        {
+          "t": 46.95833,
+          "actor": "A",
+          "confidence": "manual silhouette estimate; anatomical side inferred",
+          "joints": {
+            "leftHip": [
+              -0.04,
+              0.22
+            ],
+            "rightHip": [
+              -0.18,
+              0.2
+            ],
+            "leftKnee": [
+              0.03,
+              0.68
+            ],
+            "rightKnee": [
+              -0.19,
+              0.6
+            ],
+            "leftAnkle": [
+              0.12,
+              1.11
+            ],
+            "rightAnkle": [
+              -0.24,
+              1.07
+            ]
+          },
+          "mode": "replace",
+          "visible": true
+        },
+        {
+          "t": 46.95833,
+          "actor": "B",
+          "confidence": "manual silhouette estimate; anatomical side inferred",
+          "joints": {
+            "leftHip": [
+              0.71,
+              0.21
+            ],
+            "rightHip": [
+              0.53,
+              0.22
+            ],
+            "leftKnee": [
+              0.78,
+              0.6
+            ],
+            "rightKnee": [
+              0.43,
+              0.58
+            ],
+            "leftAnkle": [
+              0.88,
+              1.12
+            ],
+            "rightAnkle": [
+              0.29,
+              1.02
+            ],
+            "leftToe": [
+              0.95,
+              1.2
+            ],
+            "rightToe": [
+              0.23,
+              1.12
+            ]
+          },
+          "mode": "replace",
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": "S46",
+      "start": 47,
+      "end": 49.33,
+      "dominant": "B",
+      "order": [
+        "A",
+        "B"
+      ],
+      "background": "tomb",
+      "horizonY": 0.135,
+      "skyline": [
+        [
+          0,
+          0.15
+        ],
+        [
+          0.2,
+          0.13
+        ],
+        [
+          0.4,
+          0.16
+        ],
+        [
+          0.6,
+          0.17
+        ],
+        [
+          0.8,
+          0.11
+        ],
+        [
+          1,
+          0.09
+        ]
+      ],
+      "groundY": 0.74,
+      "tombs": [
+        [
+          0.54,
+          0.22,
+          0.46,
+          0.63
+        ]
+      ],
+      "orientation": "source-camera screen plane; depth estimated",
+      "notes": "A left B right shoulder hold; follow exact hand positions, knees not usually shown.",
+      "manualKeyframes": []
+    },
+    {
+      "id": "S47",
+      "start": 49.33,
+      "end": 50.13,
+      "dominant": "B",
+      "order": [
+        "B"
+      ],
+      "background": "hill",
+      "horizonY": 0.135,
+      "skyline": [
+        [
+          0,
+          0.15
+        ],
+        [
+          0.2,
+          0.13
+        ],
+        [
+          0.4,
+          0.16
+        ],
+        [
+          0.6,
+          0.17
+        ],
+        [
+          0.8,
+          0.11
+        ],
+        [
+          1,
+          0.09
+        ]
+      ],
+      "groundY": 0.79,
+      "tombs": [
+        [
+          0,
+          0.6,
+          0.23,
+          0.39
+        ]
+      ],
+      "orientation": "source-camera screen plane; depth estimated",
+      "notes": "B centered punches then guard, A not visible.",
+      "manualKeyframes": []
+    }
+  ],
+  "manualModeContract": {
+    "replace": "Replace actor with these visible or offscreen lower-body joints. No inferred upper body for foot inserts.",
+    "fragment": "Overlay only explicit connected limb segments if that fragment is absent from automated detection; never draw duplicate limbs. Missing joints remain absent.",
+    "visible": "false represents limb outside the image; use it for time-bound appearance.",
+    "joints": "Normalized UV; append depth separately. Toe is shoe front, ankle is shoe rear/top.",
+    "scope": "scope=fullbody replaces the entire actor track with explicit named COCO joints. Cropped upper-body overrides may omit knees/ankles; omitted joints must remain absent, not inferred.",
+    "actorVisibility": "Per-shot actorVisibility ranges override lingering automatic tracks. These ranges only suppress invisible actors and do not alter earlier measured actions."
+  }
+}

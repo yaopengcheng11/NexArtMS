@@ -1,0 +1,17 @@
+{
+  "frame": 1202,
+  "playing": false,
+  "referenceTime": 50.083433,
+  "renderedTime": 50.083433,
+  "totalFrames": 1203,
+  "shotCount": 47,
+  "samples": 838,
+  "firstFrame": 0,
+  "lastFrame": 1202,
+  "maxClockDrift": 0.3379199999999969,
+  "endedBoth": true,
+  "progressUnchanged": true,
+  "errors": [],
+  "fullPlaybackAt2x": true,
+  "checkedAt": "2026-09-24T14:22:52.475Z"
+}

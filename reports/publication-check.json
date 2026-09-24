@@ -1,0 +1,30 @@
+{
+  "checkedAt": "2026-09-24T15:02:28.739Z",
+  "node": "v22.22.3",
+  "install": "npm ci passed in root and examples/jwm-v2",
+  "workbench": {
+    "tests": {
+      "passed": 26,
+      "failed": 0
+    },
+    "typecheck": "passed",
+    "productionBuild": "passed",
+    "browserScene": "reports/publication-scene.json",
+    "browserFiveStages": "reports/publication-rehearsal.json"
+  },
+  "legacy": {
+    "poseFrames": 1203,
+    "shots": 47,
+    "actorFramesRendered": 1945,
+    "meshTransformsVerified": 43281,
+    "nonFiniteTransforms": 0,
+    "build": "passed"
+  },
+  "browserEnvironment": "Playwright 1.62.1 with local Chrome via CHROME_PATH; default downloaded Chromium not run in this publication check",
+  "notRerun": [
+    "Blender DCC round trips",
+    "Maya and Houdini import",
+    "Full-video motion denoising"
+  ],
+  "scope": "Initial publication of the current workbench, documentation, fixed demo media, technical assets and legacy V2 source. Runtime user data and build outputs are excluded."
+}

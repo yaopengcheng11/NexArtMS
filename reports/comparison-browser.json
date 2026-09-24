@@ -1,0 +1,178 @@
+{
+  "pausedFrames": [
+    {
+      "frame": 98,
+      "playing": false,
+      "ready": true,
+      "seeking": false,
+      "buffering": false,
+      "rate": 1,
+      "audio": false,
+      "error": null,
+      "fps": 24,
+      "totalFrames": 1203,
+      "mode": "side",
+      "opacity": 0.5,
+      "referenceTime": 4.083433,
+      "renderedTime": 4.083433,
+      "referenceMuted": true,
+      "renderedMuted": true,
+      "referenceRate": 1,
+      "renderedRate": 1,
+      "presented": {
+        "rendered": 98,
+        "reference": 98
+      }
+    },
+    {
+      "frame": 99,
+      "playing": false,
+      "ready": true,
+      "seeking": false,
+      "buffering": false,
+      "rate": 1,
+      "audio": false,
+      "error": null,
+      "fps": 24,
+      "totalFrames": 1203,
+      "mode": "side",
+      "opacity": 0.5,
+      "referenceTime": 4.125098,
+      "renderedTime": 4.125098,
+      "referenceMuted": true,
+      "renderedMuted": true,
+      "referenceRate": 1,
+      "renderedRate": 1,
+      "presented": {
+        "rendered": 99,
+        "reference": 99
+      }
+    },
+    {
+      "frame": 662,
+      "playing": false,
+      "ready": true,
+      "seeking": false,
+      "buffering": false,
+      "rate": 1,
+      "audio": false,
+      "error": null,
+      "fps": 24,
+      "totalFrames": 1203,
+      "mode": "side",
+      "opacity": 0.5,
+      "referenceTime": 27.583433,
+      "renderedTime": 27.583433,
+      "referenceMuted": true,
+      "renderedMuted": true,
+      "referenceRate": 1,
+      "renderedRate": 1,
+      "presented": {
+        "rendered": 662,
+        "reference": 662
+      }
+    },
+    {
+      "frame": 1184,
+      "playing": false,
+      "ready": true,
+      "seeking": false,
+      "buffering": false,
+      "rate": 1,
+      "audio": false,
+      "error": null,
+      "fps": 24,
+      "totalFrames": 1203,
+      "mode": "side",
+      "opacity": 0.5,
+      "referenceTime": 49.333433,
+      "renderedTime": 49.333433,
+      "referenceMuted": true,
+      "renderedMuted": true,
+      "referenceRate": 1,
+      "renderedRate": 1,
+      "presented": {
+        "rendered": 1184,
+        "reference": 1184
+      }
+    },
+    {
+      "frame": 1202,
+      "playing": false,
+      "ready": true,
+      "seeking": false,
+      "buffering": false,
+      "rate": 1,
+      "audio": false,
+      "error": null,
+      "fps": 24,
+      "totalFrames": 1203,
+      "mode": "side",
+      "opacity": 0.5,
+      "referenceTime": 50.083433,
+      "renderedTime": 50.083433,
+      "referenceMuted": true,
+      "renderedMuted": true,
+      "referenceRate": 1,
+      "renderedRate": 1,
+      "presented": {
+        "rendered": 1202,
+        "reference": 1202
+      }
+    }
+  ],
+  "playback": [
+    {
+      "mode": "并排对照",
+      "rate": 1,
+      "sampleCount": 77,
+      "maxDriftFrames": 0.0014640000000127884,
+      "p95DriftFrames": 0.0006479999999839947,
+      "frameAdvance": 57
+    },
+    {
+      "mode": "叠加对齐",
+      "rate": 2,
+      "sampleCount": 142,
+      "maxDriftFrames": 0.2897040000000146,
+      "p95DriftFrames": 0.20786400000000071,
+      "frameAdvance": 114
+    },
+    {
+      "mode": "三维单看",
+      "rate": 0.5,
+      "sampleCount": 142,
+      "maxDriftFrames": 0.005664000000024316,
+      "p95DriftFrames": 0.0038160000000004857,
+      "frameAdvance": 28
+    }
+  ],
+  "overlayLayout": [
+    {
+      "x": 118,
+      "y": 256.78125,
+      "width": 1364,
+      "height": 766.375,
+      "opacity": "1",
+      "fit": "contain",
+      "instance": "rendered"
+    },
+    {
+      "x": 118,
+      "y": 256.78125,
+      "width": 1364,
+      "height": 766.375,
+      "opacity": "0.35",
+      "fit": "contain",
+      "instance": "reference"
+    }
+  ],
+  "rapidSeek": true,
+  "shortcuts": true,
+  "audioIsolation": true,
+  "replayFromEnd": true,
+  "mobileNoOverflow": true,
+  "errorStopsBoth": true,
+  "rehearsalProgressUnchanged": true,
+  "errors": []
+}

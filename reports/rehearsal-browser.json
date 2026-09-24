@@ -1,0 +1,48 @@
+{
+  "homepageEntry": true,
+  "stagesVisited": [
+    2,
+    3,
+    4,
+    5
+  ],
+  "decisions": [
+    {
+      "stage": 1,
+      "decision": "demo_passed",
+      "time": "2026-09-24T09:19:47.554Z"
+    },
+    {
+      "stage": 2,
+      "decision": "demo_passed",
+      "time": "2026-09-24T09:20:27.076Z"
+    },
+    {
+      "stage": 3,
+      "decision": "demo_passed",
+      "time": "2026-09-24T09:20:27.408Z"
+    },
+    {
+      "stage": 4,
+      "decision": "demo_passed",
+      "time": "2026-09-24T09:20:27.758Z"
+    },
+    {
+      "stage": 5,
+      "decision": "demo_passed",
+      "time": "2026-09-24T09:20:28.075Z"
+    }
+  ],
+  "refreshResume": true,
+  "downloadsChecked": [
+    "/demo/v2.mp4",
+    "/probes/rig.glb",
+    "/probes/dcc/rig.blend",
+    "/probes/dcc/rig.fbx",
+    "/probes/dcc/rig.usdc"
+  ],
+  "glbDownload": true,
+  "completed": true,
+  "formalProjectUnchanged": true,
+  "errors": []
+}

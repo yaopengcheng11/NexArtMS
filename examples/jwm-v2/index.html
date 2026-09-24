@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111822">
+  <title>JWM · 白模镜头复现</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app" class="app">
+    <header class="topbar">
+      <div class="brandmark"><span class="mark">J</span><div><strong>JWM / 白模镜头复现</strong><small>逐镜动作、构图与原片同步对照</small></div></div>
+      <div class="topbar-meta"><span class="pill">实时三维</span><span>50.125 秒 · 47 镜 · 24 帧 / 秒</span></div>
+    </header>
+
+    <main class="workbench">
+      <div class="comparison-grid">
+        <section class="stage-panel">
+          <div class="panel-heading"><h1>三维复现 <span id="current-shot">S01 / 47</span></h1><span class="panel-hint"><i class="orange-dot"></i> P1 <i class="blue-dot"></i> P2</span></div>
+          <div id="stage-frame" class="stage-frame">
+            <div id="three-view" class="three-view" aria-label="Three.js 三维场景"></div>
+            <div class="stage-bottom"><span id="view-state">镜头机位</span><span>白模 / 简化角色</span></div>
+          </div>
+        </section>
+        <section class="reference-panel">
+          <div class="panel-heading"><h2>原片对照</h2><span class="panel-hint">同一帧 · 同一画幅</span></div>
+          <div id="reference-frame" class="reference-frame"><video id="reference-video" src="reference.mp4" preload="auto" playsinline muted></video><div id="reference-state" class="reference-state"></div></div>
+        </section>
+      </div>
+
+      <section class="transport" aria-label="播放与对照控制">
+        <div class="transport-top"><div class="transport-title"><strong>镜头时间线</strong><span>橙 / 蓝：单人镜 · 灰：双人镜</span></div><div class="time-readout"><span id="frame-label">第 1 / 1203 帧</span><span id="time-label" class="time-label">00:00.00 / 00:50.13</span></div></div>
+        <div id="timeline" class="timeline" title="点击跳转"></div>
+        <input id="scrubber" type="range" min="0" max="1202" value="0" step="1" aria-label="播放进度">
+        <div class="controls">
+          <div class="controls-main"><button id="play-button" class="primary-control" type="button" aria-label="播放">▶ 播放</button><button id="restart-button" type="button">↺ 从头</button><button id="previous-frame" type="button" aria-label="上一帧">‹ 上一帧</button><button id="next-frame" type="button" aria-label="下一帧">下一帧 ›</button><form id="seek-form" class="seek-form"><label for="time-input">秒</label><input id="time-input" type="number" min="0" max="50.125" step="any" value="0.000" aria-label="跳转秒数"><button type="submit">跳转</button></form></div>
+          <div class="controls-options"><button id="camera-button" type="button" aria-pressed="false">镜头机位</button><button id="comparison-button" type="button" aria-pressed="true">并排对照</button><button id="overlay-button" type="button" aria-pressed="false">叠加对齐</button><button id="sound-button" type="button" aria-pressed="false">原声关</button><label class="speed-label">速度 <select id="speed-select" aria-label="播放速度"><option value="0.25">0.25×</option><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="1.5">1.5×</option><option value="2">2×</option></select></label></div>
+        </div>
+        <div id="overlay-controls" class="overlay-controls" hidden><label for="overlay-opacity">原片透明度</label><input id="overlay-opacity" type="range" min="0" max="100" value="50" step="1"><output id="overlay-value">50%</output><span>拖动可检查轮廓与位置</span></div>
+        <p class="key-hint">空格播放 / 暂停 · ← → 切镜 · Shift + ← → 逐帧</p>
+      </section>
+
+      <div class="details-grid">
+        <section class="inspector">
+          <div class="inspector-top"><span class="eyebrow">当前镜头</span><span id="shot-meta"></span></div>
+          <h3 id="shot-title"></h3>
+          <p id="shot-description"></p>
+          <p class="inspector-note">橙色对应原片 P1，蓝色对应 P2。先用镜头机位对照构图；自由视角可转动、缩放查看三维动作。</p>
+        </section>
+        <section class="shot-list"><div class="shot-list-heading"><strong>镜头表</strong><span>点击镜头跳到首帧</span></div><div id="shot-rows" class="shot-rows" aria-label="47 镜列表"></div></section>
+      </div>
+    </main>
+  </div>
+  <script src="app.bundle.js"></script>
+</body>
+</html>

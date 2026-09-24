@@ -1,0 +1,163 @@
+{
+  "schemaVersion": 1,
+  "probe": "M0 real GLB skeleton / Blender import and interchange",
+  "mode": "glb",
+  "generatedAt": "2026-09-24T08:22:02.718999+00:00",
+  "environment": {
+    "blenderVersion": "5.2.1 LTS",
+    "background": true
+  },
+  "checks": {
+    "objects": {
+      "armatures": 1,
+      "meshes": 2,
+      "objectNames": [
+        "probe__skin_CL2",
+        "Mesh_0",
+        "Icosphere"
+      ],
+      "importerBoneDisplayHelpers": [
+        "Icosphere"
+      ]
+    },
+    "skeleton": {
+      "boneCount": 22,
+      "jointIds": [
+        "root",
+        "pelvis",
+        "spine",
+        "chest",
+        "neck",
+        "head",
+        "shoulder_L",
+        "upperArm_L",
+        "forearm_L",
+        "hand_L",
+        "shoulder_R",
+        "upperArm_R",
+        "forearm_R",
+        "hand_R",
+        "thigh_L",
+        "shin_L",
+        "foot_L",
+        "toe_L",
+        "thigh_R",
+        "shin_R",
+        "foot_R",
+        "toe_R"
+      ],
+      "hierarchyErrors": [],
+      "hasRestPose": true
+    },
+    "binding": {
+      "vertices": 18264,
+      "invalidSingleBoneWeights": 0,
+      "modifiers": [
+        {
+          "mesh": "Mesh_0",
+          "armatureModifiers": 1
+        }
+      ]
+    },
+    "animation": {
+      "actions": [
+        {
+          "name": "probe_elbow_48frames",
+          "frameRange": [
+            0,
+            47
+          ]
+        }
+      ],
+      "fps": 24,
+      "fpsBase": 1,
+      "sampleFrames": [
+        0,
+        23.5,
+        47
+      ],
+      "handPositions": [
+        [
+          0.8224999308586121,
+          4.6422449884175876e-8,
+          1.3562499284744263
+        ],
+        [
+          0.763169527053833,
+          0.16621790826320648,
+          1.3562499284744263
+        ],
+        [
+          0.8224999308586121,
+          4.6422449884175876e-8,
+          1.3562499284744263
+        ]
+      ],
+      "maxHandDisplacementMeters": 0.17648930796977258,
+      "playableMotion": true
+    },
+    "manualElbowRotation": {
+      "affectedVertices": 3312,
+      "affectedMaxDisplacementMeters": 0.3815000901964962,
+      "unaffectedMaxDisplacementMeters": 0,
+      "restoredMaxErrorMeters": 6.006850114687196e-8,
+      "passed": true
+    }
+  },
+  "exports": {
+    "blend": {
+      "status": "saved-awaiting-independent-reopen",
+      "path": "public/probes/dcc/rig.blend"
+    },
+    "FBX": {
+      "status": "exported-awaiting-independent-reimport",
+      "operatorResult": [
+        "FINISHED"
+      ],
+      "options": {
+        "filepath": "public/probes/dcc/rig.fbx",
+        "use_selection": true,
+        "object_types": [
+          "ARMATURE",
+          "MESH"
+        ],
+        "add_leaf_bones": false,
+        "use_armature_deform_only": false,
+        "bake_anim": true,
+        "bake_anim_use_all_actions": false,
+        "bake_anim_use_nla_strips": false,
+        "bake_anim_simplify_factor": 0,
+        "axis_forward": "-Z",
+        "axis_up": "Y"
+      },
+      "path": "public/probes/dcc/rig.fbx",
+      "bytes": 570124
+    },
+    "USD": {
+      "status": "exported-awaiting-independent-reimport",
+      "operatorResult": [
+        "FINISHED"
+      ],
+      "options": {
+        "filepath": "public/probes/dcc/rig.usdc",
+        "export_animation": true,
+        "export_armatures": true,
+        "selected_objects_only": true
+      },
+      "path": "public/probes/dcc/rig.usdc",
+      "bytes": 466678
+    }
+  },
+  "status": "passed-in-blender",
+  "limitations": [
+    "Synthetic forearm animation only, not source-video motion.",
+    "This does not validate Maya or Houdini; both remain unverified.",
+    "No camera or scene reconstruction quality is evaluated by this character fixture."
+  ],
+  "targetSoftware": {
+    "Blender": "passed synthetic fixture checks",
+    "Maya": "unverified / unavailable",
+    "Houdini": "unverified / unavailable"
+  },
+  "source": "public/probes/rig.glb"
+}

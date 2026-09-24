@@ -1,0 +1,993 @@
+{
+  "fps": 24,
+  "frameIndexBase": 0,
+  "entries": [
+    {
+      "shotId": "S01",
+      "kind": "start",
+      "frame": 0,
+      "time": 0,
+      "file": "S01-start.jpg"
+    },
+    {
+      "shotId": "S01",
+      "kind": "middle",
+      "frame": 5,
+      "time": 0.20833333333333334,
+      "file": "S01-middle.jpg"
+    },
+    {
+      "shotId": "S01",
+      "kind": "end",
+      "frame": 11,
+      "time": 0.4583333333333333,
+      "file": "S01-end.jpg"
+    },
+    {
+      "shotId": "S02",
+      "kind": "start",
+      "frame": 12,
+      "time": 0.5,
+      "file": "S02-start.jpg"
+    },
+    {
+      "shotId": "S02",
+      "kind": "middle",
+      "frame": 17,
+      "time": 0.7083333333333334,
+      "file": "S02-middle.jpg"
+    },
+    {
+      "shotId": "S02",
+      "kind": "end",
+      "frame": 22,
+      "time": 0.9166666666666666,
+      "file": "S02-end.jpg"
+    },
+    {
+      "shotId": "S03",
+      "kind": "start",
+      "frame": 23,
+      "time": 0.9583333333333334,
+      "file": "S03-start.jpg"
+    },
+    {
+      "shotId": "S03",
+      "kind": "middle",
+      "frame": 25,
+      "time": 1.0416666666666667,
+      "file": "S03-middle.jpg"
+    },
+    {
+      "shotId": "S03",
+      "kind": "end",
+      "frame": 28,
+      "time": 1.1666666666666667,
+      "file": "S03-end.jpg"
+    },
+    {
+      "shotId": "S04",
+      "kind": "start",
+      "frame": 29,
+      "time": 1.2083333333333333,
+      "file": "S04-start.jpg"
+    },
+    {
+      "shotId": "S04",
+      "kind": "middle",
+      "frame": 33,
+      "time": 1.375,
+      "file": "S04-middle.jpg"
+    },
+    {
+      "shotId": "S04",
+      "kind": "end",
+      "frame": 38,
+      "time": 1.5833333333333333,
+      "file": "S04-end.jpg"
+    },
+    {
+      "shotId": "S05",
+      "kind": "start",
+      "frame": 39,
+      "time": 1.625,
+      "file": "S05-start.jpg"
+    },
+    {
+      "shotId": "S05",
+      "kind": "middle",
+      "frame": 47,
+      "time": 1.9583333333333333,
+      "file": "S05-middle.jpg"
+    },
+    {
+      "shotId": "S05",
+      "kind": "end",
+      "frame": 55,
+      "time": 2.2916666666666665,
+      "file": "S05-end.jpg"
+    },
+    {
+      "shotId": "S06",
+      "kind": "start",
+      "frame": 56,
+      "time": 2.3333333333333335,
+      "file": "S06-start.jpg"
+    },
+    {
+      "shotId": "S06",
+      "kind": "middle",
+      "frame": 66,
+      "time": 2.75,
+      "file": "S06-middle.jpg"
+    },
+    {
+      "shotId": "S06",
+      "kind": "end",
+      "frame": 76,
+      "time": 3.1666666666666665,
+      "file": "S06-end.jpg"
+    },
+    {
+      "shotId": "S07",
+      "kind": "start",
+      "frame": 77,
+      "time": 3.2083333333333335,
+      "file": "S07-start.jpg"
+    },
+    {
+      "shotId": "S07",
+      "kind": "middle",
+      "frame": 87,
+      "time": 3.625,
+      "file": "S07-middle.jpg"
+    },
+    {
+      "shotId": "S07",
+      "kind": "end",
+      "frame": 97,
+      "time": 4.041666666666667,
+      "file": "S07-end.jpg"
+    },
+    {
+      "shotId": "S08",
+      "kind": "start",
+      "frame": 98,
+      "time": 4.083333333333333,
+      "file": "S08-start.jpg"
+    },
+    {
+      "shotId": "S08",
+      "kind": "middle",
+      "frame": 102,
+      "time": 4.25,
+      "file": "S08-middle.jpg"
+    },
+    {
+      "shotId": "S08",
+      "kind": "end",
+      "frame": 106,
+      "time": 4.416666666666667,
+      "file": "S08-end.jpg"
+    },
+    {
+      "shotId": "S09",
+      "kind": "start",
+      "frame": 107,
+      "time": 4.458333333333333,
+      "file": "S09-start.jpg"
+    },
+    {
+      "shotId": "S09",
+      "kind": "middle",
+      "frame": 117,
+      "time": 4.875,
+      "file": "S09-middle.jpg"
+    },
+    {
+      "shotId": "S09",
+      "kind": "end",
+      "frame": 128,
+      "time": 5.333333333333333,
+      "file": "S09-end.jpg"
+    },
+    {
+      "shotId": "S10",
+      "kind": "start",
+      "frame": 129,
+      "time": 5.375,
+      "file": "S10-start.jpg"
+    },
+    {
+      "shotId": "S10",
+      "kind": "middle",
+      "frame": 132,
+      "time": 5.5,
+      "file": "S10-middle.jpg"
+    },
+    {
+      "shotId": "S10",
+      "kind": "end",
+      "frame": 136,
+      "time": 5.666666666666667,
+      "file": "S10-end.jpg"
+    },
+    {
+      "shotId": "S11",
+      "kind": "start",
+      "frame": 137,
+      "time": 5.708333333333333,
+      "file": "S11-start.jpg"
+    },
+    {
+      "shotId": "S11",
+      "kind": "middle",
+      "frame": 145,
+      "time": 6.041666666666667,
+      "file": "S11-middle.jpg"
+    },
+    {
+      "shotId": "S11",
+      "kind": "end",
+      "frame": 153,
+      "time": 6.375,
+      "file": "S11-end.jpg"
+    },
+    {
+      "shotId": "S12",
+      "kind": "start",
+      "frame": 154,
+      "time": 6.416666666666667,
+      "file": "S12-start.jpg"
+    },
+    {
+      "shotId": "S12",
+      "kind": "middle",
+      "frame": 160,
+      "time": 6.666666666666667,
+      "file": "S12-middle.jpg"
+    },
+    {
+      "shotId": "S12",
+      "kind": "end",
+      "frame": 166,
+      "time": 6.916666666666667,
+      "file": "S12-end.jpg"
+    },
+    {
+      "shotId": "S13",
+      "kind": "start",
+      "frame": 167,
+      "time": 6.958333333333333,
+      "file": "S13-start.jpg"
+    },
+    {
+      "shotId": "S13",
+      "kind": "middle",
+      "frame": 173,
+      "time": 7.208333333333333,
+      "file": "S13-middle.jpg"
+    },
+    {
+      "shotId": "S13",
+      "kind": "end",
+      "frame": 179,
+      "time": 7.458333333333333,
+      "file": "S13-end.jpg"
+    },
+    {
+      "shotId": "S14",
+      "kind": "start",
+      "frame": 180,
+      "time": 7.5,
+      "file": "S14-start.jpg"
+    },
+    {
+      "shotId": "S14",
+      "kind": "middle",
+      "frame": 187,
+      "time": 7.791666666666667,
+      "file": "S14-middle.jpg"
+    },
+    {
+      "shotId": "S14",
+      "kind": "end",
+      "frame": 195,
+      "time": 8.125,
+      "file": "S14-end.jpg"
+    },
+    {
+      "shotId": "S15",
+      "kind": "start",
+      "frame": 196,
+      "time": 8.166666666666666,
+      "file": "S15-start.jpg"
+    },
+    {
+      "shotId": "S15",
+      "kind": "middle",
+      "frame": 213,
+      "time": 8.875,
+      "file": "S15-middle.jpg"
+    },
+    {
+      "shotId": "S15",
+      "kind": "end",
+      "frame": 230,
+      "time": 9.583333333333334,
+      "file": "S15-end.jpg"
+    },
+    {
+      "shotId": "S16",
+      "kind": "start",
+      "frame": 231,
+      "time": 9.625,
+      "file": "S16-start.jpg"
+    },
+    {
+      "shotId": "S16",
+      "kind": "middle",
+      "frame": 237,
+      "time": 9.875,
+      "file": "S16-middle.jpg"
+    },
+    {
+      "shotId": "S16",
+      "kind": "end",
+      "frame": 243,
+      "time": 10.125,
+      "file": "S16-end.jpg"
+    },
+    {
+      "shotId": "S17",
+      "kind": "start",
+      "frame": 244,
+      "time": 10.166666666666666,
+      "file": "S17-start.jpg"
+    },
+    {
+      "shotId": "S17",
+      "kind": "middle",
+      "frame": 249,
+      "time": 10.375,
+      "file": "S17-middle.jpg"
+    },
+    {
+      "shotId": "S17",
+      "kind": "end",
+      "frame": 255,
+      "time": 10.625,
+      "file": "S17-end.jpg"
+    },
+    {
+      "shotId": "S18",
+      "kind": "start",
+      "frame": 256,
+      "time": 10.666666666666666,
+      "file": "S18-start.jpg"
+    },
+    {
+      "shotId": "S18",
+      "kind": "middle",
+      "frame": 272,
+      "time": 11.333333333333334,
+      "file": "S18-middle.jpg"
+    },
+    {
+      "shotId": "S18",
+      "kind": "end",
+      "frame": 289,
+      "time": 12.041666666666666,
+      "file": "S18-end.jpg"
+    },
+    {
+      "shotId": "S19",
+      "kind": "start",
+      "frame": 290,
+      "time": 12.083333333333334,
+      "file": "S19-start.jpg"
+    },
+    {
+      "shotId": "S19",
+      "kind": "middle",
+      "frame": 304,
+      "time": 12.666666666666666,
+      "file": "S19-middle.jpg"
+    },
+    {
+      "shotId": "S19",
+      "kind": "end",
+      "frame": 319,
+      "time": 13.291666666666666,
+      "file": "S19-end.jpg"
+    },
+    {
+      "shotId": "S20",
+      "kind": "start",
+      "frame": 320,
+      "time": 13.333333333333334,
+      "file": "S20-start.jpg"
+    },
+    {
+      "shotId": "S20",
+      "kind": "middle",
+      "frame": 336,
+      "time": 14,
+      "file": "S20-middle.jpg"
+    },
+    {
+      "shotId": "S20",
+      "kind": "end",
+      "frame": 352,
+      "time": 14.666666666666666,
+      "file": "S20-end.jpg"
+    },
+    {
+      "shotId": "S21",
+      "kind": "start",
+      "frame": 353,
+      "time": 14.708333333333334,
+      "file": "S21-start.jpg"
+    },
+    {
+      "shotId": "S21",
+      "kind": "middle",
+      "frame": 359,
+      "time": 14.958333333333334,
+      "file": "S21-middle.jpg"
+    },
+    {
+      "shotId": "S21",
+      "kind": "end",
+      "frame": 366,
+      "time": 15.25,
+      "file": "S21-end.jpg"
+    },
+    {
+      "shotId": "S22",
+      "kind": "start",
+      "frame": 367,
+      "time": 15.291666666666666,
+      "file": "S22-start.jpg"
+    },
+    {
+      "shotId": "S22",
+      "kind": "middle",
+      "frame": 376,
+      "time": 15.666666666666666,
+      "file": "S22-middle.jpg"
+    },
+    {
+      "shotId": "S22",
+      "kind": "end",
+      "frame": 385,
+      "time": 16.041666666666668,
+      "file": "S22-end.jpg"
+    },
+    {
+      "shotId": "S23",
+      "kind": "start",
+      "frame": 386,
+      "time": 16.083333333333332,
+      "file": "S23-start.jpg"
+    },
+    {
+      "shotId": "S23",
+      "kind": "middle",
+      "frame": 392,
+      "time": 16.333333333333332,
+      "file": "S23-middle.jpg"
+    },
+    {
+      "shotId": "S23",
+      "kind": "end",
+      "frame": 398,
+      "time": 16.583333333333332,
+      "file": "S23-end.jpg"
+    },
+    {
+      "shotId": "S24",
+      "kind": "start",
+      "frame": 399,
+      "time": 16.625,
+      "file": "S24-start.jpg"
+    },
+    {
+      "shotId": "S24",
+      "kind": "middle",
+      "frame": 408,
+      "time": 17,
+      "file": "S24-middle.jpg"
+    },
+    {
+      "shotId": "S24",
+      "kind": "end",
+      "frame": 418,
+      "time": 17.416666666666668,
+      "file": "S24-end.jpg"
+    },
+    {
+      "shotId": "S25",
+      "kind": "start",
+      "frame": 419,
+      "time": 17.458333333333332,
+      "file": "S25-start.jpg"
+    },
+    {
+      "shotId": "S25",
+      "kind": "middle",
+      "frame": 433,
+      "time": 18.041666666666668,
+      "file": "S25-middle.jpg"
+    },
+    {
+      "shotId": "S25",
+      "kind": "end",
+      "frame": 447,
+      "time": 18.625,
+      "file": "S25-end.jpg"
+    },
+    {
+      "shotId": "S26",
+      "kind": "start",
+      "frame": 448,
+      "time": 18.666666666666668,
+      "file": "S26-start.jpg"
+    },
+    {
+      "shotId": "S26",
+      "kind": "middle",
+      "frame": 451,
+      "time": 18.791666666666668,
+      "file": "S26-middle.jpg"
+    },
+    {
+      "shotId": "S26",
+      "kind": "end",
+      "frame": 454,
+      "time": 18.916666666666668,
+      "file": "S26-end.jpg"
+    },
+    {
+      "shotId": "S27",
+      "kind": "start",
+      "frame": 455,
+      "time": 18.958333333333332,
+      "file": "S27-start.jpg"
+    },
+    {
+      "shotId": "S27",
+      "kind": "middle",
+      "frame": 460,
+      "time": 19.166666666666668,
+      "file": "S27-middle.jpg"
+    },
+    {
+      "shotId": "S27",
+      "kind": "end",
+      "frame": 466,
+      "time": 19.416666666666668,
+      "file": "S27-end.jpg"
+    },
+    {
+      "shotId": "S28",
+      "kind": "start",
+      "frame": 467,
+      "time": 19.458333333333332,
+      "file": "S28-start.jpg"
+    },
+    {
+      "shotId": "S28",
+      "kind": "middle",
+      "frame": 477,
+      "time": 19.875,
+      "file": "S28-middle.jpg"
+    },
+    {
+      "shotId": "S28",
+      "kind": "end",
+      "frame": 487,
+      "time": 20.291666666666668,
+      "file": "S28-end.jpg"
+    },
+    {
+      "shotId": "S29",
+      "kind": "start",
+      "frame": 488,
+      "time": 20.333333333333332,
+      "file": "S29-start.jpg"
+    },
+    {
+      "shotId": "S29",
+      "kind": "middle",
+      "frame": 493,
+      "time": 20.541666666666668,
+      "file": "S29-middle.jpg"
+    },
+    {
+      "shotId": "S29",
+      "kind": "end",
+      "frame": 499,
+      "time": 20.791666666666668,
+      "file": "S29-end.jpg"
+    },
+    {
+      "shotId": "S30",
+      "kind": "start",
+      "frame": 500,
+      "time": 20.833333333333332,
+      "file": "S30-start.jpg"
+    },
+    {
+      "shotId": "S30",
+      "kind": "middle",
+      "frame": 518,
+      "time": 21.583333333333332,
+      "file": "S30-middle.jpg"
+    },
+    {
+      "shotId": "S30",
+      "kind": "end",
+      "frame": 537,
+      "time": 22.375,
+      "file": "S30-end.jpg"
+    },
+    {
+      "shotId": "S31",
+      "kind": "start",
+      "frame": 538,
+      "time": 22.416666666666668,
+      "file": "S31-start.jpg"
+    },
+    {
+      "shotId": "S31",
+      "kind": "middle",
+      "frame": 557,
+      "time": 23.208333333333332,
+      "file": "S31-middle.jpg"
+    },
+    {
+      "shotId": "S31",
+      "kind": "end",
+      "frame": 577,
+      "time": 24.041666666666668,
+      "file": "S31-end.jpg"
+    },
+    {
+      "shotId": "S32",
+      "kind": "start",
+      "frame": 578,
+      "time": 24.083333333333332,
+      "file": "S32-start.jpg"
+    },
+    {
+      "shotId": "S32",
+      "kind": "middle",
+      "frame": 620,
+      "time": 25.833333333333332,
+      "file": "S32-middle.jpg"
+    },
+    {
+      "shotId": "S32",
+      "kind": "end",
+      "frame": 662,
+      "time": 27.583333333333332,
+      "file": "S32-end.jpg"
+    },
+    {
+      "shotId": "S33",
+      "kind": "start",
+      "frame": 663,
+      "time": 27.625,
+      "file": "S33-start.jpg"
+    },
+    {
+      "shotId": "S33",
+      "kind": "middle",
+      "frame": 686,
+      "time": 28.583333333333332,
+      "file": "S33-middle.jpg"
+    },
+    {
+      "shotId": "S33",
+      "kind": "end",
+      "frame": 709,
+      "time": 29.541666666666668,
+      "file": "S33-end.jpg"
+    },
+    {
+      "shotId": "S34",
+      "kind": "start",
+      "frame": 710,
+      "time": 29.583333333333332,
+      "file": "S34-start.jpg"
+    },
+    {
+      "shotId": "S34",
+      "kind": "middle",
+      "frame": 726,
+      "time": 30.25,
+      "file": "S34-middle.jpg"
+    },
+    {
+      "shotId": "S34",
+      "kind": "end",
+      "frame": 742,
+      "time": 30.916666666666668,
+      "file": "S34-end.jpg"
+    },
+    {
+      "shotId": "S35",
+      "kind": "start",
+      "frame": 743,
+      "time": 30.958333333333332,
+      "file": "S35-start.jpg"
+    },
+    {
+      "shotId": "S35",
+      "kind": "middle",
+      "frame": 761,
+      "time": 31.708333333333332,
+      "file": "S35-middle.jpg"
+    },
+    {
+      "shotId": "S35",
+      "kind": "end",
+      "frame": 780,
+      "time": 32.5,
+      "file": "S35-end.jpg"
+    },
+    {
+      "shotId": "S36",
+      "kind": "start",
+      "frame": 781,
+      "time": 32.541666666666664,
+      "file": "S36-start.jpg"
+    },
+    {
+      "shotId": "S36",
+      "kind": "middle",
+      "frame": 837,
+      "time": 34.875,
+      "file": "S36-middle.jpg"
+    },
+    {
+      "shotId": "S36",
+      "kind": "end",
+      "frame": 893,
+      "time": 37.208333333333336,
+      "file": "S36-end.jpg"
+    },
+    {
+      "shotId": "S37",
+      "kind": "start",
+      "frame": 894,
+      "time": 37.25,
+      "file": "S37-start.jpg"
+    },
+    {
+      "shotId": "S37",
+      "kind": "middle",
+      "frame": 915,
+      "time": 38.125,
+      "file": "S37-middle.jpg"
+    },
+    {
+      "shotId": "S37",
+      "kind": "end",
+      "frame": 936,
+      "time": 39,
+      "file": "S37-end.jpg"
+    },
+    {
+      "shotId": "S38",
+      "kind": "start",
+      "frame": 937,
+      "time": 39.041666666666664,
+      "file": "S38-start.jpg"
+    },
+    {
+      "shotId": "S38",
+      "kind": "middle",
+      "frame": 946,
+      "time": 39.416666666666664,
+      "file": "S38-middle.jpg"
+    },
+    {
+      "shotId": "S38",
+      "kind": "end",
+      "frame": 956,
+      "time": 39.833333333333336,
+      "file": "S38-end.jpg"
+    },
+    {
+      "shotId": "S39",
+      "kind": "start",
+      "frame": 957,
+      "time": 39.875,
+      "file": "S39-start.jpg"
+    },
+    {
+      "shotId": "S39",
+      "kind": "middle",
+      "frame": 985,
+      "time": 41.041666666666664,
+      "file": "S39-middle.jpg"
+    },
+    {
+      "shotId": "S39",
+      "kind": "end",
+      "frame": 1013,
+      "time": 42.208333333333336,
+      "file": "S39-end.jpg"
+    },
+    {
+      "shotId": "S40",
+      "kind": "start",
+      "frame": 1014,
+      "time": 42.25,
+      "file": "S40-start.jpg"
+    },
+    {
+      "shotId": "S40",
+      "kind": "middle",
+      "frame": 1022,
+      "time": 42.583333333333336,
+      "file": "S40-middle.jpg"
+    },
+    {
+      "shotId": "S40",
+      "kind": "end",
+      "frame": 1031,
+      "time": 42.958333333333336,
+      "file": "S40-end.jpg"
+    },
+    {
+      "shotId": "S41",
+      "kind": "start",
+      "frame": 1032,
+      "time": 43,
+      "file": "S41-start.jpg"
+    },
+    {
+      "shotId": "S41",
+      "kind": "middle",
+      "frame": 1038,
+      "time": 43.25,
+      "file": "S41-middle.jpg"
+    },
+    {
+      "shotId": "S41",
+      "kind": "end",
+      "frame": 1044,
+      "time": 43.5,
+      "file": "S41-end.jpg"
+    },
+    {
+      "shotId": "S42",
+      "kind": "start",
+      "frame": 1045,
+      "time": 43.541666666666664,
+      "file": "S42-start.jpg"
+    },
+    {
+      "shotId": "S42",
+      "kind": "middle",
+      "frame": 1051,
+      "time": 43.791666666666664,
+      "file": "S42-middle.jpg"
+    },
+    {
+      "shotId": "S42",
+      "kind": "end",
+      "frame": 1057,
+      "time": 44.041666666666664,
+      "file": "S42-end.jpg"
+    },
+    {
+      "shotId": "S43",
+      "kind": "start",
+      "frame": 1058,
+      "time": 44.083333333333336,
+      "file": "S43-start.jpg"
+    },
+    {
+      "shotId": "S43",
+      "kind": "middle",
+      "frame": 1066,
+      "time": 44.416666666666664,
+      "file": "S43-middle.jpg"
+    },
+    {
+      "shotId": "S43",
+      "kind": "end",
+      "frame": 1075,
+      "time": 44.791666666666664,
+      "file": "S43-end.jpg"
+    },
+    {
+      "shotId": "S44",
+      "kind": "start",
+      "frame": 1076,
+      "time": 44.833333333333336,
+      "file": "S44-start.jpg"
+    },
+    {
+      "shotId": "S44",
+      "kind": "middle",
+      "frame": 1085,
+      "time": 45.208333333333336,
+      "file": "S44-middle.jpg"
+    },
+    {
+      "shotId": "S44",
+      "kind": "end",
+      "frame": 1094,
+      "time": 45.583333333333336,
+      "file": "S44-end.jpg"
+    },
+    {
+      "shotId": "S45",
+      "kind": "start",
+      "frame": 1095,
+      "time": 45.625,
+      "file": "S45-start.jpg"
+    },
+    {
+      "shotId": "S45",
+      "kind": "middle",
+      "frame": 1111,
+      "time": 46.291666666666664,
+      "file": "S45-middle.jpg"
+    },
+    {
+      "shotId": "S45",
+      "kind": "end",
+      "frame": 1127,
+      "time": 46.958333333333336,
+      "file": "S45-end.jpg"
+    },
+    {
+      "shotId": "S46",
+      "kind": "start",
+      "frame": 1128,
+      "time": 47,
+      "file": "S46-start.jpg"
+    },
+    {
+      "shotId": "S46",
+      "kind": "middle",
+      "frame": 1155,
+      "time": 48.125,
+      "file": "S46-middle.jpg"
+    },
+    {
+      "shotId": "S46",
+      "kind": "end",
+      "frame": 1183,
+      "time": 49.291666666666664,
+      "file": "S46-end.jpg"
+    },
+    {
+      "shotId": "S47",
+      "kind": "start",
+      "frame": 1184,
+      "time": 49.333333333333336,
+      "file": "S47-start.jpg"
+    },
+    {
+      "shotId": "S47",
+      "kind": "middle",
+      "frame": 1193,
+      "time": 49.708333333333336,
+      "file": "S47-middle.jpg"
+    },
+    {
+      "shotId": "S47",
+      "kind": "end",
+      "frame": 1202,
+      "time": 50.083333333333336,
+      "file": "S47-end.jpg"
+    }
+  ]
+}

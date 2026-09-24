@@ -1,0 +1,6 @@
+export type Vec3=[number,number,number];
+export interface SceneNode {id:string;label:string;type:string;position:Vec3;rotation?:Vec3;scale?:Vec3;size?:Vec3;color?:string;parameters?:Record<string,unknown>;evidence?:string[];uncertainty?:string}
+export interface ShotCamera {shotId:string;position:Vec3;target:Vec3;fov:number;confidence:'estimated'|'supported';note:string}
+export interface SceneAsset {id:string;revision:string;units:string;scaleBasis:string;nodes:SceneNode[];terrain:{width:number;depth:number;segments:number;baseY:number;heightGrid?:number[][];ridges?:{x:number;z:number;height:number;radiusX:number;radiusZ:number}[]};landmarks:{id:string;label:string;position:Vec3;evidence:unknown;confidence:unknown}[];cameras:ShotCamera[];reviewNotes:string[]}
+export interface Shot {id:string;start:number;end:number;seconds:number;frame:string;size:string;startFrame:number;endFrameExclusive:number}
+export interface Project {id:string;revision:string;scene:SceneAsset;shots:Shot[];feedback:string;approval:{status:string;reason:string};quality:{fixedScene:boolean;cameraCoverage:number;cameraMeasurement:'pending'|'passed';actorCount:number};history:{revision:string;time:string;reason:string}[]}

@@ -1,0 +1,18 @@
+{
+  "name": "jwm-threejs-recreation",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "esbuild src/main.js --bundle --format=iife --target=es2020 --minify --outfile=app.bundle.js",
+    "preview": "node serve.mjs",
+    "rebuild:poses": "node scripts/build-poses.mjs",
+    "check": "node scripts/validate-poses.mjs && esbuild scripts/validate-scene.mjs --bundle --platform=node --format=esm --outfile=.checks/scene.mjs && node .checks/scene.mjs"
+  },
+  "dependencies": {
+    "three": "0.186.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0"
+  }
+}

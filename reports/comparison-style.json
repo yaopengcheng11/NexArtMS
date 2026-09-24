@@ -1,0 +1,74 @@
+{
+  "base": "http://127.0.0.1:8200",
+  "style": {
+    "card": {
+      "backgroundColor": "rgb(251, 252, 248)",
+      "color": "rgb(37, 52, 47)",
+      "borderColor": "rgb(220, 226, 218)",
+      "borderRadius": "10px",
+      "fontSize": "13px",
+      "colorScheme": "light"
+    },
+    "play": {
+      "backgroundColor": "rgb(40, 85, 61)",
+      "color": "rgb(255, 255, 255)",
+      "borderColor": "rgb(40, 85, 61)",
+      "borderRadius": "6px",
+      "fontSize": "12px",
+      "colorScheme": "light"
+    },
+    "modes": {
+      "backgroundColor": "rgb(230, 234, 226)",
+      "color": "rgb(37, 52, 47)",
+      "borderColor": "rgb(37, 52, 47)",
+      "borderRadius": "7px",
+      "fontSize": "13px",
+      "colorScheme": "light"
+    },
+    "selected": {
+      "backgroundColor": "rgb(255, 255, 255)",
+      "color": "rgb(37, 77, 59)",
+      "borderColor": "rgba(0, 0, 0, 0)",
+      "borderRadius": "5px",
+      "fontSize": "12px",
+      "colorScheme": "light"
+    }
+  },
+  "overlay": [
+    {
+      "x": 58,
+      "y": 170.671875,
+      "width": 1324,
+      "height": 743.875,
+      "opacity": "1"
+    },
+    {
+      "x": 58,
+      "y": 170.671875,
+      "width": 1324,
+      "height": 743.875,
+      "opacity": "0.5"
+    }
+  ],
+  "widths": [
+    {
+      "mode": "并排对照",
+      "documentWidth": 390,
+      "viewport": 390
+    },
+    {
+      "mode": "叠加对齐",
+      "documentWidth": 390,
+      "viewport": 390
+    },
+    {
+      "mode": "三维单看",
+      "documentWidth": 390,
+      "viewport": 390
+    }
+  ],
+  "playPause": true,
+  "progressUnchanged": true,
+  "errors": [],
+  "checkedAt": "2026-09-24T14:40:15.174Z"
+}

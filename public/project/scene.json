@@ -1,0 +1,1078 @@
+{
+  "id": "jwm-field",
+  "revision": "scene-r1",
+  "units": "m",
+  "scaleBasis": "assumed",
+  "nodes": [
+    {
+      "id": "field-terrain",
+      "label": "连续山坡与前方空地",
+      "type": "terrain",
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "color": "#d9dbd8",
+      "parameters": {
+        "coordinateConvention": "right-handed, Y up; -Z uphill, +Z toward open foreground; origin center of fighting area",
+        "ridgeFunction": "height * exp(-2 * (((x-ridge.x)/radiusX)^2 + ((z-ridge.z)/radiusZ)^2))",
+        "flatZone": {
+          "minX": -14,
+          "maxX": 14,
+          "minZ": -10,
+          "maxZ": 15,
+          "height": 0,
+          "blend": 4
+        },
+        "surface": "matte whitebox; no animated skyline or shot-dependent vertex changes"
+      },
+      "evidence": [
+        "S11a: slope rises behind single tomb and open fighting ground",
+        "S24a: same slope and tomb on left",
+        "S28a: open ground and uninterrupted rear slope",
+        "S33a: broad ridge behind same tomb"
+      ],
+      "uncertainty": "地形轮廓由多个原片视角估计。山坡的真实高度、距离、背面形态与相机焦距尚不明确。"
+    },
+    {
+      "id": "main-tomb",
+      "label": "主墓：中央碑面与左右弧墙",
+      "type": "tomb",
+      "position": [
+        -2.8,
+        0,
+        -7.0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "size": [
+        7.8,
+        2.55,
+        2.0
+      ],
+      "color": "#e3e4e1",
+      "parameters": {
+        "frontDirection": [
+          0,
+          0,
+          1
+        ],
+        "style": "single traditional Chinese horseshoe grave facade; central high crest, two descending curved wings, shallow forward returns",
+        "centralPanelWidth": 1.2,
+        "centralPanelHeight": 1.78,
+        "centralCrestHeight": 2.55,
+        "sideWallHeight": 1.17,
+        "sideWallThickness": 0.25,
+        "wingForwardDepth": 1.4,
+        "curvedTopProfileNormalized": [
+          [
+            -0.5,
+            0.44
+          ],
+          [
+            -0.34,
+            0.5
+          ],
+          [
+            -0.18,
+            0.7
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0.18,
+            0.7
+          ],
+          [
+            0.34,
+            0.5
+          ],
+          [
+            0.5,
+            0.44
+          ]
+        ],
+        "pillarCount": 6,
+        "pillarWidth": 0.27,
+        "pillarTopBallRadius": 0.18,
+        "platformWidth": 8.5,
+        "platformDepth": 2.65,
+        "platformHeight": 0.16,
+        "centralMedallionRadius": 0.22,
+        "inscriptions": "no readable text; simple recessed white panel",
+        "returnWallNote": "Side walls belong to this same tomb assembly, not additional tombs"
+      },
+      "evidence": [
+        "S11a: single complete frontal facade, central crest, low wings and shallow platform",
+        "S33a: same frontal facade behind both actors",
+        "S36b: central crest/medallion and right wing visible near camera",
+        "S21a and S32b: oblique view of the same wing with ball-topped posts",
+        "S34b: near side of the same platform and curved wall"
+      ],
+      "uncertainty": "宽高以假设人物身高估算。弧墙半径、墓后结构、遮挡柱数和碑文尚不可确定；反打出现的侧墙不另建成第二座墓。"
+    },
+    {
+      "id": "west-screen",
+      "label": "西侧竹席围挡",
+      "type": "fence",
+      "position": [
+        -10.2,
+        1.38,
+        0.3
+      ],
+      "rotation": [
+        0,
+        1.5707963267948966,
+        0
+      ],
+      "size": [
+        5.6,
+        2.76,
+        0.16
+      ],
+      "color": "#d0d2ce",
+      "parameters": {
+        "surface": "flat joined reed/bamboo panels, 3 vertical bays; thin stakes",
+        "bayCount": 3,
+        "keepFixed": true,
+        "positionConvention": "center",
+        "postCount": 4
+      },
+      "evidence": [
+        "S17a: rectangular woven screen left of airborne actor",
+        "S21a: same screen left background while tomb wall appears right",
+        "S32b and S35a: screen recurs behind reverse angle"
+      ],
+      "uncertainty": "只看得到围挡正面和近似高度；厚度、方向及相对墓墙的距离仍为估计。"
+    },
+    {
+      "id": "west-tree",
+      "label": "墓旁稀疏树",
+      "type": "tree",
+      "position": [
+        -7,
+        0,
+        -3.8
+      ],
+      "size": [
+        2.4,
+        4.1,
+        2.1
+      ],
+      "rotation": [
+        0,
+        0.25,
+        0
+      ],
+      "color": "#cbd0c8",
+      "parameters": {
+        "positionConvention": "root at ground",
+        "trunkHeight": 3.1,
+        "trunkRadius": 0.115,
+        "canopyCenterHeight": 3.25,
+        "canopyRadius": [
+          1.2,
+          0.775,
+          1.05
+        ],
+        "branchCount": 3,
+        "crownStyle": "sparse irregular ellipsoid cluster, no detailed leaves"
+      },
+      "evidence": [
+        "S21a: slender branching tree between screen and tomb",
+        "S32b: tree behind close fight at same location",
+        "S17a: small open branching tree beside screen",
+        "S21a and S35a: irregular sparse canopy over slender trunk"
+      ],
+      "uncertainty": "这是稀疏树的白模代理；枝条形状、树冠背面和精确尺寸均有推断。"
+    }
+  ],
+  "terrain": {
+    "width": 90,
+    "depth": 100,
+    "segments": 96,
+    "baseY": 0,
+    "ridges": [
+      {
+        "x": -3,
+        "z": -32,
+        "height": 10.4,
+        "radiusX": 31,
+        "radiusZ": 16
+      },
+      {
+        "x": -28,
+        "z": -29,
+        "height": 5.8,
+        "radiusX": 19,
+        "radiusZ": 18
+      },
+      {
+        "x": 27,
+        "z": -26,
+        "height": 6.2,
+        "radiusX": 20,
+        "radiusZ": 18
+      },
+      {
+        "x": 4,
+        "z": -19.5,
+        "height": 1.5,
+        "radiusX": 27,
+        "radiusZ": 8
+      }
+    ]
+  },
+  "landmarks": [
+    {
+      "id": "stage-origin",
+      "label": "打斗空地中心（工作原点）",
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "evidence": "S11/S24/S28/S33 share a broad dry, mostly flat foreground; origin is a modelling convention, not a measured point.",
+      "confidence": "estimated"
+    },
+    {
+      "id": "tomb-center-crest",
+      "label": "主墓中央高点",
+      "position": [
+        -2.8,
+        2.55,
+        -7.0
+      ],
+      "evidence": "Central crest recurs in S11a, S24a, S33a and S36b. Cross-shot identity supported; metric position assumed.",
+      "confidence": "supported"
+    },
+    {
+      "id": "tomb-west-end",
+      "label": "主墓西端球顶柱",
+      "position": [
+        -6.7,
+        1.48,
+        -5.6
+      ],
+      "evidence": "Left side pillar visible in frontal wide shots; forward curvature inferred from reverse views.",
+      "confidence": "estimated"
+    },
+    {
+      "id": "tomb-east-end",
+      "label": "主墓东端球顶柱",
+      "position": [
+        1.1,
+        1.48,
+        -5.6
+      ],
+      "evidence": "Right side pillar and curved platform repeatedly visible in S21a, S32b, S34b.",
+      "confidence": "supported"
+    },
+    {
+      "id": "screen-near-post",
+      "label": "竹席围挡近端",
+      "position": [
+        -10.2,
+        0,
+        3.1
+      ],
+      "evidence": "Screen remains left of sparse tree in reverse angles S17/S21/S35; exact baseline unknown.",
+      "confidence": "estimated"
+    },
+    {
+      "id": "tree-root",
+      "label": "稀疏树根部",
+      "position": [
+        -7,
+        0,
+        -3.8
+      ],
+      "evidence": "Same slender branching tree between screen and tomb in reverse angle; root partly obscured.",
+      "confidence": "estimated"
+    },
+    {
+      "id": "ridge-center",
+      "label": "后方主山脊",
+      "position": [
+        -3,
+        10.4,
+        -32
+      ],
+      "evidence": "Broad rear ridge visible in S11/S15/S24/S28/S30/S33; height and range are coupled and unmeasured.",
+      "confidence": "estimated"
+    }
+  ],
+  "cameras": [
+    {
+      "shotId": "S01",
+      "position": [
+        3.6,
+        1.5,
+        2.6
+      ],
+      "target": [
+        1.0,
+        1.4,
+        -0.8
+      ],
+      "fov": 34,
+      "confidence": "estimated",
+      "note": "人物近景，背景山坡斜线可作方向参考；拍摄距离与焦距尚为估计。"
+    },
+    {
+      "shotId": "S02",
+      "position": [
+        2.0,
+        0.65,
+        2.0
+      ],
+      "target": [
+        2.05,
+        0.05,
+        0.75
+      ],
+      "fov": 48,
+      "confidence": "estimated",
+      "note": "贴地脚部特写的俯拍初值；远处地标不足，不能据此确认真实机位。"
+    },
+    {
+      "shotId": "S03",
+      "position": [
+        1.1,
+        0.17,
+        1.8
+      ],
+      "target": [
+        0.1,
+        2.2,
+        -1.2
+      ],
+      "fov": 66,
+      "confidence": "estimated",
+      "note": "极低机位仰拍，墓墙边缘留在画底；只支持大致朝向，未解出真实高度。"
+    },
+    {
+      "shotId": "S04",
+      "position": [
+        3.4,
+        1.38,
+        0.95
+      ],
+      "target": [
+        0.6,
+        1.42,
+        -0.1
+      ],
+      "fov": 34,
+      "confidence": "estimated",
+      "note": "偏东侧反打：围挡在左、墓墙侧翼在右；具体相机距离未校准。"
+    },
+    {
+      "shotId": "S05",
+      "position": [
+        2.3,
+        0.3,
+        1.7
+      ],
+      "target": [
+        1.1,
+        4.15,
+        -0.6
+      ],
+      "fov": 46,
+      "confidence": "estimated",
+      "note": "天空占大部分的低机位；腾空高度、抬头角和焦距均为初值。"
+    },
+    {
+      "shotId": "S06",
+      "position": [
+        3.45,
+        1.28,
+        0.9
+      ],
+      "target": [
+        0.55,
+        1.55,
+        -0.15
+      ],
+      "fov": 35,
+      "confidence": "estimated",
+      "note": "与S04接近的反打背景：左侧围挡、右侧墓墙；镜头参数待校准。"
+    },
+    {
+      "shotId": "S07",
+      "position": [
+        1.0,
+        0.27,
+        3.2
+      ],
+      "target": [
+        -0.4,
+        0.4,
+        -0.5
+      ],
+      "fov": 45,
+      "confidence": "estimated",
+      "note": "贴地裁切，墓墙在脚后方；近摄距离及画框范围为估计。"
+    },
+    {
+      "shotId": "S08",
+      "position": [
+        4.0,
+        0.28,
+        3.0
+      ],
+      "target": [
+        3.8,
+        0.4,
+        -0.2
+      ],
+      "fov": 50,
+      "confidence": "estimated",
+      "note": "看向右侧山坡的贴地镜头，主墓在裁切之外；源片起点已核对为第98帧。"
+    },
+    {
+      "shotId": "S09",
+      "position": [
+        3.6,
+        1.35,
+        2.8
+      ],
+      "target": [
+        1.1,
+        1.4,
+        -0.8
+      ],
+      "fov": 41,
+      "confidence": "estimated",
+      "note": "植被山坡前的中景；缺少可直接测量的地标约束。"
+    },
+    {
+      "shotId": "S10",
+      "position": [
+        3.6,
+        0.22,
+        1.8
+      ],
+      "target": [
+        3.55,
+        0.32,
+        -0.05
+      ],
+      "fov": 50,
+      "confidence": "estimated",
+      "note": "白鞋落地后再次起跳的特写；只有地面，机位仅根据画面初始化。"
+    },
+    {
+      "shotId": "S11",
+      "position": [
+        3.8,
+        1.55,
+        10.5
+      ],
+      "target": [
+        0.9,
+        1.05,
+        -1.6
+      ],
+      "fov": 45,
+      "confidence": "estimated",
+      "note": "正面宽镜头，完整主墓位于交手区域左后方；是本轮固定布局的主要参考。"
+    },
+    {
+      "shotId": "S12",
+      "position": [
+        2.3,
+        0.32,
+        0.8
+      ],
+      "target": [
+        0.3,
+        1.85,
+        -0.1
+      ],
+      "fov": 48,
+      "confidence": "estimated",
+      "note": "低机位反打近景，围挡位于左下、上方为天空；俯仰和焦距未校准。"
+    },
+    {
+      "shotId": "S13",
+      "position": [
+        2.5,
+        0.16,
+        0.8
+      ],
+      "target": [
+        0.2,
+        0.36,
+        -0.1
+      ],
+      "fov": 59,
+      "confidence": "estimated",
+      "note": "极近的贴地视角，围挡远在左侧；脚部相机的真实位置未求解。"
+    },
+    {
+      "shotId": "S14",
+      "position": [
+        0.1,
+        0.88,
+        2.6
+      ],
+      "target": [
+        0.5,
+        1.75,
+        -0.1
+      ],
+      "fov": 48,
+      "confidence": "estimated",
+      "note": "低机位双人裁切，主要背景是天空；尺度依据较弱。"
+    },
+    {
+      "shotId": "S15",
+      "position": [
+        7.0,
+        0.68,
+        17.2
+      ],
+      "target": [
+        0.5,
+        1.1,
+        -2.1
+      ],
+      "fov": 49,
+      "confidence": "estimated",
+      "note": "主墓与后方山脊同时可见的宽镜头；较低机位给腾空和倒地留出空间。"
+    },
+    {
+      "shotId": "S16",
+      "position": [
+        4.1,
+        1.48,
+        3.6
+      ],
+      "target": [
+        1.1,
+        1.45,
+        -0.6
+      ],
+      "fov": 35,
+      "confidence": "estimated",
+      "note": "斜向山坡前的单人中景；缺少可唯一定位相机的地标。"
+    },
+    {
+      "shotId": "S17",
+      "position": [
+        4.6,
+        0.32,
+        1.4
+      ],
+      "target": [
+        -0.3,
+        1.5,
+        -0.5
+      ],
+      "fov": 58,
+      "confidence": "estimated",
+      "note": "低机位斜向反打：围挡在左、小树居中、墓墙边缘在右。"
+    },
+    {
+      "shotId": "S18",
+      "position": [
+        3.1,
+        1.0,
+        0.9
+      ],
+      "target": [
+        0.4,
+        1.44,
+        -0.1
+      ],
+      "fov": 45,
+      "confidence": "estimated",
+      "note": "近距离斜侧交手，山坡和墓墙只露局部；透视参数为估计。"
+    },
+    {
+      "shotId": "S19",
+      "position": [
+        4.9,
+        0.65,
+        5.3
+      ],
+      "target": [
+        0.3,
+        1.1,
+        -1.3
+      ],
+      "fov": 48,
+      "confidence": "estimated",
+      "note": "墓墙侧方的中远景，低角度可见右侧翼墙。"
+    },
+    {
+      "shotId": "S20",
+      "position": [
+        5.4,
+        1.5,
+        5.5
+      ],
+      "target": [
+        2.8,
+        1.16,
+        -0.8
+      ],
+      "fov": 34,
+      "confidence": "estimated",
+      "note": "山坡前的站姿中景，主墓在画框外；这是肖像相机初值。"
+    },
+    {
+      "shotId": "S21",
+      "position": [
+        3.5,
+        1.5,
+        0.9
+      ],
+      "target": [
+        0.3,
+        1.35,
+        -0.1
+      ],
+      "fov": 33,
+      "confidence": "estimated",
+      "note": "近距离反打，围挡在左、树与墓墙在右；地物身份有跨镜依据。"
+    },
+    {
+      "shotId": "S22",
+      "position": [
+        5.2,
+        1.35,
+        7.4
+      ],
+      "target": [
+        2.1,
+        1.0,
+        -1.8
+      ],
+      "fov": 38,
+      "confidence": "estimated",
+      "note": "山坡前的中远景，墓墙不入画；拍摄位置仍待匹配。"
+    },
+    {
+      "shotId": "S23",
+      "position": [
+        3.4,
+        1.52,
+        1.0
+      ],
+      "target": [
+        0.4,
+        1.45,
+        -0.1
+      ],
+      "fov": 33,
+      "confidence": "estimated",
+      "note": "与S21属于同一反打方向，手与脸的裁切更近。"
+    },
+    {
+      "shotId": "S24",
+      "position": [
+        7.2,
+        1.52,
+        13.1
+      ],
+      "target": [
+        1.9,
+        1.1,
+        -1.6
+      ],
+      "fov": 45,
+      "confidence": "estimated",
+      "note": "宽镜头，主墓在画左局部裁切；使用同一墓墙与后方山脊。"
+    },
+    {
+      "shotId": "S25",
+      "position": [
+        5.3,
+        1.8,
+        5.4
+      ],
+      "target": [
+        2.0,
+        0.6,
+        -0.9
+      ],
+      "fov": 45,
+      "confidence": "estimated",
+      "note": "镜头看向倒地位置；这里只初始化代表构图，未解出动作过程中的俯仰变化。"
+    },
+    {
+      "shotId": "S26",
+      "position": [
+        3.7,
+        0.65,
+        1.6
+      ],
+      "target": [
+        0.4,
+        1.5,
+        -0.4
+      ],
+      "fov": 45,
+      "confidence": "estimated",
+      "note": "低机位躯干近景，原片仅A入画，天空较多；背景对机位约束较弱。"
+    },
+    {
+      "shotId": "S27",
+      "position": [
+        3.8,
+        2.4,
+        1.4
+      ],
+      "target": [
+        2.1,
+        0.17,
+        0.0
+      ],
+      "fov": 44,
+      "confidence": "estimated",
+      "note": "向下看地面的倒地特写，没有天际线；机位高度和地面关系为估计。"
+    },
+    {
+      "shotId": "S28",
+      "position": [
+        9.4,
+        1.28,
+        11.9
+      ],
+      "target": [
+        3.8,
+        0.9,
+        -1.9
+      ],
+      "fov": 43,
+      "confidence": "estimated",
+      "note": "开阔空地与后方山坡，主墓在左侧画外；方向参考相邻宽镜头。"
+    },
+    {
+      "shotId": "S29",
+      "position": [
+        3.6,
+        0.62,
+        1.1
+      ],
+      "target": [
+        0.6,
+        1.5,
+        -0.2
+      ],
+      "fov": 46,
+      "confidence": "estimated",
+      "note": "低机位的近距离躯干画面，主要是天空；具体机位不确定。"
+    },
+    {
+      "shotId": "S30",
+      "position": [
+        8.0,
+        0.36,
+        10.4
+      ],
+      "target": [
+        2.2,
+        1.1,
+        -1.45
+      ],
+      "fov": 47,
+      "confidence": "estimated",
+      "note": "低机位宽镜头，主墓仅在最左侧露边、山脊处于中部；场景保持固定。"
+    },
+    {
+      "shotId": "S31",
+      "position": [
+        3.6,
+        0.5,
+        1.7
+      ],
+      "target": [
+        0.5,
+        1.75,
+        -0.2
+      ],
+      "fov": 38,
+      "confidence": "estimated",
+      "note": "仰拍单人中景，墓墙边缘位于右下；天空占主要面积。"
+    },
+    {
+      "shotId": "S32",
+      "position": [
+        4.8,
+        1.5,
+        2.2
+      ],
+      "target": [
+        0.0,
+        1.2,
+        -0.8
+      ],
+      "fov": 48,
+      "confidence": "estimated",
+      "note": "原片向右运镜，这里只提供起始或中央构图的静态初值；完整相机轨迹尚未制作。"
+    },
+    {
+      "shotId": "S33",
+      "position": [
+        3.2,
+        1.62,
+        11.8
+      ],
+      "target": [
+        0.0,
+        1.0,
+        -1.5
+      ],
+      "fov": 41,
+      "confidence": "estimated",
+      "note": "完整主墓位于双方后方；与S11共同作为正面布局的主要参考。"
+    },
+    {
+      "shotId": "S34",
+      "position": [
+        2.8,
+        1.48,
+        4.1
+      ],
+      "target": [
+        1.6,
+        1.25,
+        0.0
+      ],
+      "fov": 32,
+      "confidence": "estimated",
+      "note": "B的中景，左侧露出较近的墓墙翼部；距离和焦距尚未校准。"
+    },
+    {
+      "shotId": "S35",
+      "position": [
+        3.4,
+        1.52,
+        0.9
+      ],
+      "target": [
+        0.45,
+        1.42,
+        -0.1
+      ],
+      "fov": 31,
+      "confidence": "estimated",
+      "note": "与S21共用围挡、树的反打近景；没有新增墓墙。"
+    },
+    {
+      "shotId": "S36",
+      "position": [
+        2.8,
+        1.5,
+        4.5
+      ],
+      "target": [
+        0.0,
+        1.3,
+        -0.9
+      ],
+      "fov": 38,
+      "confidence": "estimated",
+      "note": "墓前双人近景，中央高点在人物身后可见。"
+    },
+    {
+      "shotId": "S37",
+      "position": [
+        3.7,
+        1.55,
+        1.6
+      ],
+      "target": [
+        0.1,
+        1.3,
+        -0.6
+      ],
+      "fov": 40,
+      "confidence": "estimated",
+      "note": "另一斜侧角度，翼墙位于右侧，前景肩部形成裁切。"
+    },
+    {
+      "shotId": "S38",
+      "position": [
+        3.4,
+        1.6,
+        0.95
+      ],
+      "target": [
+        0.2,
+        1.2,
+        -0.3
+      ],
+      "fov": 31,
+      "confidence": "estimated",
+      "note": "很近的反打构图，只见围挡和树的局部；深度约束较弱。"
+    },
+    {
+      "shotId": "S39",
+      "position": [
+        2.0,
+        1.48,
+        4.7
+      ],
+      "target": [
+        -0.6,
+        1.3,
+        -1.4
+      ],
+      "fov": 40,
+      "confidence": "estimated",
+      "note": "墓前双人近身交手，同一中央墓墙可作为构图参照。"
+    },
+    {
+      "shotId": "S40",
+      "position": [
+        3.1,
+        0.35,
+        1.0
+      ],
+      "target": [
+        0.2,
+        1.28,
+        -0.4
+      ],
+      "fov": 52,
+      "confidence": "estimated",
+      "note": "低机位抓抱裁切；原片是腰腹及上身接触，不是脸前双掌碰撞。"
+    },
+    {
+      "shotId": "S41",
+      "position": [
+        3.8,
+        1.18,
+        1.0
+      ],
+      "target": [
+        0.3,
+        1.25,
+        -0.3
+      ],
+      "fov": 44,
+      "confidence": "estimated",
+      "note": "反打中景，围挡在左、树在右；相机仅为初值。"
+    },
+    {
+      "shotId": "S42",
+      "position": [
+        2.5,
+        0.26,
+        1.8
+      ],
+      "target": [
+        0.6,
+        1.95,
+        -0.4
+      ],
+      "fov": 51,
+      "confidence": "estimated",
+      "note": "极低机位的正面踢腿镜头，天空与低山脊为主。"
+    },
+    {
+      "shotId": "S43",
+      "position": [
+        2.2,
+        0.18,
+        1.35
+      ],
+      "target": [
+        0.3,
+        1.78,
+        -0.2
+      ],
+      "fov": 62,
+      "confidence": "estimated",
+      "note": "极低机位双人踢腿，主要背景是天空、左下有围挡边缘；深度未获可靠约束。"
+    },
+    {
+      "shotId": "S44",
+      "position": [
+        3.2,
+        1.5,
+        0.95
+      ],
+      "target": [
+        0.4,
+        1.45,
+        -0.2
+      ],
+      "fov": 32,
+      "confidence": "estimated",
+      "note": "近距离反打的颈肩抓握，左后方是围挡、右后方是稀疏树。"
+    },
+    {
+      "shotId": "S45",
+      "position": [
+        2.6,
+        0.85,
+        1.45
+      ],
+      "target": [
+        0.5,
+        0.43,
+        -0.1
+      ],
+      "fov": 48,
+      "confidence": "estimated",
+      "note": "向下拍髋部和腿的插镜，可见接触地面但没有可靠天际线。"
+    },
+    {
+      "shotId": "S46",
+      "position": [
+        2.9,
+        1.53,
+        4.4
+      ],
+      "target": [
+        0.0,
+        1.35,
+        -1.0
+      ],
+      "fov": 39,
+      "confidence": "estimated",
+      "note": "墓前肩部高度的抓抱构图，属于S36的同一正面方向。"
+    },
+    {
+      "shotId": "S47",
+      "position": [
+        2.7,
+        1.49,
+        5.0
+      ],
+      "target": [
+        1.3,
+        1.2,
+        -0.7
+      ],
+      "fov": 34,
+      "confidence": "estimated",
+      "note": "B的正面中景，画左是主墓边缘，后方是山坡；相机参数待校准。"
+    }
+  ],
+  "reviewNotes": [
+    "scene-r1是阶段1空场景候选，尚未完成相机校准或用户确认。",
+    "47个镜头共享同一地形与同一主墓。切换镜头不得改变节点、地形、地标或尺度。",
+    "坐标以假设米制表示，Y向上，-Z指向墓墙和上坡，+Z指向前方空地；原点在打斗区域中心。",
+    "绝对尺度暂按成年角色约1.75米估算。这是工作假设，原片没有已知实测长度。",
+    "所有相机均为初始化估计。宽镜头中的地物身份支持方向判断，但不代表机位或焦距已经精确校准。",
+    "主要不确定项：山坡的距离和高度、墓墙背面与弧墙尺寸、围挡和树的距离。",
+    "中央打斗与墓台区域应保持Y=0，并平滑接入后方山坡；后续接触检查应使用同一地面。",
+    "使用固定光照与白灰漫反射几何；本阶段不显示角色，不从逐镜屏幕轮廓生成不同场景。",
+    "S02、S07、S08、S10、S13、S45的脚部插镜提供的背景信息较少，其近摄相机均为暂定值。",
+    "S32原片存在横向运镜；当前版本仅存代表性静态初值，尚未还原完整相机路径。",
+    "确认场景前需用S11、S21、S24、S28、S30、S33、S35、S36检查同一墓墙、围挡、树与山脊；目前尚未通过数值重投影测量。"
+  ]
+}

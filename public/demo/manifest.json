@@ -1,0 +1,241 @@
+{
+  "purpose": "流程演练中的旧版 V2 参考样例，未经新流程还原或去抖",
+  "fps": 24,
+  "entries": [
+    {
+      "shotId": "S01",
+      "frame": 5,
+      "file": "S01-middle.jpg"
+    },
+    {
+      "shotId": "S02",
+      "frame": 17,
+      "file": "S02-middle.jpg"
+    },
+    {
+      "shotId": "S03",
+      "frame": 25,
+      "file": "S03-middle.jpg"
+    },
+    {
+      "shotId": "S04",
+      "frame": 33,
+      "file": "S04-middle.jpg"
+    },
+    {
+      "shotId": "S05",
+      "frame": 47,
+      "file": "S05-middle.jpg"
+    },
+    {
+      "shotId": "S06",
+      "frame": 66,
+      "file": "S06-middle.jpg"
+    },
+    {
+      "shotId": "S07",
+      "frame": 87,
+      "file": "S07-middle.jpg"
+    },
+    {
+      "shotId": "S08",
+      "frame": 102,
+      "file": "S08-middle.jpg"
+    },
+    {
+      "shotId": "S09",
+      "frame": 117,
+      "file": "S09-middle.jpg"
+    },
+    {
+      "shotId": "S10",
+      "frame": 132,
+      "file": "S10-middle.jpg"
+    },
+    {
+      "shotId": "S11",
+      "frame": 145,
+      "file": "S11-middle.jpg"
+    },
+    {
+      "shotId": "S12",
+      "frame": 160,
+      "file": "S12-middle.jpg"
+    },
+    {
+      "shotId": "S13",
+      "frame": 173,
+      "file": "S13-middle.jpg"
+    },
+    {
+      "shotId": "S14",
+      "frame": 187,
+      "file": "S14-middle.jpg"
+    },
+    {
+      "shotId": "S15",
+      "frame": 213,
+      "file": "S15-middle.jpg"
+    },
+    {
+      "shotId": "S16",
+      "frame": 237,
+      "file": "S16-middle.jpg"
+    },
+    {
+      "shotId": "S17",
+      "frame": 249,
+      "file": "S17-middle.jpg"
+    },
+    {
+      "shotId": "S18",
+      "frame": 272,
+      "file": "S18-middle.jpg"
+    },
+    {
+      "shotId": "S19",
+      "frame": 304,
+      "file": "S19-middle.jpg"
+    },
+    {
+      "shotId": "S20",
+      "frame": 336,
+      "file": "S20-middle.jpg"
+    },
+    {
+      "shotId": "S21",
+      "frame": 359,
+      "file": "S21-middle.jpg"
+    },
+    {
+      "shotId": "S22",
+      "frame": 376,
+      "file": "S22-middle.jpg"
+    },
+    {
+      "shotId": "S23",
+      "frame": 392,
+      "file": "S23-middle.jpg"
+    },
+    {
+      "shotId": "S24",
+      "frame": 408,
+      "file": "S24-middle.jpg"
+    },
+    {
+      "shotId": "S25",
+      "frame": 433,
+      "file": "S25-middle.jpg"
+    },
+    {
+      "shotId": "S26",
+      "frame": 451,
+      "file": "S26-middle.jpg"
+    },
+    {
+      "shotId": "S27",
+      "frame": 460,
+      "file": "S27-middle.jpg"
+    },
+    {
+      "shotId": "S28",
+      "frame": 477,
+      "file": "S28-middle.jpg"
+    },
+    {
+      "shotId": "S29",
+      "frame": 493,
+      "file": "S29-middle.jpg"
+    },
+    {
+      "shotId": "S30",
+      "frame": 518,
+      "file": "S30-middle.jpg"
+    },
+    {
+      "shotId": "S31",
+      "frame": 557,
+      "file": "S31-middle.jpg"
+    },
+    {
+      "shotId": "S32",
+      "frame": 620,
+      "file": "S32-middle.jpg"
+    },
+    {
+      "shotId": "S33",
+      "frame": 686,
+      "file": "S33-middle.jpg"
+    },
+    {
+      "shotId": "S34",
+      "frame": 726,
+      "file": "S34-middle.jpg"
+    },
+    {
+      "shotId": "S35",
+      "frame": 761,
+      "file": "S35-middle.jpg"
+    },
+    {
+      "shotId": "S36",
+      "frame": 837,
+      "file": "S36-middle.jpg"
+    },
+    {
+      "shotId": "S37",
+      "frame": 915,
+      "file": "S37-middle.jpg"
+    },
+    {
+      "shotId": "S38",
+      "frame": 946,
+      "file": "S38-middle.jpg"
+    },
+    {
+      "shotId": "S39",
+      "frame": 985,
+      "file": "S39-middle.jpg"
+    },
+    {
+      "shotId": "S40",
+      "frame": 1022,
+      "file": "S40-middle.jpg"
+    },
+    {
+      "shotId": "S41",
+      "frame": 1038,
+      "file": "S41-middle.jpg"
+    },
+    {
+      "shotId": "S42",
+      "frame": 1051,
+      "file": "S42-middle.jpg"
+    },
+    {
+      "shotId": "S43",
+      "frame": 1066,
+      "file": "S43-middle.jpg"
+    },
+    {
+      "shotId": "S44",
+      "frame": 1085,
+      "file": "S44-middle.jpg"
+    },
+    {
+      "shotId": "S45",
+      "frame": 1111,
+      "file": "S45-middle.jpg"
+    },
+    {
+      "shotId": "S46",
+      "frame": 1155,
+      "file": "S46-middle.jpg"
+    },
+    {
+      "shotId": "S47",
+      "frame": 1193,
+      "file": "S47-middle.jpg"
+    }
+  ]
+}

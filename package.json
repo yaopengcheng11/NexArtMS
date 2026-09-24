@@ -1,0 +1,32 @@
+{
+  "name": "nexartms",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 8198",
+    "build": "tsc --noEmit && vite build",
+    "check": "node --import tsx --test scripts/*.test.ts scripts/*.test.mjs",
+    "serve": "node server.mjs"
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "three": "0.186.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "@types/three": "^0.183.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "playwright": "1.62.1",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.0",
+    "vite": "^7.1.0"
+  },
+  "description": "基于原视频的 Three.js 白模预演与五阶段审查工作台",
+  "engines": {
+    "node": ">=22.12.0"
+  }
+}

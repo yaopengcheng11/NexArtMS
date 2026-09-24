@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 1,
+  "probe": "M0 real GLB skeleton / Blender import and interchange",
+  "mode": "fbx",
+  "generatedAt": "2026-09-24T08:23:16.715321+00:00",
+  "environment": {
+    "blenderVersion": "5.2.1 LTS",
+    "background": true
+  },
+  "checks": {
+    "objects": {
+      "armatures": 1,
+      "meshes": 1,
+      "objectNames": [
+        "probe__skin_CL2",
+        "Mesh_0"
+      ],
+      "importerBoneDisplayHelpers": []
+    },
+    "skeleton": {
+      "boneCount": 22,
+      "jointIds": [
+        "root",
+        "pelvis",
+        "spine",
+        "chest",
+        "neck",
+        "head",
+        "shoulder_L",
+        "upperArm_L",
+        "forearm_L",
+        "hand_L",
+        "shoulder_R",
+        "upperArm_R",
+        "forearm_R",
+        "hand_R",
+        "thigh_L",
+        "shin_L",
+        "foot_L",
+        "toe_L",
+        "thigh_R",
+        "shin_R",
+        "foot_R",
+        "toe_R"
+      ],
+      "hierarchyErrors": [],
+      "hasRestPose": true
+    },
+    "binding": {
+      "vertices": 18264,
+      "invalidSingleBoneWeights": 0,
+      "modifiers": [
+        {
+          "mesh": "Mesh_0",
+          "armatureModifiers": 1
+        }
+      ]
+    },
+    "animation": {
+      "actions": [
+        {
+          "name": "probe__skin_CL2|Scene",
+          "frameRange": [
+            0,
+            47
+          ]
+        }
+      ],
+      "fps": 24,
+      "fpsBase": 1,
+      "sampleFrames": [
+        0,
+        23.5,
+        47
+      ],
+      "handPositions": [
+        [
+          0.8224999904632568,
+          2.3211228494801617e-8,
+          1.3562499284744263
+        ],
+        [
+          0.7631723284721375,
+          0.16621433198451996,
+          1.3562498092651367
+        ],
+        [
+          0.8224999904632568,
+          2.3211228494801617e-8,
+          1.3562499284744263
+        ]
+      ],
+      "maxHandDisplacementMeters": 0.17648502964305132,
+      "playableMotion": true
+    },
+    "manualElbowRotation": {
+      "affectedVertices": 3312,
+      "affectedMaxDisplacementMeters": 0.3814998852586061,
+      "unaffectedMaxDisplacementMeters": 0,
+      "restoredMaxErrorMeters": 0,
+      "passed": true
+    }
+  },
+  "exports": {},
+  "status": "passed-in-blender",
+  "limitations": [
+    "Synthetic forearm animation only, not source-video motion.",
+    "This does not validate Maya or Houdini; both remain unverified.",
+    "No camera or scene reconstruction quality is evaluated by this character fixture."
+  ],
+  "targetSoftware": {
+    "Blender": "passed synthetic fixture checks",
+    "Maya": "unverified / unavailable",
+    "Houdini": "unverified / unavailable"
+  },
+  "source": "public/probes/dcc/rig.fbx",
+  "importOptions": {
+    "use_anim": true,
+    "anim_offset": 0
+  },
+  "adapterDecision": "Blender FBX importer defaults to a +1 frame offset; explicitly set anim_offset=0.0 for the project zero-based frame contract."
+}

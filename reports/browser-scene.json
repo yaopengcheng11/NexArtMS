@@ -1,0 +1,13 @@
+{
+  "fixedSceneShots": 47,
+  "referenceImages": 50,
+  "saveAndReload": "passed; restored original scene and feedback",
+  "errors": [],
+  "originalVideoLoaded": true,
+  "approvalGuard": {
+    "status": 422,
+    "body": {
+      "error": "机位参照点测量尚未完成，不能把 G1 标为通过。场景意见可先保存。"
+    }
+  }
+}
