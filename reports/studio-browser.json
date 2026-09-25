@@ -1,0 +1,38 @@
+{
+  "baseUrl": "http://127.0.0.1:8199",
+  "checks": [
+    {
+      "name": "列表页创建表单可见",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "场景模式选择可见",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "工作台阶段条可见",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "任务面板可见",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "角色归并面板可见",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "媒体/导入区可见",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "consoleErrors": [],
+  "passed": 6,
+  "failed": 0
+}

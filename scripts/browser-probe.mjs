@@ -14,7 +14,7 @@ try{
  const result=await page.evaluate(()=>window.__rigProbe());const base64=await page.evaluate(()=>window.__exportRig());fs.mkdirSync(path.join(root,'public/probes'),{recursive:true});fs.writeFileSync(path.join(root,'public/probes/rig.glb'),Buffer.from(base64,'base64'));
  console.log(JSON.stringify({rig:result,glb:path.join(root,'public/probes/rig.glb')}));
  await page.getByRole('button',{name:'检查屈肘与屈膝'}).click();await page.screenshot({path:path.join(root,'reports/rig-bent.png'),fullPage:true});
- await page.goto(base);await page.waitForFunction(()=>typeof window.__sceneProbe==='function');await page.locator('.reference-image').waitFor();await page.waitForFunction(()=>{const i=document.querySelector('.reference-image');return i&&i.complete&&i.naturalWidth>0;});
+ await page.goto(new URL('/?mode=scene',base).href);await page.waitForFunction(()=>typeof window.__sceneProbe==='function');await page.locator('.reference-image').waitFor();await page.waitForFunction(()=>{const i=document.querySelector('.reference-image');return i&&i.complete&&i.naturalWidth>0;});
  await page.screenshot({path:path.join(root,'reports/scene-workbench.png'),fullPage:true});
  const before=await page.evaluate(()=>window.__sceneProbe());
  await page.locator('.shot-card').filter({hasText:'S33'}).click();

@@ -10,7 +10,7 @@ const browser=await chromium.launch({...process.env.CHROME_PATH?{executablePath:
 const errors=[];const report={fixedSceneShots:0,referenceImages:0,saveAndReload:'not requested',errors};
 try{
  const page=await browser.newPage({viewport:{width:1500,height:1100},deviceScaleFactor:1});page.on('pageerror',e=>errors.push(e.message));
- await page.goto(url);await page.waitForFunction(()=>typeof window.__sceneProbe==='function');
+ await page.goto(new URL('/?mode=scene',url).href);await page.waitForFunction(()=>typeof window.__sceneProbe==='function');
  const imageReady=()=>page.waitForFunction(()=>{const i=document.querySelector('.reference-image');return i&&i.complete&&i.naturalWidth===960;});
  await imageReady();await page.screenshot({path:path.join(root,'reports/scene-workbench.png'),fullPage:true});
  const initial=await page.evaluate(()=>window.__sceneProbe());

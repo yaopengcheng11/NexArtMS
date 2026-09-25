@@ -1,0 +1,42 @@
+{
+  "checks": [
+    {
+      "name": "全片人物卡片汇总",
+      "pass": true
+    },
+    {
+      "name": "设置持久化",
+      "pass": true
+    },
+    {
+      "name": "不同素材人物共享一个代理组",
+      "pass": true
+    },
+    {
+      "name": "同一素材人物显示跨镜出场",
+      "pass": true
+    },
+    {
+      "name": "刷新保留分组",
+      "pass": true
+    },
+    {
+      "name": "390px没有横向溢出",
+      "pass": true
+    },
+    {
+      "name": "删除需完整名称确认",
+      "pass": true
+    },
+    {
+      "name": "删除返回列表并清理临时数据",
+      "pass": true
+    },
+    {
+      "name": "无页面脚本异常",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "passed": 9
+}

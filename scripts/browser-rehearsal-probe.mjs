@@ -12,7 +12,7 @@ const errors=[];const stages=[];
 try{
  const before=await(await fetch(base+'/api/project')).text();
  const page=await browser.newPage({viewport:{width:1440,height:1000}});page.on('pageerror',e=>errors.push(e.message));
- await page.goto(base);await page.waitForFunction(()=>typeof window.__sceneProbe==='function');
+ await page.goto(new URL('/?mode=scene',base).href);await page.waitForFunction(()=>typeof window.__sceneProbe==='function');
  await page.locator('#stage-confirmation').screenshot({path:path.join(root,'reports/rehearsal-entry.png')});
  assert.equal(await page.getByRole('button',{name:'确认场景通过',exact:true}).isDisabled(),true);
  await page.getByRole('button',{name:'演练通过 → 角色确认',exact:true}).click();
