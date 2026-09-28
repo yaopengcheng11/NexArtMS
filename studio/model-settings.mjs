@@ -33,19 +33,19 @@ function windowsCodec() {
     const child = spawn('powershell.exe', ['-NoProfile', '-NonInteractive', '-Command', script], {windowsHide: true, stdio: ['pipe', 'pipe', 'pipe']});
     let output = '', bytes = 0, settled = false;
     const finish = (error, result) => {if (settled) return;settled = true;clearTimeout(timer);error ? reject(error) : resolve(result);};
-    const timer = setTimeout(() => {child.kill();finish(fail('Windows 凭据加密操作超时', 503));}, 15000);
+    const timer = setTimeout(() => {child.kill();finish(fail('Windows 凭据加密操作超时', 503, 'secret_codec_failed'));}, 15000);
     child.stdout.on('data', chunk => {bytes += chunk.length;if (bytes > 65536) {child.kill();finish(fail('Windows 凭据操作返回异常', 503));}else output += chunk;});
     child.stderr.resume();
-    child.on('error', () => finish(fail('无法启动 Windows 凭据加密', 503)));
-    child.on('close', code => code === 0 ? finish(null, output.trim()) : finish(fail('Windows 凭据加解密失败，请重新填写密钥', 503)));
-    child.stdin.on('error', () => finish(fail('Windows 凭据加密管道失败', 503)));
+    child.on('error', () => finish(fail('无法启动 Windows 凭据加密', 503, 'secret_codec_failed')));
+    child.on('close', code => code === 0 ? finish(null, output.trim()) : finish(fail('Windows 凭据加解密失败，请重新填写密钥', 503, 'secret_unavailable')));
+    child.stdin.on('error', () => finish(fail('Windows 凭据加密管道失败', 503, 'secret_codec_failed')));
     child.stdin.end(JSON.stringify({mode, value}));
   });
   return {kind: 'windows-dpapi', persistent: true, available: () => true, encrypt: value => operation('protect', Buffer.from(value).toString('base64')), decrypt: async value => Buffer.from(await operation('unprotect', value), 'base64').toString('utf8')};
 }
 function memoryCodec() {
   const values = new Map();
-  return {kind: 'session-memory', persistent: false, available: value => values.has(value), encrypt: async value => {const id = revision();values.set(id, value);return id;}, decrypt: async value => {if (!values.has(value)) throw fail('此平台密钥仅保留在当前会话，重启后请重新输入', 422);return values.get(value);}};
+  return {kind: 'session-memory', persistent: false, available: value => values.has(value), encrypt: async value => {const id = revision();values.set(id, value);return id;}, decrypt: async value => {if (!values.has(value)) throw fail('此平台密钥仅保留在当前会话，重启后请重新输入', 422, 'secret_unavailable');return values.get(value);}};
 }
 const isLoopback = hostname => ['localhost', '127.0.0.1', '::1', '[::1]'].includes(hostname.toLowerCase());
 const requiresApiKey = profile => MODEL_PRESETS.some(p => p.provider !== 'custom' && p.provider === profile.provider) && !isLoopback(new URL(profile.endpoint).hostname);
@@ -93,6 +93,34 @@ export function createVisionChallenge() {
   const ihdr = Buffer.alloc(13);ihdr.writeUInt32BE(width);ihdr.writeUInt32BE(height, 4);ihdr[8] = 8;ihdr[9] = 2;
   const png = Buffer.concat([Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]), pngChunk('IHDR', ihdr), pngChunk('IDAT', deflateSync(raw)), pngChunk('IEND', Buffer.alloc(0))]);
   return {payload: {evidenceFrames: [{frameIndex: 0, ptsUs: 0, dataUrl: `data:image/png;base64,${png.toString('base64')}`}]}, expected: selected.map(item => item[0])};
+}
+
+/**
+ * The vision test is advisory, so a failure must stay diagnosable: show what the
+ * model actually answered. Model output never carries the key (it only ever sees
+ * a synthetic image), yet redact credential-shaped text and control characters
+ * anyway so nothing unexpected can reach the browser.
+ */
+function safeSample(rawContent, output, expected) {
+  const redact = text => String(text ?? '')
+    .replace(/[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]/g, ' ')
+    .replace(/\b(?:sk|eyJ)[-_A-Za-z0-9]{16,}\b/g, '«redacted»')
+    .trim();
+  const trimmed = redact(rawContent);
+  const parsed = {
+    pattern: output?.pattern ?? null,
+    count: output?.count ?? null,
+    colorsLeftToRight: Array.isArray(output?.colorsLeftToRight) ? output.colorsLeftToRight : null,
+  };
+  const mismatches = [];
+  if (output?.pattern !== 'vertical-stripes') mismatches.push('pattern 不是 vertical-stripes');
+  if (output?.count !== 3) mismatches.push('count 不是 3');
+  if (!Array.isArray(output?.colorsLeftToRight)) mismatches.push('colorsLeftToRight 不是数组');
+  else {
+    const got = output.colorsLeftToRight.map(c => typeof c === 'string' ? c.toLowerCase().trim() : c);
+    if (JSON.stringify(got) !== JSON.stringify(expected)) mismatches.push(`色名不匹配：得到 ${JSON.stringify(got)}，期望 ${JSON.stringify(expected)}（需用英文小写色名）`);
+  }
+  return {content: trimmed ? trimmed.slice(0, 600) : '', parsed, mismatches};
 }
 
 export function createModelSettings(root, {secretCodec, providerFactory = createShotAnalysisProvider} = {}) {
@@ -204,10 +232,14 @@ export function createModelSettings(root, {secretCodec, providerFactory = create
       const currentSnapshot = {...selected, fingerprint: hash(selected)};
       let test;
       try {
+        // Fail fast on an undecryptable credential: without it the request would go
+        // out unauthenticated and return a misleading 401 from the provider.
+        const candidate = find(p.id);
+        if (candidate.encryptedSecret && !hasKey(candidate)) throw fail('已保存的密钥不在当前服务会话中，无法解密。请在模型设置里重新填写 API Key 并保存。', 422, 'secret_unavailable');
         const provider = await providerFor(currentSnapshot), challenge = createVisionChallenge();
-        const {output} = await provider.visionTest(challenge.payload);
+        const {output, rawContent} = await provider.visionTest(challenge.payload);
         const visionPassed = output?.pattern === 'vertical-stripes' && output.count === 3 && Array.isArray(output.colorsLeftToRight) && JSON.stringify(output.colorsLeftToRight.map(c => typeof c === 'string' ? c.toLowerCase().trim() : c)) === JSON.stringify(challenge.expected);
-        test = {status: visionPassed ? 'success' : 'failed', visionPassed, message: visionPassed ? '测试图识别正确，图片输入和 JSON 输出验证通过。' : '请求返回成功，但测试图识别不正确；不能确认此模型支持视觉输入。'};
+        test = {status: visionPassed ? 'success' : 'failed', visionPassed, message: visionPassed ? '测试图识别正确，图片输入和 JSON 输出验证通过。' : '请求返回成功，但测试图识别不正确；不能确认此模型支持视觉输入。', ...(visionPassed ? {} : {sample: safeSample(rawContent, output, challenge.expected)})};
       } catch (cause) {test = {status: 'failed', visionPassed: false, ...modelConnectionFailure(cause)};}
       return serial(() => {
         refresh();

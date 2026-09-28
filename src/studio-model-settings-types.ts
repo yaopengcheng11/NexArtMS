@@ -2,6 +2,8 @@ import {resolveModelEndpoint} from '../studio/model-endpoint.mjs';
 
 export interface ModelConnectionTest {
   status?:string;visionPassed?:boolean;message?:string;testedAt?:string;modelId?:string;profileRevision?:string;
+  // Advisory diagnostics, only present when the request succeeded but grading failed.
+  sample?:{content:string;parsed:{pattern:string|null;count:unknown;colorsLeftToRight:unknown[]|null};mismatches:string[]};
 }
 export interface ModelProfile {
   id:string;revision:string;name:string;provider:string;protocol:string;endpoint:string;

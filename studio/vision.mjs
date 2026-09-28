@@ -87,7 +87,7 @@ export async function fetchModel(root, {sourceUrl, file, license, version, sha25
 export function frameStream(videoPath, {width = 640, height = 640, stride = 1, onFrame} = {}) {
   return new Promise((resolve, reject) => {
     const filter = `select='not(mod(n\\,${stride}))',scale=${width}:${height}:force_original_aspect_ratio=decrease,pad=${width}:${height}:(ow-iw)/2:(oh-ih)/2:black`;
-    const child = spawn(ffmpegBin(), ['-i', videoPath, '-vf', filter, '-vsync', '0', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'], {windowsHide: true});
+    const child = spawn(ffmpegBin(), ['-i', videoPath, '-vf', filter, '-fps_mode', 'passthrough', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'], {windowsHide: true});
     const frameBytes = width * height * 3;
     let buffer = Buffer.alloc(0);
     let frameIndex = 0;

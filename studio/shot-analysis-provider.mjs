@@ -33,6 +33,9 @@ export class ShotAnalysisProviderError extends Error {
 // response bodies, redirect locations, or request headers (they may hold keys).
 const failureMessages = {
   missing_api_key: '尚未保存 API 密钥，请在此供应商设置中重新填写并保存后再测试。',
+  secret_unavailable: '已保存的密钥不在当前服务会话中，无法解密。请在模型设置里重新填写 API Key 并保存。',
+  secret_codec_failed: '本机无法加解密凭据（Windows DPAPI 不可用）。请重新填写 API Key，或改用环境变量配置。',
+  model_configuration_changed: '测试期间模型配置已变化，请保存供应商后重新测试。',
   timeout: '视觉模型请求超时，请稍后重试或检查本机网络。',
   network_error: '视觉模型网络请求失败，请检查本机网络和代理设置。',
   dns_error: '无法解析模型服务域名，请检查 API 地址、DNS 和本机网络。',
@@ -54,7 +57,13 @@ export function modelConnectionFailure(cause) {
     const hint = {400: '请求参数不兼容，请检查协议、模型 ID 和图片输入支持。', 401: '鉴权未通过，请确认密钥属于当前服务及区域。', 403: '访问被拒绝，请检查模型权限及账户限制。', 404: '接口或模型不存在，请检查 API 路径和模型 ID。', 429: '请求受限，请检查调用额度或稍后重试。'}[status] || (status >= 500 ? '供应商服务异常，请稍后重试。' : '请检查 API 地址和接口协议。');
     return {code, message: `模型服务 HTTP ${status}：${hint}`};
   }
-  return {code: 'vision_test_failed', message: '视觉能力测试失败；请检查请求地址、协议、模型 ID 和 API Key。'};
+  // An unmapped code must not masquerade as a connectivity problem: pointing the
+  // user at "地址、协议、模型 ID" sends them chasing the wrong thing entirely.
+  // These are fixed local diagnostics from the settings layer, never remote text.
+  if (cause?.status && typeof cause?.message === 'string') {
+    return {code: code || 'local_error', message: `本地配置错误：${cause.message}`};
+  }
+  return {code: 'vision_test_failed', message: `视觉能力测试失败（未识别的错误类型 ${code || '无'}）。请查看服务日志确认原因；这通常不是 API 地址或协议的问题。`};
 }
 function networkFailure(cause, timedOut) {
   const codes = new Set();
@@ -80,8 +89,48 @@ const instructions = `你是逐镜拉片分析器。只根据传入图像及准�
 const promptFor = (mode, payload) => mode === 'vision_test' ? 'Read the attached test image. Return only JSON: {"colorsLeftToRight":[color names in English],"pattern":"vertical-stripes","count":number of stripes}. Use only red, green, blue, yellow, magenta, cyan for color names. Identify the actual image, not this text. Count the equal-width colored stripes from left to right.' : instructions + '\n' + (mode === 'overview'
   ? '任务：用全片抽样建立保守主体候选目录和概览。返回 {summary:string,subjects:Subject[],issues:[{code,severity:info|warning|error,message}]}。未出现在抽样图的主体不要杜撰；后续批次可补充。'
   : '任务：分析 shots 中每一个镜头，参考 neighboringShots、全片概览和 subjectCatalog。返回 {annotations:[{shotId,annotation:Annotation}],subjects:[新出现的Subject],issues:[{code,severity:info|warning|error,message,shotId?}]}。不得遗漏镜头，不得重命名已有主体。') + '\nINPUT=' + JSON.stringify({...payload, evidenceFrames: payload.evidenceFrames.map(({dataUrl, ...frame}) => frame)});
-const sleep = (ms, signal) => new Promise((resolve, reject) => {
-  if (signal?.aborted) return reject(signal.reason || new Error('任务已取消'));
+/**
+ * Reasoning models and Chinese-first providers routinely wrap JSON in <think>
+ * blocks, Markdown fences, or a sentence of prose. Recover the object instead of
+ * failing the whole run over formatting the model was never told it could skip.
+ */
+function parseJsonContent(text) {
+  const invalid = () => new ShotAnalysisProviderError('视觉模型未返回纯 JSON 内容', 'invalid_json');
+  if (typeof text !== 'string' || !text.trim()) throw invalid();
+  const candidates = [];
+  const withoutThink = text.replace(/<think>[\s\S]*?<\/think>/gi, '').replace(/<think>[\s\S]*$/i, '');
+  for (const source of [withoutThink, text]) {
+    const trimmed = source.trim();
+    candidates.push(trimmed);
+    const fenced = /```(?:json)?\s*([\s\S]*?)```/i.exec(trimmed);
+    if (fenced) candidates.push(fenced[1].trim());
+    // Last resort: the outermost balanced object, ignoring braces inside strings.
+    const start = trimmed.indexOf('{');
+    if (start >= 0) {
+      let depth = 0, inString = false, escaped = false, end = -1;
+      for (let i = start; i < trimmed.length; i++) {
+        const ch = trimmed[i];
+        if (escaped) {escaped = false;continue;}
+        if (ch === '\\') {escaped = true;continue;}
+        if (ch === '"') {inString = !inString;continue;}
+        if (inString) continue;
+        if (ch === '{') depth++;
+        else if (ch === '}' && --depth === 0) {end = i + 1;break;}
+      }
+      if (end > start) candidates.push(trimmed.slice(start, end));
+    }
+  }
+  for (const candidate of candidates) {
+    if (!candidate) continue;
+    try {
+      const parsed = JSON.parse(candidate);
+      if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) return parsed;
+    } catch {}
+  }
+  throw invalid();
+}
+
+const sleep = (ms, signal) => new Promise((resolve, reject) => {  if (signal?.aborted) return reject(signal.reason || new Error('任务已取消'));
   const done = () => {signal?.removeEventListener('abort', abort);resolve();};
   const timer = setTimeout(done, ms);
   const abort = () => {clearTimeout(timer);signal.removeEventListener('abort', abort);reject(signal.reason || new Error('任务已取消'));};
@@ -139,20 +188,20 @@ export function createShotAnalysisProvider(options = {}) {
         let output = raw;
         if (config.protocol === 'openai-chat-completions') {
           if (raw.choices?.[0]?.finish_reason === 'length') throw new ShotAnalysisProviderError('视觉模型响应被截断', 'truncated_response');
-          try {output = JSON.parse(raw.choices?.[0]?.message?.content);} catch {throw new ShotAnalysisProviderError('视觉模型未返回纯 JSON 内容', 'invalid_json');}
+          output = parseJsonContent(raw.choices?.[0]?.message?.content);
         } else if (config.protocol === 'openai-responses') {
           if (raw.status === 'incomplete') throw new ShotAnalysisProviderError('视觉模型响应被截断', 'truncated_response');
           if (raw.status === 'failed' || raw.error) throw new ShotAnalysisProviderError('视觉模型 Responses 请求失败', 'upstream_error');
           const content = (raw.output || []).filter(item => item.type === 'message').flatMap(item => item.content || []).filter(item => item.type === 'output_text').map(item => item.text).join('');
-          try {output = JSON.parse(content);} catch {throw new ShotAnalysisProviderError('视觉模型未返回纯 JSON 内容', 'invalid_json');}
+          output = parseJsonContent(content);
         } else if (config.protocol === 'anthropic-messages') {
           if (raw.stop_reason === 'max_tokens') throw new ShotAnalysisProviderError('视觉模型响应被截断', 'truncated_response');
           const content = (raw.content || []).filter(item => item.type === 'text').map(item => item.text).join('');
-          try {output = JSON.parse(content);} catch {throw new ShotAnalysisProviderError('视觉模型未返回纯 JSON 内容', 'invalid_json');}
+          output = parseJsonContent(content);
         }
         if (!output || typeof output !== 'object' || Array.isArray(output)) throw new ShotAnalysisProviderError('视觉模型 JSON 必须为对象', 'invalid_json');
         const tokens = raw.usage?.total_tokens ?? (Number.isFinite(raw.usage?.input_tokens) && Number.isFinite(raw.usage?.output_tokens) ? raw.usage.input_tokens + raw.usage.output_tokens : undefined);
-        return {output, usage: {attempts: attempt, ...(Number.isFinite(tokens) ? {totalTokens: tokens} : {})}, provider: status.provider, model: status.model, protocol: config.protocol};
+        return {output, rawContent: typeof raw.choices?.[0]?.message?.content === 'string' ? raw.choices[0].message.content : undefined, usage: {attempts: attempt, ...(Number.isFinite(tokens) ? {totalTokens: tokens} : {})}, provider: status.provider, model: status.model, protocol: config.protocol};
       } catch (cause) {
         if (signal?.aborted) throw signal.reason || new Error('任务已取消');
         const error = cause instanceof ShotAnalysisProviderError ? cause : networkFailure(cause, controller.signal.aborted);

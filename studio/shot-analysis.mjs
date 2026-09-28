@@ -27,7 +27,7 @@ export function evidenceIndices(shot, dense = false) {
 function ffmpegFrames(source, indices, directory, guard, timeoutMs = 120000) {
   return new Promise((resolve, reject) => {
     let settled = false, stderr = '';
-    const child = spawn(process.env.FFMPEG || 'ffmpeg', ['-hide_banner', '-loglevel', 'error', '-nostdin', '-i', source, '-map', '0:v:0', '-vf', `select=${indices.map(n => `eq(n\\,${n})`).join('+')},scale='min(768,iw)':-2`, '-vsync', '0', '-q:v', '3', '-start_number', '0', path.join(directory, '%06d.jpg')], {windowsHide: true, stdio: ['ignore', 'ignore', 'pipe']});
+    const child = spawn(process.env.FFMPEG || 'ffmpeg', ['-hide_banner', '-loglevel', 'error', '-nostdin', '-i', source, '-map', '0:v:0', '-vf', `select=${indices.map(n => `eq(n\\,${n})`).join('+')},scale='min(768,iw)':-2`, '-fps_mode', 'passthrough', '-q:v', '3', '-start_number', '0', path.join(directory, '%06d.jpg')], {windowsHide: true, stdio: ['ignore', 'ignore', 'pipe']});
     const finish = error => {if (settled) return;settled = true;clearTimeout(timer);clearInterval(poll);error ? reject(error) : resolve();};
     const timer = setTimeout(() => {child.kill();finish(problem('关键帧抽取超时', 'frames_timeout', 504));}, timeoutMs);
     const poll = setInterval(() => {try {guard();} catch (error) {child.kill();finish(error);}}, 100);

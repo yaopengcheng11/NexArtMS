@@ -59,6 +59,13 @@
 .model-settings-test-result{display:grid;gap:5px;padding:11px 13px;border-radius:6px;font-size:11px;line-height:1.7;overflow-wrap:anywhere;background:#edf3e8}
 .model-settings-test-result small{color:#859177;font-size:9px}
 .model-settings-test-result.error{background:#faf0e8;color:#916a45}
+.model-settings-test-result.advisory{background:#f4f5f2;color:#6b7264}
+.model-settings-advisory-note{font-style:normal;font-weight:600;color:#7d8477}
+.model-settings-mismatches{margin:4px 0;padding-left:16px;display:grid;gap:2px}
+.model-settings-mismatches li{list-style:disc}
+.model-settings-sample{margin:4px 0}
+.model-settings-sample summary{cursor:pointer}
+.model-settings-sample pre{margin:6px 0 0;padding:8px;background:#fff;border:1px solid var(--studio-line);border-radius:4px;font-size:10px;line-height:1.6;white-space:pre-wrap;word-break:break-word;max-height:220px;overflow:auto}
 .model-settings-message{background:#edf3e8;border:1px solid #d4e2cd;border-radius:6px;font-size:11px;line-height:1.8;padding:11px 13px;margin-bottom:18px;overflow-wrap:anywhere}
 .model-settings-message.error{background:#fbf1ea;border-color:#e8d3c6;color:#986049}
 .model-settings-message button{margin-left:10px;padding:4px 8px}

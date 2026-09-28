@@ -46,6 +46,13 @@
 .analysis-generated summary,.analysis-cut-tools summary{cursor:pointer;color:#527044}
 .analysis-generated dl{display:grid;gap:8px;margin:10px 0 0}
 .analysis-generated dl>div{display:grid;grid-template-columns:74px minmax(0,1fr);gap:8px}
+.analysis-guide{border:1px solid #d9e2d3;background:#f6f9f3;border-radius:5px;margin:8px 0 0;padding:10px 12px;font-size:11px;color:#67795e;line-height:1.7}
+.analysis-guide summary{cursor:pointer;color:#527044;font-weight:600}
+.analysis-guide ol{margin:8px 0 6px;padding-left:20px;display:grid;gap:3px}
+.analysis-guide p{margin:6px 0 0}
+.analysis-optional{border:1px solid var(--studio-line);border-radius:5px;margin:10px 0 0;padding:10px 12px;font-size:11px;color:#67795e;line-height:1.7}
+.analysis-optional summary{cursor:pointer;color:#8a7a5c}
+.analysis-optional p{margin:6px 0 8px}
 .analysis-generated dt{color:var(--studio-muted)}
 .analysis-generated dd{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;color:#4c5c47}
 .analysis-generated pre{white-space:pre-wrap;overflow-wrap:anywhere;max-height:350px;overflow:auto;padding:10px;background:#f3f6ee;font-size:10px}
