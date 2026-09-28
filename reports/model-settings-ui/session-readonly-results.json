@@ -1,0 +1,39 @@
+{
+  "base": "http://127.0.0.1:8215",
+  "project": "p-a581fb7a8dd2",
+  "runId": "sa-b37164cfc557",
+  "readOnly": true,
+  "analyzed": 57,
+  "subjects": 2,
+  "checks": [
+    "57/57 session-generated shot semantics shown as completed with review items; missing automatic model shown separately",
+    "Two people, zero animals display separately; report JSON/HTML and source-frame image endpoints return valid 200 responses",
+    "Both subject candidates and final-shot stored semantics render; evidence images decode",
+    "Configure CTA opens real model settings; closing preserves project URL",
+    "Real project and settings fit 390px width",
+    "Actual video canplay/play advances time without media error; final-shot seek decodes a video frame and first-frame paused screenshot refreshed"
+  ],
+  "errors": [],
+  "writes": [],
+  "playback": {
+    "played": {
+      "currentTime": 0.32058,
+      "readyState": 4,
+      "error": null,
+      "paused": true,
+      "duration": 50.133
+    },
+    "last": {
+      "currentTime": 49.333333,
+      "readyState": 4,
+      "error": null,
+      "seeking": false,
+      "decodedFrame": {
+        "mediaTime": 49.333333,
+        "presentedFrames": 9
+      }
+    },
+    "errors": [],
+    "writes": []
+  }
+}

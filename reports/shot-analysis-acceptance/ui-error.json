@@ -1,0 +1,15 @@
+{
+  "error": "locator.inputValue: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#studio-shot-analysis').getByLabel('动作', { exact: true })\u001b[22m\n\n    at G:\\AITOOLS\\NexArtMotionStage\\NexArtMS\\.checks\\shot-analysis-ui-acceptance.mjs:46:62\n    at async test (G:\\AITOOLS\\NexArtMotionStage\\NexArtMS\\.checks\\shot-analysis-ui-acceptance.mjs:18:29)\n    at async file:///G:/AITOOLS/NexArtMotionStage/NexArtMS/.checks/shot-analysis-ui-acceptance.mjs:42:3",
+  "checks": [
+    {
+      "name": "Missing provider remains visibly blocked; no semantic completion claim",
+      "passed": true
+    },
+    {
+      "name": "Source evidence pictures decode and PTS navigation changes source frame",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "mutations": []
+}

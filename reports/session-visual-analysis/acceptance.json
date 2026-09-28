@@ -1,0 +1,60 @@
+{
+  "projectId": "p-a581fb7a8dd2",
+  "runId": "sa-b37164cfc557",
+  "status": "ready_with_issues",
+  "counts": {
+    "total": 57,
+    "analyzed": 57,
+    "failed": 0,
+    "needsReview": 46,
+    "userEdited": 0
+  },
+  "quality": {
+    "passed": 15,
+    "failed": 0,
+    "skipped": 5
+  },
+  "subjects": [
+    {
+      "id": "P1",
+      "kind": "person",
+      "name": "灰绿上衣人物",
+      "description": "短而竖起的深色头发，灰绿宽袖上衣，酒红色宽裤，白色布鞋。全片按脸部、衣着及动作连续性关联；脚部特写沿用该候选，不另建身份。",
+      "referenceFrames": [
+        0,
+        6,
+        353,
+        762
+      ],
+      "uncertain": false
+    },
+    {
+      "id": "P2",
+      "kind": "person",
+      "name": "蓝灰立领人物",
+      "description": "短深色头发，蓝灰至蓝紫色立领扣式套装，可见白色袖口，黑鞋。颜色随光照变化但服装与面部保持一致；同框与P1明确分离。",
+      "referenceFrames": [
+        29,
+        59,
+        237,
+        737,
+        1193
+      ],
+      "uncertain": false
+    }
+  ],
+  "evidenceFrames": 317,
+  "cutSuggestions": 12,
+  "source": {
+    "analysisSource": "assistant-session",
+    "analysisLabel": "本次会话视觉分析",
+    "provenance": {
+      "kind": "assistant-session",
+      "label": "本次会话视觉分析",
+      "modelIdRecorded": false,
+      "evidenceMethod": "主Agent逐页查看19张联系表中的全部317张原片证据；未调用外部API，未读取人工参考语义。",
+      "inspectedEvidenceCount": 317,
+      "inspectedShotCount": 57
+    }
+  }
+}

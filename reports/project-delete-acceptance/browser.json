@@ -1,0 +1,46 @@
+{
+  "checks": [
+    {
+      "name": "删除等待中释放同项目所有视频源",
+      "pass": true
+    },
+    {
+      "name": "其他项目视频继续播放",
+      "pass": true
+    },
+    {
+      "name": "删除等待时Esc不能关闭设置",
+      "pass": true
+    },
+    {
+      "name": "失败恢复视频源播放位置和播放状态",
+      "pass": true
+    },
+    {
+      "name": "失败保留项目设置草稿",
+      "pass": true
+    },
+    {
+      "name": "失败保留工作台未保存编辑",
+      "pass": true
+    },
+    {
+      "name": "失败保留项目及素材",
+      "pass": true
+    },
+    {
+      "name": "同页视频播放中删除成功并返回列表",
+      "pass": true
+    },
+    {
+      "name": "其他项目数据和视频不受删除影响",
+      "pass": true
+    },
+    {
+      "name": "没有页面脚本异常",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "passed": 10
+}

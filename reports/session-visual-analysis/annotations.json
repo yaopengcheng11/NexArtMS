@@ -1,0 +1,1607 @@
+{
+  "sourceRunId": "sa-cbb409c451d6",
+  "sourceRunRevision": "ar-d88ea440d894",
+  "projectId": "p-a581fb7a8dd2",
+  "mediaHash": "886e0c2c24b30b46a8e5c9112f3af6b6ecbcc97c3cf097578672ed29c7e36861",
+  "shotSetHash": "dbc498c90398eb35",
+  "provenance": {
+    "kind": "assistant-session",
+    "label": "本次会话视觉分析",
+    "modelIdRecorded": false,
+    "evidenceMethod": "主Agent逐页查看19张联系表中的全部317张原片证据；未调用外部API，未读取人工参考语义。",
+    "inspectedEvidenceCount": 317,
+    "inspectedShotCount": 57
+  },
+  "summary": "基于全部317张源帧证据，素材呈现两名男子在户外土场持续武打交手。可持续区分灰绿上衣/酒红裤/白鞋的P1与蓝灰立领套装/黑鞋的P2；已查看证据中未见动物。全片以跳踢、格挡、倒地翻滚、起身和近身拳臂交锋构成连续动作。右下角小型固定图形为画面叠加，不计入角色或动物。57个候选段均已填写，部分相邻段疑似因快速运动多切；保留建议供集中复核。",
+  "subjects": [
+    {
+      "id": "P1",
+      "kind": "person",
+      "name": "灰绿上衣人物",
+      "description": "短而竖起的深色头发，灰绿宽袖上衣，酒红色宽裤，白色布鞋。全片按脸部、衣着及动作连续性关联；脚部特写沿用该候选，不另建身份。",
+      "referenceFrames": [
+        0,
+        6,
+        353,
+        762
+      ],
+      "uncertain": false
+    },
+    {
+      "id": "P2",
+      "kind": "person",
+      "name": "蓝灰立领人物",
+      "description": "短深色头发，蓝灰至蓝紫色立领扣式套装，可见白色袖口，黑鞋。颜色随光照变化但服装与面部保持一致；同框与P1明确分离。",
+      "referenceFrames": [
+        29,
+        59,
+        237,
+        737,
+        1193
+      ],
+      "uncertain": false
+    }
+  ],
+  "issues": [
+    {
+      "code": "session_visual_review",
+      "severity": "info",
+      "message": "这是一版本次会话完成的视觉分析；后台自动视觉API仍需另行配置。"
+    },
+    {
+      "code": "sampled_motion_limits",
+      "severity": "warning",
+      "message": "所有候选段均已查看证据，但离散关键帧不能穷尽快速招式、精确接触和连续运镜；所标运镜为描述性判断，不能直接作为三维相机轨迹。"
+    },
+    {
+      "code": "subject_count_scope",
+      "severity": "info",
+      "message": "已查看证据中持续区分2名人物，未见动物；右下角固定叠加图形不计作主体。"
+    }
+  ],
+  "annotations": [
+    {
+      "shotId": "S01",
+      "annotation": {
+        "size": "medium-close",
+        "category": "subject",
+        "camera": "static",
+        "frame": "灰绿宽袖上衣男子在土坡前架拳，身体前倾后向画面右侧挥臂，末帧转为地面与白鞋局部。",
+        "action": "架拳、向前挥臂；尾帧出现下一段脚部画面。",
+        "composition": "胸像居中，草坡占背景，手臂向右前方出画。",
+        "scene": "户外土质空地，地面有枯草和浅色碎物，后方为绿色坡面、灰色石质建筑或木质屏障；未确定具体地点。",
+        "subjects": [
+          "P1"
+        ],
+        "evidenceFrames": [
+          0,
+          2,
+          6,
+          10,
+          12
+        ],
+        "uncertainties": [
+          "F12已经出现脚部新画面，当前切点比视觉切换晚约一帧。"
+        ],
+        "cutSuggestions": [
+          {
+            "frameIndex": 12,
+            "action": "split",
+            "reason": "F12已出现新的脚部近景，建议切点向前校正到此处并合并后续重复边界。"
+          }
+        ]
+      }
+    },
+    {
+      "shotId": "S02",
+      "annotation": {
+        "size": "close",
+        "category": "insert",
+        "camera": "unknown",
+        "frame": "酒红裤腿与白鞋掠过铺有枯草的土面，双脚蹬地后向上离开地面，扬起灰尘。",
+        "action": "蹬地起跳，白鞋快速上提。",
+        "composition": "低机位裁切膝部以上，鞋脚占画面中部。",
+        "scene": "户外土质空地，地面有枯草和浅色碎物，后方为绿色坡面、灰色石质建筑或木质屏障；未确定具体地点。",
+        "subjects": [
+          "P1"
+        ],
+        "evidenceFrames": [
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21
+        ],
+        "uncertainties": [
+          "仅见裤腿和鞋，以衣着和前后动作暂归P1；快速运动使运镜方向不确定。"
+        ],
+        "cutSuggestions": [
+          {
+            "frameIndex": 13,
+            "action": "merge",
+            "reason": "F12/F13同为脚部动作，当前13的边界比可见切换晚一帧，配合S01在12拆分后移除此界。"
+          }
+        ]
+      }
+    },
+    {
+      "shotId": "S03",
+      "annotation": {
+        "size": "unknown",
+        "category": "subject",
+        "camera": "unknown",
+        "frame": "白鞋和酒红裤脚从前景升起，末帧视野变宽，远处出现蓝灰衣人物与场地。",
+        "action": "起跳上升；两帧之间可能包含视角切换。",
+        "composition": "近处腿部位于画面上缘，远处人物在左下方。",
+        "scene": "户外土质空地，地面有枯草和浅色碎物，后方为绿色坡面、灰色石质建筑或木质屏障；未确定具体地点。",
+        "subjects": [
+          "P1",
+          "P2"
+        ],
+        "evidenceFrames": [
+          22,
+          23
+        ],
+        "uncertainties": [
+          "仅两帧且疑似跨越真正切点，不能可靠给出统一景别或运镜。"
+        ],
+        "cutSuggestions": [
+          {
+            "frameIndex": 23,
+            "action": "split",
+            "reason": "F23视野变宽，疑似真正视角切换；请逐帧复核。"
+          },
+          {
+            "frameIndex": 22,
+            "action": "merge",
+            "reason": "F22仍为前段上升脚部，疑似边界偏早。"
+          }
+        ]
+      }
+    },
+    {
+      "shotId": "S04",
+      "annotation": {
+        "size": "medium-wide",
+        "category": "subject",
+        "camera": "unknown",
+        "frame": "灰绿衣酒红裤男子腾空蜷腿，在仰角天空前转身；蓝灰衣男子较小地站在远处下方。",
+        "action": "腾空屈膝转体，准备伸腿。",
+        "composition": "腾空人物占上方前景，对手位于下方远景，天空占大部分背景。",
+        "scene": "户外土质空地，地面有枯草和浅色碎物，后方为绿色坡面、灰色石质建筑或木质屏障；未确定具体地点。",
+        "subjects": [
+          "P1",
+          "P2"
+        ],
+        "evidenceFrames": [
+          24,
+          25,
+          26,
+          27,
+          28
+        ],
+        "uncertainties": [
+          "极短仰角动作镜头；与前一候选末帧连续，需核对重复切点。"
+        ],
+        "cutSuggestions": [
+          {
+            "frameIndex": 24,
+            "action": "merge",
+            "reason": "F23/F24起跳仰角画面连续，疑似重复切点。"
+          }
+        ]
+      }
+    },
+    {
+      "shotId": "S05",
+      "annotation": {
+        "size": "medium-close",
+        "category": "reaction",
+        "camera": "static",
+        "frame": "蓝灰立领套装男子胸前收拳，抬头看向画面右上方，身后可见灰色石质建筑与土坡。",
+        "action": "维持防守姿态，目光和头部跟随上方来人。",
+        "composition": "人物位于画面中左，右侧留出视线方向。",
+        "scene": "户外土质空地，地面有枯草和浅色碎物，后方为绿色坡面、灰色石质建筑或木质屏障；未确定具体地点。",
+        "subjects": [
+          "P2"
+        ],
+        "evidenceFrames": [
+          29,
+          30,
+          31,
+          32,
+          34,
+          35,
+          36,
+          37,
+          38
+        ],
+        "uncertainties": []
+      }
+    },
+    {
+      "shotId": "S06",
+      "annotation": {
+        "size": "medium-wide",
+        "category": "subject",
+        "camera": "unknown",
+        "frame": "灰绿衣男子在蓝天下抬膝腾空，酒红裤腿摆动，白鞋向镜头前方伸出。",
+        "action": "腾空转体并伸腿踢出。",
+        "composition": "仰拍的全身斜线贯穿画面，草坡逐渐退至下缘。",
+        "scene": "户外土质空地，地面有枯草和浅色碎物，后方为绿色坡面、灰色石质建筑或木质屏障；未确定具体地点。",
+        "subjects": [
+          "P1"
+        ],
+        "evidenceFrames": [
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45
+        ],
+        "uncertainties": [
+          "画面上仰与人物跳升同时发生，关键帧不足以区分机位转动和取景变化。"
+        ]
+      }
+    },
+    {
+      "shotId": "S07",
+      "annotation": {
+        "size": "medium-wide",
+        "category": "subject",
+        "camera": "unknown",
+        "frame": "酒红裤男子悬在天空前，一腿伸出、一腿收起，身体继续旋转，白鞋从中间移向左方。",
+        "action": "延续空中旋转踢腿。",
+        "composition": "腾空身体位于画面上半部，低地平线留出大片天空。",
+        "scene": "户外土质空地，地面有枯草和浅色碎物，后方为绿色坡面、灰色石质建筑或木质屏障；未确定具体地点。",
+        "subjects": [
+          "P1"
+        ],
+        "evidenceFrames": [
+          46,
+          47,
+          48,
+          49,
+          51,
+          52,
+          53,
+          54,
+          55
+        ],
+        "uncertainties": [
+          "与上一候选腾空动作连续，F46疑似动作造成的多切；短段运镜不能确定。"
+        ],
+        "cutSuggestions": [
+          {
+            "frameIndex": 46,
+            "action": "merge",
+            "reason": "空中转体踢腿与前段动作连续，疑似快速人物运动造成多切。"
+          }
+        ]
+      }
+    },
+    {
+      "shotId": "S08",
+      "annotation": {
+        "size": "medium-close",
+        "category": "subject",
+        "camera": "static",
+        "frame": "蓝灰衣男子抬起双臂遮挡头面，来自右上方的白鞋与酒红裤腿压入前景，他随之侧身低头。",
+        "action": "抬臂格挡高位来腿并屈身躲避。",
+        "composition": "防守者胸像居中偏左，进攻者只以右上方腿部进入画面。",
+        "scene": "户外土质空地，地面有枯草和浅色碎物，后方为绿色坡面、灰色石质建筑或木质屏障；未确定具体地点。",
+        "subjects": [
+          "P2",
+          "P1"
+        ],
+        "evidenceFrames": [
+          56,
+          59,
+          66,
+          73,
+          76
+        ],
+        "uncertainties": [
+          "P1仅见白鞋及裤腿，通过衣着和相邻镜头关联。"
+        ]
+      }
+    },
+    {
+      "shotId": "S09",
+      "annotation": {
+        "size": "close",
+        "category": "insert",
+        "camera": "tracking",
+        "frame": "蓝灰长裤和黑鞋在枯草土面连续交替落地，灰色石质背景相对横向滑动。",
+        "action": "快速换步、退让或侧移。",
+        "composition": "低机位紧跟脚部，双脚在中部交错，身体上半部被裁掉。",
+        "scene": "户外土质空地，地面有枯草和浅色碎物，后方为绿色坡面、灰色石质建筑或木质屏障；未确定具体地点。",
+        "subjects": [
+          "P2"
+        ],
+        "evidenceFrames": [
+          77,
+          80,
+          87,
+          94,
+          97
+        ],
+        "uncertainties": [
+          "只见腿脚，无法仅凭采样确认完整走位轨迹；按服装关联P2。"
+        ]
+      }
+    },
+    {
+      "shotId": "S10",
+      "annotation": {
+        "size": "close",
+        "category": "insert",
+        "camera": "static",
+        "frame": "酒红裤腿下的白鞋自上方接近地面，在土坡背景前先后落向枯草覆盖的土面。",
+        "action": "从腾空状态下落并准备落脚。",
+        "composition": "鞋脚位于中央，平视地面的近景突出落点。",
+        "scene": "户外土质空地，地面有枯草和浅色碎物，后方为绿色坡面、灰色石质建筑或木质屏障；未确定具体地点。",
+        "subjects": [
+          "P1"
+        ],
+        "evidenceFrames": [
+          98,
+          99,
+          100,
+          101,
+          102,
+          103,
+          104,
+          105,
+          106
+        ],
+        "uncertainties": [
+          "P1身份由酒红裤与白鞋关联，未见面部。"
+        ]
+      }
+    },
+    {
+      "shotId": "S11",
+      "annotation": {
+        "size": "medium",
+        "category": "subject",
+        "camera": "static",
+        "frame": "蓝灰衣男子在绿色土坡前扭转上身，先展开手臂，再把前臂收回防守位置。",
+        "action": "转身换向并重新架手。",
+        "composition": "人物上半身横向移动，头部随动作转向侧方。",
+        "scene": "户外土质空地，地面有枯草和浅色碎物，后方为绿色坡面、灰色石质建筑或木质屏障；未确定具体地点。",
+        "subjects": [
+          "P2"
+        ],
+        "evidenceFrames": [
+          107,
+          110,
+          118,
+          125,
+          128
+        ],
+        "uncertainties": []
+      }
+    },
+    {
+      "shotId": "S12",
+      "annotation": {
+        "size": "close",
+        "category": "insert",
+        "camera": "static",
+        "frame": "白鞋和酒红裤脚落到枯草地面，双脚相继接触土面，裤摆因冲量向两侧摆开。",
+        "action": "双脚落地并屈膝缓冲。",
+        "composition": "脚部近景居中，地面占据下半部。",
+        "scene": "户外土质空地，地面有枯草和浅色碎物，后方为绿色坡面、灰色石质建筑或木质屏障；未确定具体地点。",
+        "subjects": [
+          "P1"
+        ],
+        "evidenceFrames": [
+          129,
+          130,
+          131,
+          132
+        ],
+        "uncertainties": [
+          "仅脚部，沿用P1服装关联。"
+        ]
+      }
+    },
+    {
+      "shotId": "S13",
+      "annotation": {
+        "size": "close",
+        "category": "insert",
+        "camera": "unknown",
+        "frame": "酒红裤摆盖住小腿，两只白鞋压在地面上，膝部进一步下沉。",
+        "action": "延续落地后的下蹲缓冲。",
+        "composition": "超短脚部片段，双鞋位于下方中央。",
+        "scene": "户外土质空地，地面有枯草和浅色碎物，后方为绿色坡面、灰色石质建筑或木质屏障；未确定具体地点。",
+        "subjects": [
+          "P1"
+        ],
+        "evidenceFrames": [
+          133,
+          134
+        ],
+        "uncertainties": [
+          "只有两帧，无法判断运镜；F133与前段落地动作连续，疑似重复切点。"
+        ],
+        "cutSuggestions": [
+          {
+            "frameIndex": 133,
+            "action": "merge",
+            "reason": "同一脚部落地缓冲视角连续，仅两帧不应因裤摆变化独立成镜。"
+          }
+        ]
+      }
+    },
+    {
+      "shotId": "S14",
+      "annotation": {
+        "size": "close",
+        "category": "insert",
+        "camera": "unknown",
+        "frame": "白鞋从屈膝后的地面位置向上抽离，酒红裤腿迅速上提并出现运动模糊。",
+        "action": "蹬地再次起跳。",
+        "composition": "脚部从中下方向上离开画面。",
+        "scene": "户外土质空地，地面有枯草和浅色碎物，后方为绿色坡面、灰色石质建筑或木质屏障；未确定具体地点。",
+        "subjects": [
+          "P1"
+        ],
+        "evidenceFrames": [
+          135,
+          136
+        ],
+        "uncertainties": [
+          "只有两帧，无法判断运镜；与前两段共享同一脚部视角，F135疑似多切。"
+        ],
+        "cutSuggestions": [
+          {
+            "frameIndex": 135,
+            "action": "merge",
+            "reason": "同一脚部视角由下蹲过渡到起跳，疑似运动造成多切。"
+          }
+        ]
+      }
+    },
+    {
+      "shotId": "S15",
+      "annotation": {
+        "size": "wide",
+        "category": "subject",
+        "camera": "static",
+        "frame": "开头仍有白鞋近景，随后转到开阔场地：灰绿衣男子从右方跃起踢向左侧蓝灰衣男子。",
+        "action": "右侧人物跳起向左侧对手踢腿，对手抬手迎挡。",
+        "composition": "远景交代两人距离，左侧人物在地面，右侧人物升至空中，石质建筑居后。",
+        "scene": "户外土质空地，地面有枯草和浅色碎物，后方为绿色坡面、灰色石质建筑或木质屏障；未确定具体地点。",
+        "subjects": [
+          "P1",
+          "P2"
+        ],
+        "evidenceFrames": [
+          137,
+          139,
+          145,
+          151,
+          153
+        ],
+        "uncertainties": [
+          "F137仍为脚部局部，真正切换可能在随后一帧；应逐帧核对该边界。"
+        ]
+      }
+    },
+    {
+      "shotId": "S16",
+      "annotation": {
+        "size": "medium-close",
+        "category": "reaction",
+        "camera": "unknown",
+        "frame": "蓝灰衣男子在仰角天空下抬头，肩臂从低处开始向上抬起。",
+        "action": "察觉高位来腿并启动格挡。",
+        "composition": "胸像位于中左，大片天空留在头顶。",
+        "scene": "户外土质空地，地面有枯草和浅色碎物，后方为绿色坡面、灰色石质建筑或木质屏障；未确定具体地点。",
+        "subjects": [
+          "P2"
+        ],
+        "evidenceFrames": [
+          154,
+          155
+        ],
+        "uncertainties": [
+          "只有两帧；与后段同视角格挡连续，F156疑似多切。"
+        ]
+      }
+    },
+    {
+      "shotId": "S17",
+      "annotation": {
+        "size": "medium-close",
+        "category": "subject",
+        "camera": "unknown",
+        "frame": "白鞋与酒红裤腿自右上方踢来，蓝灰衣男子举起双手和前臂接挡，随后压低头身。",
+        "action": "高举双臂接挡来腿，然后下沉闪避。",
+        "composition": "防守者在左下，来腿横穿上半部，机位较低。",
+        "scene": "户外土质空地，地面有枯草和浅色碎物，后方为绿色坡面、灰色石质建筑或木质屏障；未确定具体地点。",
+        "subjects": [
+          "P2",
+          "P1"
+        ],
+        "evidenceFrames": [
+          156,
+          157,
+          159,
+          160,
+          161,
+          162,
+          164,
+          165,
+          166
+        ],
+        "uncertainties": [
+          "采样中的构图随快速接触变化，无法可靠分离运镜；P1以腿部衣着关联。"
+        ],
+        "cutSuggestions": [
+          {
+            "frameIndex": 156,
+            "action": "merge",
+            "reason": "与前两帧相同低角度防守视角，抬臂动作连续。"
+          }
+        ]
+      }
+    },
+    {
+      "shotId": "S18",
+      "annotation": {
+        "size": "close",
+        "category": "insert",
+        "camera": "static",
+        "frame": "蓝灰裤黑鞋在干草地面一前一后调整位置，前脚踩稳，后脚抬起再落下。",
+        "action": "短距离换步与重心调整。",
+        "composition": "低机位脚部近景，前脚靠左下，后脚在中央。",
+        "scene": "户外土质空地，地面有枯草和浅色碎物，后方为绿色坡面、灰色石质建筑或木质屏障；未确定具体地点。",
+        "subjects": [
+          "P2"
+        ],
+        "evidenceFrames": [
+          167,
+          169,
+          173,
+          177,
+          179
+        ],
+        "uncertainties": [
+          "只见腿脚，按服装归入P2。"
+        ]
+      }
+    },
+    {
+      "shotId": "S19",
+      "annotation": {
+        "size": "medium",
+        "category": "subject",
+        "camera": "static",
+        "frame": "灰绿衣男子正对镜头，白鞋抬到对手头胸高度；蓝灰衣男子背对镜头占左前景，并低头躲闪。",
+        "action": "进攻者连续抬腿高踢，防守者低身闪避。",
+        "composition": "以蓝灰衣后背作前景，灰绿衣人物位于右侧中景。",
+        "scene": "户外土质空地，地面有枯草和浅色碎物，后方为绿色坡面、灰色石质建筑或木质屏障；未确定具体地点。",
+        "subjects": [
+          "P1",
+          "P2"
+        ],
+        "evidenceFrames": [
+          180,
+          182,
+          188,
+          193,
+          195
+        ],
+        "uncertainties": [
+          "不从离散证据推断每次踢击是否实际命中。"
+        ]
+      }
+    },
+    {
+      "shotId": "S20",
+      "annotation": {
+        "size": "wide",
+        "category": "subject",
+        "camera": "static",
+        "frame": "开阔土场中灰绿衣男子跃过或掠过对手，蓝灰衣男子向后翻倒到地面，随后翻身抬起上身。",
+        "action": "腾空交错后，蓝灰衣人物倒地翻滚并开始起身。",
+        "composition": "全景把两人和落地区域同时纳入，石质建筑在左后方。",
+        "scene": "户外土质空地，地面有枯草和浅色碎物，后方为绿色坡面、灰色石质建筑或木质屏障；未确定具体地点。",
+        "subjects": [
+          "P1",
+          "P2"
+        ],
+        "evidenceFrames": [
+          196,
+          201,
+          213,
+          225,
+          230
+        ],
+        "uncertainties": [
+          "离散帧不够确认具体受力或接触顺序。"
+        ]
+      }
+    },
+    {
+      "shotId": "S21",
+      "annotation": {
+        "size": "medium-close",
+        "category": "reaction",
+        "camera": "static",
+        "frame": "蓝灰立领男子由背侧转向镜头，抬起双拳重新建立防守，绿色土坡占据背景。",
+        "action": "回身、收拳、重新架势。",
+        "composition": "胸像居中偏右，前拳朝向左前方。",
+        "scene": "户外土质空地，地面有枯草和浅色碎物，后方为绿色坡面、灰色石质建筑或木质屏障；未确定具体地点。",
+        "subjects": [
+          "P2"
+        ],
+        "evidenceFrames": [
+          231,
+          233,
+          237,
+          241,
+          243
+        ],
+        "uncertainties": []
+      }
+    },
+    {
+      "shotId": "S22",
+      "annotation": {
+        "size": "medium-wide",
+        "category": "subject",
+        "camera": "static",
+        "frame": "灰绿衣男子在土场转体抬起酒红裤腿，白鞋由低处扫向镜头前方，身体逐渐贴近画框。",
+        "action": "旋转身体并作高位侧踢。",
+        "composition": "低机位全身起势，近端白鞋迅速放大形成强烈纵深。",
+        "scene": "户外土质空地，地面有枯草和浅色碎物，后方为绿色坡面、灰色石质建筑或木质屏障；未确定具体地点。",
+        "subjects": [
+          "P1"
+        ],
+        "evidenceFrames": [
+          244,
+          245,
+          247,
+          248,
+          250,
+          251,
+          252,
+          254,
+          255
+        ],
+        "uncertainties": [
+          "镜头尺度变化主要来自人物靠近，未据此标为推进镜头。"
+        ]
+      }
+    },
+    {
+      "shotId": "S23",
+      "annotation": {
+        "size": "medium-close",
+        "category": "subject",
+        "camera": "tracking",
+        "frame": "蓝灰衣男子用双臂迎住从左侧伸来的酒红裤白鞋，身体随来腿后仰下沉，取景跟着交手动作摆动。",
+        "action": "格挡并闪避近身高踢。",
+        "composition": "上半身和来腿占据前景，灰色石质建筑与坡面在后方。",
+        "scene": "户外土质空地，地面有枯草和浅色碎物，后方为绿色坡面、灰色石质建筑或木质屏障；未确定具体地点。",
+        "subjects": [
+          "P2",
+          "P1"
+        ],
+        "evidenceFrames": [
+          256,
+          260,
+          269,
+          277,
+          281
+        ],
+        "uncertainties": [
+          "短促摆动的方向与幅度未精确求解；与下一候选是否连续需连看边界。"
+        ]
+      }
+    },
+    {
+      "shotId": "S24",
+      "annotation": {
+        "size": "medium-close",
+        "category": "subject",
+        "camera": "unknown",
+        "frame": "灰绿衣男子先以背侧朝向镜头，接着转头和上身，拳臂从胸前挥向侧方。",
+        "action": "转身回摆手臂，继续近身交手。",
+        "composition": "近景跟着灰绿衣上半身，石质建筑在左后方。",
+        "scene": "户外土质空地，地面有枯草和浅色碎物，后方为绿色坡面、灰色石质建筑或木质屏障；未确定具体地点。",
+        "subjects": [
+          "P1"
+        ],
+        "evidenceFrames": [
+          282,
+          283,
+          284,
+          285,
+          286,
+          287,
+          288,
+          289
+        ],
+        "uncertainties": [
+          "F282附近快速换向可产生误切，但主体与视角也明显变化，保留候选待复核；运镜不确定。"
+        ]
+      }
+    },
+    {
+      "shotId": "S25",
+      "annotation": {
+        "size": "medium-wide",
+        "category": "subject",
+        "camera": "static",
+        "frame": "灰绿衣男子位于左侧抬腿踢向右侧蓝灰衣男子，后者抬臂挡住并后仰侧闪。",
+        "action": "连续高踢、格挡与后仰躲避。",
+        "composition": "双人侧向中远景，两人形成向右推进的动作线，石质建筑居后。",
+        "scene": "户外土质空地，地面有枯草和浅色碎物，后方为绿色坡面、灰色石质建筑或木质屏障；未确定具体地点。",
+        "subjects": [
+          "P1",
+          "P2"
+        ],
+        "evidenceFrames": [
+          290,
+          294,
+          305,
+          315,
+          319
+        ],
+        "uncertainties": [
+          "采样未覆盖每次接触，不标记精确命中时刻。"
+        ]
+      }
+    },
+    {
+      "shotId": "S26",
+      "annotation": {
+        "size": "medium",
+        "category": "subject",
+        "camera": "static",
+        "frame": "蓝灰衣男子从左近处迅速移向场地中央，转身停住后双拳收在胸前。",
+        "action": "后撤或侧移拉开距离，再站定防守。",
+        "composition": "人物由画面左缘回到中央，背景坡面基本稳定。",
+        "scene": "户外土质空地，地面有枯草和浅色碎物，后方为绿色坡面、灰色石质建筑或木质屏障；未确定具体地点。",
+        "subjects": [
+          "P2"
+        ],
+        "evidenceFrames": [
+          320,
+          325,
+          336,
+          347,
+          352
+        ],
+        "uncertainties": [
+          "由人物距离改变造成景别变化，不能据此断言镜头拉远。"
+        ]
+      }
+    },
+    {
+      "shotId": "S27",
+      "annotation": {
+        "size": "medium-close",
+        "category": "reaction",
+        "camera": "static",
+        "frame": "灰绿衣男子正对对手站立，先观察，再将一掌伸向前方、另一手收至脸侧。",
+        "action": "从放松站姿切换到前掌后拳的防守姿势。",
+        "composition": "胸像居中，前手伸向右前方，石质建筑占右后景。",
+        "scene": "户外土质空地，地面有枯草和浅色碎物，后方为绿色坡面、灰色石质建筑或木质屏障；未确定具体地点。",
+        "subjects": [
+          "P1"
+        ],
+        "evidenceFrames": [
+          353,
+          355,
+          360,
+          364,
+          366
+        ],
+        "uncertainties": []
+      }
+    },
+    {
+      "shotId": "S28",
+      "annotation": {
+        "size": "medium",
+        "category": "reaction",
+        "camera": "static",
+        "frame": "蓝灰立领男子在坡前将一臂向外摆开，又收回双拳，注视画外对手。",
+        "action": "调整双手防守和站姿。",
+        "composition": "中景人物居中偏左，前拳与后拳形成纵深。",
+        "scene": "户外土质空地，地面有枯草和浅色碎物，后方为绿色坡面、灰色石质建筑或木质屏障；未确定具体地点。",
+        "subjects": [
+          "P2"
+        ],
+        "evidenceFrames": [
+          367,
+          370,
+          376,
+          382,
+          385
+        ],
+        "uncertainties": []
+      }
+    },
+    {
+      "shotId": "S29",
+      "annotation": {
+        "size": "medium-close",
+        "category": "subject",
+        "camera": "tracking",
+        "frame": "灰绿衣男子保持前掌后拳，从原位突然向镜头右前方冲出，面部和手臂产生拖影。",
+        "action": "从防守姿势突进。",
+        "composition": "人物从中央朝右近处出画，取景随动作发生轻微偏移。",
+        "scene": "户外土质空地，地面有枯草和浅色碎物，后方为绿色坡面、灰色石质建筑或木质屏障；未确定具体地点。",
+        "subjects": [
+          "P1"
+        ],
+        "evidenceFrames": [
+          386,
+          388,
+          392,
+          396,
+          398
+        ],
+        "uncertainties": [
+          "主体运动占主导，跟随幅度仅作描述性判断。"
+        ]
+      }
+    },
+    {
+      "shotId": "S30",
+      "annotation": {
+        "size": "wide",
+        "category": "subject",
+        "camera": "static",
+        "frame": "灰绿衣男子从左侧助跑起跳，身体几乎横置着向右侧蓝灰衣男子伸腿，后者站定迎挡。",
+        "action": "助跑后腾空飞踢，对手接挡。",
+        "composition": "全景清楚显示左进右守的距离关系和空中姿态。",
+        "scene": "户外土质空地，地面有枯草和浅色碎物，后方为绿色坡面、灰色石质建筑或木质屏障；未确定具体地点。",
+        "subjects": [
+          "P1",
+          "P2"
+        ],
+        "evidenceFrames": [
+          399,
+          402,
+          409,
+          415,
+          418
+        ],
+        "uncertainties": []
+      }
+    },
+    {
+      "shotId": "S31",
+      "annotation": {
+        "size": "medium-close",
+        "category": "subject",
+        "camera": "unknown",
+        "frame": "白鞋从左侧伸向蓝灰衣男子的胸前，男子交叉前臂接挡，随后向右下方失去平衡。",
+        "action": "胸前格挡来腿后身体后仰下沉。",
+        "composition": "白鞋占左前景，蓝灰衣上半身在右侧，略俯视地面。",
+        "scene": "户外土质空地，地面有枯草和浅色碎物，后方为绿色坡面、灰色石质建筑或木质屏障；未确定具体地点。",
+        "subjects": [
+          "P1",
+          "P2"
+        ],
+        "evidenceFrames": [
+          419,
+          420,
+          421,
+          422,
+          424,
+          425,
+          426,
+          427,
+          428
+        ],
+        "uncertainties": [
+          "无法从关键帧确定接触强度；短镜运镜不明。"
+        ]
+      }
+    },
+    {
+      "shotId": "S32",
+      "annotation": {
+        "size": "medium-wide",
+        "category": "subject",
+        "camera": "static",
+        "frame": "蓝灰衣男子在低机位前向后翻落，肩背接近草地，双腿抬起后收拢滚动。",
+        "action": "后翻落地、屈腿滚动。",
+        "composition": "全身沿左上至右下的弧线翻落，草地占下方，坡面在后。",
+        "scene": "户外土质空地，地面有枯草和浅色碎物，后方为绿色坡面、灰色石质建筑或木质屏障；未确定具体地点。",
+        "subjects": [
+          "P2"
+        ],
+        "evidenceFrames": [
+          429,
+          432,
+          438,
+          444,
+          447
+        ],
+        "uncertainties": [
+          "与上一段机位尺度明显不同，保留当前边界；是否同一连续拍摄需复核原片。"
+        ]
+      }
+    },
+    {
+      "shotId": "S33",
+      "annotation": {
+        "size": "medium-close",
+        "category": "subject",
+        "camera": "unknown",
+        "frame": "灰绿衣男子在仰角天空前向前迈近，一手在身前、一手向外张开，目光朝下方对手。",
+        "action": "向倒地对手方向推进并展开手臂。",
+        "composition": "胸像居中，低机位强化朝前压来的动作。",
+        "scene": "户外土质空地，地面有枯草和浅色碎物，后方为绿色坡面、灰色石质建筑或木质屏障；未确定具体地点。",
+        "subjects": [
+          "P1"
+        ],
+        "evidenceFrames": [
+          448,
+          449,
+          450,
+          451,
+          452,
+          453,
+          454
+        ],
+        "uncertainties": [
+          "动作很短且有模糊，无法可靠判断相机运动。"
+        ]
+      }
+    },
+    {
+      "shotId": "S34",
+      "annotation": {
+        "size": "close",
+        "category": "subject",
+        "camera": "static",
+        "frame": "俯拍中蓝灰衣男子躺在枯草地上，双臂护在头侧，弯曲的膝腿抬向镜头并遮住部分面部。",
+        "action": "仰卧收腿、抬腿，为翻身或反击蓄势。",
+        "composition": "俯视近景，脸位于中央，弯腿进入上方前景。",
+        "scene": "户外土质空地，地面有枯草和浅色碎物，后方为绿色坡面、灰色石质建筑或木质屏障；未确定具体地点。",
+        "subjects": [
+          "P2"
+        ],
+        "evidenceFrames": [
+          455,
+          456,
+          458,
+          459,
+          461,
+          462,
+          463,
+          465,
+          466
+        ],
+        "uncertainties": [
+          "不从该段单独断言接下来具体使用的招式。"
+        ]
+      }
+    },
+    {
+      "shotId": "S35",
+      "annotation": {
+        "size": "wide",
+        "category": "subject",
+        "camera": "static",
+        "frame": "左侧灰绿衣人物靠近，右侧蓝灰衣人物从地上翻身弹起，继而身体前移，双方再次踢挡接触。",
+        "action": "倒地者翻身起身并反击，对手抬腿阻挡。",
+        "composition": "宽画面保持两人全身和地面关系，进退沿水平方向。",
+        "scene": "户外土质空地，地面有枯草和浅色碎物，后方为绿色坡面、灰色石质建筑或木质屏障；未确定具体地点。",
+        "subjects": [
+          "P1",
+          "P2"
+        ],
+        "evidenceFrames": [
+          467,
+          470,
+          477,
+          484,
+          487
+        ],
+        "uncertainties": [
+          "采样只覆盖动作关键姿态，不确定每次攻击接触的顺序。"
+        ]
+      }
+    },
+    {
+      "shotId": "S36",
+      "annotation": {
+        "size": "close",
+        "category": "insert",
+        "camera": "unknown",
+        "frame": "灰绿上衣胸腹占据画面，蓝灰裤腿和黑鞋自右侧伸入，鞋面碰向上衣，灰绿衣身体向后偏移。",
+        "action": "近身踢击胸腹、受击者退让。",
+        "composition": "躯干与鞋脚接触区域占前景，人物头部部分被裁掉。",
+        "scene": "户外土质空地，地面有枯草和浅色碎物，后方为绿色坡面、灰色石质建筑或木质屏障；未确定具体地点。",
+        "subjects": [
+          "P1",
+          "P2"
+        ],
+        "evidenceFrames": [
+          488,
+          489,
+          491,
+          492,
+          494,
+          495,
+          496,
+          498,
+          499
+        ],
+        "uncertainties": [
+          "P2只见衣袖或腿部，按连续服装关联；快速近景无法判断运镜。"
+        ]
+      }
+    },
+    {
+      "shotId": "S37",
+      "annotation": {
+        "size": "wide",
+        "category": "subject",
+        "camera": "static",
+        "frame": "两人在坡前交手，蓝灰衣人物降低身体，以单手撑地的姿态把腿横向甩向站立的灰绿衣人物。",
+        "action": "低身、单手支撑侧踢，站立者退挡。",
+        "composition": "双方全身可见，灰绿衣在左，蓝灰衣靠右且身体接近水平。",
+        "scene": "户外土质空地，地面有枯草和浅色碎物，后方为绿色坡面、灰色石质建筑或木质屏障；未确定具体地点。",
+        "subjects": [
+          "P1",
+          "P2"
+        ],
+        "evidenceFrames": [
+          500,
+          506,
+          519,
+          531,
+          537
+        ],
+        "uncertainties": []
+      }
+    },
+    {
+      "shotId": "S38",
+      "annotation": {
+        "size": "medium-close",
+        "category": "reaction",
+        "camera": "unknown",
+        "frame": "灰绿衣人物从近处收回身体，站定后把一掌举向前方、另一手护于颈胸附近。",
+        "action": "回收动作并重新建立防守姿势。",
+        "composition": "仰角近景过渡到胸像，背景天空和坡缘同时可见。",
+        "scene": "户外土质空地，地面有枯草和浅色碎物，后方为绿色坡面、灰色石质建筑或木质屏障；未确定具体地点。",
+        "subjects": [
+          "P1"
+        ],
+        "evidenceFrames": [
+          538,
+          544,
+          558,
+          571,
+          577
+        ],
+        "uncertainties": [
+          "人物后撤与取景调整混合，无法确定是否有独立推拉镜头。"
+        ]
+      }
+    },
+    {
+      "shotId": "S39",
+      "annotation": {
+        "size": "medium",
+        "category": "subject",
+        "camera": "tracking",
+        "frame": "蓝灰衣人物起初单独站在坡前，随后冲向灰绿衣人物；镜头随其移动，转为两人近距离拳臂交错。",
+        "action": "主动突进，双方连续出拳、挡拆和低头避让。",
+        "composition": "由单人胸像过渡为双人中景，灰绿衣在左、蓝灰衣在右，背景石构随视角移动。",
+        "scene": "户外土质空地，地面有枯草和浅色碎物，后方为绿色坡面、灰色石质建筑或木质屏障；未确定具体地点。",
+        "subjects": [
+          "P1",
+          "P2"
+        ],
+        "evidenceFrames": [
+          578,
+          591,
+          620,
+          649,
+          662
+        ],
+        "uncertainties": [
+          "长镜关键帧间隔较大，不能列出每一招或精确接触；跟随方向需看原片连续运动。"
+        ]
+      }
+    },
+    {
+      "shotId": "S40",
+      "annotation": {
+        "size": "medium-wide",
+        "category": "subject",
+        "camera": "static",
+        "frame": "两人在石质建筑前相对站立，灰绿衣人物转身挥臂，蓝灰衣人物侧身移步回应，随后拉开一些距离。",
+        "action": "连续手上交锋、转体和退步。",
+        "composition": "双人全身侧向构图，动作保持在画面中部，背景基本稳定。",
+        "scene": "户外土质空地，地面有枯草和浅色碎物，后方为绿色坡面、灰色石质建筑或木质屏障；未确定具体地点。",
+        "subjects": [
+          "P1",
+          "P2"
+        ],
+        "evidenceFrames": [
+          663,
+          670,
+          686,
+          702,
+          709
+        ],
+        "uncertainties": []
+      }
+    },
+    {
+      "shotId": "S41",
+      "annotation": {
+        "size": "medium",
+        "category": "reaction",
+        "camera": "static",
+        "frame": "蓝灰衣男子独自站在石构和坡面前，双拳交替微调，身体随脚下步伐小幅起伏。",
+        "action": "回到防守架势并轻微换步。",
+        "composition": "半身至膝上中景，人物居中，前拳伸向左前方。",
+        "scene": "户外土质空地，地面有枯草和浅色碎物，后方为绿色坡面、灰色石质建筑或木质屏障；未确定具体地点。",
+        "subjects": [
+          "P2"
+        ],
+        "evidenceFrames": [
+          710,
+          715,
+          726,
+          737,
+          742
+        ],
+        "uncertainties": []
+      }
+    },
+    {
+      "shotId": "S42",
+      "annotation": {
+        "size": "medium-close",
+        "category": "reaction",
+        "camera": "static",
+        "frame": "灰绿衣男子固定在画面左中部，一拳在脸旁，另一拳伸向前方，目光持续看向画外对手。",
+        "action": "维持防守姿态，轻微调整前手和头部。",
+        "composition": "胸像前后拳形成纵深，木质屏障与草坡作背景。",
+        "scene": "户外土质空地，地面有枯草和浅色碎物，后方为绿色坡面、灰色石质建筑或木质屏障；未确定具体地点。",
+        "subjects": [
+          "P1"
+        ],
+        "evidenceFrames": [
+          743,
+          749,
+          762,
+          774,
+          780
+        ],
+        "uncertainties": []
+      }
+    },
+    {
+      "shotId": "S43",
+      "annotation": {
+        "size": "medium-close",
+        "category": "subject",
+        "camera": "static",
+        "frame": "蓝灰衣男子从架拳状态向前冲近，前臂从胸前横摆，脸和手在末段产生运动模糊。",
+        "action": "起步突进并挥出拳臂。",
+        "composition": "人物由中央放大至近景，背景石构基本保持位置。",
+        "scene": "户外土质空地，地面有枯草和浅色碎物，后方为绿色坡面、灰色石质建筑或木质屏障；未确定具体地点。",
+        "subjects": [
+          "P2"
+        ],
+        "evidenceFrames": [
+          781,
+          783,
+          788,
+          793,
+          795
+        ],
+        "uncertainties": [
+          "F796附近和下一候选开头动作连续，疑似主体大幅移动引发多切。"
+        ]
+      }
+    },
+    {
+      "shotId": "S44",
+      "annotation": {
+        "size": "medium",
+        "category": "subject",
+        "camera": "tracking",
+        "frame": "镜头从冲近的蓝灰衣人物移向两人交锋，灰绿衣人物抬臂挡拆，双方拳臂反复在头胸前交错。",
+        "action": "连续近身拳击、格挡、闪身。",
+        "composition": "双人中近景随交锋调整，灰绿衣多在左前景、蓝灰衣多在右侧。",
+        "scene": "户外土质空地，地面有枯草和浅色碎物，后方为绿色坡面、灰色石质建筑或木质屏障；未确定具体地点。",
+        "subjects": [
+          "P1",
+          "P2"
+        ],
+        "evidenceFrames": [
+          796,
+          811,
+          845,
+          878,
+          893
+        ],
+        "uncertainties": [
+          "长段采样无法穷尽拳路与击打次数；F796疑似上一段的连续跟随。"
+        ],
+        "cutSuggestions": [
+          {
+            "frameIndex": 796,
+            "action": "merge",
+            "reason": "冲近的蓝灰衣人物与前段尾帧连续，可能是跟随画面造成过切。"
+          }
+        ]
+      }
+    },
+    {
+      "shotId": "S45",
+      "annotation": {
+        "size": "medium-close",
+        "category": "subject",
+        "camera": "tracking",
+        "frame": "反向视角下灰绿衣人物面对镜头，蓝灰衣人物以背肩作前景；灰绿衣挥臂，蓝灰衣低头并反手回应。",
+        "action": "互相出拳挡拆，蓝灰衣低身躲闪。",
+        "composition": "过肩式双人构图，以蓝灰衣后背强调灰绿衣正面动作。",
+        "scene": "户外土质空地，地面有枯草和浅色碎物，后方为绿色坡面、灰色石质建筑或木质屏障；未确定具体地点。",
+        "subjects": [
+          "P1",
+          "P2"
+        ],
+        "evidenceFrames": [
+          894,
+          900,
+          915,
+          930,
+          936
+        ],
+        "uncertainties": [
+          "镜头跟随近身交锋微移，不输出精确相机轨迹。"
+        ]
+      }
+    },
+    {
+      "shotId": "S46",
+      "annotation": {
+        "size": "close",
+        "category": "subject",
+        "camera": "unknown",
+        "frame": "灰绿衣男子抬起张开的手掌靠近头侧，蓝灰衣人物从右侧贴近，其前臂压入肩颈附近；两人同时低下身体。",
+        "action": "近距离缠手与肩颈旁格挡，双方屈身。",
+        "composition": "紧凑双人近景，脸、肩和前臂互相遮挡。",
+        "scene": "户外土质空地，地面有枯草和浅色碎物，后方为绿色坡面、灰色石质建筑或木质屏障；未确定具体地点。",
+        "subjects": [
+          "P1",
+          "P2"
+        ],
+        "evidenceFrames": [
+          937,
+          940,
+          947,
+          953,
+          956
+        ],
+        "uncertainties": [
+          "接触区域被手臂遮挡，不能确认精确抓握或受力；运镜不确定。"
+        ]
+      }
+    },
+    {
+      "shotId": "S47",
+      "annotation": {
+        "size": "medium-close",
+        "category": "subject",
+        "camera": "tracking",
+        "frame": "两人在石构前重新拉起身体，拳掌交替伸向对方面部，灰绿衣人物抬臂后蓝灰衣人物向下闪开。",
+        "action": "连续架挡、还击与低身闪躲。",
+        "composition": "双人中近景不断交换前后遮挡，取景跟着两人侧移。",
+        "scene": "户外土质空地，地面有枯草和浅色碎物，后方为绿色坡面、灰色石质建筑或木质屏障；未确定具体地点。",
+        "subjects": [
+          "P1",
+          "P2"
+        ],
+        "evidenceFrames": [
+          957,
+          965,
+          985,
+          1005,
+          1013
+        ],
+        "uncertainties": [
+          "长镜关键帧没有覆盖每一次接触，具体招式数和命中不确定。"
+        ]
+      }
+    },
+    {
+      "shotId": "S48",
+      "annotation": {
+        "size": "medium",
+        "category": "subject",
+        "camera": "unknown",
+        "frame": "低机位看见灰绿衣人物的腰腹与挥动衣袖，蓝灰衣人物在右侧起身挥臂，身体向后侧移。",
+        "action": "近身抡臂和闪身，双方重新分开。",
+        "composition": "灰绿衣腰部占左前景，蓝灰衣上半身在右中景，天空在后。",
+        "scene": "户外土质空地，地面有枯草和浅色碎物，后方为绿色坡面、灰色石质建筑或木质屏障；未确定具体地点。",
+        "subjects": [
+          "P1",
+          "P2"
+        ],
+        "evidenceFrames": [
+          1014,
+          1017,
+          1023,
+          1028,
+          1031
+        ],
+        "uncertainties": [
+          "低角度、近端遮挡和快速运动影响判断，运镜方向不确定。"
+        ]
+      }
+    },
+    {
+      "shotId": "S49",
+      "annotation": {
+        "size": "medium",
+        "category": "reaction",
+        "camera": "static",
+        "frame": "灰绿衣男子在木质屏障前回转上身，先把手臂向外甩开，再重新收至身前并朝对手看去。",
+        "action": "回身站稳、重新朝向对手。",
+        "composition": "腰上中景，人物居中，背景木障与树木清楚。",
+        "scene": "户外土质空地，地面有枯草和浅色碎物，后方为绿色坡面、灰色石质建筑或木质屏障；未确定具体地点。",
+        "subjects": [
+          "P1"
+        ],
+        "evidenceFrames": [
+          1032,
+          1034,
+          1038,
+          1042,
+          1044
+        ],
+        "uncertainties": []
+      }
+    },
+    {
+      "shotId": "S50",
+      "annotation": {
+        "size": "medium-wide",
+        "category": "subject",
+        "camera": "tilt-up",
+        "frame": "逆光下蓝灰衣人物向前助跑，双臂上举，身体逐渐升起，取景随之增加天空比例。",
+        "action": "助跑、抬臂并起跳。",
+        "composition": "由全身向仰角半身转变，暗色人物衬在亮天空前。",
+        "scene": "户外土质空地，地面有枯草和浅色碎物，后方为绿色坡面、灰色石质建筑或木质屏障；未确定具体地点。",
+        "subjects": [
+          "P2"
+        ],
+        "evidenceFrames": [
+          1045,
+          1046,
+          1048,
+          1049,
+          1050,
+          1051,
+          1053,
+          1054,
+          1055
+        ],
+        "uncertainties": [
+          "相机上仰为多帧构图变化的描述性判断，未计算连续角度。"
+        ]
+      }
+    },
+    {
+      "shotId": "S51",
+      "annotation": {
+        "size": "medium",
+        "category": "subject",
+        "camera": "unknown",
+        "frame": "蓝灰衣人物在天空前把膝部抬到胸腹前，身躯蜷起，前臂随腾空姿态收拢。",
+        "action": "起跳后收膝上提。",
+        "composition": "强仰角中景，抬膝占中央近端。",
+        "scene": "户外土质空地，地面有枯草和浅色碎物，后方为绿色坡面、灰色石质建筑或木质屏障；未确定具体地点。",
+        "subjects": [
+          "P2"
+        ],
+        "evidenceFrames": [
+          1056,
+          1057
+        ],
+        "uncertainties": [
+          "仅两帧，不能确认运镜；与上一段跳升连续，F1056疑似多切。"
+        ],
+        "cutSuggestions": [
+          {
+            "frameIndex": 1056,
+            "action": "merge",
+            "reason": "同一蓝灰衣人物的上举起跳延续为收膝，疑似运动造成多切。"
+          }
+        ]
+      }
+    },
+    {
+      "shotId": "S52",
+      "annotation": {
+        "size": "medium-wide",
+        "category": "subject",
+        "camera": "static",
+        "frame": "低机位仰拍两人，蓝灰衣人物从右侧抬膝或抬腿靠向左侧灰绿衣人物，对方抬手护住上身。",
+        "action": "近身抬膝或短踢，另一人抬臂防护。",
+        "composition": "双人低角度身体围住上方天空，蓝灰衣靠右、灰绿衣靠左。",
+        "scene": "户外土质空地，地面有枯草和浅色碎物，后方为绿色坡面、灰色石质建筑或木质屏障；未确定具体地点。",
+        "subjects": [
+          "P1",
+          "P2"
+        ],
+        "evidenceFrames": [
+          1058,
+          1061,
+          1067,
+          1072,
+          1075
+        ],
+        "uncertainties": [
+          "遮挡使膝与脚的接触位置不明确，保留“抬膝或短踢”而不强断招式。"
+        ]
+      }
+    },
+    {
+      "shotId": "S53",
+      "annotation": {
+        "size": "close",
+        "category": "subject",
+        "camera": "unknown",
+        "frame": "灰绿衣男子面部位于近景，蓝灰衣袖和白色袖口从右侧进入，手臂接近他的两侧颈肩。",
+        "action": "蓝灰衣伸手靠近或控制对方颈肩，灰绿衣抬头回应。",
+        "composition": "灰绿衣脸部居中，蓝灰衣以手臂和后脑局部占右前景。",
+        "scene": "户外土质空地，地面有枯草和浅色碎物，后方为绿色坡面、灰色石质建筑或木质屏障；未确定具体地点。",
+        "subjects": [
+          "P1",
+          "P2"
+        ],
+        "evidenceFrames": [
+          1076,
+          1077,
+          1078,
+          1079,
+          1080,
+          1081
+        ],
+        "uncertainties": [
+          "极短近景，抓握细节与运镜不明；和后段动作连续。"
+        ]
+      }
+    },
+    {
+      "shotId": "S54",
+      "annotation": {
+        "size": "close",
+        "category": "subject",
+        "camera": "unknown",
+        "frame": "蓝灰衣人物双手靠在灰绿衣男子颈肩两侧，灰绿衣男子先低下脸、再抬头向侧方扭转。",
+        "action": "近身颈肩控制与抬头、转体挣脱动作。",
+        "composition": "灰绿衣脸部在中央，蓝灰衣后脑与双臂遮住右下方。",
+        "scene": "户外土质空地，地面有枯草和浅色碎物，后方为绿色坡面、灰色石质建筑或木质屏障；未确定具体地点。",
+        "subjects": [
+          "P1",
+          "P2"
+        ],
+        "evidenceFrames": [
+          1082,
+          1084,
+          1088,
+          1092,
+          1094
+        ],
+        "uncertainties": [
+          "F1082与前一候选动作和背景连续，疑似重复切点；不判断实际受力与运镜。"
+        ],
+        "cutSuggestions": [
+          {
+            "frameIndex": 1082,
+            "action": "merge",
+            "reason": "两人的颈肩接触和背景与前段连续，建议核看后合并。"
+          }
+        ]
+      }
+    },
+    {
+      "shotId": "S55",
+      "annotation": {
+        "size": "close",
+        "category": "insert",
+        "camera": "tracking",
+        "frame": "俯斜角下两人的腰腿贴近，蓝灰裤腿多次屈膝抬向酒红裤的腰腹附近，随后黑鞋回到地面。",
+        "action": "近身抬膝和落脚调整。",
+        "composition": "腰腿局部填满画面，接触区域被衣服与身体遮挡。",
+        "scene": "户外土质空地，地面有枯草和浅色碎物，后方为绿色坡面、灰色石质建筑或木质屏障；未确定具体地点。",
+        "subjects": [
+          "P1",
+          "P2"
+        ],
+        "evidenceFrames": [
+          1095,
+          1100,
+          1111,
+          1122,
+          1127
+        ],
+        "uncertainties": [
+          "无法仅凭衣服遮挡判断是否实际命中；不统计击打次数。"
+        ]
+      }
+    },
+    {
+      "shotId": "S56",
+      "annotation": {
+        "size": "medium",
+        "category": "subject",
+        "camera": "tracking",
+        "frame": "两人在石构前近身缠斗，蓝灰衣双臂靠近灰绿衣肩颈；随后两人分开，灰绿衣挥动手臂向侧前方还击。",
+        "action": "近身控制、脱离和挥臂反击。",
+        "composition": "由紧凑双人构图拉开到两人并列，中部留出动作空间。",
+        "scene": "户外土质空地，地面有枯草和浅色碎物，后方为绿色坡面、灰色石质建筑或木质屏障；未确定具体地点。",
+        "subjects": [
+          "P1",
+          "P2"
+        ],
+        "evidenceFrames": [
+          1128,
+          1136,
+          1156,
+          1175,
+          1183
+        ],
+        "uncertainties": [
+          "长镜离散证据不覆盖所有关节接触，连续运镜和攻击次数需原片核对。"
+        ]
+      }
+    },
+    {
+      "shotId": "S57",
+      "annotation": {
+        "size": "medium-close",
+        "category": "reaction",
+        "camera": "static",
+        "frame": "蓝灰衣男子近景中头身先向后侧摆动，随后退开些许，把双拳收回胸前重新站稳。",
+        "action": "后撤、收拳、恢复防守姿态。",
+        "composition": "胸像由近处回到中部，石构和绿坡作为稳定背景。",
+        "scene": "户外土质空地，地面有枯草和浅色碎物，后方为绿色坡面、灰色石质建筑或木质屏障；未确定具体地点。",
+        "subjects": [
+          "P2"
+        ],
+        "evidenceFrames": [
+          1184,
+          1187,
+          1193,
+          1199,
+          1202
+        ],
+        "uncertainties": [
+          "人物后撤造成尺度减小，不将其自动解释为镜头拉远。"
+        ]
+      }
+    }
+  ]
+}

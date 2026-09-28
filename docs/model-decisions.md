@@ -18,6 +18,20 @@
 
 **许可结论（当前定位：本机原型）**：AGPL 下的本地使用可接受；**对外部署或闭源分发前必须**改用 Ultralytics Enterprise 许可，或替换为 Apache-2.0 权重（如 RT-DETR / PicoDet 系列）并重跑 M0 基准。因此模型保持"运行时下载 + 注册"而非默认依赖，未配置时 detect 任务如实失败（计划 §8：模型不可用必须显示真实失败）。
 
+## 1b. 动物检测（可选第二模型）
+
+| 项 | 决策 |
+| --- | --- |
+| 模型 | YOLOS-tiny（DETR 家族，COCO-91 类）ONNX int8 量化（Xenova 转换） |
+| 文件 | `data/models/yolos-tiny-det-int8.onnx`（9.6 MB，不入库）+ config/preprocessor 溯源副本 |
+| 来源 | <https://huggingface.co/Xenova/yolos-tiny>（经 hf-mirror.com 可达） |
+| 许可证 | **Apache-2.0**（与姿态模型的 AGPL 不同；二者独立） |
+| 输出 | logits [1,100,92]（91 类 + no-object，softmax 取概率）+ pred_boxes（归一化 cxcywh） |
+| 解码 | 仅保留动物类 id 16–25（鸟/猫/狗/马/羊/牛/象/熊/斑马/长颈鹿），阈值 0.7；实测：人物帧 0 误报、狗图"狗"1.0、噪声帧空 |
+| 定位 | pose 模型会把动物误判成"人"；动物候选（subject=animal）仅作画面标注，不参与人物归组与确认门槛 |
+
+> HF 直连不可达时的下载路径：`hf-mirror.com`（fetch 脚本已内置）；curl 需 `--noproxy '*'` 绕开未运行的本地代理。
+
 ## 2. 切镜算法（自研，无外部权重）
 
 - 算法：相邻呈现帧 16 桶灰度直方图卡方距离 → 自适应阈值（中位数 + k×MAD）+ 局部峰值 + 闪白成对抑制。

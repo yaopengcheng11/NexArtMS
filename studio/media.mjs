@@ -130,7 +130,7 @@ const parseRotation = stream => {
 export async function buildProxy(originalPath, proxyPath, onProgress, totalDurationUs = 0) {
   fs.mkdirSync(path.dirname(proxyPath), {recursive: true});
   const output = await run(ffmpegBin(), ['-y', '-i', originalPath, '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '23',
-    '-vf', "scale='min(1280,iw)':-2", '-c:a', 'aac', '-b:a', '128k', '-movflags', '+faststart',
+    '-vf', "scale='min(1280,iw)':-2", '-fps_mode', 'passthrough', '-c:a', 'aac', '-b:a', '128k', '-movflags', '+faststart',
     '-progress', 'pipe:1', '-nostats', proxyPath], {
     onStdout: chunk => {
       const match = chunk.toString('utf8').match(/out_time_us=(\d+)/);

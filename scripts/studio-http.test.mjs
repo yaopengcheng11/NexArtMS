@@ -57,6 +57,24 @@ const waitUntil = async (predicate, timeoutMs = 90000, intervalMs = 300) => {
   throw new Error('等待超时');
 };
 
+test('cross-origin project writes and paid-analysis triggers are refused before mutation', async () => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'studio-http-origin-'));
+  const {base, store, close} = await harness(root);
+  try {
+    const project = store.createProject({name: 'same-origin fixture'});
+    for (const route of ['/api/studio/projects', `/api/studio/projects/${project.id}/shot-analysis`, '/api/studio/jobs/fixture-job/retry', `/api/studio/projects/${project.id}/media?name=sample.mp4&baseRevision=${project.revision}`]) {
+      const response = await fetch(base + route, {method: 'POST', headers: {Origin: 'https://unrelated.example', 'Content-Type': 'text/plain'}, body: JSON.stringify({name: 'injected', baseRevision: project.revision, kind: 'shot_analyze'})});
+      assert.equal(response.status, 403, route);await response.text();
+    }
+    assert.equal(store.listJobs(project.id).length, 0);
+    assert.equal(store.db.prepare('SELECT COUNT(*) AS n FROM projects').get().n, 1);
+    const response = await fetch(base + '/api/studio/projects', {method: 'POST', headers: {Origin: base, 'Content-Type': 'application/json'}, body: JSON.stringify({name: 'authorized local fixture'})});
+    assert.equal(response.status, 201);await response.text();
+  } finally {
+    close();assert.equal(path.dirname(path.resolve(root)), path.resolve(os.tmpdir()));assert.ok(path.basename(root).startsWith('studio-http-origin-'));fs.rmSync(root, {recursive: true, force: true, maxRetries: 5});
+  }
+});
+
 test('full closed loop: create → upload → auto cuts → manual track → cast → approve → invalidation', {timeout: 180000}, async t => {
   if (!hasFfmpeg) return t.skip('需要 FFmpeg');
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'studio-http-'));
@@ -158,13 +176,30 @@ test('full closed loop: create → upload → auto cuts → manual track → cas
     const failedAgain=await waitUntil(async()=>{const j=(await api(base,'GET',`/api/studio/jobs/${failed.id}`)).json.job;return j.state==='failed'?j:null;},5000);
     assert.match(failedAgain.error,/未配置人物检测模型/);
 
-    // 8b. 动作任务：已绑定候选没有姿态观测时如实失败（不冒充结果）
+    // 8b. 缺姿态属于内容缺口：生成可播放占位初稿，技术任务成功且覆盖率为零。
     const motion = await api(base, 'POST', `/api/studio/projects/${projectId}/analysis`, {kind: 'motion'});
-    const motionFailed = await waitUntil(async () => {
+    const motionDone = await waitUntil(async () => {
       const job = (await api(base, 'GET', `/api/studio/jobs/${motion.json.job.id}`)).json.job;
+      return job.state === 'done' ? job : null;
+    });
+    assert.match(motionDone.output, /主体可见时间覆盖 0%/);
+
+    // 8b-2. 动作读取路由：无动作产物时 404，不冒充
+    const noMotion = await api(base, 'GET', `/api/studio/projects/${projectId}/tracks/${track1.json.track.id}/motion`);
+    assert.equal(noMotion.status, 404);
+    assert.match(noMotion.json.error, /动作产物/);
+
+    // 8b-3. subjects 选项：非法值 400；合法动物模式在无模型环境如实失败
+    const badSubjects = await api(base, 'POST', `/api/studio/projects/${projectId}/analysis`, {kind: 'detect', subjects: 'banana'});
+    assert.equal(badSubjects.status, 400);
+    assert.match(badSubjects.json.error, /subjects/);
+    const animalDetect = await api(base, 'POST', `/api/studio/projects/${projectId}/analysis`, {kind: 'detect', subjects: 'animal'});
+    assert.equal(animalDetect.status, 200);
+    const animalFailed = await waitUntil(async () => {
+      const job = (await api(base, 'GET', `/api/studio/jobs/${animalDetect.json.job.id}`)).json.job;
       return job.state === 'failed' ? job : null;
     });
-    assert.match(motionFailed.error, /姿态观测/);
+    assert.ok(/未配置人物检测模型|动物检测模型未安装/.test(animalFailed.error), `无模型环境动物检测应如实失败：${animalFailed.error}`);
 
     // 8c. 导出任务：无动作也生成包，manifest 如实记录；下载端点拒绝路径穿越
     const exportJob = await api(base, 'POST', `/api/studio/projects/${projectId}/analysis`, {kind: 'export'});
@@ -178,7 +213,10 @@ test('full closed loop: create → upload → auto cuts → manual track → cas
     assert.equal(exportList.json.exports.length, 1);
     const exportId = exportList.json.exports[0].exportId;
     const manifest = await api(base, 'GET', `/api/studio/projects/${projectId}/exports/${exportId}/file?path=manifest.json`);
-    assert.equal(manifest.json.instanceCount, 0, '无动作产物时实例数为 0');
+    assert.equal(manifest.json.instanceCount, 2, '无动作产物时仍导出两条已绑定出场的占位实例');
+    assert.equal(manifest.json.missingMotionTrackIds.length, 2, '占位实例必须如实列为动作缺失');
+    const timeline = await api(base, 'GET', `/api/studio/projects/${projectId}/exports/${exportId}/file?path=timeline.json`);
+    assert.ok(timeline.json.frames.flatMap(frame => frame.instances).every(instance => instance.quality === 'placeholder'), '占位不能冒充已求解');
     assert.ok(manifest.json.notIncluded, 'manifest 应如实标注未包含内容');
     const traversal = await fetch(`${base}/api/studio/projects/${projectId}/exports/${exportId}/file?path=../../server.mjs`);
     assert.equal(traversal.status, 400, '路径穿越必须被拒绝');

@@ -1,0 +1,213 @@
+{
+  "input": "G:\\AITOOLS\\NexArtMotionStage\\NexArtMS\\.checks\\v2-fix-acceptance\\data\\projects\\p-b2ea8dd1ee3a\\media\\original-m-f53a1cf1668f.mp4",
+  "entity": "2026-09-27-import-video-watch",
+  "threshold": 27.0,
+  "max_frames": 200,
+  "frame_count": 34,
+  "frames": [
+    {
+      "index": 1,
+      "frame": 0,
+      "timestamp": 0.0,
+      "path": "frames/0001.jpg"
+    },
+    {
+      "index": 2,
+      "frame": 77,
+      "timestamp": 3.21,
+      "path": "frames/0002.jpg"
+    },
+    {
+      "index": 3,
+      "frame": 98,
+      "timestamp": 4.08,
+      "path": "frames/0003.jpg"
+    },
+    {
+      "index": 4,
+      "frame": 138,
+      "timestamp": 5.75,
+      "path": "frames/0004.jpg"
+    },
+    {
+      "index": 5,
+      "frame": 154,
+      "timestamp": 6.42,
+      "path": "frames/0005.jpg"
+    },
+    {
+      "index": 6,
+      "frame": 180,
+      "timestamp": 7.5,
+      "path": "frames/0006.jpg"
+    },
+    {
+      "index": 7,
+      "frame": 196,
+      "timestamp": 8.17,
+      "path": "frames/0007.jpg"
+    },
+    {
+      "index": 8,
+      "frame": 231,
+      "timestamp": 9.62,
+      "path": "frames/0008.jpg"
+    },
+    {
+      "index": 9,
+      "frame": 290,
+      "timestamp": 12.08,
+      "path": "frames/0009.jpg"
+    },
+    {
+      "index": 10,
+      "frame": 320,
+      "timestamp": 13.33,
+      "path": "frames/0010.jpg"
+    },
+    {
+      "index": 11,
+      "frame": 353,
+      "timestamp": 14.71,
+      "path": "frames/0011.jpg"
+    },
+    {
+      "index": 12,
+      "frame": 399,
+      "timestamp": 16.62,
+      "path": "frames/0012.jpg"
+    },
+    {
+      "index": 13,
+      "frame": 419,
+      "timestamp": 17.46,
+      "path": "frames/0013.jpg"
+    },
+    {
+      "index": 14,
+      "frame": 467,
+      "timestamp": 19.46,
+      "path": "frames/0014.jpg"
+    },
+    {
+      "index": 15,
+      "frame": 488,
+      "timestamp": 20.33,
+      "path": "frames/0015.jpg"
+    },
+    {
+      "index": 16,
+      "frame": 539,
+      "timestamp": 22.46,
+      "path": "frames/0016.jpg"
+    },
+    {
+      "index": 17,
+      "frame": 578,
+      "timestamp": 24.08,
+      "path": "frames/0017.jpg"
+    },
+    {
+      "index": 18,
+      "frame": 624,
+      "timestamp": 26.0,
+      "path": "frames/0018.jpg"
+    },
+    {
+      "index": 19,
+      "frame": 663,
+      "timestamp": 27.62,
+      "path": "frames/0019.jpg"
+    },
+    {
+      "index": 20,
+      "frame": 710,
+      "timestamp": 29.58,
+      "path": "frames/0020.jpg"
+    },
+    {
+      "index": 21,
+      "frame": 743,
+      "timestamp": 30.96,
+      "path": "frames/0021.jpg"
+    },
+    {
+      "index": 22,
+      "frame": 781,
+      "timestamp": 32.54,
+      "path": "frames/0022.jpg"
+    },
+    {
+      "index": 23,
+      "frame": 797,
+      "timestamp": 33.21,
+      "path": "frames/0023.jpg"
+    },
+    {
+      "index": 24,
+      "frame": 864,
+      "timestamp": 36.0,
+      "path": "frames/0024.jpg"
+    },
+    {
+      "index": 25,
+      "frame": 894,
+      "timestamp": 37.25,
+      "path": "frames/0025.jpg"
+    },
+    {
+      "index": 26,
+      "frame": 937,
+      "timestamp": 39.04,
+      "path": "frames/0026.jpg"
+    },
+    {
+      "index": 27,
+      "frame": 957,
+      "timestamp": 39.88,
+      "path": "frames/0027.jpg"
+    },
+    {
+      "index": 28,
+      "frame": 1014,
+      "timestamp": 42.25,
+      "path": "frames/0028.jpg"
+    },
+    {
+      "index": 29,
+      "frame": 1032,
+      "timestamp": 43.0,
+      "path": "frames/0029.jpg"
+    },
+    {
+      "index": 30,
+      "frame": 1076,
+      "timestamp": 44.83,
+      "path": "frames/0030.jpg"
+    },
+    {
+      "index": 31,
+      "frame": 1095,
+      "timestamp": 45.62,
+      "path": "frames/0031.jpg"
+    },
+    {
+      "index": 32,
+      "frame": 1128,
+      "timestamp": 47.0,
+      "path": "frames/0032.jpg"
+    },
+    {
+      "index": 33,
+      "frame": 1152,
+      "timestamp": 48.0,
+      "path": "frames/0033.jpg"
+    },
+    {
+      "index": 34,
+      "frame": 1176,
+      "timestamp": 49.0,
+      "path": "frames/0034.jpg"
+    }
+  ]
+}

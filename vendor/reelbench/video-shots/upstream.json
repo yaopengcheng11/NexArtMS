@@ -1,0 +1,36 @@
+{
+  "repository": "https://github.com/eternityspring/reelbench-skills",
+  "license": "Apache-2.0",
+  "modifications": [],
+  "commit": "1b51af897b6a57556b85dfe96e0427e231b4b613",
+  "files": [
+    {
+      "sha256": "73b5584f5e6f837c71d6e321f2370f5144d050034bb1b7b236636f84b936c080",
+      "path": "SKILL.md"
+    },
+    {
+      "sha256": "c49963d11b34bf561355ed3896e76ee0aeda7c3c1433733ee2ff27f291bdcb22",
+      "path": "scripts/video-shots.mjs"
+    },
+    {
+      "sha256": "41e278aa9dca66ec12e30411e04411691151405ae779db1710c4c85a4835c52e",
+      "path": "scripts/report.css"
+    },
+    {
+      "sha256": "94e888c99c0a08d62a62301b54fe9d6ae950bdfe1a9c80ea4e6ee94630ee5d23",
+      "path": "scripts/report.js"
+    },
+    {
+      "sha256": "0ef5887632eead7ea6d428616e3577d7cff8b726e29e6f49c1e78822ea8ad7de",
+      "path": "references/taxonomy.md"
+    },
+    {
+      "sha256": "a6f7dd291b61e02cf22f44b175a1456026a1f1bb011169b010116a9f71b7aa46",
+      "path": "references/analysis-pass.md"
+    },
+    {
+      "sha256": "b1d2870f1a00e4d7f56576e5f0870cba109e041f8af66866cf5b499478e654e7",
+      "path": "LICENSE"
+    }
+  ]
+}

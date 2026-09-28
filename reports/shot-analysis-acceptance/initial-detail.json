@@ -1,0 +1,4136 @@
+{
+  "shotAnalysis": {
+    "provider": null,
+    "model": null,
+    "schemaVersion": "shot-analysis-v1",
+    "promptVersion": "shot-analysis-prompt-v1",
+    "error": "视觉模型未配置：请明确设置 PROVIDER、MODEL、ENDPOINT 和 PROTOCOL；没有默认供应商。",
+    "progress": 1,
+    "subjects": [],
+    "issues": [
+      {
+        "code": "provider_unconfigured",
+        "severity": "error",
+        "message": "视觉模型未配置：请明确设置 PROVIDER、MODEL、ENDPOINT 和 PROTOCOL；没有默认供应商。"
+      }
+    ],
+    "sourceRunId": null,
+    "quality": {
+      "engineChecks": [
+        {
+          "id": "source-frame-timeline",
+          "status": "passed",
+          "issues": []
+        },
+        {
+          "id": "source-frame-evidence",
+          "status": "passed",
+          "issues": []
+        },
+        {
+          "id": "annotation-schema",
+          "status": "skipped",
+          "issues": [],
+          "reason": "全片语义尚未分析：视觉模型未配置或暂不可用。此项未执行，不代表通过。"
+        },
+        {
+          "id": "subject-evidence",
+          "status": "skipped",
+          "issues": [],
+          "reason": "全片语义尚未分析：视觉模型未配置或暂不可用。此项未执行，不代表通过。"
+        },
+        {
+          "id": "reelbench-timeline",
+          "status": "passed",
+          "issues": []
+        },
+        {
+          "id": "reelbench-duration",
+          "status": "passed",
+          "issues": []
+        },
+        {
+          "id": "reelbench-numbering",
+          "status": "passed",
+          "issues": []
+        },
+        {
+          "id": "reelbench-size",
+          "status": "skipped",
+          "issues": [],
+          "reason": "全片语义尚未分析：视觉模型未配置或暂不可用。此项未执行，不代表通过。"
+        },
+        {
+          "id": "reelbench-category",
+          "status": "skipped",
+          "issues": [],
+          "reason": "全片语义尚未分析：视觉模型未配置或暂不可用。此项未执行，不代表通过。"
+        },
+        {
+          "id": "reelbench-camera",
+          "status": "skipped",
+          "issues": [],
+          "reason": "全片语义尚未分析：视觉模型未配置或暂不可用。此项未执行，不代表通过。"
+        },
+        {
+          "id": "reelbench-transition",
+          "status": "skipped",
+          "issues": [],
+          "reason": "全片语义尚未分析：视觉模型未配置或暂不可用。此项未执行，不代表通过。"
+        },
+        {
+          "id": "reelbench-frame-text",
+          "status": "skipped",
+          "issues": [],
+          "reason": "全片语义尚未分析：视觉模型未配置或暂不可用。此项未执行，不代表通过。"
+        },
+        {
+          "id": "reelbench-dedup",
+          "status": "skipped",
+          "issues": [],
+          "reason": "全片语义尚未分析：视觉模型未配置或暂不可用。此项未执行，不代表通过。"
+        },
+        {
+          "id": "reelbench-subjects",
+          "status": "skipped",
+          "issues": [],
+          "reason": "全片语义尚未分析：视觉模型未配置或暂不可用。此项未执行，不代表通过。"
+        },
+        {
+          "id": "reelbench-category-evidence",
+          "status": "skipped",
+          "issues": [],
+          "reason": "全片语义尚未分析：视觉模型未配置或暂不可用。此项未执行，不代表通过。"
+        },
+        {
+          "id": "reelbench-motion",
+          "status": "skipped",
+          "issues": [],
+          "reason": "全片语义尚未分析：视觉模型未配置或暂不可用。此项未执行，不代表通过。"
+        },
+        {
+          "id": "reelbench-boundary",
+          "status": "passed",
+          "issues": []
+        },
+        {
+          "id": "reelbench-frames",
+          "status": "skipped",
+          "issues": [],
+          "reason": "使用精确源帧命名，已由 source-frame-evidence 检查代替上游 S01a.jpg 约定"
+        },
+        {
+          "id": "reelbench-rhythm",
+          "status": "skipped",
+          "issues": [],
+          "reason": "全片语义尚未分析：视觉模型未配置或暂不可用。此项未执行，不代表通过。"
+        },
+        {
+          "id": "visual-truth-human-review",
+          "status": "skipped",
+          "issues": [],
+          "reason": "格式与引用检查不能证明视觉判断正确；需核看原片或人工参考"
+        }
+      ],
+      "upstreamHints": [],
+      "checksSummary": {
+        "passed": 6,
+        "failed": 0,
+        "skipped": 14
+      }
+    },
+    "artifactRef": "report.json",
+    "id": "sa-cbb409c451d6",
+    "projectId": "p-a581fb7a8dd2",
+    "revision": "ar-d88ea440d894",
+    "mediaHash": "886e0c2c24b30b46a8e5c9112f3af6b6ecbcc97c3cf097578672ed29c7e36861",
+    "shotSetHash": "dbc498c90398eb35",
+    "baseShotSetHash": "dbc498c90398eb35",
+    "candidate": false,
+    "status": "blocked",
+    "stage": "done",
+    "createdAt": "2026-09-27T03:03:03.479Z",
+    "updatedAt": "2026-09-27T03:03:18.341Z",
+    "shots": [
+      {
+        "id": "S01",
+        "startFrame": 0,
+        "endFrameExclusive": 13,
+        "startUs": 0,
+        "endUs": 541667,
+        "shotRevision": "09d83172a2896a0e",
+        "status": "pending",
+        "generated": null,
+        "overrides": {},
+        "effective": null,
+        "evidenceFrames": [
+          {
+            "frameIndex": 0,
+            "ptsUs": 0,
+            "imageRef": "frames/f000000000.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000000.jpg"
+          },
+          {
+            "frameIndex": 2,
+            "ptsUs": 83333,
+            "imageRef": "frames/f000000002.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000002.jpg"
+          },
+          {
+            "frameIndex": 6,
+            "ptsUs": 250000,
+            "imageRef": "frames/f000000006.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000006.jpg"
+          },
+          {
+            "frameIndex": 10,
+            "ptsUs": 416667,
+            "imageRef": "frames/f000000010.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000010.jpg"
+          },
+          {
+            "frameIndex": 12,
+            "ptsUs": 500000,
+            "imageRef": "frames/f000000012.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000012.jpg"
+          }
+        ],
+        "issues": []
+      },
+      {
+        "id": "S02",
+        "startFrame": 13,
+        "endFrameExclusive": 22,
+        "startUs": 541667,
+        "endUs": 916667,
+        "shotRevision": "425860de8f769486",
+        "status": "pending",
+        "generated": null,
+        "overrides": {},
+        "effective": null,
+        "evidenceFrames": [
+          {
+            "frameIndex": 13,
+            "ptsUs": 541667,
+            "imageRef": "frames/f000000013.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000013.jpg"
+          },
+          {
+            "frameIndex": 14,
+            "ptsUs": 583333,
+            "imageRef": "frames/f000000014.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000014.jpg"
+          },
+          {
+            "frameIndex": 15,
+            "ptsUs": 625000,
+            "imageRef": "frames/f000000015.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000015.jpg"
+          },
+          {
+            "frameIndex": 16,
+            "ptsUs": 666667,
+            "imageRef": "frames/f000000016.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000016.jpg"
+          },
+          {
+            "frameIndex": 17,
+            "ptsUs": 708333,
+            "imageRef": "frames/f000000017.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000017.jpg"
+          },
+          {
+            "frameIndex": 18,
+            "ptsUs": 750000,
+            "imageRef": "frames/f000000018.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000018.jpg"
+          },
+          {
+            "frameIndex": 19,
+            "ptsUs": 791667,
+            "imageRef": "frames/f000000019.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000019.jpg"
+          },
+          {
+            "frameIndex": 20,
+            "ptsUs": 833333,
+            "imageRef": "frames/f000000020.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000020.jpg"
+          },
+          {
+            "frameIndex": 21,
+            "ptsUs": 875000,
+            "imageRef": "frames/f000000021.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000021.jpg"
+          }
+        ],
+        "issues": []
+      },
+      {
+        "id": "S03",
+        "startFrame": 22,
+        "endFrameExclusive": 24,
+        "startUs": 916667,
+        "endUs": 1000000,
+        "shotRevision": "23456712dacaa3d2",
+        "status": "pending",
+        "generated": null,
+        "overrides": {},
+        "effective": null,
+        "evidenceFrames": [
+          {
+            "frameIndex": 22,
+            "ptsUs": 916667,
+            "imageRef": "frames/f000000022.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000022.jpg"
+          },
+          {
+            "frameIndex": 23,
+            "ptsUs": 958333,
+            "imageRef": "frames/f000000023.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000023.jpg"
+          }
+        ],
+        "issues": []
+      },
+      {
+        "id": "S04",
+        "startFrame": 24,
+        "endFrameExclusive": 29,
+        "startUs": 1000000,
+        "endUs": 1208333,
+        "shotRevision": "ed3556f4587e1f8a",
+        "status": "pending",
+        "generated": null,
+        "overrides": {},
+        "effective": null,
+        "evidenceFrames": [
+          {
+            "frameIndex": 24,
+            "ptsUs": 1000000,
+            "imageRef": "frames/f000000024.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000024.jpg"
+          },
+          {
+            "frameIndex": 25,
+            "ptsUs": 1041667,
+            "imageRef": "frames/f000000025.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000025.jpg"
+          },
+          {
+            "frameIndex": 26,
+            "ptsUs": 1083333,
+            "imageRef": "frames/f000000026.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000026.jpg"
+          },
+          {
+            "frameIndex": 27,
+            "ptsUs": 1125000,
+            "imageRef": "frames/f000000027.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000027.jpg"
+          },
+          {
+            "frameIndex": 28,
+            "ptsUs": 1166667,
+            "imageRef": "frames/f000000028.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000028.jpg"
+          }
+        ],
+        "issues": []
+      },
+      {
+        "id": "S05",
+        "startFrame": 29,
+        "endFrameExclusive": 39,
+        "startUs": 1208333,
+        "endUs": 1625000,
+        "shotRevision": "05140d74e65dea44",
+        "status": "pending",
+        "generated": null,
+        "overrides": {},
+        "effective": null,
+        "evidenceFrames": [
+          {
+            "frameIndex": 29,
+            "ptsUs": 1208333,
+            "imageRef": "frames/f000000029.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000029.jpg"
+          },
+          {
+            "frameIndex": 30,
+            "ptsUs": 1250000,
+            "imageRef": "frames/f000000030.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000030.jpg"
+          },
+          {
+            "frameIndex": 31,
+            "ptsUs": 1291667,
+            "imageRef": "frames/f000000031.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000031.jpg"
+          },
+          {
+            "frameIndex": 32,
+            "ptsUs": 1333333,
+            "imageRef": "frames/f000000032.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000032.jpg"
+          },
+          {
+            "frameIndex": 34,
+            "ptsUs": 1416667,
+            "imageRef": "frames/f000000034.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000034.jpg"
+          },
+          {
+            "frameIndex": 35,
+            "ptsUs": 1458333,
+            "imageRef": "frames/f000000035.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000035.jpg"
+          },
+          {
+            "frameIndex": 36,
+            "ptsUs": 1500000,
+            "imageRef": "frames/f000000036.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000036.jpg"
+          },
+          {
+            "frameIndex": 37,
+            "ptsUs": 1541667,
+            "imageRef": "frames/f000000037.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000037.jpg"
+          },
+          {
+            "frameIndex": 38,
+            "ptsUs": 1583333,
+            "imageRef": "frames/f000000038.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000038.jpg"
+          }
+        ],
+        "issues": []
+      },
+      {
+        "id": "S06",
+        "startFrame": 39,
+        "endFrameExclusive": 46,
+        "startUs": 1625000,
+        "endUs": 1916667,
+        "shotRevision": "be544ed8b5f6a385",
+        "status": "pending",
+        "generated": null,
+        "overrides": {},
+        "effective": null,
+        "evidenceFrames": [
+          {
+            "frameIndex": 39,
+            "ptsUs": 1625000,
+            "imageRef": "frames/f000000039.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000039.jpg"
+          },
+          {
+            "frameIndex": 40,
+            "ptsUs": 1666667,
+            "imageRef": "frames/f000000040.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000040.jpg"
+          },
+          {
+            "frameIndex": 41,
+            "ptsUs": 1708333,
+            "imageRef": "frames/f000000041.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000041.jpg"
+          },
+          {
+            "frameIndex": 42,
+            "ptsUs": 1750000,
+            "imageRef": "frames/f000000042.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000042.jpg"
+          },
+          {
+            "frameIndex": 43,
+            "ptsUs": 1791667,
+            "imageRef": "frames/f000000043.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000043.jpg"
+          },
+          {
+            "frameIndex": 44,
+            "ptsUs": 1833333,
+            "imageRef": "frames/f000000044.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000044.jpg"
+          },
+          {
+            "frameIndex": 45,
+            "ptsUs": 1875000,
+            "imageRef": "frames/f000000045.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000045.jpg"
+          }
+        ],
+        "issues": []
+      },
+      {
+        "id": "S07",
+        "startFrame": 46,
+        "endFrameExclusive": 56,
+        "startUs": 1916667,
+        "endUs": 2333333,
+        "shotRevision": "26f82b644334c9d0",
+        "status": "pending",
+        "generated": null,
+        "overrides": {},
+        "effective": null,
+        "evidenceFrames": [
+          {
+            "frameIndex": 46,
+            "ptsUs": 1916667,
+            "imageRef": "frames/f000000046.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000046.jpg"
+          },
+          {
+            "frameIndex": 47,
+            "ptsUs": 1958333,
+            "imageRef": "frames/f000000047.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000047.jpg"
+          },
+          {
+            "frameIndex": 48,
+            "ptsUs": 2000000,
+            "imageRef": "frames/f000000048.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000048.jpg"
+          },
+          {
+            "frameIndex": 49,
+            "ptsUs": 2041667,
+            "imageRef": "frames/f000000049.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000049.jpg"
+          },
+          {
+            "frameIndex": 51,
+            "ptsUs": 2125000,
+            "imageRef": "frames/f000000051.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000051.jpg"
+          },
+          {
+            "frameIndex": 52,
+            "ptsUs": 2166667,
+            "imageRef": "frames/f000000052.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000052.jpg"
+          },
+          {
+            "frameIndex": 53,
+            "ptsUs": 2208333,
+            "imageRef": "frames/f000000053.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000053.jpg"
+          },
+          {
+            "frameIndex": 54,
+            "ptsUs": 2250000,
+            "imageRef": "frames/f000000054.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000054.jpg"
+          },
+          {
+            "frameIndex": 55,
+            "ptsUs": 2291667,
+            "imageRef": "frames/f000000055.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000055.jpg"
+          }
+        ],
+        "issues": []
+      },
+      {
+        "id": "S08",
+        "startFrame": 56,
+        "endFrameExclusive": 77,
+        "startUs": 2333333,
+        "endUs": 3208333,
+        "shotRevision": "f1ec3bb4d5af012c",
+        "status": "pending",
+        "generated": null,
+        "overrides": {},
+        "effective": null,
+        "evidenceFrames": [
+          {
+            "frameIndex": 56,
+            "ptsUs": 2333333,
+            "imageRef": "frames/f000000056.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000056.jpg"
+          },
+          {
+            "frameIndex": 59,
+            "ptsUs": 2458333,
+            "imageRef": "frames/f000000059.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000059.jpg"
+          },
+          {
+            "frameIndex": 66,
+            "ptsUs": 2750000,
+            "imageRef": "frames/f000000066.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000066.jpg"
+          },
+          {
+            "frameIndex": 73,
+            "ptsUs": 3041667,
+            "imageRef": "frames/f000000073.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000073.jpg"
+          },
+          {
+            "frameIndex": 76,
+            "ptsUs": 3166667,
+            "imageRef": "frames/f000000076.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000076.jpg"
+          }
+        ],
+        "issues": []
+      },
+      {
+        "id": "S09",
+        "startFrame": 77,
+        "endFrameExclusive": 98,
+        "startUs": 3208333,
+        "endUs": 4083333,
+        "shotRevision": "28abcff188658ad8",
+        "status": "pending",
+        "generated": null,
+        "overrides": {},
+        "effective": null,
+        "evidenceFrames": [
+          {
+            "frameIndex": 77,
+            "ptsUs": 3208333,
+            "imageRef": "frames/f000000077.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000077.jpg"
+          },
+          {
+            "frameIndex": 80,
+            "ptsUs": 3333333,
+            "imageRef": "frames/f000000080.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000080.jpg"
+          },
+          {
+            "frameIndex": 87,
+            "ptsUs": 3625000,
+            "imageRef": "frames/f000000087.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000087.jpg"
+          },
+          {
+            "frameIndex": 94,
+            "ptsUs": 3916667,
+            "imageRef": "frames/f000000094.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000094.jpg"
+          },
+          {
+            "frameIndex": 97,
+            "ptsUs": 4041667,
+            "imageRef": "frames/f000000097.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000097.jpg"
+          }
+        ],
+        "issues": []
+      },
+      {
+        "id": "S10",
+        "startFrame": 98,
+        "endFrameExclusive": 107,
+        "startUs": 4083333,
+        "endUs": 4458333,
+        "shotRevision": "63f0c450ef8e0526",
+        "status": "pending",
+        "generated": null,
+        "overrides": {},
+        "effective": null,
+        "evidenceFrames": [
+          {
+            "frameIndex": 98,
+            "ptsUs": 4083333,
+            "imageRef": "frames/f000000098.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000098.jpg"
+          },
+          {
+            "frameIndex": 99,
+            "ptsUs": 4125000,
+            "imageRef": "frames/f000000099.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000099.jpg"
+          },
+          {
+            "frameIndex": 100,
+            "ptsUs": 4166667,
+            "imageRef": "frames/f000000100.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000100.jpg"
+          },
+          {
+            "frameIndex": 101,
+            "ptsUs": 4208333,
+            "imageRef": "frames/f000000101.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000101.jpg"
+          },
+          {
+            "frameIndex": 102,
+            "ptsUs": 4250000,
+            "imageRef": "frames/f000000102.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000102.jpg"
+          },
+          {
+            "frameIndex": 103,
+            "ptsUs": 4291667,
+            "imageRef": "frames/f000000103.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000103.jpg"
+          },
+          {
+            "frameIndex": 104,
+            "ptsUs": 4333333,
+            "imageRef": "frames/f000000104.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000104.jpg"
+          },
+          {
+            "frameIndex": 105,
+            "ptsUs": 4375000,
+            "imageRef": "frames/f000000105.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000105.jpg"
+          },
+          {
+            "frameIndex": 106,
+            "ptsUs": 4416667,
+            "imageRef": "frames/f000000106.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000106.jpg"
+          }
+        ],
+        "issues": []
+      },
+      {
+        "id": "S11",
+        "startFrame": 107,
+        "endFrameExclusive": 129,
+        "startUs": 4458333,
+        "endUs": 5375000,
+        "shotRevision": "a01dc72487843739",
+        "status": "pending",
+        "generated": null,
+        "overrides": {},
+        "effective": null,
+        "evidenceFrames": [
+          {
+            "frameIndex": 107,
+            "ptsUs": 4458333,
+            "imageRef": "frames/f000000107.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000107.jpg"
+          },
+          {
+            "frameIndex": 110,
+            "ptsUs": 4583333,
+            "imageRef": "frames/f000000110.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000110.jpg"
+          },
+          {
+            "frameIndex": 118,
+            "ptsUs": 4916667,
+            "imageRef": "frames/f000000118.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000118.jpg"
+          },
+          {
+            "frameIndex": 125,
+            "ptsUs": 5208333,
+            "imageRef": "frames/f000000125.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000125.jpg"
+          },
+          {
+            "frameIndex": 128,
+            "ptsUs": 5333333,
+            "imageRef": "frames/f000000128.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000128.jpg"
+          }
+        ],
+        "issues": []
+      },
+      {
+        "id": "S12",
+        "startFrame": 129,
+        "endFrameExclusive": 133,
+        "startUs": 5375000,
+        "endUs": 5541667,
+        "shotRevision": "5992c2ce30932edc",
+        "status": "pending",
+        "generated": null,
+        "overrides": {},
+        "effective": null,
+        "evidenceFrames": [
+          {
+            "frameIndex": 129,
+            "ptsUs": 5375000,
+            "imageRef": "frames/f000000129.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000129.jpg"
+          },
+          {
+            "frameIndex": 130,
+            "ptsUs": 5416667,
+            "imageRef": "frames/f000000130.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000130.jpg"
+          },
+          {
+            "frameIndex": 131,
+            "ptsUs": 5458333,
+            "imageRef": "frames/f000000131.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000131.jpg"
+          },
+          {
+            "frameIndex": 132,
+            "ptsUs": 5500000,
+            "imageRef": "frames/f000000132.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000132.jpg"
+          }
+        ],
+        "issues": []
+      },
+      {
+        "id": "S13",
+        "startFrame": 133,
+        "endFrameExclusive": 135,
+        "startUs": 5541667,
+        "endUs": 5625000,
+        "shotRevision": "b9bdb5eaac5ee5b6",
+        "status": "pending",
+        "generated": null,
+        "overrides": {},
+        "effective": null,
+        "evidenceFrames": [
+          {
+            "frameIndex": 133,
+            "ptsUs": 5541667,
+            "imageRef": "frames/f000000133.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000133.jpg"
+          },
+          {
+            "frameIndex": 134,
+            "ptsUs": 5583333,
+            "imageRef": "frames/f000000134.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000134.jpg"
+          }
+        ],
+        "issues": []
+      },
+      {
+        "id": "S14",
+        "startFrame": 135,
+        "endFrameExclusive": 137,
+        "startUs": 5625000,
+        "endUs": 5708333,
+        "shotRevision": "a9c6254efd949972",
+        "status": "pending",
+        "generated": null,
+        "overrides": {},
+        "effective": null,
+        "evidenceFrames": [
+          {
+            "frameIndex": 135,
+            "ptsUs": 5625000,
+            "imageRef": "frames/f000000135.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000135.jpg"
+          },
+          {
+            "frameIndex": 136,
+            "ptsUs": 5666667,
+            "imageRef": "frames/f000000136.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000136.jpg"
+          }
+        ],
+        "issues": []
+      },
+      {
+        "id": "S15",
+        "startFrame": 137,
+        "endFrameExclusive": 154,
+        "startUs": 5708333,
+        "endUs": 6416667,
+        "shotRevision": "a6da1a7167026944",
+        "status": "pending",
+        "generated": null,
+        "overrides": {},
+        "effective": null,
+        "evidenceFrames": [
+          {
+            "frameIndex": 137,
+            "ptsUs": 5708333,
+            "imageRef": "frames/f000000137.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000137.jpg"
+          },
+          {
+            "frameIndex": 139,
+            "ptsUs": 5791667,
+            "imageRef": "frames/f000000139.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000139.jpg"
+          },
+          {
+            "frameIndex": 145,
+            "ptsUs": 6041667,
+            "imageRef": "frames/f000000145.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000145.jpg"
+          },
+          {
+            "frameIndex": 151,
+            "ptsUs": 6291667,
+            "imageRef": "frames/f000000151.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000151.jpg"
+          },
+          {
+            "frameIndex": 153,
+            "ptsUs": 6375000,
+            "imageRef": "frames/f000000153.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000153.jpg"
+          }
+        ],
+        "issues": []
+      },
+      {
+        "id": "S16",
+        "startFrame": 154,
+        "endFrameExclusive": 156,
+        "startUs": 6416667,
+        "endUs": 6500000,
+        "shotRevision": "58d4fc4fa986681c",
+        "status": "pending",
+        "generated": null,
+        "overrides": {},
+        "effective": null,
+        "evidenceFrames": [
+          {
+            "frameIndex": 154,
+            "ptsUs": 6416667,
+            "imageRef": "frames/f000000154.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000154.jpg"
+          },
+          {
+            "frameIndex": 155,
+            "ptsUs": 6458333,
+            "imageRef": "frames/f000000155.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000155.jpg"
+          }
+        ],
+        "issues": []
+      },
+      {
+        "id": "S17",
+        "startFrame": 156,
+        "endFrameExclusive": 167,
+        "startUs": 6500000,
+        "endUs": 6958333,
+        "shotRevision": "7b8d6a49e4804f15",
+        "status": "pending",
+        "generated": null,
+        "overrides": {},
+        "effective": null,
+        "evidenceFrames": [
+          {
+            "frameIndex": 156,
+            "ptsUs": 6500000,
+            "imageRef": "frames/f000000156.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000156.jpg"
+          },
+          {
+            "frameIndex": 157,
+            "ptsUs": 6541667,
+            "imageRef": "frames/f000000157.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000157.jpg"
+          },
+          {
+            "frameIndex": 159,
+            "ptsUs": 6625000,
+            "imageRef": "frames/f000000159.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000159.jpg"
+          },
+          {
+            "frameIndex": 160,
+            "ptsUs": 6666667,
+            "imageRef": "frames/f000000160.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000160.jpg"
+          },
+          {
+            "frameIndex": 161,
+            "ptsUs": 6708333,
+            "imageRef": "frames/f000000161.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000161.jpg"
+          },
+          {
+            "frameIndex": 162,
+            "ptsUs": 6750000,
+            "imageRef": "frames/f000000162.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000162.jpg"
+          },
+          {
+            "frameIndex": 164,
+            "ptsUs": 6833333,
+            "imageRef": "frames/f000000164.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000164.jpg"
+          },
+          {
+            "frameIndex": 165,
+            "ptsUs": 6875000,
+            "imageRef": "frames/f000000165.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000165.jpg"
+          },
+          {
+            "frameIndex": 166,
+            "ptsUs": 6916667,
+            "imageRef": "frames/f000000166.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000166.jpg"
+          }
+        ],
+        "issues": []
+      },
+      {
+        "id": "S18",
+        "startFrame": 167,
+        "endFrameExclusive": 180,
+        "startUs": 6958333,
+        "endUs": 7500000,
+        "shotRevision": "2deea887f13c6730",
+        "status": "pending",
+        "generated": null,
+        "overrides": {},
+        "effective": null,
+        "evidenceFrames": [
+          {
+            "frameIndex": 167,
+            "ptsUs": 6958333,
+            "imageRef": "frames/f000000167.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000167.jpg"
+          },
+          {
+            "frameIndex": 169,
+            "ptsUs": 7041667,
+            "imageRef": "frames/f000000169.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000169.jpg"
+          },
+          {
+            "frameIndex": 173,
+            "ptsUs": 7208333,
+            "imageRef": "frames/f000000173.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000173.jpg"
+          },
+          {
+            "frameIndex": 177,
+            "ptsUs": 7375000,
+            "imageRef": "frames/f000000177.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000177.jpg"
+          },
+          {
+            "frameIndex": 179,
+            "ptsUs": 7458333,
+            "imageRef": "frames/f000000179.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000179.jpg"
+          }
+        ],
+        "issues": []
+      },
+      {
+        "id": "S19",
+        "startFrame": 180,
+        "endFrameExclusive": 196,
+        "startUs": 7500000,
+        "endUs": 8166667,
+        "shotRevision": "648b983de0dea5f3",
+        "status": "pending",
+        "generated": null,
+        "overrides": {},
+        "effective": null,
+        "evidenceFrames": [
+          {
+            "frameIndex": 180,
+            "ptsUs": 7500000,
+            "imageRef": "frames/f000000180.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000180.jpg"
+          },
+          {
+            "frameIndex": 182,
+            "ptsUs": 7583333,
+            "imageRef": "frames/f000000182.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000182.jpg"
+          },
+          {
+            "frameIndex": 188,
+            "ptsUs": 7833333,
+            "imageRef": "frames/f000000188.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000188.jpg"
+          },
+          {
+            "frameIndex": 193,
+            "ptsUs": 8041667,
+            "imageRef": "frames/f000000193.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000193.jpg"
+          },
+          {
+            "frameIndex": 195,
+            "ptsUs": 8125000,
+            "imageRef": "frames/f000000195.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000195.jpg"
+          }
+        ],
+        "issues": []
+      },
+      {
+        "id": "S20",
+        "startFrame": 196,
+        "endFrameExclusive": 231,
+        "startUs": 8166667,
+        "endUs": 9625000,
+        "shotRevision": "1809bf5099c8584e",
+        "status": "pending",
+        "generated": null,
+        "overrides": {},
+        "effective": null,
+        "evidenceFrames": [
+          {
+            "frameIndex": 196,
+            "ptsUs": 8166667,
+            "imageRef": "frames/f000000196.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000196.jpg"
+          },
+          {
+            "frameIndex": 201,
+            "ptsUs": 8375000,
+            "imageRef": "frames/f000000201.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000201.jpg"
+          },
+          {
+            "frameIndex": 213,
+            "ptsUs": 8875000,
+            "imageRef": "frames/f000000213.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000213.jpg"
+          },
+          {
+            "frameIndex": 225,
+            "ptsUs": 9375000,
+            "imageRef": "frames/f000000225.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000225.jpg"
+          },
+          {
+            "frameIndex": 230,
+            "ptsUs": 9583333,
+            "imageRef": "frames/f000000230.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000230.jpg"
+          }
+        ],
+        "issues": []
+      },
+      {
+        "id": "S21",
+        "startFrame": 231,
+        "endFrameExclusive": 244,
+        "startUs": 9625000,
+        "endUs": 10166667,
+        "shotRevision": "9bf41cbd4a138e25",
+        "status": "pending",
+        "generated": null,
+        "overrides": {},
+        "effective": null,
+        "evidenceFrames": [
+          {
+            "frameIndex": 231,
+            "ptsUs": 9625000,
+            "imageRef": "frames/f000000231.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000231.jpg"
+          },
+          {
+            "frameIndex": 233,
+            "ptsUs": 9708333,
+            "imageRef": "frames/f000000233.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000233.jpg"
+          },
+          {
+            "frameIndex": 237,
+            "ptsUs": 9875000,
+            "imageRef": "frames/f000000237.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000237.jpg"
+          },
+          {
+            "frameIndex": 241,
+            "ptsUs": 10041667,
+            "imageRef": "frames/f000000241.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000241.jpg"
+          },
+          {
+            "frameIndex": 243,
+            "ptsUs": 10125000,
+            "imageRef": "frames/f000000243.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000243.jpg"
+          }
+        ],
+        "issues": []
+      },
+      {
+        "id": "S22",
+        "startFrame": 244,
+        "endFrameExclusive": 256,
+        "startUs": 10166667,
+        "endUs": 10666667,
+        "shotRevision": "4fb7793b484882fd",
+        "status": "pending",
+        "generated": null,
+        "overrides": {},
+        "effective": null,
+        "evidenceFrames": [
+          {
+            "frameIndex": 244,
+            "ptsUs": 10166667,
+            "imageRef": "frames/f000000244.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000244.jpg"
+          },
+          {
+            "frameIndex": 245,
+            "ptsUs": 10208333,
+            "imageRef": "frames/f000000245.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000245.jpg"
+          },
+          {
+            "frameIndex": 247,
+            "ptsUs": 10291667,
+            "imageRef": "frames/f000000247.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000247.jpg"
+          },
+          {
+            "frameIndex": 248,
+            "ptsUs": 10333333,
+            "imageRef": "frames/f000000248.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000248.jpg"
+          },
+          {
+            "frameIndex": 250,
+            "ptsUs": 10416667,
+            "imageRef": "frames/f000000250.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000250.jpg"
+          },
+          {
+            "frameIndex": 251,
+            "ptsUs": 10458333,
+            "imageRef": "frames/f000000251.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000251.jpg"
+          },
+          {
+            "frameIndex": 252,
+            "ptsUs": 10500000,
+            "imageRef": "frames/f000000252.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000252.jpg"
+          },
+          {
+            "frameIndex": 254,
+            "ptsUs": 10583333,
+            "imageRef": "frames/f000000254.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000254.jpg"
+          },
+          {
+            "frameIndex": 255,
+            "ptsUs": 10625000,
+            "imageRef": "frames/f000000255.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000255.jpg"
+          }
+        ],
+        "issues": []
+      },
+      {
+        "id": "S23",
+        "startFrame": 256,
+        "endFrameExclusive": 282,
+        "startUs": 10666667,
+        "endUs": 11750000,
+        "shotRevision": "21f7ed3ee5b448b1",
+        "status": "pending",
+        "generated": null,
+        "overrides": {},
+        "effective": null,
+        "evidenceFrames": [
+          {
+            "frameIndex": 256,
+            "ptsUs": 10666667,
+            "imageRef": "frames/f000000256.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000256.jpg"
+          },
+          {
+            "frameIndex": 260,
+            "ptsUs": 10833333,
+            "imageRef": "frames/f000000260.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000260.jpg"
+          },
+          {
+            "frameIndex": 269,
+            "ptsUs": 11208333,
+            "imageRef": "frames/f000000269.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000269.jpg"
+          },
+          {
+            "frameIndex": 277,
+            "ptsUs": 11541667,
+            "imageRef": "frames/f000000277.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000277.jpg"
+          },
+          {
+            "frameIndex": 281,
+            "ptsUs": 11708333,
+            "imageRef": "frames/f000000281.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000281.jpg"
+          }
+        ],
+        "issues": []
+      },
+      {
+        "id": "S24",
+        "startFrame": 282,
+        "endFrameExclusive": 290,
+        "startUs": 11750000,
+        "endUs": 12083333,
+        "shotRevision": "6cd34ad949cc8a99",
+        "status": "pending",
+        "generated": null,
+        "overrides": {},
+        "effective": null,
+        "evidenceFrames": [
+          {
+            "frameIndex": 282,
+            "ptsUs": 11750000,
+            "imageRef": "frames/f000000282.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000282.jpg"
+          },
+          {
+            "frameIndex": 283,
+            "ptsUs": 11791667,
+            "imageRef": "frames/f000000283.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000283.jpg"
+          },
+          {
+            "frameIndex": 284,
+            "ptsUs": 11833333,
+            "imageRef": "frames/f000000284.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000284.jpg"
+          },
+          {
+            "frameIndex": 285,
+            "ptsUs": 11875000,
+            "imageRef": "frames/f000000285.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000285.jpg"
+          },
+          {
+            "frameIndex": 286,
+            "ptsUs": 11916667,
+            "imageRef": "frames/f000000286.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000286.jpg"
+          },
+          {
+            "frameIndex": 287,
+            "ptsUs": 11958333,
+            "imageRef": "frames/f000000287.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000287.jpg"
+          },
+          {
+            "frameIndex": 288,
+            "ptsUs": 12000000,
+            "imageRef": "frames/f000000288.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000288.jpg"
+          },
+          {
+            "frameIndex": 289,
+            "ptsUs": 12041667,
+            "imageRef": "frames/f000000289.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000289.jpg"
+          }
+        ],
+        "issues": []
+      },
+      {
+        "id": "S25",
+        "startFrame": 290,
+        "endFrameExclusive": 320,
+        "startUs": 12083333,
+        "endUs": 13333333,
+        "shotRevision": "a95bdec9dd43c02e",
+        "status": "pending",
+        "generated": null,
+        "overrides": {},
+        "effective": null,
+        "evidenceFrames": [
+          {
+            "frameIndex": 290,
+            "ptsUs": 12083333,
+            "imageRef": "frames/f000000290.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000290.jpg"
+          },
+          {
+            "frameIndex": 294,
+            "ptsUs": 12250000,
+            "imageRef": "frames/f000000294.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000294.jpg"
+          },
+          {
+            "frameIndex": 305,
+            "ptsUs": 12708333,
+            "imageRef": "frames/f000000305.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000305.jpg"
+          },
+          {
+            "frameIndex": 315,
+            "ptsUs": 13125000,
+            "imageRef": "frames/f000000315.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000315.jpg"
+          },
+          {
+            "frameIndex": 319,
+            "ptsUs": 13291667,
+            "imageRef": "frames/f000000319.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000319.jpg"
+          }
+        ],
+        "issues": []
+      },
+      {
+        "id": "S26",
+        "startFrame": 320,
+        "endFrameExclusive": 353,
+        "startUs": 13333333,
+        "endUs": 14708333,
+        "shotRevision": "cec131a4a0bd5480",
+        "status": "pending",
+        "generated": null,
+        "overrides": {},
+        "effective": null,
+        "evidenceFrames": [
+          {
+            "frameIndex": 320,
+            "ptsUs": 13333333,
+            "imageRef": "frames/f000000320.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000320.jpg"
+          },
+          {
+            "frameIndex": 325,
+            "ptsUs": 13541667,
+            "imageRef": "frames/f000000325.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000325.jpg"
+          },
+          {
+            "frameIndex": 336,
+            "ptsUs": 14000000,
+            "imageRef": "frames/f000000336.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000336.jpg"
+          },
+          {
+            "frameIndex": 347,
+            "ptsUs": 14458333,
+            "imageRef": "frames/f000000347.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000347.jpg"
+          },
+          {
+            "frameIndex": 352,
+            "ptsUs": 14666667,
+            "imageRef": "frames/f000000352.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000352.jpg"
+          }
+        ],
+        "issues": []
+      },
+      {
+        "id": "S27",
+        "startFrame": 353,
+        "endFrameExclusive": 367,
+        "startUs": 14708333,
+        "endUs": 15291667,
+        "shotRevision": "8ba2538395170065",
+        "status": "pending",
+        "generated": null,
+        "overrides": {},
+        "effective": null,
+        "evidenceFrames": [
+          {
+            "frameIndex": 353,
+            "ptsUs": 14708333,
+            "imageRef": "frames/f000000353.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000353.jpg"
+          },
+          {
+            "frameIndex": 355,
+            "ptsUs": 14791667,
+            "imageRef": "frames/f000000355.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000355.jpg"
+          },
+          {
+            "frameIndex": 360,
+            "ptsUs": 15000000,
+            "imageRef": "frames/f000000360.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000360.jpg"
+          },
+          {
+            "frameIndex": 364,
+            "ptsUs": 15166667,
+            "imageRef": "frames/f000000364.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000364.jpg"
+          },
+          {
+            "frameIndex": 366,
+            "ptsUs": 15250000,
+            "imageRef": "frames/f000000366.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000366.jpg"
+          }
+        ],
+        "issues": []
+      },
+      {
+        "id": "S28",
+        "startFrame": 367,
+        "endFrameExclusive": 386,
+        "startUs": 15291667,
+        "endUs": 16083333,
+        "shotRevision": "c3383a6cfef8ce21",
+        "status": "pending",
+        "generated": null,
+        "overrides": {},
+        "effective": null,
+        "evidenceFrames": [
+          {
+            "frameIndex": 367,
+            "ptsUs": 15291667,
+            "imageRef": "frames/f000000367.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000367.jpg"
+          },
+          {
+            "frameIndex": 370,
+            "ptsUs": 15416667,
+            "imageRef": "frames/f000000370.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000370.jpg"
+          },
+          {
+            "frameIndex": 376,
+            "ptsUs": 15666667,
+            "imageRef": "frames/f000000376.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000376.jpg"
+          },
+          {
+            "frameIndex": 382,
+            "ptsUs": 15916667,
+            "imageRef": "frames/f000000382.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000382.jpg"
+          },
+          {
+            "frameIndex": 385,
+            "ptsUs": 16041667,
+            "imageRef": "frames/f000000385.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000385.jpg"
+          }
+        ],
+        "issues": []
+      },
+      {
+        "id": "S29",
+        "startFrame": 386,
+        "endFrameExclusive": 399,
+        "startUs": 16083333,
+        "endUs": 16625000,
+        "shotRevision": "9c8ee67e0dd0d9cc",
+        "status": "pending",
+        "generated": null,
+        "overrides": {},
+        "effective": null,
+        "evidenceFrames": [
+          {
+            "frameIndex": 386,
+            "ptsUs": 16083333,
+            "imageRef": "frames/f000000386.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000386.jpg"
+          },
+          {
+            "frameIndex": 388,
+            "ptsUs": 16166667,
+            "imageRef": "frames/f000000388.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000388.jpg"
+          },
+          {
+            "frameIndex": 392,
+            "ptsUs": 16333333,
+            "imageRef": "frames/f000000392.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000392.jpg"
+          },
+          {
+            "frameIndex": 396,
+            "ptsUs": 16500000,
+            "imageRef": "frames/f000000396.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000396.jpg"
+          },
+          {
+            "frameIndex": 398,
+            "ptsUs": 16583333,
+            "imageRef": "frames/f000000398.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000398.jpg"
+          }
+        ],
+        "issues": []
+      },
+      {
+        "id": "S30",
+        "startFrame": 399,
+        "endFrameExclusive": 419,
+        "startUs": 16625000,
+        "endUs": 17458333,
+        "shotRevision": "eaa688517cb95822",
+        "status": "pending",
+        "generated": null,
+        "overrides": {},
+        "effective": null,
+        "evidenceFrames": [
+          {
+            "frameIndex": 399,
+            "ptsUs": 16625000,
+            "imageRef": "frames/f000000399.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000399.jpg"
+          },
+          {
+            "frameIndex": 402,
+            "ptsUs": 16750000,
+            "imageRef": "frames/f000000402.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000402.jpg"
+          },
+          {
+            "frameIndex": 409,
+            "ptsUs": 17041667,
+            "imageRef": "frames/f000000409.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000409.jpg"
+          },
+          {
+            "frameIndex": 415,
+            "ptsUs": 17291667,
+            "imageRef": "frames/f000000415.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000415.jpg"
+          },
+          {
+            "frameIndex": 418,
+            "ptsUs": 17416667,
+            "imageRef": "frames/f000000418.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000418.jpg"
+          }
+        ],
+        "issues": []
+      },
+      {
+        "id": "S31",
+        "startFrame": 419,
+        "endFrameExclusive": 429,
+        "startUs": 17458333,
+        "endUs": 17875000,
+        "shotRevision": "d742edcd61a9ffdb",
+        "status": "pending",
+        "generated": null,
+        "overrides": {},
+        "effective": null,
+        "evidenceFrames": [
+          {
+            "frameIndex": 419,
+            "ptsUs": 17458333,
+            "imageRef": "frames/f000000419.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000419.jpg"
+          },
+          {
+            "frameIndex": 420,
+            "ptsUs": 17500000,
+            "imageRef": "frames/f000000420.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000420.jpg"
+          },
+          {
+            "frameIndex": 421,
+            "ptsUs": 17541667,
+            "imageRef": "frames/f000000421.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000421.jpg"
+          },
+          {
+            "frameIndex": 422,
+            "ptsUs": 17583333,
+            "imageRef": "frames/f000000422.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000422.jpg"
+          },
+          {
+            "frameIndex": 424,
+            "ptsUs": 17666667,
+            "imageRef": "frames/f000000424.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000424.jpg"
+          },
+          {
+            "frameIndex": 425,
+            "ptsUs": 17708333,
+            "imageRef": "frames/f000000425.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000425.jpg"
+          },
+          {
+            "frameIndex": 426,
+            "ptsUs": 17750000,
+            "imageRef": "frames/f000000426.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000426.jpg"
+          },
+          {
+            "frameIndex": 427,
+            "ptsUs": 17791667,
+            "imageRef": "frames/f000000427.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000427.jpg"
+          },
+          {
+            "frameIndex": 428,
+            "ptsUs": 17833333,
+            "imageRef": "frames/f000000428.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000428.jpg"
+          }
+        ],
+        "issues": []
+      },
+      {
+        "id": "S32",
+        "startFrame": 429,
+        "endFrameExclusive": 448,
+        "startUs": 17875000,
+        "endUs": 18666667,
+        "shotRevision": "d8f51d44cd85ff62",
+        "status": "pending",
+        "generated": null,
+        "overrides": {},
+        "effective": null,
+        "evidenceFrames": [
+          {
+            "frameIndex": 429,
+            "ptsUs": 17875000,
+            "imageRef": "frames/f000000429.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000429.jpg"
+          },
+          {
+            "frameIndex": 432,
+            "ptsUs": 18000000,
+            "imageRef": "frames/f000000432.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000432.jpg"
+          },
+          {
+            "frameIndex": 438,
+            "ptsUs": 18250000,
+            "imageRef": "frames/f000000438.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000438.jpg"
+          },
+          {
+            "frameIndex": 444,
+            "ptsUs": 18500000,
+            "imageRef": "frames/f000000444.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000444.jpg"
+          },
+          {
+            "frameIndex": 447,
+            "ptsUs": 18625000,
+            "imageRef": "frames/f000000447.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000447.jpg"
+          }
+        ],
+        "issues": []
+      },
+      {
+        "id": "S33",
+        "startFrame": 448,
+        "endFrameExclusive": 455,
+        "startUs": 18666667,
+        "endUs": 18958333,
+        "shotRevision": "3be4cf4cef2eb774",
+        "status": "pending",
+        "generated": null,
+        "overrides": {},
+        "effective": null,
+        "evidenceFrames": [
+          {
+            "frameIndex": 448,
+            "ptsUs": 18666667,
+            "imageRef": "frames/f000000448.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000448.jpg"
+          },
+          {
+            "frameIndex": 449,
+            "ptsUs": 18708333,
+            "imageRef": "frames/f000000449.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000449.jpg"
+          },
+          {
+            "frameIndex": 450,
+            "ptsUs": 18750000,
+            "imageRef": "frames/f000000450.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000450.jpg"
+          },
+          {
+            "frameIndex": 451,
+            "ptsUs": 18791667,
+            "imageRef": "frames/f000000451.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000451.jpg"
+          },
+          {
+            "frameIndex": 452,
+            "ptsUs": 18833333,
+            "imageRef": "frames/f000000452.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000452.jpg"
+          },
+          {
+            "frameIndex": 453,
+            "ptsUs": 18875000,
+            "imageRef": "frames/f000000453.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000453.jpg"
+          },
+          {
+            "frameIndex": 454,
+            "ptsUs": 18916667,
+            "imageRef": "frames/f000000454.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000454.jpg"
+          }
+        ],
+        "issues": []
+      },
+      {
+        "id": "S34",
+        "startFrame": 455,
+        "endFrameExclusive": 467,
+        "startUs": 18958333,
+        "endUs": 19458333,
+        "shotRevision": "55286f05530cef17",
+        "status": "pending",
+        "generated": null,
+        "overrides": {},
+        "effective": null,
+        "evidenceFrames": [
+          {
+            "frameIndex": 455,
+            "ptsUs": 18958333,
+            "imageRef": "frames/f000000455.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000455.jpg"
+          },
+          {
+            "frameIndex": 456,
+            "ptsUs": 19000000,
+            "imageRef": "frames/f000000456.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000456.jpg"
+          },
+          {
+            "frameIndex": 458,
+            "ptsUs": 19083333,
+            "imageRef": "frames/f000000458.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000458.jpg"
+          },
+          {
+            "frameIndex": 459,
+            "ptsUs": 19125000,
+            "imageRef": "frames/f000000459.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000459.jpg"
+          },
+          {
+            "frameIndex": 461,
+            "ptsUs": 19208333,
+            "imageRef": "frames/f000000461.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000461.jpg"
+          },
+          {
+            "frameIndex": 462,
+            "ptsUs": 19250000,
+            "imageRef": "frames/f000000462.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000462.jpg"
+          },
+          {
+            "frameIndex": 463,
+            "ptsUs": 19291667,
+            "imageRef": "frames/f000000463.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000463.jpg"
+          },
+          {
+            "frameIndex": 465,
+            "ptsUs": 19375000,
+            "imageRef": "frames/f000000465.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000465.jpg"
+          },
+          {
+            "frameIndex": 466,
+            "ptsUs": 19416667,
+            "imageRef": "frames/f000000466.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000466.jpg"
+          }
+        ],
+        "issues": []
+      },
+      {
+        "id": "S35",
+        "startFrame": 467,
+        "endFrameExclusive": 488,
+        "startUs": 19458333,
+        "endUs": 20333333,
+        "shotRevision": "9fecf709613240f7",
+        "status": "pending",
+        "generated": null,
+        "overrides": {},
+        "effective": null,
+        "evidenceFrames": [
+          {
+            "frameIndex": 467,
+            "ptsUs": 19458333,
+            "imageRef": "frames/f000000467.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000467.jpg"
+          },
+          {
+            "frameIndex": 470,
+            "ptsUs": 19583333,
+            "imageRef": "frames/f000000470.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000470.jpg"
+          },
+          {
+            "frameIndex": 477,
+            "ptsUs": 19875000,
+            "imageRef": "frames/f000000477.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000477.jpg"
+          },
+          {
+            "frameIndex": 484,
+            "ptsUs": 20166667,
+            "imageRef": "frames/f000000484.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000484.jpg"
+          },
+          {
+            "frameIndex": 487,
+            "ptsUs": 20291667,
+            "imageRef": "frames/f000000487.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000487.jpg"
+          }
+        ],
+        "issues": []
+      },
+      {
+        "id": "S36",
+        "startFrame": 488,
+        "endFrameExclusive": 500,
+        "startUs": 20333333,
+        "endUs": 20833333,
+        "shotRevision": "68f4556b8211217c",
+        "status": "pending",
+        "generated": null,
+        "overrides": {},
+        "effective": null,
+        "evidenceFrames": [
+          {
+            "frameIndex": 488,
+            "ptsUs": 20333333,
+            "imageRef": "frames/f000000488.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000488.jpg"
+          },
+          {
+            "frameIndex": 489,
+            "ptsUs": 20375000,
+            "imageRef": "frames/f000000489.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000489.jpg"
+          },
+          {
+            "frameIndex": 491,
+            "ptsUs": 20458333,
+            "imageRef": "frames/f000000491.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000491.jpg"
+          },
+          {
+            "frameIndex": 492,
+            "ptsUs": 20500000,
+            "imageRef": "frames/f000000492.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000492.jpg"
+          },
+          {
+            "frameIndex": 494,
+            "ptsUs": 20583333,
+            "imageRef": "frames/f000000494.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000494.jpg"
+          },
+          {
+            "frameIndex": 495,
+            "ptsUs": 20625000,
+            "imageRef": "frames/f000000495.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000495.jpg"
+          },
+          {
+            "frameIndex": 496,
+            "ptsUs": 20666667,
+            "imageRef": "frames/f000000496.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000496.jpg"
+          },
+          {
+            "frameIndex": 498,
+            "ptsUs": 20750000,
+            "imageRef": "frames/f000000498.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000498.jpg"
+          },
+          {
+            "frameIndex": 499,
+            "ptsUs": 20791667,
+            "imageRef": "frames/f000000499.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000499.jpg"
+          }
+        ],
+        "issues": []
+      },
+      {
+        "id": "S37",
+        "startFrame": 500,
+        "endFrameExclusive": 538,
+        "startUs": 20833333,
+        "endUs": 22416667,
+        "shotRevision": "846d53f20ba94808",
+        "status": "pending",
+        "generated": null,
+        "overrides": {},
+        "effective": null,
+        "evidenceFrames": [
+          {
+            "frameIndex": 500,
+            "ptsUs": 20833333,
+            "imageRef": "frames/f000000500.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000500.jpg"
+          },
+          {
+            "frameIndex": 506,
+            "ptsUs": 21083333,
+            "imageRef": "frames/f000000506.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000506.jpg"
+          },
+          {
+            "frameIndex": 519,
+            "ptsUs": 21625000,
+            "imageRef": "frames/f000000519.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000519.jpg"
+          },
+          {
+            "frameIndex": 531,
+            "ptsUs": 22125000,
+            "imageRef": "frames/f000000531.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000531.jpg"
+          },
+          {
+            "frameIndex": 537,
+            "ptsUs": 22375000,
+            "imageRef": "frames/f000000537.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000537.jpg"
+          }
+        ],
+        "issues": []
+      },
+      {
+        "id": "S38",
+        "startFrame": 538,
+        "endFrameExclusive": 578,
+        "startUs": 22416667,
+        "endUs": 24083333,
+        "shotRevision": "bf81a641016e5ad3",
+        "status": "pending",
+        "generated": null,
+        "overrides": {},
+        "effective": null,
+        "evidenceFrames": [
+          {
+            "frameIndex": 538,
+            "ptsUs": 22416667,
+            "imageRef": "frames/f000000538.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000538.jpg"
+          },
+          {
+            "frameIndex": 544,
+            "ptsUs": 22666667,
+            "imageRef": "frames/f000000544.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000544.jpg"
+          },
+          {
+            "frameIndex": 558,
+            "ptsUs": 23250000,
+            "imageRef": "frames/f000000558.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000558.jpg"
+          },
+          {
+            "frameIndex": 571,
+            "ptsUs": 23791667,
+            "imageRef": "frames/f000000571.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000571.jpg"
+          },
+          {
+            "frameIndex": 577,
+            "ptsUs": 24041667,
+            "imageRef": "frames/f000000577.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000577.jpg"
+          }
+        ],
+        "issues": []
+      },
+      {
+        "id": "S39",
+        "startFrame": 578,
+        "endFrameExclusive": 663,
+        "startUs": 24083333,
+        "endUs": 27625000,
+        "shotRevision": "efe2a76a67c315dd",
+        "status": "pending",
+        "generated": null,
+        "overrides": {},
+        "effective": null,
+        "evidenceFrames": [
+          {
+            "frameIndex": 578,
+            "ptsUs": 24083333,
+            "imageRef": "frames/f000000578.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000578.jpg"
+          },
+          {
+            "frameIndex": 591,
+            "ptsUs": 24625000,
+            "imageRef": "frames/f000000591.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000591.jpg"
+          },
+          {
+            "frameIndex": 620,
+            "ptsUs": 25833333,
+            "imageRef": "frames/f000000620.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000620.jpg"
+          },
+          {
+            "frameIndex": 649,
+            "ptsUs": 27041667,
+            "imageRef": "frames/f000000649.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000649.jpg"
+          },
+          {
+            "frameIndex": 662,
+            "ptsUs": 27583333,
+            "imageRef": "frames/f000000662.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000662.jpg"
+          }
+        ],
+        "issues": []
+      },
+      {
+        "id": "S40",
+        "startFrame": 663,
+        "endFrameExclusive": 710,
+        "startUs": 27625000,
+        "endUs": 29583333,
+        "shotRevision": "3f95bc189802952d",
+        "status": "pending",
+        "generated": null,
+        "overrides": {},
+        "effective": null,
+        "evidenceFrames": [
+          {
+            "frameIndex": 663,
+            "ptsUs": 27625000,
+            "imageRef": "frames/f000000663.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000663.jpg"
+          },
+          {
+            "frameIndex": 670,
+            "ptsUs": 27916667,
+            "imageRef": "frames/f000000670.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000670.jpg"
+          },
+          {
+            "frameIndex": 686,
+            "ptsUs": 28583333,
+            "imageRef": "frames/f000000686.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000686.jpg"
+          },
+          {
+            "frameIndex": 702,
+            "ptsUs": 29250000,
+            "imageRef": "frames/f000000702.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000702.jpg"
+          },
+          {
+            "frameIndex": 709,
+            "ptsUs": 29541667,
+            "imageRef": "frames/f000000709.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000709.jpg"
+          }
+        ],
+        "issues": []
+      },
+      {
+        "id": "S41",
+        "startFrame": 710,
+        "endFrameExclusive": 743,
+        "startUs": 29583333,
+        "endUs": 30958333,
+        "shotRevision": "4db1b2348a79429e",
+        "status": "pending",
+        "generated": null,
+        "overrides": {},
+        "effective": null,
+        "evidenceFrames": [
+          {
+            "frameIndex": 710,
+            "ptsUs": 29583333,
+            "imageRef": "frames/f000000710.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000710.jpg"
+          },
+          {
+            "frameIndex": 715,
+            "ptsUs": 29791667,
+            "imageRef": "frames/f000000715.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000715.jpg"
+          },
+          {
+            "frameIndex": 726,
+            "ptsUs": 30250000,
+            "imageRef": "frames/f000000726.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000726.jpg"
+          },
+          {
+            "frameIndex": 737,
+            "ptsUs": 30708333,
+            "imageRef": "frames/f000000737.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000737.jpg"
+          },
+          {
+            "frameIndex": 742,
+            "ptsUs": 30916667,
+            "imageRef": "frames/f000000742.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000742.jpg"
+          }
+        ],
+        "issues": []
+      },
+      {
+        "id": "S42",
+        "startFrame": 743,
+        "endFrameExclusive": 781,
+        "startUs": 30958333,
+        "endUs": 32541667,
+        "shotRevision": "d389a956f1e0d189",
+        "status": "pending",
+        "generated": null,
+        "overrides": {},
+        "effective": null,
+        "evidenceFrames": [
+          {
+            "frameIndex": 743,
+            "ptsUs": 30958333,
+            "imageRef": "frames/f000000743.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000743.jpg"
+          },
+          {
+            "frameIndex": 749,
+            "ptsUs": 31208333,
+            "imageRef": "frames/f000000749.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000749.jpg"
+          },
+          {
+            "frameIndex": 762,
+            "ptsUs": 31750000,
+            "imageRef": "frames/f000000762.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000762.jpg"
+          },
+          {
+            "frameIndex": 774,
+            "ptsUs": 32250000,
+            "imageRef": "frames/f000000774.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000774.jpg"
+          },
+          {
+            "frameIndex": 780,
+            "ptsUs": 32500000,
+            "imageRef": "frames/f000000780.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000780.jpg"
+          }
+        ],
+        "issues": []
+      },
+      {
+        "id": "S43",
+        "startFrame": 781,
+        "endFrameExclusive": 796,
+        "startUs": 32541667,
+        "endUs": 33166667,
+        "shotRevision": "40e84183e7e947c4",
+        "status": "pending",
+        "generated": null,
+        "overrides": {},
+        "effective": null,
+        "evidenceFrames": [
+          {
+            "frameIndex": 781,
+            "ptsUs": 32541667,
+            "imageRef": "frames/f000000781.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000781.jpg"
+          },
+          {
+            "frameIndex": 783,
+            "ptsUs": 32625000,
+            "imageRef": "frames/f000000783.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000783.jpg"
+          },
+          {
+            "frameIndex": 788,
+            "ptsUs": 32833333,
+            "imageRef": "frames/f000000788.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000788.jpg"
+          },
+          {
+            "frameIndex": 793,
+            "ptsUs": 33041667,
+            "imageRef": "frames/f000000793.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000793.jpg"
+          },
+          {
+            "frameIndex": 795,
+            "ptsUs": 33125000,
+            "imageRef": "frames/f000000795.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000795.jpg"
+          }
+        ],
+        "issues": []
+      },
+      {
+        "id": "S44",
+        "startFrame": 796,
+        "endFrameExclusive": 894,
+        "startUs": 33166667,
+        "endUs": 37250000,
+        "shotRevision": "b73f21be01943933",
+        "status": "pending",
+        "generated": null,
+        "overrides": {},
+        "effective": null,
+        "evidenceFrames": [
+          {
+            "frameIndex": 796,
+            "ptsUs": 33166667,
+            "imageRef": "frames/f000000796.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000796.jpg"
+          },
+          {
+            "frameIndex": 811,
+            "ptsUs": 33791667,
+            "imageRef": "frames/f000000811.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000811.jpg"
+          },
+          {
+            "frameIndex": 845,
+            "ptsUs": 35208333,
+            "imageRef": "frames/f000000845.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000845.jpg"
+          },
+          {
+            "frameIndex": 878,
+            "ptsUs": 36583333,
+            "imageRef": "frames/f000000878.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000878.jpg"
+          },
+          {
+            "frameIndex": 893,
+            "ptsUs": 37208333,
+            "imageRef": "frames/f000000893.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000893.jpg"
+          }
+        ],
+        "issues": []
+      },
+      {
+        "id": "S45",
+        "startFrame": 894,
+        "endFrameExclusive": 937,
+        "startUs": 37250000,
+        "endUs": 39041667,
+        "shotRevision": "7c50011eddf2d311",
+        "status": "pending",
+        "generated": null,
+        "overrides": {},
+        "effective": null,
+        "evidenceFrames": [
+          {
+            "frameIndex": 894,
+            "ptsUs": 37250000,
+            "imageRef": "frames/f000000894.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000894.jpg"
+          },
+          {
+            "frameIndex": 900,
+            "ptsUs": 37500000,
+            "imageRef": "frames/f000000900.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000900.jpg"
+          },
+          {
+            "frameIndex": 915,
+            "ptsUs": 38125000,
+            "imageRef": "frames/f000000915.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000915.jpg"
+          },
+          {
+            "frameIndex": 930,
+            "ptsUs": 38750000,
+            "imageRef": "frames/f000000930.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000930.jpg"
+          },
+          {
+            "frameIndex": 936,
+            "ptsUs": 39000000,
+            "imageRef": "frames/f000000936.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000936.jpg"
+          }
+        ],
+        "issues": []
+      },
+      {
+        "id": "S46",
+        "startFrame": 937,
+        "endFrameExclusive": 957,
+        "startUs": 39041667,
+        "endUs": 39875000,
+        "shotRevision": "7c8ea1ea79c98c3d",
+        "status": "pending",
+        "generated": null,
+        "overrides": {},
+        "effective": null,
+        "evidenceFrames": [
+          {
+            "frameIndex": 937,
+            "ptsUs": 39041667,
+            "imageRef": "frames/f000000937.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000937.jpg"
+          },
+          {
+            "frameIndex": 940,
+            "ptsUs": 39166667,
+            "imageRef": "frames/f000000940.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000940.jpg"
+          },
+          {
+            "frameIndex": 947,
+            "ptsUs": 39458333,
+            "imageRef": "frames/f000000947.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000947.jpg"
+          },
+          {
+            "frameIndex": 953,
+            "ptsUs": 39708333,
+            "imageRef": "frames/f000000953.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000953.jpg"
+          },
+          {
+            "frameIndex": 956,
+            "ptsUs": 39833333,
+            "imageRef": "frames/f000000956.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000956.jpg"
+          }
+        ],
+        "issues": []
+      },
+      {
+        "id": "S47",
+        "startFrame": 957,
+        "endFrameExclusive": 1014,
+        "startUs": 39875000,
+        "endUs": 42250000,
+        "shotRevision": "d92532d42b3adaf9",
+        "status": "pending",
+        "generated": null,
+        "overrides": {},
+        "effective": null,
+        "evidenceFrames": [
+          {
+            "frameIndex": 957,
+            "ptsUs": 39875000,
+            "imageRef": "frames/f000000957.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000957.jpg"
+          },
+          {
+            "frameIndex": 965,
+            "ptsUs": 40208333,
+            "imageRef": "frames/f000000965.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000965.jpg"
+          },
+          {
+            "frameIndex": 985,
+            "ptsUs": 41041667,
+            "imageRef": "frames/f000000985.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000000985.jpg"
+          },
+          {
+            "frameIndex": 1005,
+            "ptsUs": 41875000,
+            "imageRef": "frames/f000001005.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000001005.jpg"
+          },
+          {
+            "frameIndex": 1013,
+            "ptsUs": 42208333,
+            "imageRef": "frames/f000001013.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000001013.jpg"
+          }
+        ],
+        "issues": []
+      },
+      {
+        "id": "S48",
+        "startFrame": 1014,
+        "endFrameExclusive": 1032,
+        "startUs": 42250000,
+        "endUs": 43000000,
+        "shotRevision": "b8647bc4e645efa1",
+        "status": "pending",
+        "generated": null,
+        "overrides": {},
+        "effective": null,
+        "evidenceFrames": [
+          {
+            "frameIndex": 1014,
+            "ptsUs": 42250000,
+            "imageRef": "frames/f000001014.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000001014.jpg"
+          },
+          {
+            "frameIndex": 1017,
+            "ptsUs": 42375000,
+            "imageRef": "frames/f000001017.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000001017.jpg"
+          },
+          {
+            "frameIndex": 1023,
+            "ptsUs": 42625000,
+            "imageRef": "frames/f000001023.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000001023.jpg"
+          },
+          {
+            "frameIndex": 1028,
+            "ptsUs": 42833333,
+            "imageRef": "frames/f000001028.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000001028.jpg"
+          },
+          {
+            "frameIndex": 1031,
+            "ptsUs": 42958333,
+            "imageRef": "frames/f000001031.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000001031.jpg"
+          }
+        ],
+        "issues": []
+      },
+      {
+        "id": "S49",
+        "startFrame": 1032,
+        "endFrameExclusive": 1045,
+        "startUs": 43000000,
+        "endUs": 43541667,
+        "shotRevision": "35ca7c183f704c9a",
+        "status": "pending",
+        "generated": null,
+        "overrides": {},
+        "effective": null,
+        "evidenceFrames": [
+          {
+            "frameIndex": 1032,
+            "ptsUs": 43000000,
+            "imageRef": "frames/f000001032.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000001032.jpg"
+          },
+          {
+            "frameIndex": 1034,
+            "ptsUs": 43083333,
+            "imageRef": "frames/f000001034.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000001034.jpg"
+          },
+          {
+            "frameIndex": 1038,
+            "ptsUs": 43250000,
+            "imageRef": "frames/f000001038.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000001038.jpg"
+          },
+          {
+            "frameIndex": 1042,
+            "ptsUs": 43416667,
+            "imageRef": "frames/f000001042.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000001042.jpg"
+          },
+          {
+            "frameIndex": 1044,
+            "ptsUs": 43500000,
+            "imageRef": "frames/f000001044.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000001044.jpg"
+          }
+        ],
+        "issues": []
+      },
+      {
+        "id": "S50",
+        "startFrame": 1045,
+        "endFrameExclusive": 1056,
+        "startUs": 43541667,
+        "endUs": 44000000,
+        "shotRevision": "866aa62d57cf2395",
+        "status": "pending",
+        "generated": null,
+        "overrides": {},
+        "effective": null,
+        "evidenceFrames": [
+          {
+            "frameIndex": 1045,
+            "ptsUs": 43541667,
+            "imageRef": "frames/f000001045.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000001045.jpg"
+          },
+          {
+            "frameIndex": 1046,
+            "ptsUs": 43583333,
+            "imageRef": "frames/f000001046.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000001046.jpg"
+          },
+          {
+            "frameIndex": 1048,
+            "ptsUs": 43666667,
+            "imageRef": "frames/f000001048.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000001048.jpg"
+          },
+          {
+            "frameIndex": 1049,
+            "ptsUs": 43708333,
+            "imageRef": "frames/f000001049.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000001049.jpg"
+          },
+          {
+            "frameIndex": 1050,
+            "ptsUs": 43750000,
+            "imageRef": "frames/f000001050.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000001050.jpg"
+          },
+          {
+            "frameIndex": 1051,
+            "ptsUs": 43791667,
+            "imageRef": "frames/f000001051.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000001051.jpg"
+          },
+          {
+            "frameIndex": 1053,
+            "ptsUs": 43875000,
+            "imageRef": "frames/f000001053.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000001053.jpg"
+          },
+          {
+            "frameIndex": 1054,
+            "ptsUs": 43916667,
+            "imageRef": "frames/f000001054.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000001054.jpg"
+          },
+          {
+            "frameIndex": 1055,
+            "ptsUs": 43958333,
+            "imageRef": "frames/f000001055.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000001055.jpg"
+          }
+        ],
+        "issues": []
+      },
+      {
+        "id": "S51",
+        "startFrame": 1056,
+        "endFrameExclusive": 1058,
+        "startUs": 44000000,
+        "endUs": 44083333,
+        "shotRevision": "1592d0947dc0e64d",
+        "status": "pending",
+        "generated": null,
+        "overrides": {},
+        "effective": null,
+        "evidenceFrames": [
+          {
+            "frameIndex": 1056,
+            "ptsUs": 44000000,
+            "imageRef": "frames/f000001056.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000001056.jpg"
+          },
+          {
+            "frameIndex": 1057,
+            "ptsUs": 44041667,
+            "imageRef": "frames/f000001057.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000001057.jpg"
+          }
+        ],
+        "issues": []
+      },
+      {
+        "id": "S52",
+        "startFrame": 1058,
+        "endFrameExclusive": 1076,
+        "startUs": 44083333,
+        "endUs": 44833333,
+        "shotRevision": "200e3d559bb322a3",
+        "status": "pending",
+        "generated": null,
+        "overrides": {},
+        "effective": null,
+        "evidenceFrames": [
+          {
+            "frameIndex": 1058,
+            "ptsUs": 44083333,
+            "imageRef": "frames/f000001058.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000001058.jpg"
+          },
+          {
+            "frameIndex": 1061,
+            "ptsUs": 44208333,
+            "imageRef": "frames/f000001061.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000001061.jpg"
+          },
+          {
+            "frameIndex": 1067,
+            "ptsUs": 44458333,
+            "imageRef": "frames/f000001067.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000001067.jpg"
+          },
+          {
+            "frameIndex": 1072,
+            "ptsUs": 44666667,
+            "imageRef": "frames/f000001072.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000001072.jpg"
+          },
+          {
+            "frameIndex": 1075,
+            "ptsUs": 44791667,
+            "imageRef": "frames/f000001075.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000001075.jpg"
+          }
+        ],
+        "issues": []
+      },
+      {
+        "id": "S53",
+        "startFrame": 1076,
+        "endFrameExclusive": 1082,
+        "startUs": 44833333,
+        "endUs": 45083333,
+        "shotRevision": "e0be2a5bcbafd5d9",
+        "status": "pending",
+        "generated": null,
+        "overrides": {},
+        "effective": null,
+        "evidenceFrames": [
+          {
+            "frameIndex": 1076,
+            "ptsUs": 44833333,
+            "imageRef": "frames/f000001076.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000001076.jpg"
+          },
+          {
+            "frameIndex": 1077,
+            "ptsUs": 44875000,
+            "imageRef": "frames/f000001077.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000001077.jpg"
+          },
+          {
+            "frameIndex": 1078,
+            "ptsUs": 44916667,
+            "imageRef": "frames/f000001078.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000001078.jpg"
+          },
+          {
+            "frameIndex": 1079,
+            "ptsUs": 44958333,
+            "imageRef": "frames/f000001079.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000001079.jpg"
+          },
+          {
+            "frameIndex": 1080,
+            "ptsUs": 45000000,
+            "imageRef": "frames/f000001080.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000001080.jpg"
+          },
+          {
+            "frameIndex": 1081,
+            "ptsUs": 45041667,
+            "imageRef": "frames/f000001081.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000001081.jpg"
+          }
+        ],
+        "issues": []
+      },
+      {
+        "id": "S54",
+        "startFrame": 1082,
+        "endFrameExclusive": 1095,
+        "startUs": 45083333,
+        "endUs": 45625000,
+        "shotRevision": "b1e3479646f3a971",
+        "status": "pending",
+        "generated": null,
+        "overrides": {},
+        "effective": null,
+        "evidenceFrames": [
+          {
+            "frameIndex": 1082,
+            "ptsUs": 45083333,
+            "imageRef": "frames/f000001082.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000001082.jpg"
+          },
+          {
+            "frameIndex": 1084,
+            "ptsUs": 45166667,
+            "imageRef": "frames/f000001084.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000001084.jpg"
+          },
+          {
+            "frameIndex": 1088,
+            "ptsUs": 45333333,
+            "imageRef": "frames/f000001088.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000001088.jpg"
+          },
+          {
+            "frameIndex": 1092,
+            "ptsUs": 45500000,
+            "imageRef": "frames/f000001092.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000001092.jpg"
+          },
+          {
+            "frameIndex": 1094,
+            "ptsUs": 45583333,
+            "imageRef": "frames/f000001094.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000001094.jpg"
+          }
+        ],
+        "issues": []
+      },
+      {
+        "id": "S55",
+        "startFrame": 1095,
+        "endFrameExclusive": 1128,
+        "startUs": 45625000,
+        "endUs": 47000000,
+        "shotRevision": "e95fe3aaec0e78fe",
+        "status": "pending",
+        "generated": null,
+        "overrides": {},
+        "effective": null,
+        "evidenceFrames": [
+          {
+            "frameIndex": 1095,
+            "ptsUs": 45625000,
+            "imageRef": "frames/f000001095.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000001095.jpg"
+          },
+          {
+            "frameIndex": 1100,
+            "ptsUs": 45833333,
+            "imageRef": "frames/f000001100.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000001100.jpg"
+          },
+          {
+            "frameIndex": 1111,
+            "ptsUs": 46291667,
+            "imageRef": "frames/f000001111.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000001111.jpg"
+          },
+          {
+            "frameIndex": 1122,
+            "ptsUs": 46750000,
+            "imageRef": "frames/f000001122.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000001122.jpg"
+          },
+          {
+            "frameIndex": 1127,
+            "ptsUs": 46958333,
+            "imageRef": "frames/f000001127.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000001127.jpg"
+          }
+        ],
+        "issues": []
+      },
+      {
+        "id": "S56",
+        "startFrame": 1128,
+        "endFrameExclusive": 1184,
+        "startUs": 47000000,
+        "endUs": 49333333,
+        "shotRevision": "a52426b8c2285938",
+        "status": "pending",
+        "generated": null,
+        "overrides": {},
+        "effective": null,
+        "evidenceFrames": [
+          {
+            "frameIndex": 1128,
+            "ptsUs": 47000000,
+            "imageRef": "frames/f000001128.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000001128.jpg"
+          },
+          {
+            "frameIndex": 1136,
+            "ptsUs": 47333333,
+            "imageRef": "frames/f000001136.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000001136.jpg"
+          },
+          {
+            "frameIndex": 1156,
+            "ptsUs": 48166667,
+            "imageRef": "frames/f000001156.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000001156.jpg"
+          },
+          {
+            "frameIndex": 1175,
+            "ptsUs": 48958333,
+            "imageRef": "frames/f000001175.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000001175.jpg"
+          },
+          {
+            "frameIndex": 1183,
+            "ptsUs": 49291667,
+            "imageRef": "frames/f000001183.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000001183.jpg"
+          }
+        ],
+        "issues": []
+      },
+      {
+        "id": "S57",
+        "startFrame": 1184,
+        "endFrameExclusive": 1203,
+        "startUs": 49333333,
+        "endUs": 50125000,
+        "shotRevision": "c2a51f1b63d1b3f5",
+        "status": "pending",
+        "generated": null,
+        "overrides": {},
+        "effective": null,
+        "evidenceFrames": [
+          {
+            "frameIndex": 1184,
+            "ptsUs": 49333333,
+            "imageRef": "frames/f000001184.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000001184.jpg"
+          },
+          {
+            "frameIndex": 1187,
+            "ptsUs": 49458333,
+            "imageRef": "frames/f000001187.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000001187.jpg"
+          },
+          {
+            "frameIndex": 1193,
+            "ptsUs": 49708333,
+            "imageRef": "frames/f000001193.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000001193.jpg"
+          },
+          {
+            "frameIndex": 1199,
+            "ptsUs": 49958333,
+            "imageRef": "frames/f000001199.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000001199.jpg"
+          },
+          {
+            "frameIndex": 1202,
+            "ptsUs": 50083333,
+            "imageRef": "frames/f000001202.jpg",
+            "url": "/api/studio/projects/p-a581fb7a8dd2/shot-analysis/sa-cbb409c451d6/file?path=frames%2Ff000001202.jpg"
+          }
+        ],
+        "issues": []
+      }
+    ],
+    "counts": {
+      "total": 57,
+      "analyzed": 0,
+      "failed": 0,
+      "needsReview": 0,
+      "userEdited": 0
+    }
+  },
+  "workflowTarget": "shot_analysis",
+  "shotAnalysisProvider": {
+    "configured": false,
+    "provider": null,
+    "model": null,
+    "reason": "视觉模型未配置：请明确设置 PROVIDER、MODEL、ENDPOINT 和 PROTOCOL；没有默认供应商。"
+  },
+  "project": {
+    "id": "p-a581fb7a8dd2",
+    "schemaVersion": 9,
+    "revision": "r-40fb93bce027",
+    "name": "拉片验收 · 真实50秒样片",
+    "sceneMode": "proxy",
+    "phase": "analyzed",
+    "sceneStatus": "not_requested",
+    "note": "真实全片抽帧和报告验收；未配置视觉模型，语义应明确受阻。",
+    "sourcePeopleCount": null,
+    "createdAt": "2026-09-27T03:03:03.306Z",
+    "updatedAt": "2026-09-27T03:03:08.406Z"
+  },
+  "media": {
+    "id": "m-d798252d1418",
+    "sha256": "886e0c2c24b30b46a8e5c9112f3af6b6ecbcc97c3cf097578672ed29c7e36861",
+    "originalName": "reference.mp4",
+    "durationUs": 50125000,
+    "width": 960,
+    "height": 540,
+    "rotation": 0,
+    "timebase": "1/12288",
+    "fps": 24,
+    "vfr": false,
+    "videoCodec": "h264",
+    "audioCodec": "aac",
+    "ptsCount": 1203,
+    "sizeBytes": 9235595
+  },
+  "shots": [
+    {
+      "id": "S01",
+      "idx": 0,
+      "startFrame": 0,
+      "endFrameExclusive": 13,
+      "startUs": 0,
+      "endUs": 541667,
+      "source": "auto",
+      "revision": "r-ea2d40f8969f"
+    },
+    {
+      "id": "S02",
+      "idx": 1,
+      "startFrame": 13,
+      "endFrameExclusive": 22,
+      "startUs": 541667,
+      "endUs": 916667,
+      "source": "auto",
+      "revision": "r-5eef56ce4f61"
+    },
+    {
+      "id": "S03",
+      "idx": 2,
+      "startFrame": 22,
+      "endFrameExclusive": 24,
+      "startUs": 916667,
+      "endUs": 1000000,
+      "source": "auto",
+      "revision": "r-d98d7a3f6ab5"
+    },
+    {
+      "id": "S04",
+      "idx": 3,
+      "startFrame": 24,
+      "endFrameExclusive": 29,
+      "startUs": 1000000,
+      "endUs": 1208333,
+      "source": "auto",
+      "revision": "r-d92c4bf84adf"
+    },
+    {
+      "id": "S05",
+      "idx": 4,
+      "startFrame": 29,
+      "endFrameExclusive": 39,
+      "startUs": 1208333,
+      "endUs": 1625000,
+      "source": "auto",
+      "revision": "r-6c3a38676214"
+    },
+    {
+      "id": "S06",
+      "idx": 5,
+      "startFrame": 39,
+      "endFrameExclusive": 46,
+      "startUs": 1625000,
+      "endUs": 1916667,
+      "source": "auto",
+      "revision": "r-bc58f2ecdf6a"
+    },
+    {
+      "id": "S07",
+      "idx": 6,
+      "startFrame": 46,
+      "endFrameExclusive": 56,
+      "startUs": 1916667,
+      "endUs": 2333333,
+      "source": "auto",
+      "revision": "r-fa7145b2c365"
+    },
+    {
+      "id": "S08",
+      "idx": 7,
+      "startFrame": 56,
+      "endFrameExclusive": 77,
+      "startUs": 2333333,
+      "endUs": 3208333,
+      "source": "auto",
+      "revision": "r-40e64b2f1b16"
+    },
+    {
+      "id": "S09",
+      "idx": 8,
+      "startFrame": 77,
+      "endFrameExclusive": 98,
+      "startUs": 3208333,
+      "endUs": 4083333,
+      "source": "auto",
+      "revision": "r-43044d6381d9"
+    },
+    {
+      "id": "S10",
+      "idx": 9,
+      "startFrame": 98,
+      "endFrameExclusive": 107,
+      "startUs": 4083333,
+      "endUs": 4458333,
+      "source": "auto",
+      "revision": "r-d3e09b4d3013"
+    },
+    {
+      "id": "S11",
+      "idx": 10,
+      "startFrame": 107,
+      "endFrameExclusive": 129,
+      "startUs": 4458333,
+      "endUs": 5375000,
+      "source": "auto",
+      "revision": "r-bbe23760faab"
+    },
+    {
+      "id": "S12",
+      "idx": 11,
+      "startFrame": 129,
+      "endFrameExclusive": 133,
+      "startUs": 5375000,
+      "endUs": 5541667,
+      "source": "auto",
+      "revision": "r-ad4bd4e4f78a"
+    },
+    {
+      "id": "S13",
+      "idx": 12,
+      "startFrame": 133,
+      "endFrameExclusive": 135,
+      "startUs": 5541667,
+      "endUs": 5625000,
+      "source": "auto",
+      "revision": "r-49ebc7b7aaf8"
+    },
+    {
+      "id": "S14",
+      "idx": 13,
+      "startFrame": 135,
+      "endFrameExclusive": 137,
+      "startUs": 5625000,
+      "endUs": 5708333,
+      "source": "auto",
+      "revision": "r-b0b5a8bcd663"
+    },
+    {
+      "id": "S15",
+      "idx": 14,
+      "startFrame": 137,
+      "endFrameExclusive": 154,
+      "startUs": 5708333,
+      "endUs": 6416667,
+      "source": "auto",
+      "revision": "r-9b0913d74ae9"
+    },
+    {
+      "id": "S16",
+      "idx": 15,
+      "startFrame": 154,
+      "endFrameExclusive": 156,
+      "startUs": 6416667,
+      "endUs": 6500000,
+      "source": "auto",
+      "revision": "r-d29b9214a59a"
+    },
+    {
+      "id": "S17",
+      "idx": 16,
+      "startFrame": 156,
+      "endFrameExclusive": 167,
+      "startUs": 6500000,
+      "endUs": 6958333,
+      "source": "auto",
+      "revision": "r-661c1af304a7"
+    },
+    {
+      "id": "S18",
+      "idx": 17,
+      "startFrame": 167,
+      "endFrameExclusive": 180,
+      "startUs": 6958333,
+      "endUs": 7500000,
+      "source": "auto",
+      "revision": "r-bfbcd9d91df9"
+    },
+    {
+      "id": "S19",
+      "idx": 18,
+      "startFrame": 180,
+      "endFrameExclusive": 196,
+      "startUs": 7500000,
+      "endUs": 8166667,
+      "source": "auto",
+      "revision": "r-b654f9125f93"
+    },
+    {
+      "id": "S20",
+      "idx": 19,
+      "startFrame": 196,
+      "endFrameExclusive": 231,
+      "startUs": 8166667,
+      "endUs": 9625000,
+      "source": "auto",
+      "revision": "r-6e7371cc3265"
+    },
+    {
+      "id": "S21",
+      "idx": 20,
+      "startFrame": 231,
+      "endFrameExclusive": 244,
+      "startUs": 9625000,
+      "endUs": 10166667,
+      "source": "auto",
+      "revision": "r-07c50de08186"
+    },
+    {
+      "id": "S22",
+      "idx": 21,
+      "startFrame": 244,
+      "endFrameExclusive": 256,
+      "startUs": 10166667,
+      "endUs": 10666667,
+      "source": "auto",
+      "revision": "r-feb352d10505"
+    },
+    {
+      "id": "S23",
+      "idx": 22,
+      "startFrame": 256,
+      "endFrameExclusive": 282,
+      "startUs": 10666667,
+      "endUs": 11750000,
+      "source": "auto",
+      "revision": "r-985f978f1273"
+    },
+    {
+      "id": "S24",
+      "idx": 23,
+      "startFrame": 282,
+      "endFrameExclusive": 290,
+      "startUs": 11750000,
+      "endUs": 12083333,
+      "source": "auto",
+      "revision": "r-9049fee0d8f5"
+    },
+    {
+      "id": "S25",
+      "idx": 24,
+      "startFrame": 290,
+      "endFrameExclusive": 320,
+      "startUs": 12083333,
+      "endUs": 13333333,
+      "source": "auto",
+      "revision": "r-fd1299c571ff"
+    },
+    {
+      "id": "S26",
+      "idx": 25,
+      "startFrame": 320,
+      "endFrameExclusive": 353,
+      "startUs": 13333333,
+      "endUs": 14708333,
+      "source": "auto",
+      "revision": "r-cbec38d1a6c7"
+    },
+    {
+      "id": "S27",
+      "idx": 26,
+      "startFrame": 353,
+      "endFrameExclusive": 367,
+      "startUs": 14708333,
+      "endUs": 15291667,
+      "source": "auto",
+      "revision": "r-e84cf3b75949"
+    },
+    {
+      "id": "S28",
+      "idx": 27,
+      "startFrame": 367,
+      "endFrameExclusive": 386,
+      "startUs": 15291667,
+      "endUs": 16083333,
+      "source": "auto",
+      "revision": "r-6aa0ac97524b"
+    },
+    {
+      "id": "S29",
+      "idx": 28,
+      "startFrame": 386,
+      "endFrameExclusive": 399,
+      "startUs": 16083333,
+      "endUs": 16625000,
+      "source": "auto",
+      "revision": "r-8f7da9094aff"
+    },
+    {
+      "id": "S30",
+      "idx": 29,
+      "startFrame": 399,
+      "endFrameExclusive": 419,
+      "startUs": 16625000,
+      "endUs": 17458333,
+      "source": "auto",
+      "revision": "r-24046ec2af91"
+    },
+    {
+      "id": "S31",
+      "idx": 30,
+      "startFrame": 419,
+      "endFrameExclusive": 429,
+      "startUs": 17458333,
+      "endUs": 17875000,
+      "source": "auto",
+      "revision": "r-d31500a9321d"
+    },
+    {
+      "id": "S32",
+      "idx": 31,
+      "startFrame": 429,
+      "endFrameExclusive": 448,
+      "startUs": 17875000,
+      "endUs": 18666667,
+      "source": "auto",
+      "revision": "r-de6b112ded10"
+    },
+    {
+      "id": "S33",
+      "idx": 32,
+      "startFrame": 448,
+      "endFrameExclusive": 455,
+      "startUs": 18666667,
+      "endUs": 18958333,
+      "source": "auto",
+      "revision": "r-d3769939e505"
+    },
+    {
+      "id": "S34",
+      "idx": 33,
+      "startFrame": 455,
+      "endFrameExclusive": 467,
+      "startUs": 18958333,
+      "endUs": 19458333,
+      "source": "auto",
+      "revision": "r-fa69fe04a21e"
+    },
+    {
+      "id": "S35",
+      "idx": 34,
+      "startFrame": 467,
+      "endFrameExclusive": 488,
+      "startUs": 19458333,
+      "endUs": 20333333,
+      "source": "auto",
+      "revision": "r-9f66e96b5103"
+    },
+    {
+      "id": "S36",
+      "idx": 35,
+      "startFrame": 488,
+      "endFrameExclusive": 500,
+      "startUs": 20333333,
+      "endUs": 20833333,
+      "source": "auto",
+      "revision": "r-627ce900acb3"
+    },
+    {
+      "id": "S37",
+      "idx": 36,
+      "startFrame": 500,
+      "endFrameExclusive": 538,
+      "startUs": 20833333,
+      "endUs": 22416667,
+      "source": "auto",
+      "revision": "r-d08de55cd569"
+    },
+    {
+      "id": "S38",
+      "idx": 37,
+      "startFrame": 538,
+      "endFrameExclusive": 578,
+      "startUs": 22416667,
+      "endUs": 24083333,
+      "source": "auto",
+      "revision": "r-c9a28a527b07"
+    },
+    {
+      "id": "S39",
+      "idx": 38,
+      "startFrame": 578,
+      "endFrameExclusive": 663,
+      "startUs": 24083333,
+      "endUs": 27625000,
+      "source": "auto",
+      "revision": "r-49da7a41d754"
+    },
+    {
+      "id": "S40",
+      "idx": 39,
+      "startFrame": 663,
+      "endFrameExclusive": 710,
+      "startUs": 27625000,
+      "endUs": 29583333,
+      "source": "auto",
+      "revision": "r-e23960ab7117"
+    },
+    {
+      "id": "S41",
+      "idx": 40,
+      "startFrame": 710,
+      "endFrameExclusive": 743,
+      "startUs": 29583333,
+      "endUs": 30958333,
+      "source": "auto",
+      "revision": "r-8a585c38885d"
+    },
+    {
+      "id": "S42",
+      "idx": 41,
+      "startFrame": 743,
+      "endFrameExclusive": 781,
+      "startUs": 30958333,
+      "endUs": 32541667,
+      "source": "auto",
+      "revision": "r-9c47899ba533"
+    },
+    {
+      "id": "S43",
+      "idx": 42,
+      "startFrame": 781,
+      "endFrameExclusive": 796,
+      "startUs": 32541667,
+      "endUs": 33166667,
+      "source": "auto",
+      "revision": "r-824eafec804d"
+    },
+    {
+      "id": "S44",
+      "idx": 43,
+      "startFrame": 796,
+      "endFrameExclusive": 894,
+      "startUs": 33166667,
+      "endUs": 37250000,
+      "source": "auto",
+      "revision": "r-1829764be444"
+    },
+    {
+      "id": "S45",
+      "idx": 44,
+      "startFrame": 894,
+      "endFrameExclusive": 937,
+      "startUs": 37250000,
+      "endUs": 39041667,
+      "source": "auto",
+      "revision": "r-11a84c4111db"
+    },
+    {
+      "id": "S46",
+      "idx": 45,
+      "startFrame": 937,
+      "endFrameExclusive": 957,
+      "startUs": 39041667,
+      "endUs": 39875000,
+      "source": "auto",
+      "revision": "r-dc9582362b4f"
+    },
+    {
+      "id": "S47",
+      "idx": 46,
+      "startFrame": 957,
+      "endFrameExclusive": 1014,
+      "startUs": 39875000,
+      "endUs": 42250000,
+      "source": "auto",
+      "revision": "r-500e93160ad6"
+    },
+    {
+      "id": "S48",
+      "idx": 47,
+      "startFrame": 1014,
+      "endFrameExclusive": 1032,
+      "startUs": 42250000,
+      "endUs": 43000000,
+      "source": "auto",
+      "revision": "r-f3a680f3d58a"
+    },
+    {
+      "id": "S49",
+      "idx": 48,
+      "startFrame": 1032,
+      "endFrameExclusive": 1045,
+      "startUs": 43000000,
+      "endUs": 43541667,
+      "source": "auto",
+      "revision": "r-c58fddbedf58"
+    },
+    {
+      "id": "S50",
+      "idx": 49,
+      "startFrame": 1045,
+      "endFrameExclusive": 1056,
+      "startUs": 43541667,
+      "endUs": 44000000,
+      "source": "auto",
+      "revision": "r-7afce2904135"
+    },
+    {
+      "id": "S51",
+      "idx": 50,
+      "startFrame": 1056,
+      "endFrameExclusive": 1058,
+      "startUs": 44000000,
+      "endUs": 44083333,
+      "source": "auto",
+      "revision": "r-455a8a58369a"
+    },
+    {
+      "id": "S52",
+      "idx": 51,
+      "startFrame": 1058,
+      "endFrameExclusive": 1076,
+      "startUs": 44083333,
+      "endUs": 44833333,
+      "source": "auto",
+      "revision": "r-0345b4dfcb2a"
+    },
+    {
+      "id": "S53",
+      "idx": 52,
+      "startFrame": 1076,
+      "endFrameExclusive": 1082,
+      "startUs": 44833333,
+      "endUs": 45083333,
+      "source": "auto",
+      "revision": "r-be2b4674bf6c"
+    },
+    {
+      "id": "S54",
+      "idx": 53,
+      "startFrame": 1082,
+      "endFrameExclusive": 1095,
+      "startUs": 45083333,
+      "endUs": 45625000,
+      "source": "auto",
+      "revision": "r-e2271f97fc96"
+    },
+    {
+      "id": "S55",
+      "idx": 54,
+      "startFrame": 1095,
+      "endFrameExclusive": 1128,
+      "startUs": 45625000,
+      "endUs": 47000000,
+      "source": "auto",
+      "revision": "r-8e2c5997a8ea"
+    },
+    {
+      "id": "S56",
+      "idx": 55,
+      "startFrame": 1128,
+      "endFrameExclusive": 1184,
+      "startUs": 47000000,
+      "endUs": 49333333,
+      "source": "auto",
+      "revision": "r-4f56865a4f7d"
+    },
+    {
+      "id": "S57",
+      "idx": 56,
+      "startFrame": 1184,
+      "endFrameExclusive": 1203,
+      "startUs": 49333333,
+      "endUs": 50125000,
+      "source": "auto",
+      "revision": "r-31b9275eb094"
+    }
+  ],
+  "tracks": [],
+  "characters": [],
+  "bindings": [],
+  "pendingTrackIds": [],
+  "invalidTrackIds": [],
+  "people": [],
+  "identitySuggestions": [],
+  "conflicts": [],
+  "approval": null,
+  "jobs": [
+    {
+      "id": "j-6d88abe19521",
+      "kind": "shot_report",
+      "state": "done",
+      "progress": 1,
+      "error": null,
+      "output": "视觉模型未配置：请明确设置 PROVIDER、MODEL、ENDPOINT 和 PROTOCOL；没有默认供应商。",
+      "algorithmVersion": "shot-report-v1",
+      "options": "{\"auto\":true,\"targetStage\":\"shot_analysis\",\"analysisRunId\":\"sa-cbb409c451d6\",\"resultStatus\":\"blocked\",\"resultError\":\"视觉模型未配置：请明确设置 PROVIDER、MODEL、ENDPOINT 和 PROTOCOL；没有默认供应商。\"}",
+      "createdAt": "2026-09-27T03:03:18.316Z",
+      "updatedAt": "2026-09-27T03:03:18.350Z"
+    },
+    {
+      "id": "j-d1f7851eb5e5",
+      "kind": "shot_validate",
+      "state": "done",
+      "progress": 1,
+      "error": null,
+      "output": "视觉模型未配置：请明确设置 PROVIDER、MODEL、ENDPOINT 和 PROTOCOL；没有默认供应商。",
+      "algorithmVersion": "shot-evidence-v1",
+      "options": "{\"auto\":true,\"targetStage\":\"shot_analysis\",\"analysisRunId\":\"sa-cbb409c451d6\",\"resultStatus\":\"blocked\",\"resultError\":\"视觉模型未配置：请明确设置 PROVIDER、MODEL、ENDPOINT 和 PROTOCOL；没有默认供应商。\"}",
+      "createdAt": "2026-09-27T03:03:18.219Z",
+      "updatedAt": "2026-09-27T03:03:18.314Z"
+    },
+    {
+      "id": "j-f959b0467969",
+      "kind": "shot_analyze",
+      "state": "failed",
+      "progress": 0,
+      "error": "视觉模型未配置：请明确设置 PROVIDER、MODEL、ENDPOINT 和 PROTOCOL；没有默认供应商。",
+      "output": null,
+      "algorithmVersion": "reelbench-vision-v1",
+      "options": "{\"auto\":true,\"targetStage\":\"shot_analysis\",\"analysisRunId\":\"sa-cbb409c451d6\",\"resultStatus\":\"processing\",\"resultError\":null}",
+      "createdAt": "2026-09-27T03:03:18.201Z",
+      "updatedAt": "2026-09-27T03:03:18.214Z"
+    },
+    {
+      "id": "j-12e31746a40a",
+      "kind": "shot_frames",
+      "state": "done",
+      "progress": 1,
+      "error": null,
+      "output": "拉片阶段已保存",
+      "algorithmVersion": "source-pts-keyframes-v1",
+      "options": "{\"auto\":true,\"targetStage\":\"shot_analysis\",\"analysisRunId\":\"sa-cbb409c451d6\",\"resultStatus\":\"processing\",\"resultError\":null}",
+      "createdAt": "2026-09-27T03:03:16.012Z",
+      "updatedAt": "2026-09-27T03:03:18.199Z"
+    },
+    {
+      "id": "j-a8481d087ad1",
+      "kind": "cuts",
+      "state": "done",
+      "progress": 1,
+      "error": null,
+      "output": "57 镜 · 自动切点 56 个（算法 histogram-v1）",
+      "algorithmVersion": "histogram-v1",
+      "options": "{\"auto\":true,\"targetStage\":\"shot_analysis\",\"analysisRunId\":\"sa-cbb409c451d6\",\"resultStatus\":\"processing\",\"resultError\":null}",
+      "createdAt": "2026-09-27T03:03:07.938Z",
+      "updatedAt": "2026-09-27T03:03:16.009Z"
+    },
+    {
+      "id": "j-20081b5aeb26",
+      "kind": "pts",
+      "state": "done",
+      "progress": 1,
+      "error": null,
+      "output": "1203 个呈现帧的时间戳",
+      "algorithmVersion": "",
+      "options": "{\"auto\":true,\"targetStage\":\"shot_analysis\",\"analysisRunId\":\"sa-cbb409c451d6\",\"resultStatus\":\"processing\",\"resultError\":null}",
+      "createdAt": "2026-09-27T03:03:05.777Z",
+      "updatedAt": "2026-09-27T03:03:07.937Z"
+    },
+    {
+      "id": "j-b11b5dd544bf",
+      "kind": "proxy",
+      "state": "done",
+      "progress": 1,
+      "error": null,
+      "output": "校验代理时长…",
+      "algorithmVersion": "",
+      "options": "{\"auto\":true,\"targetStage\":\"shot_analysis\",\"analysisRunId\":\"sa-cbb409c451d6\"}",
+      "createdAt": "2026-09-27T03:03:03.481Z",
+      "updatedAt": "2026-09-27T03:03:05.775Z"
+    }
+  ],
+  "draft": {
+    "state": "not_ready",
+    "coveragePct": null,
+    "solvedCount": 0,
+    "boundCount": 0,
+    "visibleDurationUs": 0,
+    "solvedDurationUs": 0,
+    "subjectCoverage": {
+      "person": {
+        "visibleDurationUs": 0,
+        "solvedDurationUs": 0,
+        "coveragePct": null
+      },
+      "animal": {
+        "visibleDurationUs": 0,
+        "solvedDurationUs": 0,
+        "coveragePct": null
+      }
+    },
+    "issues": [
+      {
+        "code": "camera_missing",
+        "severity": "warning",
+        "shotId": "S01",
+        "startUs": 0,
+        "endUs": 541667,
+        "message": "镜头没有可用相机解，使用默认场景相机"
+      },
+      {
+        "code": "camera_missing",
+        "severity": "warning",
+        "shotId": "S02",
+        "startUs": 541667,
+        "endUs": 916667,
+        "message": "镜头没有可用相机解，使用默认场景相机"
+      },
+      {
+        "code": "camera_missing",
+        "severity": "warning",
+        "shotId": "S03",
+        "startUs": 916667,
+        "endUs": 1000000,
+        "message": "镜头没有可用相机解，使用默认场景相机"
+      },
+      {
+        "code": "camera_missing",
+        "severity": "warning",
+        "shotId": "S04",
+        "startUs": 1000000,
+        "endUs": 1208333,
+        "message": "镜头没有可用相机解，使用默认场景相机"
+      },
+      {
+        "code": "camera_missing",
+        "severity": "warning",
+        "shotId": "S05",
+        "startUs": 1208333,
+        "endUs": 1625000,
+        "message": "镜头没有可用相机解，使用默认场景相机"
+      },
+      {
+        "code": "camera_missing",
+        "severity": "warning",
+        "shotId": "S06",
+        "startUs": 1625000,
+        "endUs": 1916667,
+        "message": "镜头没有可用相机解，使用默认场景相机"
+      },
+      {
+        "code": "camera_missing",
+        "severity": "warning",
+        "shotId": "S07",
+        "startUs": 1916667,
+        "endUs": 2333333,
+        "message": "镜头没有可用相机解，使用默认场景相机"
+      },
+      {
+        "code": "camera_missing",
+        "severity": "warning",
+        "shotId": "S08",
+        "startUs": 2333333,
+        "endUs": 3208333,
+        "message": "镜头没有可用相机解，使用默认场景相机"
+      },
+      {
+        "code": "camera_missing",
+        "severity": "warning",
+        "shotId": "S09",
+        "startUs": 3208333,
+        "endUs": 4083333,
+        "message": "镜头没有可用相机解，使用默认场景相机"
+      },
+      {
+        "code": "camera_missing",
+        "severity": "warning",
+        "shotId": "S10",
+        "startUs": 4083333,
+        "endUs": 4458333,
+        "message": "镜头没有可用相机解，使用默认场景相机"
+      },
+      {
+        "code": "camera_missing",
+        "severity": "warning",
+        "shotId": "S11",
+        "startUs": 4458333,
+        "endUs": 5375000,
+        "message": "镜头没有可用相机解，使用默认场景相机"
+      },
+      {
+        "code": "camera_missing",
+        "severity": "warning",
+        "shotId": "S12",
+        "startUs": 5375000,
+        "endUs": 5541667,
+        "message": "镜头没有可用相机解，使用默认场景相机"
+      },
+      {
+        "code": "camera_missing",
+        "severity": "warning",
+        "shotId": "S13",
+        "startUs": 5541667,
+        "endUs": 5625000,
+        "message": "镜头没有可用相机解，使用默认场景相机"
+      },
+      {
+        "code": "camera_missing",
+        "severity": "warning",
+        "shotId": "S14",
+        "startUs": 5625000,
+        "endUs": 5708333,
+        "message": "镜头没有可用相机解，使用默认场景相机"
+      },
+      {
+        "code": "camera_missing",
+        "severity": "warning",
+        "shotId": "S15",
+        "startUs": 5708333,
+        "endUs": 6416667,
+        "message": "镜头没有可用相机解，使用默认场景相机"
+      },
+      {
+        "code": "camera_missing",
+        "severity": "warning",
+        "shotId": "S16",
+        "startUs": 6416667,
+        "endUs": 6500000,
+        "message": "镜头没有可用相机解，使用默认场景相机"
+      },
+      {
+        "code": "camera_missing",
+        "severity": "warning",
+        "shotId": "S17",
+        "startUs": 6500000,
+        "endUs": 6958333,
+        "message": "镜头没有可用相机解，使用默认场景相机"
+      },
+      {
+        "code": "camera_missing",
+        "severity": "warning",
+        "shotId": "S18",
+        "startUs": 6958333,
+        "endUs": 7500000,
+        "message": "镜头没有可用相机解，使用默认场景相机"
+      },
+      {
+        "code": "camera_missing",
+        "severity": "warning",
+        "shotId": "S19",
+        "startUs": 7500000,
+        "endUs": 8166667,
+        "message": "镜头没有可用相机解，使用默认场景相机"
+      },
+      {
+        "code": "camera_missing",
+        "severity": "warning",
+        "shotId": "S20",
+        "startUs": 8166667,
+        "endUs": 9625000,
+        "message": "镜头没有可用相机解，使用默认场景相机"
+      },
+      {
+        "code": "camera_missing",
+        "severity": "warning",
+        "shotId": "S21",
+        "startUs": 9625000,
+        "endUs": 10166667,
+        "message": "镜头没有可用相机解，使用默认场景相机"
+      },
+      {
+        "code": "camera_missing",
+        "severity": "warning",
+        "shotId": "S22",
+        "startUs": 10166667,
+        "endUs": 10666667,
+        "message": "镜头没有可用相机解，使用默认场景相机"
+      },
+      {
+        "code": "camera_missing",
+        "severity": "warning",
+        "shotId": "S23",
+        "startUs": 10666667,
+        "endUs": 11750000,
+        "message": "镜头没有可用相机解，使用默认场景相机"
+      },
+      {
+        "code": "camera_missing",
+        "severity": "warning",
+        "shotId": "S24",
+        "startUs": 11750000,
+        "endUs": 12083333,
+        "message": "镜头没有可用相机解，使用默认场景相机"
+      },
+      {
+        "code": "camera_missing",
+        "severity": "warning",
+        "shotId": "S25",
+        "startUs": 12083333,
+        "endUs": 13333333,
+        "message": "镜头没有可用相机解，使用默认场景相机"
+      },
+      {
+        "code": "camera_missing",
+        "severity": "warning",
+        "shotId": "S26",
+        "startUs": 13333333,
+        "endUs": 14708333,
+        "message": "镜头没有可用相机解，使用默认场景相机"
+      },
+      {
+        "code": "camera_missing",
+        "severity": "warning",
+        "shotId": "S27",
+        "startUs": 14708333,
+        "endUs": 15291667,
+        "message": "镜头没有可用相机解，使用默认场景相机"
+      },
+      {
+        "code": "camera_missing",
+        "severity": "warning",
+        "shotId": "S28",
+        "startUs": 15291667,
+        "endUs": 16083333,
+        "message": "镜头没有可用相机解，使用默认场景相机"
+      },
+      {
+        "code": "camera_missing",
+        "severity": "warning",
+        "shotId": "S29",
+        "startUs": 16083333,
+        "endUs": 16625000,
+        "message": "镜头没有可用相机解，使用默认场景相机"
+      },
+      {
+        "code": "camera_missing",
+        "severity": "warning",
+        "shotId": "S30",
+        "startUs": 16625000,
+        "endUs": 17458333,
+        "message": "镜头没有可用相机解，使用默认场景相机"
+      },
+      {
+        "code": "camera_missing",
+        "severity": "warning",
+        "shotId": "S31",
+        "startUs": 17458333,
+        "endUs": 17875000,
+        "message": "镜头没有可用相机解，使用默认场景相机"
+      },
+      {
+        "code": "camera_missing",
+        "severity": "warning",
+        "shotId": "S32",
+        "startUs": 17875000,
+        "endUs": 18666667,
+        "message": "镜头没有可用相机解，使用默认场景相机"
+      },
+      {
+        "code": "camera_missing",
+        "severity": "warning",
+        "shotId": "S33",
+        "startUs": 18666667,
+        "endUs": 18958333,
+        "message": "镜头没有可用相机解，使用默认场景相机"
+      },
+      {
+        "code": "camera_missing",
+        "severity": "warning",
+        "shotId": "S34",
+        "startUs": 18958333,
+        "endUs": 19458333,
+        "message": "镜头没有可用相机解，使用默认场景相机"
+      },
+      {
+        "code": "camera_missing",
+        "severity": "warning",
+        "shotId": "S35",
+        "startUs": 19458333,
+        "endUs": 20333333,
+        "message": "镜头没有可用相机解，使用默认场景相机"
+      },
+      {
+        "code": "camera_missing",
+        "severity": "warning",
+        "shotId": "S36",
+        "startUs": 20333333,
+        "endUs": 20833333,
+        "message": "镜头没有可用相机解，使用默认场景相机"
+      },
+      {
+        "code": "camera_missing",
+        "severity": "warning",
+        "shotId": "S37",
+        "startUs": 20833333,
+        "endUs": 22416667,
+        "message": "镜头没有可用相机解，使用默认场景相机"
+      },
+      {
+        "code": "camera_missing",
+        "severity": "warning",
+        "shotId": "S38",
+        "startUs": 22416667,
+        "endUs": 24083333,
+        "message": "镜头没有可用相机解，使用默认场景相机"
+      },
+      {
+        "code": "camera_missing",
+        "severity": "warning",
+        "shotId": "S39",
+        "startUs": 24083333,
+        "endUs": 27625000,
+        "message": "镜头没有可用相机解，使用默认场景相机"
+      },
+      {
+        "code": "camera_missing",
+        "severity": "warning",
+        "shotId": "S40",
+        "startUs": 27625000,
+        "endUs": 29583333,
+        "message": "镜头没有可用相机解，使用默认场景相机"
+      },
+      {
+        "code": "camera_missing",
+        "severity": "warning",
+        "shotId": "S41",
+        "startUs": 29583333,
+        "endUs": 30958333,
+        "message": "镜头没有可用相机解，使用默认场景相机"
+      },
+      {
+        "code": "camera_missing",
+        "severity": "warning",
+        "shotId": "S42",
+        "startUs": 30958333,
+        "endUs": 32541667,
+        "message": "镜头没有可用相机解，使用默认场景相机"
+      },
+      {
+        "code": "camera_missing",
+        "severity": "warning",
+        "shotId": "S43",
+        "startUs": 32541667,
+        "endUs": 33166667,
+        "message": "镜头没有可用相机解，使用默认场景相机"
+      },
+      {
+        "code": "camera_missing",
+        "severity": "warning",
+        "shotId": "S44",
+        "startUs": 33166667,
+        "endUs": 37250000,
+        "message": "镜头没有可用相机解，使用默认场景相机"
+      },
+      {
+        "code": "camera_missing",
+        "severity": "warning",
+        "shotId": "S45",
+        "startUs": 37250000,
+        "endUs": 39041667,
+        "message": "镜头没有可用相机解，使用默认场景相机"
+      },
+      {
+        "code": "camera_missing",
+        "severity": "warning",
+        "shotId": "S46",
+        "startUs": 39041667,
+        "endUs": 39875000,
+        "message": "镜头没有可用相机解，使用默认场景相机"
+      },
+      {
+        "code": "camera_missing",
+        "severity": "warning",
+        "shotId": "S47",
+        "startUs": 39875000,
+        "endUs": 42250000,
+        "message": "镜头没有可用相机解，使用默认场景相机"
+      },
+      {
+        "code": "camera_missing",
+        "severity": "warning",
+        "shotId": "S48",
+        "startUs": 42250000,
+        "endUs": 43000000,
+        "message": "镜头没有可用相机解，使用默认场景相机"
+      },
+      {
+        "code": "camera_missing",
+        "severity": "warning",
+        "shotId": "S49",
+        "startUs": 43000000,
+        "endUs": 43541667,
+        "message": "镜头没有可用相机解，使用默认场景相机"
+      },
+      {
+        "code": "camera_missing",
+        "severity": "warning",
+        "shotId": "S50",
+        "startUs": 43541667,
+        "endUs": 44000000,
+        "message": "镜头没有可用相机解，使用默认场景相机"
+      },
+      {
+        "code": "camera_missing",
+        "severity": "warning",
+        "shotId": "S51",
+        "startUs": 44000000,
+        "endUs": 44083333,
+        "message": "镜头没有可用相机解，使用默认场景相机"
+      },
+      {
+        "code": "camera_missing",
+        "severity": "warning",
+        "shotId": "S52",
+        "startUs": 44083333,
+        "endUs": 44833333,
+        "message": "镜头没有可用相机解，使用默认场景相机"
+      },
+      {
+        "code": "camera_missing",
+        "severity": "warning",
+        "shotId": "S53",
+        "startUs": 44833333,
+        "endUs": 45083333,
+        "message": "镜头没有可用相机解，使用默认场景相机"
+      },
+      {
+        "code": "camera_missing",
+        "severity": "warning",
+        "shotId": "S54",
+        "startUs": 45083333,
+        "endUs": 45625000,
+        "message": "镜头没有可用相机解，使用默认场景相机"
+      },
+      {
+        "code": "camera_missing",
+        "severity": "warning",
+        "shotId": "S55",
+        "startUs": 45625000,
+        "endUs": 47000000,
+        "message": "镜头没有可用相机解，使用默认场景相机"
+      },
+      {
+        "code": "camera_missing",
+        "severity": "warning",
+        "shotId": "S56",
+        "startUs": 47000000,
+        "endUs": 49333333,
+        "message": "镜头没有可用相机解，使用默认场景相机"
+      },
+      {
+        "code": "camera_missing",
+        "severity": "warning",
+        "shotId": "S57",
+        "startUs": 49333333,
+        "endUs": 50125000,
+        "message": "镜头没有可用相机解，使用默认场景相机"
+      }
+    ]
+  },
+  "cameraTracks": [],
+  "motionRefs": {},
+  "motionVersions": {},
+  "history": [
+    {
+      "revision": "r-f4e54719fac9",
+      "time": "2026-09-27T03:03:03.306Z",
+      "reason": "创建项目"
+    },
+    {
+      "revision": "r-22d1e48b3c98",
+      "time": "2026-09-27T03:03:03.477Z",
+      "reason": "导入媒体 reference.mp4（sha256 前 12 位 886e0c2c24b3）"
+    },
+    {
+      "revision": "r-40fb93bce027",
+      "time": "2026-09-27T03:03:08.406Z",
+      "reason": "写入自动切镜结果"
+    }
+  ],
+  "algorithms": {
+    "cuts": "histogram-v1",
+    "tracker": "iou-observations-v2",
+    "detector": "none",
+    "motion": "fixed-bone-lift-v1",
+    "camera": "dlt-gn-pnp-v1",
+    "export": "timeline-rigid-proxy-v3",
+    "shot_frames": "source-pts-keyframes-v1",
+    "shot_analyze": "reelbench-vision-v1",
+    "shot_validate": "shot-evidence-v1",
+    "shot_report": "shot-report-v1"
+  },
+  "detectors": [],
+  "detectorAvailable": false
+}

@@ -1,0 +1,17 @@
+{
+  "startedAt": "2026-09-26T20:00:55.958Z",
+  "finishedAt": "2026-09-26T20:02:23.368Z",
+  "status": "passed",
+  "projectId": "p-b2ea8dd1ee3a",
+  "exportId": "exp-2e65817fb809",
+  "output": "G:\\AITOOLS\\NexArtMotionStage\\NexArtMS\\reports\\v2-fix-acceptance\\full-preview-720p.mp4",
+  "frameCount": 1203,
+  "fps": 24,
+  "width": 1280,
+  "height": 720,
+  "durationS": 50.125,
+  "bytes": 1739511,
+  "audio": true,
+  "pageErrors": [],
+  "limitation": "This is a complete-duration acceptance preview of the current draft. Missing motion remains standing placeholders; animals and unsolved original camera motion are not reconstructed."
+}

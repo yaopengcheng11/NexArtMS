@@ -1,0 +1,13 @@
+{
+  "createdAt": "2026-09-27T01:19:18.287702+00:00",
+  "skill": "G:\\AITOOLS\\GooSpace\\.agents\\skills\\video-watch\\SKILL.md",
+  "helper": "G:\\AITOOLS\\GooSpace\\scripts\\video-watch\\extract.py",
+  "helperSha256": "309af0aec717d414f1c173ee41d0a50e499709ea1e0e18bf4c2a171ecce2bcb7",
+  "input": "G:\\AITOOLS\\NexArtMotionStage\\NexArtMS\\.checks\\v2-fix-acceptance\\data\\projects\\p-b2ea8dd1ee3a\\media\\original-m-f53a1cf1668f.mp4",
+  "inputSha256": "886e0c2c24b30b46a8e5c9112f3af6b6ecbcc97c3cf097578672ed29c7e36861",
+  "projectId": "p-b2ea8dd1ee3a",
+  "threshold": 27,
+  "maxFrames": 200,
+  "workspaceOverride": "G:\\AITOOLS\\NexArtMotionStage\\NexArtMS\\reports",
+  "scope": "Imported source analysis only; no project DB or reconstruction changes."
+}

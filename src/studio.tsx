@@ -1,26 +1,31 @@
 import React,{useCallback,useEffect, useRef,useState} from 'react';
 import './studio.css';
 import {PeopleSection, ProjectSettings, type PersonInfo} from './StudioPeople';
+import {StageSection} from './StudioStage';
+import {StudioPlayback} from './StudioPlayback';
+import {StudioShotAnalysis} from './StudioShotAnalysis';
+import {StudioModelSettings} from './StudioModelSettings';
+import type {ShotAnalysis,ShotProviderStatus} from './studio-shot-analysis-types';
 
 // ---- 类型：与 studio/router.mjs 的 JSON 契约一致 ----
 interface ProjectSummary{id:string;revision:string;name:string;sceneMode:'proxy'|'reconstruct';phase:string;sceneStatus:string;createdAt:string;updatedAt:string;trackCount?:number;shotCount?:number;personCount?:number}
 interface MediaInfo{id:string;sha256:string;originalName:string;durationUs:number;width:number;height:number;rotation:number;timebase:string;fps:number;vfr:boolean;videoCodec:string;audioCodec:string|null;ptsCount:number;sizeBytes:number}
-interface ShotInfo{id:string;idx:number;startFrame:number;endFrameExclusive:number;startUs:number;endUs:number;source:'auto'|'user';revision:string}
-interface TrackInfo{id:string;shotId:string;startFrame:number;endFrame:number;startUs:number;endUs:number;box:{x:number;y:number;w:number;h:number};confidence:number;provenance:'auto'|'user';status:string}
-interface CharacterInfo{id:string;revision:string;name:string;color:string;scale:number;rigRef:string;allowSimultaneous:boolean}
+export interface ShotInfo{id:string;idx:number;startFrame:number;endFrameExclusive:number;startUs:number;endUs:number;source:'auto'|'user';revision:string}
+export interface TrackInfo{id:string;shotId:string;startFrame:number;endFrame:number;startUs:number;endUs:number;box:{x:number;y:number;w:number;h:number};confidence:number;provenance:'auto'|'user';status:string;subject:'person'|'animal';species?:string|null}
+export interface CharacterInfo{id:string;revision:string;name:string;color:string;scale:number;rigRef:string;allowSimultaneous:boolean;proxyLevel:'CL0'|'CL1'|'CL2';rigFamily:string;provisional:boolean}
 interface BindingInfo{trackId:string;characterId:string|null;disposition:string;note:string;updatedBy:string;updatedAt:string}
 interface ConflictInfo{shotId:string;characterId:string;trackA:string;trackB:string;overlapFrames:[number,number]}
 interface ApprovalInfo{project_id:string;revision:string;status:string;approved_at:string;approved_by:string;frozen:{media:{sha256:string};shots:{count:number;revision:string};tracks:{activeCount:number;revision:string};characters:{revision:string};bindings:{revision:string};algorithmVersions:Record<string,string>}}
 interface JobInfo{id:string;kind:string;state:'queued'|'running'|'done'|'failed'|'cancelled';progress:number;error:string|null;output:string|null;algorithmVersion:string;createdAt:string;updatedAt:string}
 interface HistoryEntry{revision:string;time:string;reason:string}
-export interface ProjectDetail{people:PersonInfo[];invalidTrackIds:string[];project:{sourcePeopleCount:number|null;id:string;schemaVersion:number;revision:string;name:string;sceneMode:'proxy'|'reconstruct';phase:string;sceneStatus:string;note:string;createdAt:string;updatedAt:string};media:MediaInfo|null;shots:ShotInfo[];tracks:TrackInfo[];characters:CharacterInfo[];bindings:BindingInfo[];pendingTrackIds:string[];conflicts:ConflictInfo[];approval:ApprovalInfo|null;jobs:JobInfo[];cameraTracks:CameraTrackInfo[];motionRefs:Record<string,string>;history:HistoryEntry[];algorithms:Record<string,string>;detectors:{name:string;version:string;licenseNote:string}[];detectorAvailable:boolean}
+export interface ProjectDetail{workflowTarget?:'shot_analysis'|'legacy';shotAnalysis?:ShotAnalysis|null;shotAnalysisProvider?:ShotProviderStatus;identitySuggestions?:{a:string;b:string;aName:string;bName:string;score:number}[];draft?:{state:string;coveragePct:number|null;solvedCount:number;boundCount:number;note?:string;visibleDurationUs?:number;solvedDurationUs?:number;subjectCoverage?:Record<string,{visibleDurationUs:number;solvedDurationUs:number;coveragePct:number|null}>;issues?:{code:string;severity:string;message:string;trackId?:string;shotId?:string;startUs?:number;endUs?:number}[]};people:PersonInfo[];invalidTrackIds:string[];project:{sourcePeopleCount:number|null;id:string;schemaVersion:number;revision:string;name:string;sceneMode:'proxy'|'reconstruct';phase:string;sceneStatus:string;note:string;createdAt:string;updatedAt:string};media:MediaInfo|null;shots:ShotInfo[];tracks:TrackInfo[];characters:CharacterInfo[];bindings:BindingInfo[];pendingTrackIds:string[];conflicts:ConflictInfo[];approval:ApprovalInfo|null;jobs:JobInfo[];cameraTracks:CameraTrackInfo[];motionRefs:Record<string,string>;motionVersions?:Record<string,string>;history:HistoryEntry[];algorithms:Record<string,string>;detectors:{name:string;version:string;licenseNote:string}[];detectorAvailable:boolean}
 interface Capabilities{ffmpeg:boolean;detectors:{name:string;version:string}[];detectorAvailable:boolean;visionModel:{name:string;version:string;license:string;file:string;sha256:string}|null;limits:{maxUploadBytes:number;maxDurationS:number;maxWidthPx:number;maxHeightPx:number};algorithms:Record<string,string>;schemaVersion:number}
-interface CameraTrackInfo{id:string;shotId:string;source:string;intrinsics:Record<string,number>;extrinsics:{rotation:number[];translation:number[]};confidence:number;medianErrorPx:number|null;needsManualReview:boolean}
+export interface CameraTrackInfo{id:string;shotId:string;source:string;intrinsics:Record<string,number>;extrinsics:{rotation:number[];translation:number[]};confidence:number;medianErrorPx:number|null;needsManualReview:boolean}
 interface ExportSummary{exportId:string;generatedAt?:string;instanceCount?:number;characterGlbs?:{characterId:string;file:string;instance?:string;frames?:number}[];included?:string[];notIncluded?:Record<string,string|undefined>;broken?:boolean}
 
 const PHASE_LABELS:Record<string,string>={draft:'草稿',analyzed:'素材已分析',cast_confirmed:'角色已确认',keyframes_confirmed:'关键姿态已确认（待实现）',motion_confirmed:'动作已确认（待实现）',delivered:'已交付（待实现）'};
 const PHASE_ORDER=['draft','analyzed','cast_confirmed'];
-const KIND_LABELS:Record<string,string>={proxy:'生成素材预览',pts:'PTS 时间戳映射',cuts:'自动切镜',detect:'人物检测',people:'全片人物汇总',motion:'生成动作',export:'导出交付包'};
+const KIND_LABELS:Record<string,string>={proxy:'生成素材预览',pts:'PTS 时间戳映射',cuts:'自动切镜',shot_frames:'拉片 · 提取关键帧',shot_analyze:'拉片 · 逐镜语义分析',shot_validate:'拉片 · 检查全片结果',shot_report:'拉片 · 生成报告',detect:'人物检测',people:'全片人物汇总',motion:'生成动作',camera:'人物尺度运镜估计',export:'导出交付包'};
 const seconds=(us:number)=>`${(us/1e6).toFixed(2)} s`;
 const fmtSize=(bytes:number)=>bytes>1024*1024?`${(bytes/1024/1024).toFixed(1)} MB`:`${(bytes/1024).toFixed(0)} KB`;
 
@@ -38,29 +43,25 @@ function useToast(){
 }
 
 // ---- 项目列表 ----
-function ProjectList({onOpen}:{onOpen:(id:string)=>void}){
+function ProjectList({onOpen,onModelSettings}:{onOpen:(id:string)=>void;onModelSettings:()=>void}){
   const[projects,setProjects]=useState<ProjectSummary[]|null>(null);
   const[capabilities,setCapabilities]=useState<Capabilities|null>(null);
   const[name,setName]=useState('');
-  const[sceneMode,setSceneMode]=useState<'proxy'|'reconstruct'>('proxy');
   const[busy,setBusy]=useState(false);
   const{toast,show}=useToast();
   const load=useCallback(()=>{request<{projects:ProjectSummary[]}>('/api/studio/projects').then(r=>setProjects(r.projects)).catch(e=>show(e.message));},[show]);
   useEffect(()=>{load();request<Capabilities>('/api/studio/capabilities').then(setCapabilities).catch(()=>{});},[load]);
-  const create=async()=>{if(!name.trim()||busy)return;setBusy(true);try{const r=await request<{project:ProjectSummary}>('/api/studio/projects',{name,sceneMode},'POST');onOpen(r.project.id);}catch(e){show((e as Error).message);}finally{setBusy(false);}};
+  const create=async()=>{if(!name.trim()||busy)return;setBusy(true);try{const r=await request<{project:ProjectSummary}>('/api/studio/projects',{name,sceneMode:'proxy'},'POST');onOpen(r.project.id);}catch(e){show((e as Error).message);}finally{setBusy(false);}};
   return <div className="studio">
-    <header className="topbar"><div className="identity"><span className="brand-mark studio-mark">M</span><div><strong>MotionStage <i>/</i> 混剪项目</strong><small>全片人物汇总 → 代理角色分组</small></div></div><div className="top-meta"><a className="quiet-link" href="/?mode=scene">场景工作台 ↗</a><a className="quiet-link" href="/?mode=rehearsal">流程演练 ↗</a></div></header>
+    <header className="topbar"><div className="identity"><span className="brand-mark studio-mark">M</span><div><strong>MotionStage <i>/</i> 混剪项目</strong><small>导入素材 → 自动拉片 → 集中修正</small></div></div><div className="top-meta"><button onClick={onModelSettings}>模型设置</button><a className="quiet-link" href="/?mode=scene">场景工作台 ↗</a><a className="quiet-link" href="/?mode=rehearsal">流程演练 ↗</a></div></header>
     <main className="studio-main">
       {capabilities&&!capabilities.ffmpeg&&<div className="studio-banner studio-banner-error" role="alert"><b>缺少 FFmpeg</b><p>本机未检测到 ffmpeg/ffprobe。导入、预览和切镜分析都需要 FFmpeg；请安装后将其加入 PATH，或设置 FFMPEG/FFPROBE 环境变量。</p></div>}
-      {capabilities&&!capabilities.detectorAvailable&&<div className="studio-banner"><b>人物检测模型未加载</b><p>运行 <code>node scripts/fetch-detector-model.mjs</code> 下载 YOLOv8n-pose（ONNX，AGPL 许可，见 docs/model-decisions.md）后重启服务即可启用自动检测与二维姿态；未加载时 detect 任务会如实失败，仍可人工补标。</p></div>}
+      {capabilities&&!capabilities.detectorAvailable&&<details className="studio-banner"><summary>后续人物检测模型未加载</summary><p>人物检测与二维姿态需加载 YOLOv8n-pose（ONNX，AGPL 许可，见 docs/model-decisions.md）。拉片的逐镜语义分析使用单独配置的视觉模型。</p></details>}
       <section className="studio-card">
         <div className="panel-title"><h2>新建项目</h2><span>{capabilities?`输入上限 ${capabilities.limits.maxDurationS} 秒 · ${capabilities.limits.maxHeightPx}p · MP4/MOV（H.264/H.265）`:'读取限制中…'}</span></div>
         <div className="studio-create">
           <input aria-label="项目名称" placeholder="项目名称，例如：城市混剪 01" value={name} maxLength={80} onChange={event=>setName(event.target.value)}/>
-          <div className="studio-mode-picker" role="radiogroup" aria-label="场景模式">
-            <button className={sceneMode==='proxy'?'chosen':''} aria-pressed={sceneMode==='proxy'} onClick={()=>setSceneMode('proxy')}><b>proxy · 尺度代理</b><span>只建立不可见的尺度、地面与接触代理；相机与动作为主，不制作可见场景（场景状态记为 not_requested）。</span></button>
-            <button className={sceneMode==='reconstruct'?'chosen':''} aria-pressed={sceneMode==='reconstruct'} onClick={()=>setSceneMode('reconstruct')}><b>reconstruct · 可见场景</b><span>另需制作并验收可见场景资产；该分支（M4S）尚未实现，项目会停在“场景待做”。</span></button>
-          </div>
+          <p className="muted">上传后自动生成全片镜头表、关键帧与逐镜语义，不确定项集中修正。拉片完成后，可进入角色归组和三维还原；项目默认使用内置场景。</p>
           <button className="primary" disabled={busy||!name.trim()} onClick={create}>{busy?'创建中…':'创建项目'}</button>
         </div>
       </section>
@@ -70,7 +71,7 @@ function ProjectList({onOpen}:{onOpen:(id:string)=>void}){
         <div className="studio-project-grid">{projects?.map(project=>(
           <button key={project.id} className="studio-project-card" onClick={()=>onOpen(project.id)}>
             <div><b>{project.name}</b><span className={`studio-phase phase-${project.phase}`}>{PHASE_LABELS[project.phase]||project.phase}</span></div>
-            <small>{project.sceneMode==='proxy'?'proxy · 尺度代理':'reconstruct · 可见场景'} · {project.shotCount||0} 镜 · {project.personCount||0} 个人物候选</small>
+            <small>{project.sceneMode==='proxy'?'默认场景':'从视频还原场景（待开发）'} · {project.shotCount||0} 镜 · {project.personCount||0} 个人物候选</small>
             <small>创建于 {new Date(project.createdAt).toLocaleString('zh-CN')}</small>
           </button>))}</div>
       </section>
@@ -87,7 +88,7 @@ function JobsStrip({detail,onChanged,show}:{detail:ProjectDetail;onChanged:()=>v
   const act=async(job:JobInfo,action:'cancel'|'retry')=>{try{await request(`/api/studio/jobs/${job.id}/${action}`,{baseRevision:detail.project.revision},'POST');onChanged();}catch(e){show((e as Error).message);}};
   return <section className="studio-card" id="studio-jobs">
     <div className="panel-title"><h2>分析任务</h2><span>{activeJobs.length>0?`${activeJobs.length} 个进行中`:'空闲'}</span></div>
-    {detail.jobs.length===0&&<p className="muted">导入媒体后会自动排队：素材预览 → PTS 时间戳映射 → 自动切镜。</p>}
+    {detail.jobs.length===0&&<p className="muted">导入后依次执行：素材预览 → 源帧时间戳 → 候选切镜 → 关键帧 → 逐镜语义 → 全片报告。</p>}
     {[...activeJobs,...recentJobs].map(job=>(
       <div key={job.id} className={`studio-job job-${job.state}`}>
         <div className="studio-job-head"><b>{KIND_LABELS[job.kind]||job.kind}</b><span>{job.state==='done'?'已完成':job.state==='failed'?'失败':job.state==='cancelled'?'已取消':job.state==='running'?`进行中 ${Math.round(job.progress*100)}%`:'排队中'}</span></div>
@@ -111,7 +112,7 @@ function ImportSection({detail,show,onChanged}:{detail:ProjectDetail;show:(messa
     const query=new URLSearchParams({name:file.name,baseRevision:detail.project.revision});
     xhr.open('POST',`/api/studio/projects/${detail.project.id}/media?${query}`);
     xhr.upload.onprogress=event=>{if(event.lengthComputable)setProgress(event.loaded/event.total);};
-    xhr.onload=()=>{setProgress(null);if(xhr.status===200){show('导入成功，正在后台生成素材预览与切镜分析。');onChanged();}else{try{show(JSON.parse(xhr.responseText).error||`上传失败（${xhr.status}）`);}catch{show(`上传失败（${xhr.status}）`);}}};
+    xhr.onload=()=>{setProgress(null);if(xhr.status===200){show('导入成功，已开始自动拉片。镜头表和待修正项会陆续显示。');onChanged();}else{try{show(JSON.parse(xhr.responseText).error||`上传失败（${xhr.status}）`);}catch{show(`上传失败（${xhr.status}）`);}}};
     xhr.onerror=()=>{setProgress(null);show('上传网络错误');};
     setProgress(0);
     xhr.send(file);
@@ -145,7 +146,8 @@ function CutsSection({detail,show,onChanged,selectedShotId,selectShot}:{detail:P
   const[cutText,setCutText]=useState('');
   const media=detail.media;
   const startCuts=async()=>{try{await request(`/api/studio/projects/${detail.project.id}/analysis`,{kind:'cuts'},'POST');show('已重新发起自动切镜（生成候选新版）。');onChanged();}catch(e){show((e as Error).message);}};
-  const startDetect=async()=>{try{await request(`/api/studio/projects/${detail.project.id}/analysis`,{kind:'detect'},'POST');show('已发起人物检测任务。');onChanged();}catch(e){show((e as Error).message);}};
+  const[detectSubject,setDetectSubject]=useState<'person'|'animal'|'both'>('person');
+  const startDetect=async()=>{try{await request(`/api/studio/projects/${detail.project.id}/analysis`,{kind:'detect',subjects:detectSubject},'POST');show(`已发起${detectSubject==='person'?'人物':detectSubject==='animal'?'动物':'人物+动物'}检测任务。`);onChanged();}catch(e){show((e as Error).message);}};
   const beginEdit=()=>{setCutText(detail.shots.slice(1).map(shot=>shot.startFrame).join(', '));setEditing(true);};
   const saveCuts=async()=>{const cutFrames=cutText.split(/[,，\s]+/).filter(Boolean).map(Number);try{await request(`/api/studio/projects/${detail.project.id}/shots`,{cutFrames,baseRevision:detail.project.revision},'PATCH');setEditing(false);show('切点已保存；此前基于旧切点的确认已失效。');onChanged();}catch(e){show((e as Error).message);}};
   if(!media)return null;
@@ -153,7 +155,12 @@ function CutsSection({detail,show,onChanged,selectedShotId,selectShot}:{detail:P
     <div className="panel-title"><h2 id="studio-cuts">切镜</h2><span>{detail.shots.length} 镜 · {detail.shots[0]?.source==='user'?'人工切点':`算法 ${detail.algorithms.cuts}`}</span></div>
     <div className="studio-toolbar">
       <button onClick={startCuts} disabled={detail.jobs.some(job=>(job.kind==='cuts')&&(job.state==='queued'||job.state==='running'))}>重新自动切镜</button>
-      <button onClick={startDetect}>自动检测人物</button>
+      <select aria-label="检测对象" value={detectSubject} onChange={event=>setDetectSubject(event.target.value as typeof detectSubject)}>
+        <option value="person">检测：人物</option>
+        <option value="animal">检测：动物</option>
+        <option value="both">检测：人物 + 动物</option>
+      </select>
+      <button onClick={startDetect}>发起检测</button>
       {!editing&&<button className="ghost" onClick={beginEdit} disabled={detail.shots.length===0}>编辑切点</button>}
       <span className="muted">自动切点可修正；改切点会使既有确认失效（下游批准自动失效）。</span>
     </div>
@@ -212,13 +219,15 @@ function TracksSection({detail,show,onChanged,selectedShotId,selectShot}:{detail
         return <div key={track.id} className={`studio-track-card ${binding?'':'studio-track-pending'}`}>
           <img src={`/api/studio/projects/${detail.project.id}/tracks/${track.id}/preview`} alt={`${shot.id} 出场截图`} loading="lazy"/>
           <div className="studio-track-meta">
-            <b>{track.provenance==='user'?'人工补标':'自动候选'} · 置信 {track.confidence.toFixed(2)}</b>
+            <b>{track.subject==='animal'?'🐾 动物 · ':'自动候选'} · 置信 {track.confidence.toFixed(2)}</b>
             <small>帧 {track.startFrame}–{track.endFrame} · {seconds(track.startUs)}–{seconds(track.endUs)}</small>
-            <select aria-label={`为 ${track.id} 指定角色`} value={value} onChange={event=>changeCharacter(track,event.target.value)}>
+            {track.subject==='animal'
+              ?<small>动物仅作画面标注，不参与角色归并与确认。</small>
+              :<select aria-label={`为 ${track.id} 指定角色`} value={value} onChange={event=>changeCharacter(track,event.target.value)}>
               <option value="unassigned">未分配（阻止确认）</option>
               <option value="ignored">忽略（路人/误检）</option>
               {detail.characters.map(character=><option key={character.id} value={character.id}>归并 → {character.name}</option>)}
-            </select>
+            </select>}
             <div className="studio-track-actions">
               <button onClick={()=>{const input=window.prompt('拆分帧号：',String(Math.floor((track.startFrame+track.endFrame)/2)));if(input)mutate('split',{trackId:track.id,splitFrame:Number(input)});}}>拆分</button>
               {tracks.filter(other=>other.id!==track.id&&other.startFrame>=track.endFrame).slice(0,1).map(other=><button key={other.id} onClick={()=>mutate('merge',{trackId:track.id,otherTrackId:other.id})}>连接下一段</button>)}
@@ -242,6 +251,7 @@ function CastingSection({detail,show,onChanged}:{detail:ProjectDetail;show:(mess
   const approval=detail.approval;
   const createCharacter=async()=>{try{await request(`/api/studio/projects/${detail.project.id}/characters`,{name,color,scale:Number(scale),allowSimultaneous,baseRevision:detail.project.revision},'POST');setName('');show('角色资产已创建。');onChanged();}catch(e){show((e as Error).message);}};
   const toggleSimultaneous=async(character:CharacterInfo)=>{try{await request(`/api/studio/projects/${detail.project.id}/characters/${character.id}`,{allowSimultaneous:!character.allowSimultaneous,baseRevision:detail.project.revision},'PATCH');onChanged();}catch(e){show((e as Error).message);}};
+  const updateCharacter=async(character:CharacterInfo,fields:Record<string,unknown>)=>{try{await request(`/api/studio/projects/${detail.project.id}/characters/${character.id}`,{...fields,baseRevision:detail.project.revision},'PATCH');onChanged();}catch(e){show((e as Error).message);}};
   const approve=async()=>{try{await request(`/api/studio/projects/${detail.project.id}/approve-cast`,{baseRevision:detail.project.revision},'POST');show('角色映射已正式确认，输入与算法版本已冻结。');onChanged();}catch(e){show((e as Error).message);}};
   const canApprove=detail.invalidTrackIds.length===0&&detail.pendingTrackIds.length===0&&detail.conflicts.length===0&&activeTracks.length>0;
   const characterName=(id:string)=>detail.characters.find(character=>character.id===id)?.name||id;
@@ -253,7 +263,11 @@ function CastingSection({detail,show,onChanged}:{detail:ProjectDetail;show:(mess
         {detail.characters.map(character=>(
           <div key={character.id} className="studio-character-row">
             <span className="studio-character-swatch" style={{background:character.color}}/>
-            <div><b>{character.name}</b><small>身高 {character.scale.toFixed(2)} m · 版本 {character.revision.slice(0,8)}</small></div>
+            <div><b>{character.name}{character.provisional&&<span className="studio-provisional">暂定</span>}</b><small>身高 {character.scale.toFixed(2)} m · 版本 {character.revision.slice(0,8)}</small></div>
+            <label>身高 m<input key={`${character.id}:${character.scale}`} aria-label={`${character.name} 身高`} type="number" min="0.2" max="3" step="0.05" defaultValue={character.scale} onBlur={event=>{const value=Number(event.currentTarget.value);if(!Number.isFinite(value)||value<0.2||value>3){event.currentTarget.value=String(character.scale);show('身高请输入 0.2–3 米。');return;}if(value!==character.scale)void updateCharacter(character,{scale:value});}} onKeyDown={event=>{if(event.key==='Enter')event.currentTarget.blur();}}/></label>
+            <select aria-label={`${character.name} 代理级别`} value={character.proxyLevel||'CL1'} onChange={event=>updateCharacter(character,{proxyLevel:event.target.value})}>
+              {['CL0','CL1','CL2'].map(level=><option key={level} value={level}>{level}</option>)}
+            </select>
             <label className="studio-tiny-toggle"><input type="checkbox" checked={character.allowSimultaneous} onChange={()=>toggleSimultaneous(character)}/>允许同框（分身/镜像）</label>
           </div>))}
         {detail.characters.length===0&&<p className="muted">还没有成片角色。角色不等于原片演员：不同演员可归并为同一角色，同一演员也可拆成多个角色。</p>}
@@ -317,6 +331,7 @@ function CameraSection({detail,show,onChanged,selectedShotId,selectShot}:{detail
       </select>
       <button disabled={!shot||!personTrackId} onClick={()=>solve('person')}>人物框粗估</button>
       <button disabled={!shot} onClick={()=>solve('landmarks')}>地标 PnP 求解</button>
+      <button disabled={!shot} onClick={async()=>{try{await request(`/api/studio/projects/${detail.project.id}/analysis`,{kind:'camera'},'POST');show('已发起人物尺度运镜估计（含推拉，结果为估计值）。');onChanged();}catch(e){show((e as Error).message);}}}>估计运镜（人物尺度）</button>
     </div>
     <label className="studio-landmark-editor">地标对应（JSON：X 为米制三维，x 为画面像素）
       <textarea rows={3} value={pointsText} placeholder='[{"X":[0,0,0],"x":[320,180]},{"X":[2,0,0],"x":[960,180]},{"X":[0,1.5,0],"x":[320,540]},{"X":[2,1.5,0],"x":[960,540]},{"X":[1,0,1],"x":[500,300]},{"X":[1,1.5,1],"x":[700,520]}]' onChange={event=>setPointsText(event.target.value)}/>
@@ -356,6 +371,7 @@ function MotionExportSection({detail,show,onChanged}:{detail:ProjectDetail;show:
             <a href={`/api/studio/projects/${detail.project.id}/exports/${item.exportId}/file?path=shots.json`}>shots.json</a>
             <a href={`/api/studio/projects/${detail.project.id}/exports/${item.exportId}/file?path=cast.json`}>cast.json</a>
             <a href={`/api/studio/projects/${detail.project.id}/exports/${item.exportId}/file?path=cameras.json`}>cameras.json</a>
+            {item.included?.some(entry=>entry.startsWith('timeline.json'))&&<a href={`/api/studio/projects/${detail.project.id}/exports/${item.exportId}/file?path=timeline.json`}>timeline.json</a>}
             {item.characterGlbs?.map(glb=><a key={glb.characterId+glb.file} href={`/api/studio/projects/${detail.project.id}/exports/${item.exportId}/file?path=characters/${glb.file}`}>{glb.file}</a>)}
           </div>
         </div>))}
@@ -363,34 +379,49 @@ function MotionExportSection({detail,show,onChanged}:{detail:ProjectDetail;show:
   </section>;
 }
 
-function ProjectWorkspace({projectId,onBack}:{projectId:string;onBack:()=>void}){
+function ProjectWorkspace({projectId,onBack,onModelSettings,modelSettingsRevision}:{projectId:string;onBack:()=>void;onModelSettings:()=>void;modelSettingsRevision:number}){
   const[detail,setDetail]=useState<ProjectDetail|null>(null);
   const[selectedShotId,setSelectedShotId]=useState('');
   const[settings,setSettings]=useState(false);
+  const[laterOpen,setLaterOpen]=useState<boolean|null>(null);
   const{toast,show}=useToast();
   const load=useCallback(()=>request<ProjectDetail>(`/api/studio/projects/${projectId}`).then(next=>{setDetail(next);setSelectedShotId(current=>next.shots.some(shot=>shot.id===current)?current:next.shots[0]?.id||'');}).catch(e=>show(e.message)),[projectId,show]);
-  useEffect(()=>{void load();},[load]);
+  useEffect(()=>{void load();},[load,modelSettingsRevision]);
   if(!detail)return <div className="studio"><header className="topbar"><div className="identity"><span className="brand-mark studio-mark">M</span><div><strong>MotionStage</strong><small>载入中…</small></div></div><a className="quiet-link" href="#" onClick={event=>{event.preventDefault();onBack();}}>← 返回项目列表</a></header><main className="studio-main"><p className="muted">载入项目数据…</p></main>{toast&&<div className="toast" role="status"><span>{toast}</span><button onClick={()=>show('')}>×</button></div>}</div>;
   const phaseIndex=PHASE_ORDER.indexOf(detail.project.phase);
-  const sceneLabel=detail.project.sceneMode==='proxy'?'场景未请求（proxy）':detail.project.sceneStatus==='approved'?'场景已批准':'场景待做（M4S 未实现）';
+  const analysisFirst=detail.workflowTarget==='shot_analysis'||!detail.media;
+  const sceneLabel=detail.project.sceneMode==='proxy'?'默认场景（内置舞台）':detail.project.sceneStatus==='approved'?'视频还原场景已批准':'视频还原场景待做（M4S 未实现）';
   return <div className="studio">
-    <header className="topbar"><div className="identity"><span className="brand-mark studio-mark">M</span><div><strong>{detail.project.name} <i>/</i> {detail.project.sceneMode==='proxy'?'尺度代理':'可见场景'}</strong><small>MotionStage · 版本 {detail.project.revision} · 更新于 {new Date(detail.project.updatedAt).toLocaleString('zh-CN')}</small></div></div><div className="top-meta"><button onClick={()=>setSettings(true)}>项目设置</button><span className={`studio-scene scene-${detail.project.sceneStatus}`}>{sceneLabel}</span><a className="quiet-link" href="#" onClick={event=>{event.preventDefault();onBack();}}>← 项目列表</a></div></header>
+    <header className="topbar"><div className="identity"><span className="brand-mark studio-mark">M</span><div><strong>{detail.project.name} <i>/</i> {detail.project.sceneMode==='proxy'?'默认场景':'视频还原场景'}</strong><small>MotionStage · 版本 {detail.project.revision} · 更新于 {new Date(detail.project.updatedAt).toLocaleString('zh-CN')}</small></div></div><div className="top-meta"><button onClick={onModelSettings}>模型设置</button><button onClick={()=>setSettings(true)}>项目设置</button><span className={`studio-scene scene-${detail.project.sceneStatus}`}>{sceneLabel}</span><a className="quiet-link" href="#" onClick={event=>{event.preventDefault();onBack();}}>← 项目列表</a></div></header>
     {settings&&<ProjectSettings detail={detail} onClose={()=>setSettings(false)} onChanged={load} onDeleted={onBack} show={show}/>}
-    <nav className="studio-steps" aria-label="阶段">{PHASE_ORDER.map((phase,index)=>(
+    {analysisFirst?<nav className="studio-steps" aria-label="阶段"><div className={`studio-step ${detail.media?'done':'current'}`}><span>{detail.media?'✓':1}</span><b>导入素材</b><em>›</em></div><div className={`studio-step ${detail.media?'current':''}`}><span>2</span><b>自动拉片与集中修正</b><em>›</em></div><div className="studio-step"><span>3</span><b>后续：角色与三维还原</b></div></nav>:<nav className="studio-steps" aria-label="阶段">{PHASE_ORDER.map((phase,index)=>(
       <div key={phase} className={`studio-step ${index===phaseIndex?'current':''} ${index<phaseIndex?'done':''}`}>
         <span>{index<phaseIndex?'✓':index+1}</span><b>{PHASE_LABELS[phase]}</b><em>›</em>
       </div>))}
       <div className="studio-step locked"><span>…</span><b>{PHASE_LABELS.keyframes_confirmed}之后阶段由 M4–M6 实现</b></div>
-    </nav>
+    </nav>}
     <main className="studio-main">
-      <ImportSection detail={detail} show={show} onChanged={load}/>
+      {detail.media?<details className="studio-import-details"><summary>已导入：{detail.media.originalName} · {seconds(detail.media.durationUs)} · 素材信息</summary><ImportSection detail={detail} show={show} onChanged={load}/></details>:<ImportSection detail={detail} show={show} onChanged={load}/>}
+      <StudioShotAnalysis detail={detail} show={show} onChanged={load} selectedShotId={selectedShotId} selectShot={setSelectedShotId} onModelSettings={onModelSettings}/>
       <JobsStrip detail={detail} onChanged={load} show={show}/>
+      <details className="studio-later-stages" open={laterOpen??!analysisFirst} onToggle={event=>setLaterOpen(event.currentTarget.open)}><summary>后续工作台 · 人物 / 动物、角色分组与三维还原</summary>{(laterOpen??!analysisFirst)&&<div className="studio-later-content">
+      {detail.draft&&detail.draft.state!=='not_ready'&&<section className={`studio-card studio-draft draft-${detail.draft.state}`}>
+        <div className="panel-title"><h2>三维初稿</h2><span>{detail.draft.state==='building'?'自动生成中…':detail.draft.state==='ready'?'可整片播放':detail.draft.state==='ready_with_issues'?'可播放 · 有待修正项':detail.draft.state==='blocked'?'被失败任务阻塞':'未开始'}</span></div>
+        <p className="muted">{detail.draft.note||''}{detail.draft.coveragePct!==null?` 有效动作时间覆盖：${detail.draft.coveragePct}%（${((detail.draft.solvedDurationUs||0)/1e6).toFixed(2)} / ${((detail.draft.visibleDurationUs||0)/1e6).toFixed(2)} 主体秒，包含未绑定人物和动物）。`:''}{detail.draft.state==='building'?' 上传后的自动链（检测 → 人物汇总 → 临时组 → 动作）正在执行，无需人工点击。':''}</p>
+        {!!detail.draft.issues?.length&&<details className="studio-quality-issues"><summary>待修正项（{detail.draft.issues.length}）</summary><ul>{detail.draft.issues.map((issue,index)=><li key={`${issue.code}:${issue.trackId||issue.shotId||index}:${index}`}>{issue.shotId&&<b>{issue.shotId} · </b>}{issue.message}{issue.trackId&&<small> · {issue.trackId}</small>}</li>)}</ul></details>}
+      </section>}
       <CutsSection detail={detail} show={show} onChanged={load} selectedShotId={selectedShotId} selectShot={setSelectedShotId}/>
       <PeopleSection detail={detail} show={show} onChanged={load} selectShot={setSelectedShotId}/>
       <details className="studio-track-tools"><summary>逐镜出场修正：补标、删除误检、拆分轨迹</summary><TracksSection detail={detail} show={show} onChanged={load} selectedShotId={selectedShotId} selectShot={setSelectedShotId}/></details>
       <CameraSection detail={detail} show={show} onChanged={load} selectedShotId={selectedShotId} selectShot={setSelectedShotId}/>
       <CastingSection detail={detail} show={show} onChanged={load}/>
+      <StageSection detail={detail} selectedShotId={selectedShotId} selectShot={setSelectedShotId}/>
+      <section className="studio-card" id="studio-playback">
+        <div className="panel-title"><h2>整片同步播放</h2><span>原片时钟 · 空镜正常播放 · 占位如实标注</span></div>
+        {detail.shots.length===0?<p className="muted">等待切镜完成后可用。</p>:<StudioPlayback detail={detail}/>}
+      </section>
       <MotionExportSection detail={detail} show={show} onChanged={load}/>
+      </div>}</details>
       <details className="studio-history"><summary>版本历史（{detail.history.length} 条，全程可追溯）</summary><ol>{detail.history.map((entry,index)=><li key={index}><b>{entry.revision}</b> · {new Date(entry.time).toLocaleString('zh-CN')} · {entry.reason}</li>)}</ol></details>
     </main>
     {toast&&<div className="toast" role="status"><span>{toast}</span><button onClick={()=>show('')}>×</button></div>}
@@ -399,6 +430,10 @@ function ProjectWorkspace({projectId,onBack}:{projectId:string;onBack:()=>void})
 
 export function Studio(){
   const[projectId,setProjectId]= useState<string|null>(new URLSearchParams(location.search).get('project'));
-  return projectId?<ProjectWorkspace projectId={projectId} onBack={()=>{setProjectId(null);history.replaceState(null,'','/');}}/>:<ProjectList onOpen={id=>{setProjectId(id);history.replaceState(null,'',`/?project=${id}`);}}/>;
+  const[modelsOpen,setModelsOpen]=useState(new URLSearchParams(location.search).get('settings')==='models');
+  const[modelSettingsRevision,setModelSettingsRevision]=useState(0);
+  const openModels=()=>{setModelsOpen(true);const url=new URL(location.href);url.searchParams.set('settings','models');history.replaceState(null,'',url);};
+  const closeModels=()=>{setModelsOpen(false);const url=new URL(location.href);url.searchParams.delete('settings');history.replaceState(null,'',url);};
+  return <>{projectId?<ProjectWorkspace projectId={projectId} onBack={()=>{setProjectId(null);history.replaceState(null,'','/');}} onModelSettings={openModels} modelSettingsRevision={modelSettingsRevision}/>:<ProjectList onOpen={id=>{setProjectId(id);history.replaceState(null,'',`/?project=${id}`);}} onModelSettings={openModels}/>} {modelsOpen&&<StudioModelSettings onClose={closeModels} onChanged={()=>setModelSettingsRevision(value=>value+1)}/>}</>;
 }
 export default Studio;

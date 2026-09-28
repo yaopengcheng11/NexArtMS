@@ -1,0 +1,92 @@
+{
+  "reviewedAt": "2026-09-27T02:25:43.244Z",
+  "repository": "https://github.com/eternityspring/reelbench-skills",
+  "ref": "main; commit ID unavailable due to GitHub API rate limit and git network failure",
+  "scriptSha256": "c49963d11b34bf561355ed3896e76ee0aeda7c3c1433733ee2ff27f291bdcb22",
+  "sourceSha256": "886e0c2c24b30b46a8e5c9112f3af6b6ecbcc97c3cf097578672ed29c7e36861",
+  "selftest": "✅ 449 项断言全部通过（15 道门每道都有击穿用例）",
+  "comparisons": [
+    {
+      "name": "default",
+      "params": {
+        "sceneThreshold": 0.3,
+        "minShotSeconds": 0.3
+      },
+      "shots": 34,
+      "rawCutCandidates": 35,
+      "matchedCuts": 33,
+      "expectedCuts": 46,
+      "candidateCuts": 33,
+      "missed": [
+        0.5,
+        0.9583333333333334,
+        4.083333333333333,
+        4.458333333333333,
+        5.375,
+        5.708333333333333,
+        16.625,
+        18.958333333333332,
+        19.458333333333332,
+        20.833333333333332,
+        37.25,
+        47,
+        49.333333333333336
+      ],
+      "extra": [],
+      "recall": 0.717391304347826,
+      "precision": 1,
+      "semanticFieldsFilled": false,
+      "metadata": {
+        "durationSeconds": 50.13,
+        "fps": 24,
+        "width": 960,
+        "height": 540,
+        "aspect": "16:9",
+        "codec": "h264",
+        "hasAudio": true
+      }
+    },
+    {
+      "name": "short-cuts",
+      "params": {
+        "sceneThreshold": 0.3,
+        "minShotSeconds": 0.08
+      },
+      "shots": 36,
+      "rawCutCandidates": 35,
+      "matchedCuts": 34,
+      "expectedCuts": 46,
+      "candidateCuts": 35,
+      "missed": [
+        0.5,
+        0.9583333333333334,
+        4.083333333333333,
+        4.458333333333333,
+        5.375,
+        5.708333333333333,
+        16.625,
+        19.458333333333332,
+        20.833333333333332,
+        37.25,
+        47,
+        49.333333333333336
+      ],
+      "extra": [
+        1.92
+      ],
+      "recall": 0.7391304347826086,
+      "precision": 0.9714285714285714,
+      "semanticFieldsFilled": false,
+      "metadata": {
+        "durationSeconds": 50.13,
+        "fps": 24,
+        "width": 960,
+        "height": 540,
+        "aspect": "16:9",
+        "codec": "h264",
+        "hasAudio": true
+      }
+    }
+  ],
+  "scope": "Local selftest and seed smoke test only. No semantic annotations, skill installation, or project pipeline changes."
+}

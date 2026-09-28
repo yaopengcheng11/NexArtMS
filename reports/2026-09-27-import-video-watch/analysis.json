@@ -1,0 +1,604 @@
+{
+  "scope": "One execution of the local video-watch skill on the imported original, with supplementary visual sampling. Not yet integrated into the app import pipeline.",
+  "source": {
+    "file": "source.mp4",
+    "sha256": "886e0c2c24b30b46a8e5c9112f3af6b6ecbcc97c3cf097578672ed29c7e36861",
+    "durationSeconds": 50.125,
+    "fps": 24,
+    "frames": 1203,
+    "width": 960,
+    "height": 540
+  },
+  "subjects": [
+    {
+      "id": "A",
+      "kind": "human",
+      "appearance": "灰绿宽袖上衣、褐色宽裤、白鞋、较高平头",
+      "evidenceFrames": [
+        0,
+        354,
+        552
+      ]
+    },
+    {
+      "id": "B",
+      "kind": "human",
+      "appearance": "灰蓝立领扣装、同色长裤、白袖口、黑鞋、短发",
+      "evidenceFrames": [
+        30,
+        234,
+        336
+      ]
+    }
+  ],
+  "animals": {
+    "observedCount": 0,
+    "scope": "No real animal observed in reviewed samples; this is not exhaustive per-frame proof."
+  },
+  "reviewCoverage": {
+    "skillStartFrames": 34,
+    "supplementalFrames": 228,
+    "sampling": "4fps throughout; 12fps at 0-3.25s; original end frame",
+    "allVideoFramesReviewed": false,
+    "audioAnalyzed": false
+  },
+  "cutComparison": {
+    "baseline": "public/project/shots.json (prior manually corrected sample-specific reference, not new skill output)",
+    "referenceShots": 47,
+    "rawSkillCandidates": 34,
+    "matchedCutsWithin2Frames": 28,
+    "referenceCuts": 46,
+    "rawCandidateCuts": 33,
+    "matches": [
+      [
+        77,
+        77
+      ],
+      [
+        98,
+        98
+      ],
+      [
+        137,
+        138
+      ],
+      [
+        154,
+        154
+      ],
+      [
+        180,
+        180
+      ],
+      [
+        196,
+        196
+      ],
+      [
+        231,
+        231
+      ],
+      [
+        290,
+        290
+      ],
+      [
+        320,
+        320
+      ],
+      [
+        353,
+        353
+      ],
+      [
+        399,
+        399
+      ],
+      [
+        419,
+        419
+      ],
+      [
+        467,
+        467
+      ],
+      [
+        488,
+        488
+      ],
+      [
+        538,
+        539
+      ],
+      [
+        578,
+        578
+      ],
+      [
+        663,
+        663
+      ],
+      [
+        710,
+        710
+      ],
+      [
+        743,
+        743
+      ],
+      [
+        781,
+        781
+      ],
+      [
+        894,
+        894
+      ],
+      [
+        937,
+        937
+      ],
+      [
+        957,
+        957
+      ],
+      [
+        1014,
+        1014
+      ],
+      [
+        1032,
+        1032
+      ],
+      [
+        1076,
+        1076
+      ],
+      [
+        1095,
+        1095
+      ],
+      [
+        1128,
+        1128
+      ]
+    ],
+    "unmatchedReferenceCuts": [
+      12,
+      23,
+      29,
+      39,
+      56,
+      107,
+      129,
+      167,
+      244,
+      256,
+      367,
+      386,
+      448,
+      455,
+      500,
+      1045,
+      1058,
+      1184
+    ],
+    "unmatchedCandidateCuts": [
+      624,
+      797,
+      864,
+      1152,
+      1176
+    ]
+  },
+  "candidates": [
+    {
+      "index": 1,
+      "frame": 0,
+      "timestamp": 0.0,
+      "path": "frames/0001.jpg",
+      "id": "C01",
+      "startSeconds": 0.0,
+      "endSeconds": 3.2083333333333335,
+      "endFrameExclusive": 77,
+      "observation": "A 正面近景，举拳后向画面前方挥臂；这一候选段实际包含多个短切。",
+      "status": "candidate_not_approved_shot"
+    },
+    {
+      "index": 2,
+      "frame": 77,
+      "timestamp": 3.21,
+      "path": "frames/0002.jpg",
+      "id": "C02",
+      "startSeconds": 3.2083333333333335,
+      "endSeconds": 4.083333333333333,
+      "endFrameExclusive": 98,
+      "observation": "低机位腿脚特写，B 的灰蓝裤腿与黑鞋横向移动。",
+      "status": "candidate_not_approved_shot"
+    },
+    {
+      "index": 3,
+      "frame": 98,
+      "timestamp": 4.08,
+      "path": "frames/0003.jpg",
+      "id": "C03",
+      "startSeconds": 4.083333333333333,
+      "endSeconds": 5.75,
+      "endFrameExclusive": 138,
+      "observation": "A 的褐色裤腿与白鞋离地；本候选段还夹有 B 的上半身画面。",
+      "status": "candidate_not_approved_shot"
+    },
+    {
+      "index": 4,
+      "frame": 138,
+      "timestamp": 5.75,
+      "path": "frames/0004.jpg",
+      "id": "C04",
+      "startSeconds": 5.75,
+      "endSeconds": 6.416666666666667,
+      "endFrameExclusive": 154,
+      "observation": "双人全景：B 在左、A 在右腾空；后方墓碑提供空间参照。",
+      "status": "candidate_not_approved_shot"
+    },
+    {
+      "index": 5,
+      "frame": 154,
+      "timestamp": 6.42,
+      "path": "frames/0005.jpg",
+      "id": "C05",
+      "startSeconds": 6.416666666666667,
+      "endSeconds": 7.5,
+      "endFrameExclusive": 180,
+      "observation": "低角度 B 的近景，抬头并抬臂迎向画面上方进入的白鞋。",
+      "status": "candidate_not_approved_shot"
+    },
+    {
+      "index": 6,
+      "frame": 180,
+      "timestamp": 7.5,
+      "path": "frames/0006.jpg",
+      "id": "C06",
+      "startSeconds": 7.5,
+      "endSeconds": 8.166666666666666,
+      "endFrameExclusive": 196,
+      "observation": "越过 B 的背部看 A，A 的白鞋抬到头部附近，双人遮挡明显。",
+      "status": "candidate_not_approved_shot"
+    },
+    {
+      "index": 7,
+      "frame": 196,
+      "timestamp": 8.17,
+      "path": "frames/0007.jpg",
+      "id": "C07",
+      "startSeconds": 8.166666666666666,
+      "endSeconds": 9.625,
+      "endFrameExclusive": 231,
+      "observation": "双人较大全景，A 腾空横移；后续抽帧见 B 倒地翻滚。",
+      "status": "candidate_not_approved_shot"
+    },
+    {
+      "index": 8,
+      "frame": 231,
+      "timestamp": 9.62,
+      "path": "frames/0008.jpg",
+      "id": "C08",
+      "startSeconds": 9.625,
+      "endSeconds": 12.083333333333334,
+      "endFrameExclusive": 290,
+      "observation": "B 中近景转身、举拳；后续包含 A 的旋转踢击与近景切换。",
+      "status": "candidate_not_approved_shot"
+    },
+    {
+      "index": 9,
+      "frame": 290,
+      "timestamp": 12.08,
+      "path": "frames/0009.jpg",
+      "id": "C09",
+      "startSeconds": 12.083333333333334,
+      "endSeconds": 13.333333333333334,
+      "endFrameExclusive": 320,
+      "observation": "双人中全景：A 高踢，B 抬臂并后仰。",
+      "status": "candidate_not_approved_shot"
+    },
+    {
+      "index": 10,
+      "frame": 320,
+      "timestamp": 13.33,
+      "path": "frames/0010.jpg",
+      "id": "C10",
+      "startSeconds": 13.333333333333334,
+      "endSeconds": 14.708333333333334,
+      "endFrameExclusive": 353,
+      "observation": "B 的躯干掠过画面左侧；后续回到 B 站立举拳的中景。",
+      "status": "candidate_not_approved_shot"
+    },
+    {
+      "index": 11,
+      "frame": 353,
+      "timestamp": 14.71,
+      "path": "frames/0011.jpg",
+      "id": "C11",
+      "startSeconds": 14.708333333333334,
+      "endSeconds": 16.625,
+      "endFrameExclusive": 399,
+      "observation": "A 正面中近景，转头观察并举拳；与 B 的中景交替。",
+      "status": "candidate_not_approved_shot"
+    },
+    {
+      "index": 12,
+      "frame": 399,
+      "timestamp": 16.62,
+      "path": "frames/0012.jpg",
+      "id": "C12",
+      "startSeconds": 16.625,
+      "endSeconds": 17.458333333333332,
+      "endFrameExclusive": 419,
+      "observation": "双人全景：A 从左方接近 B，继而腾空抬腿。",
+      "status": "candidate_not_approved_shot"
+    },
+    {
+      "index": 13,
+      "frame": 419,
+      "timestamp": 17.46,
+      "path": "frames/0013.jpg",
+      "id": "C13",
+      "startSeconds": 17.458333333333332,
+      "endSeconds": 19.458333333333332,
+      "endFrameExclusive": 467,
+      "observation": "B 近景，前臂挡住进入画面的白鞋；随后出现翻滚、落地画面。",
+      "status": "candidate_not_approved_shot"
+    },
+    {
+      "index": 14,
+      "frame": 467,
+      "timestamp": 19.46,
+      "path": "frames/0014.jpg",
+      "id": "C14",
+      "startSeconds": 19.458333333333332,
+      "endSeconds": 20.333333333333332,
+      "endFrameExclusive": 488,
+      "observation": "双人全景：A 在左方，B 从地面恢复并重新接近。",
+      "status": "candidate_not_approved_shot"
+    },
+    {
+      "index": 15,
+      "frame": 488,
+      "timestamp": 20.33,
+      "path": "frames/0015.jpg",
+      "id": "C15",
+      "startSeconds": 20.333333333333332,
+      "endSeconds": 22.458333333333332,
+      "endFrameExclusive": 539,
+      "observation": "A 胸腹近景，B 的手臂进入画面形成身体接触。",
+      "status": "candidate_not_approved_shot"
+    },
+    {
+      "index": 16,
+      "frame": 539,
+      "timestamp": 22.46,
+      "path": "frames/0016.jpg",
+      "id": "C16",
+      "startSeconds": 22.458333333333332,
+      "endSeconds": 24.083333333333332,
+      "endFrameExclusive": 578,
+      "observation": "A 上半身近景，手臂横向伸展；后续回到其正面戒备姿态。",
+      "status": "candidate_not_approved_shot"
+    },
+    {
+      "index": 17,
+      "frame": 578,
+      "timestamp": 24.08,
+      "path": "frames/0017.jpg",
+      "id": "C17",
+      "startSeconds": 24.083333333333332,
+      "endSeconds": 26.0,
+      "endFrameExclusive": 624,
+      "observation": "B 正面中近景，举拳接近；后续转入双人近身交手。",
+      "status": "candidate_not_approved_shot"
+    },
+    {
+      "index": 18,
+      "frame": 624,
+      "timestamp": 26.0,
+      "path": "frames/0018.jpg",
+      "id": "C18",
+      "startSeconds": 26.0,
+      "endSeconds": 27.625,
+      "endFrameExclusive": 663,
+      "observation": "双人近身中景，手臂交叉遮挡；此候选边界尚未确认是真实切镜。",
+      "status": "candidate_not_approved_shot"
+    },
+    {
+      "index": 19,
+      "frame": 663,
+      "timestamp": 27.62,
+      "path": "frames/0019.jpg",
+      "id": "C19",
+      "startSeconds": 27.625,
+      "endSeconds": 29.583333333333332,
+      "endFrameExclusive": 710,
+      "observation": "双人中全景，A 抬臂，B 从右侧接近，随后有腿部攻防。",
+      "status": "candidate_not_approved_shot"
+    },
+    {
+      "index": 20,
+      "frame": 710,
+      "timestamp": 29.58,
+      "path": "frames/0020.jpg",
+      "id": "C20",
+      "startSeconds": 29.583333333333332,
+      "endSeconds": 30.958333333333332,
+      "endFrameExclusive": 743,
+      "observation": "B 正面中景，双拳戒备。",
+      "status": "candidate_not_approved_shot"
+    },
+    {
+      "index": 21,
+      "frame": 743,
+      "timestamp": 30.96,
+      "path": "frames/0021.jpg",
+      "id": "C21",
+      "startSeconds": 30.958333333333332,
+      "endSeconds": 32.541666666666664,
+      "endFrameExclusive": 781,
+      "observation": "A 正面近景，双手举起，视线偏向画面右侧。",
+      "status": "candidate_not_approved_shot"
+    },
+    {
+      "index": 22,
+      "frame": 781,
+      "timestamp": 32.54,
+      "path": "frames/0022.jpg",
+      "id": "C22",
+      "startSeconds": 32.541666666666664,
+      "endSeconds": 33.208333333333336,
+      "endFrameExclusive": 797,
+      "observation": "B 中景保持戒备，与 A 的反应镜头交替。",
+      "status": "candidate_not_approved_shot"
+    },
+    {
+      "index": 23,
+      "frame": 797,
+      "timestamp": 33.21,
+      "path": "frames/0023.jpg",
+      "id": "C23",
+      "startSeconds": 33.208333333333336,
+      "endSeconds": 36.0,
+      "endFrameExclusive": 864,
+      "observation": "双人近身镜头，B 位于前景，A 伸臂；此候选边界尚未确认。",
+      "status": "candidate_not_approved_shot"
+    },
+    {
+      "index": 24,
+      "frame": 864,
+      "timestamp": 36.0,
+      "path": "frames/0024.jpg",
+      "id": "C24",
+      "startSeconds": 36.0,
+      "endSeconds": 37.25,
+      "endFrameExclusive": 894,
+      "observation": "双人肩背近景，B 身体转向，A 在后侧；此候选边界尚未确认。",
+      "status": "candidate_not_approved_shot"
+    },
+    {
+      "index": 25,
+      "frame": 894,
+      "timestamp": 37.25,
+      "path": "frames/0025.jpg",
+      "id": "C25",
+      "startSeconds": 37.25,
+      "endSeconds": 39.041666666666664,
+      "endFrameExclusive": 937,
+      "observation": "越过 B 的肩背看 A，A 手臂抬起。",
+      "status": "candidate_not_approved_shot"
+    },
+    {
+      "index": 26,
+      "frame": 937,
+      "timestamp": 39.04,
+      "path": "frames/0026.jpg",
+      "id": "C26",
+      "startSeconds": 39.041666666666664,
+      "endSeconds": 39.875,
+      "endFrameExclusive": 957,
+      "observation": "A 面部与手臂近景，B 的身体进入画面右侧。",
+      "status": "candidate_not_approved_shot"
+    },
+    {
+      "index": 27,
+      "frame": 957,
+      "timestamp": 39.88,
+      "path": "frames/0027.jpg",
+      "id": "C27",
+      "startSeconds": 39.875,
+      "endSeconds": 42.25,
+      "endFrameExclusive": 1014,
+      "observation": "反向双人近景，B 正面可见，A 的背部在左前景。",
+      "status": "candidate_not_approved_shot"
+    },
+    {
+      "index": 28,
+      "frame": 1014,
+      "timestamp": 42.25,
+      "path": "frames/0028.jpg",
+      "id": "C28",
+      "startSeconds": 42.25,
+      "endSeconds": 43.0,
+      "endFrameExclusive": 1032,
+      "observation": "低角度近身镜头，A 的腰背与宽袖占据前景，B 在后侧。",
+      "status": "candidate_not_approved_shot"
+    },
+    {
+      "index": 29,
+      "frame": 1032,
+      "timestamp": 43.0,
+      "path": "frames/0029.jpg",
+      "id": "C29",
+      "startSeconds": 43.0,
+      "endSeconds": 44.833333333333336,
+      "endFrameExclusive": 1076,
+      "observation": "A 上半身近景，手臂上抬；紧接着有身体与腿部近距离交替画面。",
+      "status": "candidate_not_approved_shot"
+    },
+    {
+      "index": 30,
+      "frame": 1076,
+      "timestamp": 44.83,
+      "path": "frames/0030.jpg",
+      "id": "C30",
+      "startSeconds": 44.833333333333336,
+      "endSeconds": 45.625,
+      "endFrameExclusive": 1095,
+      "observation": "A 的面部快速掠过画面，运动模糊明显。",
+      "status": "candidate_not_approved_shot"
+    },
+    {
+      "index": 31,
+      "frame": 1095,
+      "timestamp": 45.62,
+      "path": "frames/0031.jpg",
+      "id": "C31",
+      "startSeconds": 45.625,
+      "endSeconds": 47.0,
+      "endFrameExclusive": 1128,
+      "observation": "双人腰腿特写，褐色与灰蓝裤装交叠，关节和接触关系受遮挡。",
+      "status": "candidate_not_approved_shot"
+    },
+    {
+      "index": 32,
+      "frame": 1128,
+      "timestamp": 47.0,
+      "path": "frames/0032.jpg",
+      "id": "C32",
+      "startSeconds": 47.0,
+      "endSeconds": 48.0,
+      "endFrameExclusive": 1152,
+      "observation": "双人中景，双方手臂接触，身体距离很近。",
+      "status": "candidate_not_approved_shot"
+    },
+    {
+      "index": 33,
+      "frame": 1152,
+      "timestamp": 48.0,
+      "path": "frames/0033.jpg",
+      "id": "C33",
+      "startSeconds": 48.0,
+      "endSeconds": 49.0,
+      "endFrameExclusive": 1176,
+      "observation": "A 正面、B 背部近景，双臂快速交叉；此候选边界尚未确认。",
+      "status": "candidate_not_approved_shot"
+    },
+    {
+      "index": 34,
+      "frame": 1176,
+      "timestamp": 49.0,
+      "path": "frames/0034.jpg",
+      "id": "C34",
+      "startSeconds": 49.0,
+      "endSeconds": 50.125,
+      "endFrameExclusive": 1203,
+      "observation": "A 背部与手臂在前景，B 低头下沉；本段还包含结尾的较大全景。",
+      "status": "candidate_not_approved_shot"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "base": "http://127.0.0.1:8199",
+  "projectId": "p-0c66a90c74d2",
+  "name": "p4-identity",
+  "revision": "r-d7810b5e4ebf",
+  "shots": 57,
+  "tracks": 134,
+  "jobs": [
+    {
+      "kind": "motion",
+      "state": "done"
+    },
+    {
+      "kind": "people",
+      "state": "done"
+    },
+    {
+      "kind": "detect",
+      "state": "done"
+    },
+    {
+      "kind": "cuts",
+      "state": "done"
+    },
+    {
+      "kind": "pts",
+      "state": "done"
+    },
+    {
+      "kind": "proxy",
+      "state": "done"
+    }
+  ],
+  "retained": true
+}

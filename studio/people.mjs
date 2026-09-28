@@ -84,3 +84,74 @@ export function clusterKnownPeople(tracks, count) {
   }
   return {groups: groups.map(group => group.sort((a,b)=>b.identityScore-a.identityScore).map(track=>track.id)), unresolvedIds: tracks.filter(t=>!assigned.has(t.id)).map(t=>t.id)};
 }
+
+// ---- V2 P4：多帧外观聚合、带疑似关联的聚类、按物种聚类 ----
+
+// 多帧外观聚合：逐桶取中位数再归一化。对运动模糊、遮挡、单帧噪声稳健得多
+// （V2 §7.2：不要用单个末帧颜色决定整个轨迹的身份）。
+export function aggregateAppearance(observations) {
+  const usable = (observations || []).map(item => item.appearance).filter(a => a?.length === 128);
+  if (!usable.length) return null;
+  const aggregated = Array.from({length: 128}, (_, index) => {
+    const values = usable.map(a => a[index]).sort((x, y) => x - y);
+    return values[Math.floor(values.length / 2)];
+  });
+  for (const [start, end] of [[0, 64], [64, 128]]) {
+    const sum = aggregated.slice(start, end).reduce((a, b) => a + b, 0);
+    if (sum > 1e-9) for (let index = start; index < end; index++) aggregated[index] /= sum;
+  }
+  return aggregated;
+}
+
+// 聚类 + 疑似关联候选边：相似但未自动合并的轨迹对（同镜冲突或置信边际不足），
+// 供用户定位过度拆分（V2 §7.2：报告过度拆分率、保留候选边）。
+export function clusterPeopleWithSuggestions(tracks, {threshold = 0.9, margin = 0.03, suggestThreshold = 0.84} = {}) {
+  const groups = [];
+  const assignment = new Map(); // trackId → groupIndex
+  tracks.forEach(track => {
+    const ranked = groups.map((group, index) => {
+      const overlaps = group.some(other => other.shotId === track.shotId && other.startFrame <= track.endFrame && track.startFrame <= other.endFrame);
+      return {index, score: overlaps ? 0 : Math.min(...group.map(other => appearanceSimilarity(other.appearance, track.appearance)))};
+    }).sort((a, b) => b.score - a.score);
+    if (ranked[0]?.score >= threshold && ranked[0].score - (ranked[1]?.score || 0) >= margin) {
+      groups[ranked[0].index].push(track);
+      assignment.set(track.id, ranked[0].index);
+    } else {
+      groups.push([track]);
+      assignment.set(track.id, groups.length - 1);
+    }
+  });
+  // 候选边：跨组且相似度高（即便有同镜冲突也提示——同镜对不可能是同一人，但可能是同装不同人等需人工看）
+  const suggestions = new Map();
+  for (let i = 0; i < tracks.length; i++) for (let j = i + 1; j < tracks.length; j++) {
+    const a = tracks[i], b = tracks[j];
+    if (assignment.get(a.id) === assignment.get(b.id)) continue;
+    const score = appearanceSimilarity(a.appearance, b.appearance);
+    if (score < suggestThreshold) continue;
+    const key = [a.id, b.id].sort().join('|');
+    suggestions.set(key, {a: a.id, b: b.id, score: Number(score.toFixed(3))});
+  }
+  return {
+    groups: groups.map(group => group.map(track => track.id)),
+    suggestions: [...suggestions.values()].sort((a, b) => b.score - a.score).slice(0, 40),
+  };
+}
+
+// 按物种分别聚类（跨物种绝不合并，V2 §7.2）。输入轨道需带 species。
+export function clusterAnimalTracks(tracks, options = {}) {
+  const bySpecies = new Map();
+  for (const track of tracks) {
+    const species = track.species || '未知动物';
+    if (!bySpecies.has(species)) bySpecies.set(species, []);
+    bySpecies.get(species).push(track);
+  }
+  const groups = [], speciesOf = new Map();
+  for (const [species, list] of bySpecies) {
+    const result = clusterPeopleWithSuggestions(list, options);
+    for (const group of result.groups) {
+      groups.push(group);
+      for (const trackId of group) speciesOf.set(trackId, species);
+    }
+  }
+  return {groups, speciesOf};
+}

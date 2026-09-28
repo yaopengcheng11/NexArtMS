@@ -1,0 +1,117 @@
+{
+  "scope": "isolated temporary data, real localhost HTTP, synthetic PNG, no real credentials or external calls",
+  "checks": [
+    {
+      "name": "打开设置自动选中首个已保存供应商并显示测试连接",
+      "pass": true
+    },
+    {
+      "name": "测试按钮位于供应商配置表单上方",
+      "pass": true
+    },
+    {
+      "name": "保存供应商后测试按钮自动进入可见区域",
+      "pass": true
+    },
+    {
+      "name": "新模型清楚显示尚未测试",
+      "pass": true
+    },
+    {
+      "name": "浏览器使用真实本机 API 保存供应商且未保存密钥",
+      "pass": true
+    },
+    {
+      "name": "请求期间展示等待且禁用按钮和模型选择",
+      "pass": true
+    },
+    {
+      "name": "忙碌期间重复点击不会重复发送模型请求",
+      "pass": true
+    },
+    {
+      "name": "测试请求仅包含一张合成图片并且不携带凭据",
+      "pass": true
+    },
+    {
+      "name": "正确识别测试图片显示连接成功及所测模型",
+      "pass": true
+    },
+    {
+      "name": "切换模型不会复用其他模型的成功状态",
+      "pass": true
+    },
+    {
+      "name": "401 显示测试失败原因并可以重试",
+      "pass": true
+    },
+    {
+      "name": "失败详情未泄露服务端原始诊断",
+      "pass": true
+    },
+    {
+      "name": "失败后重试成功更新当前模型状态",
+      "pass": true
+    },
+    {
+      "name": "切回已测模型显示该模型自己的结果",
+      "pass": true
+    },
+    {
+      "name": "配置存在未保存修改时禁测并隐藏旧成功",
+      "pass": true
+    },
+    {
+      "name": "保存配置新版本后旧测试结果失效",
+      "pass": true
+    },
+    {
+      "name": "重新打开自动选中默认供应商而非列表第一项",
+      "pass": true
+    },
+    {
+      "name": "刷新后保留当前模型有效的测试结果",
+      "pass": true
+    },
+    {
+      "name": "手机宽度无横向溢出",
+      "pass": true
+    },
+    {
+      "name": "手机上测试按钮可见可点击",
+      "pass": true
+    },
+    {
+      "name": "没有页面脚本错误或协议 fixture 异常",
+      "pass": true
+    },
+    {
+      "name": "全部连接测试走本机 fixture 且请求次数符合预期",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "modelRequests": [
+    {
+      "model": "vision-a",
+      "mode": "success",
+      "frames": 1
+    },
+    {
+      "model": "vision-b",
+      "mode": "unauthorized",
+      "frames": 1
+    },
+    {
+      "model": "vision-b",
+      "mode": "success",
+      "frames": 1
+    },
+    {
+      "model": "vision-a",
+      "mode": "success",
+      "frames": 1
+    }
+  ],
+  "passed": 22
+}

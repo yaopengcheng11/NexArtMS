@@ -1,0 +1,12 @@
+{
+  "fixture": true,
+  "base": "http://127.0.0.1:8214",
+  "checks": [
+    "Direct settings URL opens accessible modal and preset cards",
+    "Save failure preserves complete unsaved form including password field",
+    "Saving clears secret from form; selected model test and default actions use correct revision",
+    "390px mobile modal has no horizontal overflow",
+    "Deletion requires confirmation; modal close restores URL; homepage entry reopens settings"
+  ],
+  "errors": []
+}

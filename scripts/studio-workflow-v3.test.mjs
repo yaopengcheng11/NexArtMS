@@ -10,6 +10,7 @@ import * as THREE from 'three';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {createStudioStore, SCHEMA_VERSION} from '../studio/db.mjs';
 import {canonicalBones} from '../studio/pose3d.mjs';
+import {createRigidCharacter, RIG_JOINTS} from '../src/rig.ts';
 
 const exec=promisify(execFile);
 const repo=path.dirname(path.dirname(fileURLToPath(import.meta.url)));
@@ -181,10 +182,14 @@ function sampleMotion(character,track) {
   return {characterId:character.id,bodyHeight:character.scale,bones,frames};
 }
 
-test('export two source people as ONE group asset with TWO clips; GLB reload verifies every endpoint and skin attribute',async()=>{
+test('export one group with two clips; GLB reload matches preview rig transforms and skin attributes',async()=>{
   const f=fixture();
   try {
     f.store.editPeople(f.p.id,f.rev(),{action:'assign',personIds:f.store.getPeople(f.p.id).map(p=>p.id),assignment:f.character.id});
+    const ignoredAnimal=f.store.insertTrack(f.p.id,'S01',{startFrame:1,endFrame:2,box:{x:.1,y:.1,w:.2,h:.3},provenance:'user',subject:'animal',species:'狗'},f.rev());
+    const ignoredIdentity=f.store.getPeople(f.p.id).find(person=>person.trackIds.includes(ignoredAnimal.id));
+    f.store.editPeople(f.p.id,f.rev(),{action:'assign',personIds:[ignoredIdentity.id],assignment:'ignored'});
+    const unsupportedAnimal=f.store.insertTrack(f.p.id,'S02',{startFrame:25,endFrame:26,box:{x:.5,y:.1,w:.2,h:.3},provenance:'user',subject:'animal',species:'猫'},f.rev());
     const samples=new Map();
     for(const track of [f.a,f.b]) {
       const motion=sampleMotion(f.character,track);samples.set(track.id,motion);
@@ -196,6 +201,13 @@ test('export two source people as ONE group asset with TWO clips; GLB reload ver
     await exec(process.execPath,['--import','tsx','scripts/build-export-package.mjs','--project',f.p.id,'--store-root',f.root,'--output',out],{cwd:repo});
     const manifest=JSON.parse(fs.readFileSync(path.join(out,'manifest.json'),'utf8'));
     assert.equal(manifest.instanceCount,2);assert.equal(manifest.characterGlbs.length,1);assert.equal(manifest.characterGlbs[0].clips.length,2);
+    assert.deepEqual(manifest.excludedTrackIds,[ignoredAnimal.id]);
+    assert.deepEqual(manifest.unsupportedTrackIds,[unsupportedAnimal.id]);
+    assert.equal(manifest.characterGlbs[0].proxyLevel,'CL1');
+    assert.equal(manifest.sampling,'source-pts-and-transitions-step');
+    const timeline=JSON.parse(fs.readFileSync(path.join(out,'timeline.json'),'utf8'));
+    const cast=JSON.parse(fs.readFileSync(path.join(out,'cast.json'),'utf8'));
+    assert.equal(cast.characters[0].proxyLevel,'CL1');
     const bytes=fs.readFileSync(path.join(out,'characters',manifest.characterGlbs[0].file));
     const json=JSON.parse(bytes.subarray(20,20+bytes.readUInt32LE(12)).toString());
     for(const mesh of json.meshes)for(const primitive of mesh.primitives){
@@ -204,22 +216,26 @@ test('export two source people as ONE group asset with TWO clips; GLB reload ver
       assert.equal(json.accessors[primitive.attributes.JOINTS_0].count,n);assert.equal(json.accessors[primitive.attributes.WEIGHTS_0].count,n);
     }
     const gltf=await new GLTFLoader().parseAsync(bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength),'');
-    let meshCount=0;gltf.scene.traverse(object=>{if(object.isSkinnedMesh)meshCount++;});assert.equal(meshCount,canonicalBones().length);
+    let meshCount=0;gltf.scene.traverse(object=>{if(object.isSkinnedMesh)meshCount++;});assert.equal(meshCount,1);
+    const previewRig=createRigidCharacter({id:f.character.id,level:'CL1',height:f.character.scale});
     for(const track of [f.a,f.b]) {
       const clip=gltf.animations.find(clip=>clip.name===`motion-${track.id}`);
       const mixer=new THREE.AnimationMixer(gltf.scene);const action=mixer.clipAction(clip);action.setLoop(THREE.LoopOnce,1);action.clampWhenFinished=true;action.play();
       for(const frame of samples.get(track.id).frames) {
         mixer.setTime(frame.timeS-samples.get(track.id).frames[0].timeS);gltf.scene.updateMatrixWorld(true);
-        for(const segment of samples.get(track.id).bones) {
-          const bone=gltf.scene.getObjectByName(segment.name);
-          for(const [local,joint] of [[new THREE.Vector3(),segment.parent],[new THREE.Vector3(0,1,0),segment.child]]) {
-            const expected=new THREE.Vector3(...frame.joints[joint]).add(new THREE.Vector3(frame.rootOffset[0],0,frame.rootOffset[2]));
-            assert.ok(local.applyMatrix4(bone.matrixWorld).distanceTo(expected)<1e-5,`${track.id} ${segment.name} ${joint} matches source motion`);
-          }
+        const sampled=timeline.frames.find(sample=>sample.ptsUs===Math.round(frame.timeS*1e6)).instances.find(instance=>instance.trackId===track.id);
+        previewRig.applyPose(sampled.pose);
+        for(const joint of RIG_JOINTS) {
+          const bone=gltf.scene.getObjectByName(previewRig.bones[joint.id].name);
+          assert.ok(bone,`export joint ${joint.id} exists`);
+          const expected=previewRig.bones[joint.id].getWorldPosition(new THREE.Vector3());
+          assert.ok(bone.getWorldPosition(new THREE.Vector3()).distanceTo(expected)<1e-5,`${track.id} ${joint.id} matches rendered preview`);
+          assert.ok(Math.abs(bone.quaternion.dot(previewRig.bones[joint.id].quaternion))>1-1e-5,`${joint.id} rotation matches`);
         }
       }
       mixer.stopAllAction();mixer.uncacheRoot(gltf.scene);
     }
+    previewRig.dispose();
     // Old persisted motion files must not masquerade as a newly selected role.
     const broken=JSON.parse(fs.readFileSync(path.join(f.store.observationsDir(f.p.id),'motion',`${f.a.id}.json`),'utf8'));
     broken.bodyHeight=2;fs.writeFileSync(path.join(f.store.observationsDir(f.p.id),'motion',`${f.a.id}.json`),JSON.stringify(broken));

@@ -6,7 +6,7 @@
 import path from 'node:path';
 import fs from 'node:fs';
 import {fileURLToPath} from 'node:url';
-import {fetchModel, recordLocalModel, modelDir} from '../studio/vision.mjs';
+import {fetchModel, recordLocalModel, modelDir, DET_RECORD_FILE} from '../studio/vision.mjs';
 
 const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const SPEC = {
@@ -17,10 +17,35 @@ const SPEC = {
   license: 'AGPL-3.0（Ultralytics 权重；企业闭源部署需 Ultralytics Enterprise 许可）',
   providers: ['cpu'],
 };
-let record;
-if (!process.env.FORCE && fs.existsSync(path.join(modelDir(root), SPEC.file))) {
-  record = recordLocalModel(root, SPEC);
-  console.log('本地已有权重，直接登记（FORCE=1 强制重新下载）。');
+// 动物检测：YOLOS-tiny（DETR 家族，COCO-91 类含 10 种动物）。YOLOv8 检测权重在 HF 上不可得，
+// YOLOS 输出 logits[1,100,92]+pred_boxes，由 vision.mjs 的 decodeDetrOutput 解码。
+const DET_SPEC = {
+  sourceUrl: 'https://hf-mirror.com/Xenova/yolos-tiny/resolve/main/onnx/model_quantized.onnx',
+  file: 'yolos-tiny-det-int8.onnx',
+  detectorName: 'yolos-tiny-det',
+  version: 'yolos-tiny-int8 (Xenova ONNX conversion, COCO-91, DETR head)',
+  license: 'Apache-2.0（YOLOS/DETR 权重，Hugging Face Xenova 转换）',
+  providers: ['cpu'],
+  recordFile: DET_RECORD_FILE,
+};
+const DET_FILES = [ // 溯源与类别映射依据（运行时不加载）
+  ['https://hf-mirror.com/Xenova/yolos-tiny/resolve/main/config.json', 'yolos-tiny-config.json'],
+  ['https://hf-mirror.com/Xenova/yolos-tiny/resolve/main/preprocessor_config.json', 'yolos-tiny-preprocessor.json'],
+];
+async function ensure(spec) {
+  if (!process.env.FORCE && fs.existsSync(path.join(modelDir(root), spec.file))) {
+    const record = recordLocalModel(root, spec);
+    if (record) {console.log(`本地已有权重 ${spec.file}，直接登记（FORCE=1 强制重新下载）。`);return record;}
+  }
+  return fetchModel(root, spec);
 }
-if (!record) record = await fetchModel(root, SPEC);
-console.log('模型已就绪：', JSON.stringify({file: record.file, sizeBytes: record.sizeBytes, sha256: record.sha256.slice(0, 16) + '…', license: record.license}, null, 2));
+const poseRecord = await ensure(SPEC).catch(cause => {console.error('姿态模型获取失败：', cause.message);return null;});
+const detRecord = await ensure(DET_SPEC).catch(cause => {console.error('动物检测模型获取失败（动物检测将不可用，人物检测不受影响）：', cause.message);return null;});
+if (poseRecord) console.log('姿态模型就绪：', JSON.stringify({file: poseRecord.file, sizeBytes: poseRecord.sizeBytes, sha256: poseRecord.sha256.slice(0, 16) + '…'}, null, 2));
+if (detRecord) {
+  for (const [url, file] of DET_FILES) {
+    try {const response = await fetch(url);if (response.ok) fs.writeFileSync(path.join(modelDir(root), file), Buffer.from(await response.arrayBuffer()));} catch {}
+  }
+  console.log('动物检测模型就绪：', JSON.stringify({file: detRecord.file, sizeBytes: detRecord.sizeBytes, sha256: detRecord.sha256.slice(0, 16) + '…'}, null, 2));
+}
+if (!poseRecord) process.exitCode = 1;

@@ -1,0 +1,5120 @@
+{
+  "startedAt": "2026-09-26T19:45:58.998Z",
+  "base": "http://127.0.0.1:8211",
+  "storeRoot": "G:\\AITOOLS\\NexArtMotionStage\\NexArtMS\\.checks\\v2-fix-acceptance",
+  "source": "public/reference.mp4",
+  "steps": [
+    {
+      "name": "新建隔离测试项目并上传完整原片",
+      "at": "2026-09-26T19:45:59.330Z",
+      "projectId": "p-b2ea8dd1ee3a",
+      "projectUrl": "http://127.0.0.1:8210/?project=p-b2ea8dd1ee3a"
+    },
+    {
+      "name": "零人工确认完成自动初稿",
+      "at": "2026-09-26T19:50:16.995Z",
+      "shots": 57,
+      "motions": 11,
+      "state": "ready_with_issues",
+      "coveragePct": 7.3
+    },
+    {
+      "name": "自动临时组之后可直接重跑双类检测",
+      "at": "2026-09-26T19:54:27.831Z",
+      "activeTracks": 134
+    },
+    {
+      "name": "人工分为三组并使用独立CL和颜色后重算",
+      "at": "2026-09-26T19:54:31.871Z",
+      "groups": [
+        {
+          "id": "c-c2ae1a959744",
+          "proxyLevel": "CL0"
+        },
+        {
+          "id": "c-8a975d419488",
+          "proxyLevel": "CL1"
+        },
+        {
+          "id": "c-4b2f70e3d4eb",
+          "proxyLevel": "CL2"
+        }
+      ],
+      "motions": 11
+    },
+    {
+      "name": "浏览器动物卡展开详情成功",
+      "at": "2026-09-26T19:54:33.725Z",
+      "animalId": "person-e4cc2952f3b5"
+    },
+    {
+      "name": "浏览器后续镜头加载自身动作与随机seek通过",
+      "at": "2026-09-26T19:54:35.585Z",
+      "shots": [
+        "S07",
+        "S20",
+        "S30",
+        "S35",
+        "S37"
+      ],
+      "requestCount": 6
+    },
+    {
+      "name": "不刷新页面修改尺度、动作失效、重算和新缓存生效",
+      "at": "2026-09-26T19:54:39.175Z",
+      "trackId": "t-fb2bed7b4fa5",
+      "previousVersion": "16bf9781870b9e2923947c167ac540b65d9dab08753bb8a3333c2e8ec1393f4e",
+      "currentVersion": "69adaebbfa65b3eb5c13362112c4b9ab2200fe373e047135c9b4cd2d5d0a03c5"
+    },
+    {
+      "name": "交付包包含全部镜头、逐组CL与统一采样时间线",
+      "at": "2026-09-26T19:54:41.323Z",
+      "exportId": "exp-45c8be0e58aa",
+      "glbs": 3,
+      "timelineSamples": 1437
+    },
+    {
+      "name": "继续同一测试项目的浏览器与导出验收",
+      "at": "2026-09-26T20:00:18.565Z"
+    },
+    {
+      "name": "浏览器动物卡展开详情成功",
+      "at": "2026-09-26T20:00:20.540Z",
+      "animalId": "person-e4cc2952f3b5"
+    },
+    {
+      "name": "浏览器后续镜头加载自身动作与随机seek通过",
+      "at": "2026-09-26T20:00:21.881Z",
+      "shots": [
+        "S07",
+        "S20",
+        "S30",
+        "S35",
+        "S37"
+      ],
+      "requestCount": 6
+    },
+    {
+      "name": "不刷新页面修改尺度、动作失效、重算和新缓存生效",
+      "at": "2026-09-26T20:00:25.163Z",
+      "trackId": "t-fb2bed7b4fa5",
+      "previousVersion": "69adaebbfa65b3eb5c13362112c4b9ab2200fe373e047135c9b4cd2d5d0a03c5",
+      "currentVersion": "16bf9781870b9e2923947c167ac540b65d9dab08753bb8a3333c2e8ec1393f4e"
+    },
+    {
+      "name": "交付包包含全部镜头、逐组CL与统一采样时间线",
+      "at": "2026-09-26T20:00:27.227Z",
+      "exportId": "exp-2e65817fb809",
+      "glbs": 3,
+      "timelineSamples": 1437
+    }
+  ],
+  "errors": [],
+  "projectId": "p-b2ea8dd1ee3a",
+  "projectUrl": "http://127.0.0.1:8211/?project=p-b2ea8dd1ee3a",
+  "automaticDraft": {
+    "shots": 57,
+    "people": 96,
+    "animals": 11,
+    "humanTracks": 121,
+    "animalTracks": 13,
+    "motions": 11,
+    "draft": {
+      "state": "ready_with_issues",
+      "coveragePct": 7.3,
+      "solvedCount": 11,
+      "boundCount": 121,
+      "visibleDurationUs": 71250003,
+      "solvedDurationUs": 5167500,
+      "subjectCoverage": {
+        "person": {
+          "visibleDurationUs": 70125001,
+          "solvedDurationUs": 5167500,
+          "coveragePct": 7.4
+        },
+        "animal": {
+          "visibleDurationUs": 1125002,
+          "solvedDurationUs": 0,
+          "coveragePct": 0
+        }
+      },
+      "issues": [
+        {
+          "severity": "warning",
+          "trackId": "t-17f045c0fa08",
+          "shotId": "S01",
+          "startUs": 0,
+          "endUs": 458333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-cd0d84ddee01",
+          "shotId": "S03",
+          "startUs": 916667,
+          "endUs": 958333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-b55ad1512936",
+          "shotId": "S04",
+          "startUs": 1000000,
+          "endUs": 1208333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-ed407d44ce52",
+          "shotId": "S04",
+          "startUs": 1083333,
+          "endUs": 1208333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-2ecd6eb0897c",
+          "shotId": "S05",
+          "startUs": 1250000,
+          "endUs": 1625000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-e92d261fec7d",
+          "shotId": "S06",
+          "startUs": 1666667,
+          "endUs": 1875000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-5a65804fe917",
+          "shotId": "S08",
+          "startUs": 2333333,
+          "endUs": 3208333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-f1064cec1e65",
+          "shotId": "S08",
+          "startUs": 2583333,
+          "endUs": 2625000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-f8c889753053",
+          "shotId": "S08",
+          "startUs": 2916667,
+          "endUs": 2958333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-83fbabcf401b",
+          "shotId": "S08",
+          "startUs": 3000000,
+          "endUs": 3125000,
+          "code": "unbound_subject",
+          "message": "出场尚未绑定叙事组，保留为待修正项"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-83fbabcf401b",
+          "shotId": "S08",
+          "startUs": 3000000,
+          "endUs": 3125000,
+          "code": "animal_motion_unsupported",
+          "message": "动物动作求解尚未实现；代理占位不计为已还原动作"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-83fbabcf401b",
+          "shotId": "S08",
+          "startUs": 3000000,
+          "endUs": 3125000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-85231ae42ba8",
+          "shotId": "S09",
+          "startUs": 3250000,
+          "endUs": 4041667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-d057eb81e365",
+          "shotId": "S10",
+          "startUs": 4083333,
+          "endUs": 4375000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-5109b8f79f50",
+          "shotId": "S10",
+          "startUs": 4250000,
+          "endUs": 4291667,
+          "code": "unbound_subject",
+          "message": "出场尚未绑定叙事组，保留为待修正项"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-5109b8f79f50",
+          "shotId": "S10",
+          "startUs": 4250000,
+          "endUs": 4291667,
+          "code": "animal_motion_unsupported",
+          "message": "动物动作求解尚未实现；代理占位不计为已还原动作"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-5109b8f79f50",
+          "shotId": "S10",
+          "startUs": 4250000,
+          "endUs": 4291667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-c352747696a8",
+          "shotId": "S11",
+          "startUs": 4500000,
+          "endUs": 5375000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-c5c12b0a72d1",
+          "shotId": "S12",
+          "startUs": 5500000,
+          "endUs": 5541667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-1d0ee4b01e03",
+          "shotId": "S13",
+          "startUs": 5583333,
+          "endUs": 5625000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-b81908b241d6",
+          "shotId": "S13",
+          "startUs": 5583333,
+          "endUs": 5625000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-46c125995f79",
+          "shotId": "S13",
+          "startUs": 5583333,
+          "endUs": 5625000,
+          "code": "unbound_subject",
+          "message": "出场尚未绑定叙事组，保留为待修正项"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-46c125995f79",
+          "shotId": "S13",
+          "startUs": 5583333,
+          "endUs": 5625000,
+          "code": "animal_motion_unsupported",
+          "message": "动物动作求解尚未实现；代理占位不计为已还原动作"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-46c125995f79",
+          "shotId": "S13",
+          "startUs": 5583333,
+          "endUs": 5625000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-965f4be29e5b",
+          "shotId": "S15",
+          "startUs": 5750000,
+          "endUs": 5791667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-74c2ac03a723",
+          "shotId": "S15",
+          "startUs": 5750000,
+          "endUs": 6375000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-2c6d389c08ff",
+          "shotId": "S15",
+          "startUs": 6083333,
+          "endUs": 6125000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-1d1ea686dc2c",
+          "shotId": "S15",
+          "startUs": 6333333,
+          "endUs": 6375000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-b90ca1b87140",
+          "shotId": "S16",
+          "startUs": 6416667,
+          "endUs": 6458333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-f29b60f72db9",
+          "shotId": "S17",
+          "startUs": 6500000,
+          "endUs": 6625000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-474e3c042258",
+          "shotId": "S17",
+          "startUs": 6583333,
+          "endUs": 6791667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-c34e8751a403",
+          "shotId": "S17",
+          "startUs": 6833333,
+          "endUs": 6958333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-318f903635f7",
+          "shotId": "S17",
+          "startUs": 6833333,
+          "endUs": 6875000,
+          "code": "unbound_subject",
+          "message": "出场尚未绑定叙事组，保留为待修正项"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-318f903635f7",
+          "shotId": "S17",
+          "startUs": 6833333,
+          "endUs": 6875000,
+          "code": "animal_motion_unsupported",
+          "message": "动物动作求解尚未实现；代理占位不计为已还原动作"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-318f903635f7",
+          "shotId": "S17",
+          "startUs": 6833333,
+          "endUs": 6875000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-53f1915e7ad5",
+          "shotId": "S17",
+          "startUs": 6916667,
+          "endUs": 6958333,
+          "code": "unbound_subject",
+          "message": "出场尚未绑定叙事组，保留为待修正项"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-53f1915e7ad5",
+          "shotId": "S17",
+          "startUs": 6916667,
+          "endUs": 6958333,
+          "code": "animal_motion_unsupported",
+          "message": "动物动作求解尚未实现；代理占位不计为已还原动作"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-53f1915e7ad5",
+          "shotId": "S17",
+          "startUs": 6916667,
+          "endUs": 6958333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-f82fa57aea0b",
+          "shotId": "S18",
+          "startUs": 7000000,
+          "endUs": 7208333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-a2e6d549fb13",
+          "shotId": "S18",
+          "startUs": 7000000,
+          "endUs": 7291667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-90037c2283cd",
+          "shotId": "S18",
+          "startUs": 7083333,
+          "endUs": 7458333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-b57a40a7b34d",
+          "shotId": "S19",
+          "startUs": 7500000,
+          "endUs": 8041667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-3f634503657f",
+          "shotId": "S19",
+          "startUs": 7500000,
+          "endUs": 8041667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-3eb8908d96e0",
+          "shotId": "S19",
+          "startUs": 7583333,
+          "endUs": 7625000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-f38a9805f951",
+          "shotId": "S19",
+          "startUs": 7916667,
+          "endUs": 7958333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-67a4d85b3f8a",
+          "shotId": "S20",
+          "startUs": 8166667,
+          "endUs": 8875000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-f07da2b7e3ec",
+          "shotId": "S20",
+          "startUs": 8208500,
+          "endUs": 8416667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-f07da2b7e3ec",
+          "shotId": "S20",
+          "startUs": 8541667,
+          "endUs": 9041667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-4ce468a79292",
+          "shotId": "S20",
+          "startUs": 8583333,
+          "endUs": 8625000,
+          "code": "unbound_subject",
+          "message": "出场尚未绑定叙事组，保留为待修正项"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-4ce468a79292",
+          "shotId": "S20",
+          "startUs": 8583333,
+          "endUs": 8625000,
+          "code": "animal_motion_unsupported",
+          "message": "动物动作求解尚未实现；代理占位不计为已还原动作"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-4ce468a79292",
+          "shotId": "S20",
+          "startUs": 8583333,
+          "endUs": 8625000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-90de6687a14c",
+          "shotId": "S20",
+          "startUs": 9083333,
+          "endUs": 9125000,
+          "code": "unbound_subject",
+          "message": "出场尚未绑定叙事组，保留为待修正项"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-90de6687a14c",
+          "shotId": "S20",
+          "startUs": 9083333,
+          "endUs": 9125000,
+          "code": "animal_motion_unsupported",
+          "message": "动物动作求解尚未实现；代理占位不计为已还原动作"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-90de6687a14c",
+          "shotId": "S20",
+          "startUs": 9083333,
+          "endUs": 9125000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-42337c710ca8",
+          "shotId": "S20",
+          "startUs": 9250000,
+          "endUs": 9625000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-5005faea7b50",
+          "shotId": "S20",
+          "startUs": 9250000,
+          "endUs": 9291667,
+          "code": "unbound_subject",
+          "message": "出场尚未绑定叙事组，保留为待修正项"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-5005faea7b50",
+          "shotId": "S20",
+          "startUs": 9250000,
+          "endUs": 9291667,
+          "code": "animal_motion_unsupported",
+          "message": "动物动作求解尚未实现；代理占位不计为已还原动作"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-5005faea7b50",
+          "shotId": "S20",
+          "startUs": 9250000,
+          "endUs": 9291667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-ca268b4cd8a1",
+          "shotId": "S21",
+          "startUs": 9666667,
+          "endUs": 10125000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-aed61475cb14",
+          "shotId": "S22",
+          "startUs": 10166667,
+          "endUs": 10625000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-3cf33f6950cd",
+          "shotId": "S23",
+          "startUs": 10666667,
+          "endUs": 11708333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-640fdb442c37",
+          "shotId": "S23",
+          "startUs": 11666667,
+          "endUs": 11708333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-14867b47347a",
+          "shotId": "S24",
+          "startUs": 11750000,
+          "endUs": 12041667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-58e4c399046d",
+          "shotId": "S25",
+          "startUs": 12083333,
+          "endUs": 12375000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-1e6a76ad74d9",
+          "shotId": "S25",
+          "startUs": 12083333,
+          "endUs": 13291667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-396f144aa22a",
+          "shotId": "S25",
+          "startUs": 12333333,
+          "endUs": 12375000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-e36f93539d2b",
+          "shotId": "S25",
+          "startUs": 12916667,
+          "endUs": 13291667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-128a395f800e",
+          "shotId": "S26",
+          "startUs": 13416667,
+          "endUs": 14708333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-f878b4269f06",
+          "shotId": "S27",
+          "startUs": 14750000,
+          "endUs": 15291667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-66684214f8ac",
+          "shotId": "S28",
+          "startUs": 15333333,
+          "endUs": 16041667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-a67a3d7e983f",
+          "shotId": "S29",
+          "startUs": 16083333,
+          "endUs": 16541667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-5c4a83c01137",
+          "shotId": "S29",
+          "startUs": 16583333,
+          "endUs": 16625000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-0e61f75bcbe6",
+          "shotId": "S30",
+          "startUs": 16666667,
+          "endUs": 16791667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-1fbaf283c75d",
+          "shotId": "S30",
+          "startUs": 16666667,
+          "endUs": 16917000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-1f51e1c6e49d",
+          "shotId": "S30",
+          "startUs": 17250000,
+          "endUs": 17458333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-395429074a7f",
+          "shotId": "S31",
+          "startUs": 17500000,
+          "endUs": 17875000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-12c976b3499e",
+          "shotId": "S31",
+          "startUs": 17833333,
+          "endUs": 17875000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-cfe76f4ef4e9",
+          "shotId": "S32",
+          "startUs": 18000000,
+          "endUs": 18041667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-430ee34ddd46",
+          "shotId": "S32",
+          "startUs": 18166667,
+          "endUs": 18625000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-d00ff0017fd6",
+          "shotId": "S32",
+          "startUs": 18166667,
+          "endUs": 18375000,
+          "code": "unbound_subject",
+          "message": "出场尚未绑定叙事组，保留为待修正项"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-d00ff0017fd6",
+          "shotId": "S32",
+          "startUs": 18166667,
+          "endUs": 18375000,
+          "code": "animal_motion_unsupported",
+          "message": "动物动作求解尚未实现；代理占位不计为已还原动作"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-d00ff0017fd6",
+          "shotId": "S32",
+          "startUs": 18166667,
+          "endUs": 18375000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-3935e7fe35e3",
+          "shotId": "S33",
+          "startUs": 18666667,
+          "endUs": 18958333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-83d9734a148b",
+          "shotId": "S33",
+          "startUs": 18750000,
+          "endUs": 18791667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-4bf68fd9402f",
+          "shotId": "S34",
+          "startUs": 19000000,
+          "endUs": 19458333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-10c89510d4e3",
+          "shotId": "S35",
+          "startUs": 19500000,
+          "endUs": 20125000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-86a759befb7d",
+          "shotId": "S35",
+          "startUs": 19500000,
+          "endUs": 19583000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-74154b2e4159",
+          "shotId": "S35",
+          "startUs": 20000000,
+          "endUs": 20041667,
+          "code": "unbound_subject",
+          "message": "出场尚未绑定叙事组，保留为待修正项"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-74154b2e4159",
+          "shotId": "S35",
+          "startUs": 20000000,
+          "endUs": 20041667,
+          "code": "animal_motion_unsupported",
+          "message": "动物动作求解尚未实现；代理占位不计为已还原动作"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-74154b2e4159",
+          "shotId": "S35",
+          "startUs": 20000000,
+          "endUs": 20041667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-c151d4b43b75",
+          "shotId": "S36",
+          "startUs": 20333333,
+          "endUs": 20791667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-11d9ffbf8785",
+          "shotId": "S36",
+          "startUs": 20416667,
+          "endUs": 20458333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-36af36e7d13d",
+          "shotId": "S37",
+          "startUs": 20833333,
+          "endUs": 21208333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-cda815ca1c16",
+          "shotId": "S37",
+          "startUs": 20833333,
+          "endUs": 22375000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-f6be35c0e9e3",
+          "shotId": "S37",
+          "startUs": 21416667,
+          "endUs": 21458334,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-f6be35c0e9e3",
+          "shotId": "S37",
+          "startUs": 21541667,
+          "endUs": 21583000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-f6be35c0e9e3",
+          "shotId": "S37",
+          "startUs": 22041667,
+          "endUs": 22208334,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-f6be35c0e9e3",
+          "shotId": "S37",
+          "startUs": 22291667,
+          "endUs": 22375000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-fe435e633555",
+          "shotId": "S38",
+          "startUs": 22500000,
+          "endUs": 24041667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-25a7fb0e50ba",
+          "shotId": "S39",
+          "startUs": 24083333,
+          "endUs": 24708333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-172f312a6b3f",
+          "shotId": "S39",
+          "startUs": 24750000,
+          "endUs": 27625000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-74c0d13d54af",
+          "shotId": "S39",
+          "startUs": 24750000,
+          "endUs": 27625000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-e0824ff7b71d",
+          "shotId": "S39",
+          "startUs": 24916667,
+          "endUs": 24958333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-4e89c8c16bb0",
+          "shotId": "S39",
+          "startUs": 25666667,
+          "endUs": 25708333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-bcd79f094099",
+          "shotId": "S40",
+          "startUs": 27666667,
+          "endUs": 27708334,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-bcd79f094099",
+          "shotId": "S40",
+          "startUs": 27791667,
+          "endUs": 27875167,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-bcd79f094099",
+          "shotId": "S40",
+          "startUs": 27958500,
+          "endUs": 28458333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-3f8f64e94a58",
+          "shotId": "S40",
+          "startUs": 27666667,
+          "endUs": 27833000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-3f8f64e94a58",
+          "shotId": "S40",
+          "startUs": 28250000,
+          "endUs": 28291500,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-3f8f64e94a58",
+          "shotId": "S40",
+          "startUs": 28374834,
+          "endUs": 28458334,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-87e2a0bb8a78",
+          "shotId": "S40",
+          "startUs": 28750000,
+          "endUs": 29041500,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-87e2a0bb8a78",
+          "shotId": "S40",
+          "startUs": 29124834,
+          "endUs": 29208334,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-7665920459fb",
+          "shotId": "S41",
+          "startUs": 29583333,
+          "endUs": 30958333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-910a72aae290",
+          "shotId": "S41",
+          "startUs": 30083333,
+          "endUs": 30291667,
+          "code": "unbound_subject",
+          "message": "出场尚未绑定叙事组，保留为待修正项"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-910a72aae290",
+          "shotId": "S41",
+          "startUs": 30083333,
+          "endUs": 30291667,
+          "code": "animal_motion_unsupported",
+          "message": "动物动作求解尚未实现；代理占位不计为已还原动作"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-910a72aae290",
+          "shotId": "S41",
+          "startUs": 30083333,
+          "endUs": 30291667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-26f9ec8018cf",
+          "shotId": "S41",
+          "startUs": 30666667,
+          "endUs": 30875000,
+          "code": "unbound_subject",
+          "message": "出场尚未绑定叙事组，保留为待修正项"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-26f9ec8018cf",
+          "shotId": "S41",
+          "startUs": 30666667,
+          "endUs": 30875000,
+          "code": "animal_motion_unsupported",
+          "message": "动物动作求解尚未实现；代理占位不计为已还原动作"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-26f9ec8018cf",
+          "shotId": "S41",
+          "startUs": 30666667,
+          "endUs": 30875000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-aeb2a2aff9bf",
+          "shotId": "S41",
+          "startUs": 30750000,
+          "endUs": 30791667,
+          "code": "unbound_subject",
+          "message": "出场尚未绑定叙事组，保留为待修正项"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-aeb2a2aff9bf",
+          "shotId": "S41",
+          "startUs": 30750000,
+          "endUs": 30791667,
+          "code": "animal_motion_unsupported",
+          "message": "动物动作求解尚未实现；代理占位不计为已还原动作"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-aeb2a2aff9bf",
+          "shotId": "S41",
+          "startUs": 30750000,
+          "endUs": 30791667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-38efb631a9b1",
+          "shotId": "S42",
+          "startUs": 31000000,
+          "endUs": 32541667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-8e38b318b08e",
+          "shotId": "S43",
+          "startUs": 32583333,
+          "endUs": 33125000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-ca983aa20c36",
+          "shotId": "S44",
+          "startUs": 33166667,
+          "endUs": 37208333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-4f25798ba89b",
+          "shotId": "S44",
+          "startUs": 33250000,
+          "endUs": 33291667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-ee83ac959a49",
+          "shotId": "S44",
+          "startUs": 33333333,
+          "endUs": 37208333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-15f94619f3e8",
+          "shotId": "S44",
+          "startUs": 33666667,
+          "endUs": 33708333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-d0d25254bf56",
+          "shotId": "S44",
+          "startUs": 35166667,
+          "endUs": 35375000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-aea05e425b17",
+          "shotId": "S44",
+          "startUs": 35416667,
+          "endUs": 35458333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-f880eac2aaca",
+          "shotId": "S44",
+          "startUs": 36083333,
+          "endUs": 36125000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-a4b3760d5051",
+          "shotId": "S44",
+          "startUs": 36333333,
+          "endUs": 36375000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-d8358e6abd99",
+          "shotId": "S44",
+          "startUs": 36833333,
+          "endUs": 36875000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-a782c0875bfa",
+          "shotId": "S45",
+          "startUs": 37250000,
+          "endUs": 37958333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-3c0e22ba7897",
+          "shotId": "S45",
+          "startUs": 37250000,
+          "endUs": 39041667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-459f41463edf",
+          "shotId": "S45",
+          "startUs": 38000000,
+          "endUs": 38041667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-09262bbacdcc",
+          "shotId": "S45",
+          "startUs": 38166667,
+          "endUs": 38208333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-5811e94a33ef",
+          "shotId": "S45",
+          "startUs": 38416667,
+          "endUs": 39041667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-4b5d1404de99",
+          "shotId": "S45",
+          "startUs": 38500000,
+          "endUs": 38541667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-bf32ec233df3",
+          "shotId": "S46",
+          "startUs": 39083333,
+          "endUs": 39875000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-9e429ace746e",
+          "shotId": "S46",
+          "startUs": 39250000,
+          "endUs": 39875000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-77b2a7739f97",
+          "shotId": "S46",
+          "startUs": 39500000,
+          "endUs": 39625000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-3ce67d47c381",
+          "shotId": "S47",
+          "startUs": 39916667,
+          "endUs": 42208333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-fc10a2b8f6bc",
+          "shotId": "S47",
+          "startUs": 39916667,
+          "endUs": 42208333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-6409401eb03c",
+          "shotId": "S47",
+          "startUs": 42000000,
+          "endUs": 42041667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-7c7fd29a0731",
+          "shotId": "S48",
+          "startUs": 42250000,
+          "endUs": 42958333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-046a489b73b2",
+          "shotId": "S48",
+          "startUs": 42750000,
+          "endUs": 42958333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-7cce4d61b35e",
+          "shotId": "S49",
+          "startUs": 43000000,
+          "endUs": 43541667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-ccad207f3f8a",
+          "shotId": "S49",
+          "startUs": 43083333,
+          "endUs": 43125000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-3b0d436da6b2",
+          "shotId": "S50",
+          "startUs": 43583333,
+          "endUs": 43791667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-477367c8341f",
+          "shotId": "S50",
+          "startUs": 43583333,
+          "endUs": 43958333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-7f29ab1fa042",
+          "shotId": "S51",
+          "startUs": 44000000,
+          "endUs": 44041667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-f0f27518ed43",
+          "shotId": "S52",
+          "startUs": 44083333,
+          "endUs": 44375167,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-f0f27518ed43",
+          "shotId": "S52",
+          "startUs": 44458500,
+          "endUs": 44541500,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-f0f27518ed43",
+          "shotId": "S52",
+          "startUs": 44624834,
+          "endUs": 44791667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-9e4cae28f19c",
+          "shotId": "S52",
+          "startUs": 44750000,
+          "endUs": 44791667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-c09d211ab5b9",
+          "shotId": "S53",
+          "startUs": 44833333,
+          "endUs": 45041667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-32b9210e06f9",
+          "shotId": "S54",
+          "startUs": 45083333,
+          "endUs": 45625000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-e969e82af9a2",
+          "shotId": "S54",
+          "startUs": 45166667,
+          "endUs": 45375000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-5787eed378f9",
+          "shotId": "S55",
+          "startUs": 45666667,
+          "endUs": 46958333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-e511f512ae2b",
+          "shotId": "S55",
+          "startUs": 45750000,
+          "endUs": 46958333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-5591a1f4d9de",
+          "shotId": "S55",
+          "startUs": 46750000,
+          "endUs": 46875000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-f382b8080011",
+          "shotId": "S55",
+          "startUs": 46833333,
+          "endUs": 46958333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-3bbc64b2a8d2",
+          "shotId": "S56",
+          "startUs": 47000000,
+          "endUs": 49291667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-42c1766953c3",
+          "shotId": "S56",
+          "startUs": 47000000,
+          "endUs": 49291667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-ea339c86cd64",
+          "shotId": "S56",
+          "startUs": 48416667,
+          "endUs": 48458333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-d6d3535fe8f4",
+          "shotId": "S56",
+          "startUs": 49250000,
+          "endUs": 49291667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-f1c0f9978645",
+          "shotId": "S57",
+          "startUs": 49333333,
+          "endUs": 50125000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S01",
+          "startUs": 0,
+          "endUs": 541667,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S02",
+          "startUs": 541667,
+          "endUs": 916667,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S03",
+          "startUs": 916667,
+          "endUs": 1000000,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S04",
+          "startUs": 1000000,
+          "endUs": 1208333,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S05",
+          "startUs": 1208333,
+          "endUs": 1625000,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S06",
+          "startUs": 1625000,
+          "endUs": 1916667,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S07",
+          "startUs": 1916667,
+          "endUs": 2333333,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S08",
+          "startUs": 2333333,
+          "endUs": 3208333,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S09",
+          "startUs": 3208333,
+          "endUs": 4083333,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S10",
+          "startUs": 4083333,
+          "endUs": 4458333,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S11",
+          "startUs": 4458333,
+          "endUs": 5375000,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S12",
+          "startUs": 5375000,
+          "endUs": 5541667,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S13",
+          "startUs": 5541667,
+          "endUs": 5625000,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S14",
+          "startUs": 5625000,
+          "endUs": 5708333,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S15",
+          "startUs": 5708333,
+          "endUs": 6416667,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S16",
+          "startUs": 6416667,
+          "endUs": 6500000,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S17",
+          "startUs": 6500000,
+          "endUs": 6958333,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S18",
+          "startUs": 6958333,
+          "endUs": 7500000,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S19",
+          "startUs": 7500000,
+          "endUs": 8166667,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S20",
+          "startUs": 8166667,
+          "endUs": 9625000,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S21",
+          "startUs": 9625000,
+          "endUs": 10166667,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S22",
+          "startUs": 10166667,
+          "endUs": 10666667,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S23",
+          "startUs": 10666667,
+          "endUs": 11750000,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S24",
+          "startUs": 11750000,
+          "endUs": 12083333,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S25",
+          "startUs": 12083333,
+          "endUs": 13333333,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S26",
+          "startUs": 13333333,
+          "endUs": 14708333,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S27",
+          "startUs": 14708333,
+          "endUs": 15291667,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S28",
+          "startUs": 15291667,
+          "endUs": 16083333,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S29",
+          "startUs": 16083333,
+          "endUs": 16625000,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S30",
+          "startUs": 16625000,
+          "endUs": 17458333,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S31",
+          "startUs": 17458333,
+          "endUs": 17875000,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S32",
+          "startUs": 17875000,
+          "endUs": 18666667,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S33",
+          "startUs": 18666667,
+          "endUs": 18958333,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S34",
+          "startUs": 18958333,
+          "endUs": 19458333,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S35",
+          "startUs": 19458333,
+          "endUs": 20333333,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S36",
+          "startUs": 20333333,
+          "endUs": 20833333,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S37",
+          "startUs": 20833333,
+          "endUs": 22416667,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S38",
+          "startUs": 22416667,
+          "endUs": 24083333,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S39",
+          "startUs": 24083333,
+          "endUs": 27625000,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S40",
+          "startUs": 27625000,
+          "endUs": 29583333,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S41",
+          "startUs": 29583333,
+          "endUs": 30958333,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S42",
+          "startUs": 30958333,
+          "endUs": 32541667,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S43",
+          "startUs": 32541667,
+          "endUs": 33166667,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S44",
+          "startUs": 33166667,
+          "endUs": 37250000,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S45",
+          "startUs": 37250000,
+          "endUs": 39041667,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S46",
+          "startUs": 39041667,
+          "endUs": 39875000,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S47",
+          "startUs": 39875000,
+          "endUs": 42250000,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S48",
+          "startUs": 42250000,
+          "endUs": 43000000,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S49",
+          "startUs": 43000000,
+          "endUs": 43541667,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S50",
+          "startUs": 43541667,
+          "endUs": 44000000,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S51",
+          "startUs": 44000000,
+          "endUs": 44083333,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S52",
+          "startUs": 44083333,
+          "endUs": 44833333,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S53",
+          "startUs": 44833333,
+          "endUs": 45083333,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S54",
+          "startUs": 45083333,
+          "endUs": 45625000,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S55",
+          "startUs": 45625000,
+          "endUs": 47000000,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S56",
+          "startUs": 47000000,
+          "endUs": 49333333,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S57",
+          "startUs": 49333333,
+          "endUs": 50125000,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        }
+      ],
+      "note": "全片初稿可播放；动作缺口、动物能力和相机问题集中列出待修正"
+    }
+  },
+  "browser": {
+    "pageErrors": [],
+    "motionRequestCount": 7
+  },
+  "export": {
+    "exportId": "exp-2e65817fb809",
+    "instanceCount": 121,
+    "glbs": [
+      {
+        "characterId": "c-c2ae1a959744",
+        "file": "c-c2ae1a959744.glb",
+        "rig": "timeline-rigid-proxy-v3",
+        "proxyLevel": "CL0",
+        "rigFamily": "humanoid",
+        "clips": [
+          "motion-t-426d1fe98d17",
+          "motion-t-89bb791da794",
+          "motion-t-81f1d2bb16ed",
+          "motion-t-145acd3f73ba",
+          "motion-t-b3e686c8de5d",
+          "motion-t-9a0e8d92eafe",
+          "motion-t-42be962f39df",
+          "motion-t-bf3b6b72dcdb",
+          "motion-t-cd726764a149",
+          "motion-t-f91b60a1305a",
+          "motion-t-cb45a11f2ae3",
+          "motion-t-0647b3e7ca06",
+          "motion-t-d7fe1261d991",
+          "motion-t-0504cf134ee7",
+          "motion-t-18c8c8ee3ac7",
+          "motion-t-4120bc2df7e2",
+          "motion-t-8ab91c8814ec",
+          "motion-t-3fffa3cc5dc2",
+          "motion-t-d57cbbabd40d",
+          "motion-t-3625c9c203ec",
+          "motion-t-615a639a2ee8",
+          "motion-t-c3463b429ae6",
+          "motion-t-fba911de0ff2",
+          "motion-t-827eafa5b3cc",
+          "motion-t-27265e2218aa",
+          "motion-t-4fa7be7bcf61",
+          "motion-t-5bd4eec8e698",
+          "motion-t-3c73f16a823f",
+          "motion-t-b381e78f91be",
+          "motion-t-52ce7edd240e",
+          "motion-t-052a36751909",
+          "motion-t-0d588903c198",
+          "motion-t-c608a1421254",
+          "motion-t-88840b9650da",
+          "motion-t-75a306d13e30",
+          "motion-t-fc91da3ae5cc",
+          "motion-t-ce3dbc883814",
+          "motion-t-a0dafb18b854",
+          "motion-t-3357c5a49d5e",
+          "motion-t-14e3beb581b3",
+          "motion-t-6ab44fcf2222"
+        ],
+        "clipPlacements": [
+          {
+            "clip": "motion-t-426d1fe98d17",
+            "trackId": "t-426d1fe98d17",
+            "startUs": 0,
+            "endUs": 458333
+          },
+          {
+            "clip": "motion-t-89bb791da794",
+            "trackId": "t-89bb791da794",
+            "startUs": 1250000,
+            "endUs": 1625000
+          },
+          {
+            "clip": "motion-t-81f1d2bb16ed",
+            "trackId": "t-81f1d2bb16ed",
+            "startUs": 1666667,
+            "endUs": 1875000
+          },
+          {
+            "clip": "motion-t-145acd3f73ba",
+            "trackId": "t-145acd3f73ba",
+            "startUs": 2333333,
+            "endUs": 3208333
+          },
+          {
+            "clip": "motion-t-b3e686c8de5d",
+            "trackId": "t-b3e686c8de5d",
+            "startUs": 2916667,
+            "endUs": 2958333
+          },
+          {
+            "clip": "motion-t-9a0e8d92eafe",
+            "trackId": "t-9a0e8d92eafe",
+            "startUs": 3250000,
+            "endUs": 4041667
+          },
+          {
+            "clip": "motion-t-42be962f39df",
+            "trackId": "t-42be962f39df",
+            "startUs": 5500000,
+            "endUs": 5541667
+          },
+          {
+            "clip": "motion-t-bf3b6b72dcdb",
+            "trackId": "t-bf3b6b72dcdb",
+            "startUs": 5750000,
+            "endUs": 5791667
+          },
+          {
+            "clip": "motion-t-cd726764a149",
+            "trackId": "t-cd726764a149",
+            "startUs": 6083333,
+            "endUs": 6125000
+          },
+          {
+            "clip": "motion-t-f91b60a1305a",
+            "trackId": "t-f91b60a1305a",
+            "startUs": 6416667,
+            "endUs": 6458333
+          },
+          {
+            "clip": "motion-t-cb45a11f2ae3",
+            "trackId": "t-cb45a11f2ae3",
+            "startUs": 6583333,
+            "endUs": 6791667
+          },
+          {
+            "clip": "motion-t-0647b3e7ca06",
+            "trackId": "t-0647b3e7ca06",
+            "startUs": 7000000,
+            "endUs": 7208333
+          },
+          {
+            "clip": "motion-t-d7fe1261d991",
+            "trackId": "t-d7fe1261d991",
+            "startUs": 8166667,
+            "endUs": 8875000
+          },
+          {
+            "clip": "motion-t-0504cf134ee7",
+            "trackId": "t-0504cf134ee7",
+            "startUs": 14750000,
+            "endUs": 15291667
+          },
+          {
+            "clip": "motion-t-18c8c8ee3ac7",
+            "trackId": "t-18c8c8ee3ac7",
+            "startUs": 16583333,
+            "endUs": 16625000
+          },
+          {
+            "clip": "motion-t-4120bc2df7e2",
+            "trackId": "t-4120bc2df7e2",
+            "startUs": 18000000,
+            "endUs": 18041667
+          },
+          {
+            "clip": "motion-t-8ab91c8814ec",
+            "trackId": "t-8ab91c8814ec",
+            "startUs": 18750000,
+            "endUs": 18791667
+          },
+          {
+            "clip": "motion-t-3fffa3cc5dc2",
+            "trackId": "t-3fffa3cc5dc2",
+            "startUs": 19000000,
+            "endUs": 19458333
+          },
+          {
+            "clip": "motion-t-d57cbbabd40d",
+            "trackId": "t-d57cbbabd40d",
+            "startUs": 20333333,
+            "endUs": 20791667
+          },
+          {
+            "clip": "motion-t-3625c9c203ec",
+            "trackId": "t-3625c9c203ec",
+            "startUs": 20833333,
+            "endUs": 21208333
+          },
+          {
+            "clip": "motion-t-615a639a2ee8",
+            "trackId": "t-615a639a2ee8",
+            "startUs": 20833333,
+            "endUs": 22375000
+          },
+          {
+            "clip": "motion-t-c3463b429ae6",
+            "trackId": "t-c3463b429ae6",
+            "startUs": 24750000,
+            "endUs": 27625000
+          },
+          {
+            "clip": "motion-t-fba911de0ff2",
+            "trackId": "t-fba911de0ff2",
+            "startUs": 24750000,
+            "endUs": 27625000
+          },
+          {
+            "clip": "motion-t-827eafa5b3cc",
+            "trackId": "t-827eafa5b3cc",
+            "startUs": 27666667,
+            "endUs": 28458333
+          },
+          {
+            "clip": "motion-t-27265e2218aa",
+            "trackId": "t-27265e2218aa",
+            "startUs": 31000000,
+            "endUs": 32541667
+          },
+          {
+            "clip": "motion-t-4fa7be7bcf61",
+            "trackId": "t-4fa7be7bcf61",
+            "startUs": 32583333,
+            "endUs": 33125000
+          },
+          {
+            "clip": "motion-t-5bd4eec8e698",
+            "trackId": "t-5bd4eec8e698",
+            "startUs": 33666667,
+            "endUs": 33708333
+          },
+          {
+            "clip": "motion-t-3c73f16a823f",
+            "trackId": "t-3c73f16a823f",
+            "startUs": 36083333,
+            "endUs": 36125000
+          },
+          {
+            "clip": "motion-t-b381e78f91be",
+            "trackId": "t-b381e78f91be",
+            "startUs": 36333333,
+            "endUs": 36375000
+          },
+          {
+            "clip": "motion-t-52ce7edd240e",
+            "trackId": "t-52ce7edd240e",
+            "startUs": 36833333,
+            "endUs": 36875000
+          },
+          {
+            "clip": "motion-t-052a36751909",
+            "trackId": "t-052a36751909",
+            "startUs": 37250000,
+            "endUs": 37958333
+          },
+          {
+            "clip": "motion-t-0d588903c198",
+            "trackId": "t-0d588903c198",
+            "startUs": 38416667,
+            "endUs": 39041667
+          },
+          {
+            "clip": "motion-t-c608a1421254",
+            "trackId": "t-c608a1421254",
+            "startUs": 39083333,
+            "endUs": 39875000
+          },
+          {
+            "clip": "motion-t-88840b9650da",
+            "trackId": "t-88840b9650da",
+            "startUs": 39916667,
+            "endUs": 42208333
+          },
+          {
+            "clip": "motion-t-75a306d13e30",
+            "trackId": "t-75a306d13e30",
+            "startUs": 42000000,
+            "endUs": 42041667
+          },
+          {
+            "clip": "motion-t-fc91da3ae5cc",
+            "trackId": "t-fc91da3ae5cc",
+            "startUs": 42750000,
+            "endUs": 42958333
+          },
+          {
+            "clip": "motion-t-ce3dbc883814",
+            "trackId": "t-ce3dbc883814",
+            "startUs": 43583333,
+            "endUs": 43958333
+          },
+          {
+            "clip": "motion-t-a0dafb18b854",
+            "trackId": "t-a0dafb18b854",
+            "startUs": 44000000,
+            "endUs": 44041667
+          },
+          {
+            "clip": "motion-t-3357c5a49d5e",
+            "trackId": "t-3357c5a49d5e",
+            "startUs": 44750000,
+            "endUs": 44791667
+          },
+          {
+            "clip": "motion-t-14e3beb581b3",
+            "trackId": "t-14e3beb581b3",
+            "startUs": 45750000,
+            "endUs": 46958333
+          },
+          {
+            "clip": "motion-t-6ab44fcf2222",
+            "trackId": "t-6ab44fcf2222",
+            "startUs": 49333333,
+            "endUs": 50125000
+          }
+        ],
+        "frames": 1437
+      },
+      {
+        "characterId": "c-8a975d419488",
+        "file": "c-8a975d419488.glb",
+        "rig": "timeline-rigid-proxy-v3",
+        "proxyLevel": "CL1",
+        "rigFamily": "humanoid",
+        "clips": [
+          "motion-t-c1deda1f061f",
+          "motion-t-fb2bed7b4fa5",
+          "motion-t-121f7fea6ef7",
+          "motion-t-4ca2ab3dd285",
+          "motion-t-4768e500f4b4",
+          "motion-t-0cc4286237b8",
+          "motion-t-234197bd45c8",
+          "motion-t-23e85d30debb",
+          "motion-t-a36cf26c9af1",
+          "motion-t-cf7dbc332bbc",
+          "motion-t-caf3b81ed5d6",
+          "motion-t-4780ca6bef8b",
+          "motion-t-f58aa438aa4b",
+          "motion-t-985eb3c2e6d3",
+          "motion-t-3ba834f875d2",
+          "motion-t-bd000c0136c8",
+          "motion-t-f137ea1d9e01",
+          "motion-t-8ccbcc387cf7",
+          "motion-t-8540c6343b47",
+          "motion-t-13dea6c1fa0d",
+          "motion-t-5a7a2a8b85b7",
+          "motion-t-2a1321f2584a",
+          "motion-t-37225690ea75",
+          "motion-t-39423be40afc",
+          "motion-t-220fef2dde51",
+          "motion-t-11dfe8766314",
+          "motion-t-2b506434d9ff",
+          "motion-t-ea6ba7be67be",
+          "motion-t-df6dbcfe5f40",
+          "motion-t-d5caf3fdf97d",
+          "motion-t-78ddb65c9461",
+          "motion-t-e19db5b9a3e4",
+          "motion-t-25e03b847d27",
+          "motion-t-ea9ba22b718c",
+          "motion-t-2dca289f188a",
+          "motion-t-19f180dd551f",
+          "motion-t-c326ef905534",
+          "motion-t-31a31a35f323",
+          "motion-t-2da900d01ca6",
+          "motion-t-c13b80ac4fe3",
+          "motion-t-eb536b2711d7",
+          "motion-t-4e729a423cf5",
+          "motion-t-54eab59ee7e7"
+        ],
+        "clipPlacements": [
+          {
+            "clip": "motion-t-c1deda1f061f",
+            "trackId": "t-c1deda1f061f",
+            "startUs": 916667,
+            "endUs": 958333
+          },
+          {
+            "clip": "motion-t-fb2bed7b4fa5",
+            "trackId": "t-fb2bed7b4fa5",
+            "startUs": 2000000,
+            "endUs": 2291667
+          },
+          {
+            "clip": "motion-t-121f7fea6ef7",
+            "trackId": "t-121f7fea6ef7",
+            "startUs": 4083333,
+            "endUs": 4375000
+          },
+          {
+            "clip": "motion-t-4ca2ab3dd285",
+            "trackId": "t-4ca2ab3dd285",
+            "startUs": 5583333,
+            "endUs": 5625000
+          },
+          {
+            "clip": "motion-t-4768e500f4b4",
+            "trackId": "t-4768e500f4b4",
+            "startUs": 5583333,
+            "endUs": 5625000
+          },
+          {
+            "clip": "motion-t-0cc4286237b8",
+            "trackId": "t-0cc4286237b8",
+            "startUs": 5750000,
+            "endUs": 6375000
+          },
+          {
+            "clip": "motion-t-234197bd45c8",
+            "trackId": "t-234197bd45c8",
+            "startUs": 6500000,
+            "endUs": 6625000
+          },
+          {
+            "clip": "motion-t-23e85d30debb",
+            "trackId": "t-23e85d30debb",
+            "startUs": 7083333,
+            "endUs": 7458333
+          },
+          {
+            "clip": "motion-t-a36cf26c9af1",
+            "trackId": "t-a36cf26c9af1",
+            "startUs": 7500000,
+            "endUs": 8041667
+          },
+          {
+            "clip": "motion-t-cf7dbc332bbc",
+            "trackId": "t-cf7dbc332bbc",
+            "startUs": 8166667,
+            "endUs": 9041667
+          },
+          {
+            "clip": "motion-t-caf3b81ed5d6",
+            "trackId": "t-caf3b81ed5d6",
+            "startUs": 9250000,
+            "endUs": 9625000
+          },
+          {
+            "clip": "motion-t-4780ca6bef8b",
+            "trackId": "t-4780ca6bef8b",
+            "startUs": 9666667,
+            "endUs": 10125000
+          },
+          {
+            "clip": "motion-t-f58aa438aa4b",
+            "trackId": "t-f58aa438aa4b",
+            "startUs": 10166667,
+            "endUs": 10625000
+          },
+          {
+            "clip": "motion-t-985eb3c2e6d3",
+            "trackId": "t-985eb3c2e6d3",
+            "startUs": 10666667,
+            "endUs": 11708333
+          },
+          {
+            "clip": "motion-t-3ba834f875d2",
+            "trackId": "t-3ba834f875d2",
+            "startUs": 11666667,
+            "endUs": 11708333
+          },
+          {
+            "clip": "motion-t-bd000c0136c8",
+            "trackId": "t-bd000c0136c8",
+            "startUs": 12083333,
+            "endUs": 13291667
+          },
+          {
+            "clip": "motion-t-f137ea1d9e01",
+            "trackId": "t-f137ea1d9e01",
+            "startUs": 12333333,
+            "endUs": 12375000
+          },
+          {
+            "clip": "motion-t-8ccbcc387cf7",
+            "trackId": "t-8ccbcc387cf7",
+            "startUs": 13416667,
+            "endUs": 14708333
+          },
+          {
+            "clip": "motion-t-8540c6343b47",
+            "trackId": "t-8540c6343b47",
+            "startUs": 15333333,
+            "endUs": 16041667
+          },
+          {
+            "clip": "motion-t-13dea6c1fa0d",
+            "trackId": "t-13dea6c1fa0d",
+            "startUs": 16666667,
+            "endUs": 17458333
+          },
+          {
+            "clip": "motion-t-5a7a2a8b85b7",
+            "trackId": "t-5a7a2a8b85b7",
+            "startUs": 17250000,
+            "endUs": 17458333
+          },
+          {
+            "clip": "motion-t-2a1321f2584a",
+            "trackId": "t-2a1321f2584a",
+            "startUs": 17500000,
+            "endUs": 17875000
+          },
+          {
+            "clip": "motion-t-37225690ea75",
+            "trackId": "t-37225690ea75",
+            "startUs": 18166667,
+            "endUs": 18625000
+          },
+          {
+            "clip": "motion-t-39423be40afc",
+            "trackId": "t-39423be40afc",
+            "startUs": 19500000,
+            "endUs": 20125000
+          },
+          {
+            "clip": "motion-t-220fef2dde51",
+            "trackId": "t-220fef2dde51",
+            "startUs": 20166667,
+            "endUs": 20291667
+          },
+          {
+            "clip": "motion-t-11dfe8766314",
+            "trackId": "t-11dfe8766314",
+            "startUs": 20416667,
+            "endUs": 20458333
+          },
+          {
+            "clip": "motion-t-2b506434d9ff",
+            "trackId": "t-2b506434d9ff",
+            "startUs": 24916667,
+            "endUs": 24958333
+          },
+          {
+            "clip": "motion-t-ea6ba7be67be",
+            "trackId": "t-ea6ba7be67be",
+            "startUs": 27666667,
+            "endUs": 29541667
+          },
+          {
+            "clip": "motion-t-df6dbcfe5f40",
+            "trackId": "t-df6dbcfe5f40",
+            "startUs": 29583333,
+            "endUs": 30958333
+          },
+          {
+            "clip": "motion-t-d5caf3fdf97d",
+            "trackId": "t-d5caf3fdf97d",
+            "startUs": 33166667,
+            "endUs": 37208333
+          },
+          {
+            "clip": "motion-t-78ddb65c9461",
+            "trackId": "t-78ddb65c9461",
+            "startUs": 35166667,
+            "endUs": 35375000
+          },
+          {
+            "clip": "motion-t-e19db5b9a3e4",
+            "trackId": "t-e19db5b9a3e4",
+            "startUs": 37250000,
+            "endUs": 39041667
+          },
+          {
+            "clip": "motion-t-25e03b847d27",
+            "trackId": "t-25e03b847d27",
+            "startUs": 39250000,
+            "endUs": 39875000
+          },
+          {
+            "clip": "motion-t-ea9ba22b718c",
+            "trackId": "t-ea9ba22b718c",
+            "startUs": 39500000,
+            "endUs": 39625000
+          },
+          {
+            "clip": "motion-t-2dca289f188a",
+            "trackId": "t-2dca289f188a",
+            "startUs": 42250000,
+            "endUs": 42958333
+          },
+          {
+            "clip": "motion-t-19f180dd551f",
+            "trackId": "t-19f180dd551f",
+            "startUs": 43583333,
+            "endUs": 43791667
+          },
+          {
+            "clip": "motion-t-c326ef905534",
+            "trackId": "t-c326ef905534",
+            "startUs": 44083333,
+            "endUs": 44458333
+          },
+          {
+            "clip": "motion-t-31a31a35f323",
+            "trackId": "t-31a31a35f323",
+            "startUs": 44833333,
+            "endUs": 45041667
+          },
+          {
+            "clip": "motion-t-2da900d01ca6",
+            "trackId": "t-2da900d01ca6",
+            "startUs": 45083333,
+            "endUs": 45625000
+          },
+          {
+            "clip": "motion-t-c13b80ac4fe3",
+            "trackId": "t-c13b80ac4fe3",
+            "startUs": 45166667,
+            "endUs": 45375000
+          },
+          {
+            "clip": "motion-t-eb536b2711d7",
+            "trackId": "t-eb536b2711d7",
+            "startUs": 46750000,
+            "endUs": 46875000
+          },
+          {
+            "clip": "motion-t-4e729a423cf5",
+            "trackId": "t-4e729a423cf5",
+            "startUs": 46833333,
+            "endUs": 46958333
+          },
+          {
+            "clip": "motion-t-54eab59ee7e7",
+            "trackId": "t-54eab59ee7e7",
+            "startUs": 48416667,
+            "endUs": 48458333
+          }
+        ],
+        "frames": 1437
+      },
+      {
+        "characterId": "c-4b2f70e3d4eb",
+        "file": "c-4b2f70e3d4eb.glb",
+        "rig": "timeline-rigid-proxy-v3",
+        "proxyLevel": "CL2",
+        "rigFamily": "humanoid",
+        "clips": [
+          "motion-t-3f52444d14e4",
+          "motion-t-00c8aa1c73c1",
+          "motion-t-a0ca9fa27a32",
+          "motion-t-b459452e7758",
+          "motion-t-947e15b8f1db",
+          "motion-t-39ab0e101a7d",
+          "motion-t-226b6307c4d9",
+          "motion-t-eaa10182c3ba",
+          "motion-t-529b82d58fcd",
+          "motion-t-8c08bfde8190",
+          "motion-t-6a21615a8800",
+          "motion-t-0d79c71f5e34",
+          "motion-t-40a0fe8ac334",
+          "motion-t-17f7e29bf73c",
+          "motion-t-62cd2d2052bb",
+          "motion-t-cc126c74bd15",
+          "motion-t-9b4cc05b578b",
+          "motion-t-c5a2e2eb6f95",
+          "motion-t-8d5100438fb6",
+          "motion-t-072008e031f4",
+          "motion-t-5b1faa93ae1a",
+          "motion-t-881a88cabd6b",
+          "motion-t-767fc4fafcf6",
+          "motion-t-6a93a1e73bd6",
+          "motion-t-19c95232b330",
+          "motion-t-3bc49dbe077b",
+          "motion-t-ab9597796409",
+          "motion-t-89cd0c7dce8d",
+          "motion-t-1aedeef8feed",
+          "motion-t-bbf6dd60f529",
+          "motion-t-ad035ceaafce",
+          "motion-t-4a9184ff22b1",
+          "motion-t-f207ce4844a9",
+          "motion-t-4b473f11f022",
+          "motion-t-526e50f41e36",
+          "motion-t-3165b399706b",
+          "motion-t-96bf60bcefff"
+        ],
+        "clipPlacements": [
+          {
+            "clip": "motion-t-3f52444d14e4",
+            "trackId": "t-3f52444d14e4",
+            "startUs": 1000000,
+            "endUs": 1208333
+          },
+          {
+            "clip": "motion-t-00c8aa1c73c1",
+            "trackId": "t-00c8aa1c73c1",
+            "startUs": 1083333,
+            "endUs": 1208333
+          },
+          {
+            "clip": "motion-t-a0ca9fa27a32",
+            "trackId": "t-a0ca9fa27a32",
+            "startUs": 2583333,
+            "endUs": 2625000
+          },
+          {
+            "clip": "motion-t-b459452e7758",
+            "trackId": "t-b459452e7758",
+            "startUs": 4500000,
+            "endUs": 5375000
+          },
+          {
+            "clip": "motion-t-947e15b8f1db",
+            "trackId": "t-947e15b8f1db",
+            "startUs": 6333333,
+            "endUs": 6375000
+          },
+          {
+            "clip": "motion-t-39ab0e101a7d",
+            "trackId": "t-39ab0e101a7d",
+            "startUs": 6833333,
+            "endUs": 6958333
+          },
+          {
+            "clip": "motion-t-226b6307c4d9",
+            "trackId": "t-226b6307c4d9",
+            "startUs": 7000000,
+            "endUs": 7291667
+          },
+          {
+            "clip": "motion-t-eaa10182c3ba",
+            "trackId": "t-eaa10182c3ba",
+            "startUs": 7500000,
+            "endUs": 8041667
+          },
+          {
+            "clip": "motion-t-529b82d58fcd",
+            "trackId": "t-529b82d58fcd",
+            "startUs": 7583333,
+            "endUs": 7625000
+          },
+          {
+            "clip": "motion-t-8c08bfde8190",
+            "trackId": "t-8c08bfde8190",
+            "startUs": 7916667,
+            "endUs": 7958333
+          },
+          {
+            "clip": "motion-t-6a21615a8800",
+            "trackId": "t-6a21615a8800",
+            "startUs": 11750000,
+            "endUs": 12041667
+          },
+          {
+            "clip": "motion-t-0d79c71f5e34",
+            "trackId": "t-0d79c71f5e34",
+            "startUs": 12083333,
+            "endUs": 12375000
+          },
+          {
+            "clip": "motion-t-40a0fe8ac334",
+            "trackId": "t-40a0fe8ac334",
+            "startUs": 12916667,
+            "endUs": 13291667
+          },
+          {
+            "clip": "motion-t-17f7e29bf73c",
+            "trackId": "t-17f7e29bf73c",
+            "startUs": 16083333,
+            "endUs": 16541667
+          },
+          {
+            "clip": "motion-t-62cd2d2052bb",
+            "trackId": "t-62cd2d2052bb",
+            "startUs": 16666667,
+            "endUs": 16791667
+          },
+          {
+            "clip": "motion-t-cc126c74bd15",
+            "trackId": "t-cc126c74bd15",
+            "startUs": 17833333,
+            "endUs": 17875000
+          },
+          {
+            "clip": "motion-t-9b4cc05b578b",
+            "trackId": "t-9b4cc05b578b",
+            "startUs": 18666667,
+            "endUs": 18958333
+          },
+          {
+            "clip": "motion-t-c5a2e2eb6f95",
+            "trackId": "t-c5a2e2eb6f95",
+            "startUs": 19500000,
+            "endUs": 20291667
+          },
+          {
+            "clip": "motion-t-8d5100438fb6",
+            "trackId": "t-8d5100438fb6",
+            "startUs": 21416667,
+            "endUs": 22375000
+          },
+          {
+            "clip": "motion-t-072008e031f4",
+            "trackId": "t-072008e031f4",
+            "startUs": 22500000,
+            "endUs": 24041667
+          },
+          {
+            "clip": "motion-t-5b1faa93ae1a",
+            "trackId": "t-5b1faa93ae1a",
+            "startUs": 24083333,
+            "endUs": 24708333
+          },
+          {
+            "clip": "motion-t-881a88cabd6b",
+            "trackId": "t-881a88cabd6b",
+            "startUs": 25666667,
+            "endUs": 25708333
+          },
+          {
+            "clip": "motion-t-767fc4fafcf6",
+            "trackId": "t-767fc4fafcf6",
+            "startUs": 28750000,
+            "endUs": 29541667
+          },
+          {
+            "clip": "motion-t-6a93a1e73bd6",
+            "trackId": "t-6a93a1e73bd6",
+            "startUs": 33250000,
+            "endUs": 33291667
+          },
+          {
+            "clip": "motion-t-19c95232b330",
+            "trackId": "t-19c95232b330",
+            "startUs": 33333333,
+            "endUs": 37208333
+          },
+          {
+            "clip": "motion-t-3bc49dbe077b",
+            "trackId": "t-3bc49dbe077b",
+            "startUs": 35416667,
+            "endUs": 35458333
+          },
+          {
+            "clip": "motion-t-ab9597796409",
+            "trackId": "t-ab9597796409",
+            "startUs": 38000000,
+            "endUs": 38041667
+          },
+          {
+            "clip": "motion-t-89cd0c7dce8d",
+            "trackId": "t-89cd0c7dce8d",
+            "startUs": 38166667,
+            "endUs": 38208333
+          },
+          {
+            "clip": "motion-t-1aedeef8feed",
+            "trackId": "t-1aedeef8feed",
+            "startUs": 38500000,
+            "endUs": 38541667
+          },
+          {
+            "clip": "motion-t-bbf6dd60f529",
+            "trackId": "t-bbf6dd60f529",
+            "startUs": 39916667,
+            "endUs": 42208333
+          },
+          {
+            "clip": "motion-t-ad035ceaafce",
+            "trackId": "t-ad035ceaafce",
+            "startUs": 43000000,
+            "endUs": 43541667
+          },
+          {
+            "clip": "motion-t-4a9184ff22b1",
+            "trackId": "t-4a9184ff22b1",
+            "startUs": 43083333,
+            "endUs": 43125000
+          },
+          {
+            "clip": "motion-t-f207ce4844a9",
+            "trackId": "t-f207ce4844a9",
+            "startUs": 44083333,
+            "endUs": 44791667
+          },
+          {
+            "clip": "motion-t-4b473f11f022",
+            "trackId": "t-4b473f11f022",
+            "startUs": 45666667,
+            "endUs": 46958333
+          },
+          {
+            "clip": "motion-t-526e50f41e36",
+            "trackId": "t-526e50f41e36",
+            "startUs": 47000000,
+            "endUs": 49291667
+          },
+          {
+            "clip": "motion-t-3165b399706b",
+            "trackId": "t-3165b399706b",
+            "startUs": 47000000,
+            "endUs": 49291667
+          },
+          {
+            "clip": "motion-t-96bf60bcefff",
+            "trackId": "t-96bf60bcefff",
+            "startUs": 49250000,
+            "endUs": 49291667
+          }
+        ],
+        "frames": 1437
+      }
+    ],
+    "timelineSamples": 1437
+  },
+  "finalDraft": {
+    "shots": 57,
+    "people": 96,
+    "animals": 11,
+    "humanTracks": 121,
+    "animalTracks": 13,
+    "motions": 11,
+    "draft": {
+      "state": "ready_with_issues",
+      "coveragePct": 5,
+      "solvedCount": 11,
+      "boundCount": 121,
+      "visibleDurationUs": 71250003,
+      "solvedDurationUs": 3583330,
+      "subjectCoverage": {
+        "person": {
+          "visibleDurationUs": 70125001,
+          "solvedDurationUs": 3583330,
+          "coveragePct": 5.1
+        },
+        "animal": {
+          "visibleDurationUs": 1125002,
+          "solvedDurationUs": 0,
+          "coveragePct": 0
+        }
+      },
+      "issues": [
+        {
+          "severity": "warning",
+          "trackId": "t-426d1fe98d17",
+          "shotId": "S01",
+          "startUs": 0,
+          "endUs": 458333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-c1deda1f061f",
+          "shotId": "S03",
+          "startUs": 916667,
+          "endUs": 958333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-3f52444d14e4",
+          "shotId": "S04",
+          "startUs": 1000000,
+          "endUs": 1208333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-00c8aa1c73c1",
+          "shotId": "S04",
+          "startUs": 1083333,
+          "endUs": 1208333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-89bb791da794",
+          "shotId": "S05",
+          "startUs": 1250000,
+          "endUs": 1625000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-81f1d2bb16ed",
+          "shotId": "S06",
+          "startUs": 1666667,
+          "endUs": 1875000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-fb2bed7b4fa5",
+          "shotId": "S07",
+          "startUs": 2125000,
+          "endUs": 2208334,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-145acd3f73ba",
+          "shotId": "S08",
+          "startUs": 2333333,
+          "endUs": 3208333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-a0ca9fa27a32",
+          "shotId": "S08",
+          "startUs": 2583333,
+          "endUs": 2625000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-b3e686c8de5d",
+          "shotId": "S08",
+          "startUs": 2916667,
+          "endUs": 2958333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-30560513c750",
+          "shotId": "S08",
+          "startUs": 3000000,
+          "endUs": 3125000,
+          "code": "unbound_subject",
+          "message": "出场尚未绑定叙事组，保留为待修正项"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-30560513c750",
+          "shotId": "S08",
+          "startUs": 3000000,
+          "endUs": 3125000,
+          "code": "animal_motion_unsupported",
+          "message": "动物代理与动作求解尚未实现，尚未在三维中还原"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-30560513c750",
+          "shotId": "S08",
+          "startUs": 3000000,
+          "endUs": 3125000,
+          "code": "motion_gap",
+          "message": "该区间动物尚未在三维中还原"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-9a0e8d92eafe",
+          "shotId": "S09",
+          "startUs": 3250000,
+          "endUs": 4041667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-121f7fea6ef7",
+          "shotId": "S10",
+          "startUs": 4083333,
+          "endUs": 4375000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-b160e7780bcc",
+          "shotId": "S10",
+          "startUs": 4250000,
+          "endUs": 4291667,
+          "code": "unbound_subject",
+          "message": "出场尚未绑定叙事组，保留为待修正项"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-b160e7780bcc",
+          "shotId": "S10",
+          "startUs": 4250000,
+          "endUs": 4291667,
+          "code": "animal_motion_unsupported",
+          "message": "动物代理与动作求解尚未实现，尚未在三维中还原"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-b160e7780bcc",
+          "shotId": "S10",
+          "startUs": 4250000,
+          "endUs": 4291667,
+          "code": "motion_gap",
+          "message": "该区间动物尚未在三维中还原"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-b459452e7758",
+          "shotId": "S11",
+          "startUs": 4500000,
+          "endUs": 5375000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-42be962f39df",
+          "shotId": "S12",
+          "startUs": 5500000,
+          "endUs": 5541667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-4ca2ab3dd285",
+          "shotId": "S13",
+          "startUs": 5583333,
+          "endUs": 5625000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-4768e500f4b4",
+          "shotId": "S13",
+          "startUs": 5583333,
+          "endUs": 5625000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-603d443faca6",
+          "shotId": "S13",
+          "startUs": 5583333,
+          "endUs": 5625000,
+          "code": "unbound_subject",
+          "message": "出场尚未绑定叙事组，保留为待修正项"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-603d443faca6",
+          "shotId": "S13",
+          "startUs": 5583333,
+          "endUs": 5625000,
+          "code": "animal_motion_unsupported",
+          "message": "动物代理与动作求解尚未实现，尚未在三维中还原"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-603d443faca6",
+          "shotId": "S13",
+          "startUs": 5583333,
+          "endUs": 5625000,
+          "code": "motion_gap",
+          "message": "该区间动物尚未在三维中还原"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-bf3b6b72dcdb",
+          "shotId": "S15",
+          "startUs": 5750000,
+          "endUs": 5791667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-0cc4286237b8",
+          "shotId": "S15",
+          "startUs": 5750000,
+          "endUs": 6375000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-cd726764a149",
+          "shotId": "S15",
+          "startUs": 6083333,
+          "endUs": 6125000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-947e15b8f1db",
+          "shotId": "S15",
+          "startUs": 6333333,
+          "endUs": 6375000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-f91b60a1305a",
+          "shotId": "S16",
+          "startUs": 6416667,
+          "endUs": 6458333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-234197bd45c8",
+          "shotId": "S17",
+          "startUs": 6500000,
+          "endUs": 6625000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-cb45a11f2ae3",
+          "shotId": "S17",
+          "startUs": 6583333,
+          "endUs": 6791667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-39ab0e101a7d",
+          "shotId": "S17",
+          "startUs": 6833333,
+          "endUs": 6958333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-9921d922c8e1",
+          "shotId": "S17",
+          "startUs": 6833333,
+          "endUs": 6875000,
+          "code": "unbound_subject",
+          "message": "出场尚未绑定叙事组，保留为待修正项"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-9921d922c8e1",
+          "shotId": "S17",
+          "startUs": 6833333,
+          "endUs": 6875000,
+          "code": "animal_motion_unsupported",
+          "message": "动物代理与动作求解尚未实现，尚未在三维中还原"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-9921d922c8e1",
+          "shotId": "S17",
+          "startUs": 6833333,
+          "endUs": 6875000,
+          "code": "motion_gap",
+          "message": "该区间动物尚未在三维中还原"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-6d0138015ec5",
+          "shotId": "S17",
+          "startUs": 6916667,
+          "endUs": 6958333,
+          "code": "unbound_subject",
+          "message": "出场尚未绑定叙事组，保留为待修正项"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-6d0138015ec5",
+          "shotId": "S17",
+          "startUs": 6916667,
+          "endUs": 6958333,
+          "code": "animal_motion_unsupported",
+          "message": "动物代理与动作求解尚未实现，尚未在三维中还原"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-6d0138015ec5",
+          "shotId": "S17",
+          "startUs": 6916667,
+          "endUs": 6958333,
+          "code": "motion_gap",
+          "message": "该区间动物尚未在三维中还原"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-0647b3e7ca06",
+          "shotId": "S18",
+          "startUs": 7000000,
+          "endUs": 7208333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-226b6307c4d9",
+          "shotId": "S18",
+          "startUs": 7000000,
+          "endUs": 7291667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-23e85d30debb",
+          "shotId": "S18",
+          "startUs": 7083333,
+          "endUs": 7458333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-eaa10182c3ba",
+          "shotId": "S19",
+          "startUs": 7500000,
+          "endUs": 8041667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-a36cf26c9af1",
+          "shotId": "S19",
+          "startUs": 7500000,
+          "endUs": 8041667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-529b82d58fcd",
+          "shotId": "S19",
+          "startUs": 7583333,
+          "endUs": 7625000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-8c08bfde8190",
+          "shotId": "S19",
+          "startUs": 7916667,
+          "endUs": 7958333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-d7fe1261d991",
+          "shotId": "S20",
+          "startUs": 8166667,
+          "endUs": 8875000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-cf7dbc332bbc",
+          "shotId": "S20",
+          "startUs": 8208334,
+          "endUs": 8416667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-cf7dbc332bbc",
+          "shotId": "S20",
+          "startUs": 8541667,
+          "endUs": 9041667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-31476e061fdc",
+          "shotId": "S20",
+          "startUs": 8583333,
+          "endUs": 8625000,
+          "code": "unbound_subject",
+          "message": "出场尚未绑定叙事组，保留为待修正项"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-31476e061fdc",
+          "shotId": "S20",
+          "startUs": 8583333,
+          "endUs": 8625000,
+          "code": "animal_motion_unsupported",
+          "message": "动物代理与动作求解尚未实现，尚未在三维中还原"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-31476e061fdc",
+          "shotId": "S20",
+          "startUs": 8583333,
+          "endUs": 8625000,
+          "code": "motion_gap",
+          "message": "该区间动物尚未在三维中还原"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-817676576d34",
+          "shotId": "S20",
+          "startUs": 9083333,
+          "endUs": 9125000,
+          "code": "unbound_subject",
+          "message": "出场尚未绑定叙事组，保留为待修正项"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-817676576d34",
+          "shotId": "S20",
+          "startUs": 9083333,
+          "endUs": 9125000,
+          "code": "animal_motion_unsupported",
+          "message": "动物代理与动作求解尚未实现，尚未在三维中还原"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-817676576d34",
+          "shotId": "S20",
+          "startUs": 9083333,
+          "endUs": 9125000,
+          "code": "motion_gap",
+          "message": "该区间动物尚未在三维中还原"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-caf3b81ed5d6",
+          "shotId": "S20",
+          "startUs": 9250000,
+          "endUs": 9625000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-802e367cbe2e",
+          "shotId": "S20",
+          "startUs": 9250000,
+          "endUs": 9291667,
+          "code": "unbound_subject",
+          "message": "出场尚未绑定叙事组，保留为待修正项"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-802e367cbe2e",
+          "shotId": "S20",
+          "startUs": 9250000,
+          "endUs": 9291667,
+          "code": "animal_motion_unsupported",
+          "message": "动物代理与动作求解尚未实现，尚未在三维中还原"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-802e367cbe2e",
+          "shotId": "S20",
+          "startUs": 9250000,
+          "endUs": 9291667,
+          "code": "motion_gap",
+          "message": "该区间动物尚未在三维中还原"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-4780ca6bef8b",
+          "shotId": "S21",
+          "startUs": 9666667,
+          "endUs": 10125000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-f58aa438aa4b",
+          "shotId": "S22",
+          "startUs": 10166667,
+          "endUs": 10625000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-985eb3c2e6d3",
+          "shotId": "S23",
+          "startUs": 10666667,
+          "endUs": 11708333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-3ba834f875d2",
+          "shotId": "S23",
+          "startUs": 11666667,
+          "endUs": 11708333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-6a21615a8800",
+          "shotId": "S24",
+          "startUs": 11750000,
+          "endUs": 12041667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-0d79c71f5e34",
+          "shotId": "S25",
+          "startUs": 12083333,
+          "endUs": 12375000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-bd000c0136c8",
+          "shotId": "S25",
+          "startUs": 12083333,
+          "endUs": 13291667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-f137ea1d9e01",
+          "shotId": "S25",
+          "startUs": 12333333,
+          "endUs": 12375000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-40a0fe8ac334",
+          "shotId": "S25",
+          "startUs": 12916667,
+          "endUs": 13291667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-8ccbcc387cf7",
+          "shotId": "S26",
+          "startUs": 13416667,
+          "endUs": 14708333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-0504cf134ee7",
+          "shotId": "S27",
+          "startUs": 14750000,
+          "endUs": 15291667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-8540c6343b47",
+          "shotId": "S28",
+          "startUs": 15333333,
+          "endUs": 16041667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-17f7e29bf73c",
+          "shotId": "S29",
+          "startUs": 16083333,
+          "endUs": 16541667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-18c8c8ee3ac7",
+          "shotId": "S29",
+          "startUs": 16583333,
+          "endUs": 16625000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-62cd2d2052bb",
+          "shotId": "S30",
+          "startUs": 16666667,
+          "endUs": 16791667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-13dea6c1fa0d",
+          "shotId": "S30",
+          "startUs": 16666667,
+          "endUs": 17041667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-13dea6c1fa0d",
+          "shotId": "S30",
+          "startUs": 17291667,
+          "endUs": 17375000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-5a7a2a8b85b7",
+          "shotId": "S30",
+          "startUs": 17250000,
+          "endUs": 17458333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-2a1321f2584a",
+          "shotId": "S31",
+          "startUs": 17500000,
+          "endUs": 17875000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-cc126c74bd15",
+          "shotId": "S31",
+          "startUs": 17833333,
+          "endUs": 17875000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-4120bc2df7e2",
+          "shotId": "S32",
+          "startUs": 18000000,
+          "endUs": 18041667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-37225690ea75",
+          "shotId": "S32",
+          "startUs": 18166667,
+          "endUs": 18625000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-d73a07e07462",
+          "shotId": "S32",
+          "startUs": 18166667,
+          "endUs": 18375000,
+          "code": "unbound_subject",
+          "message": "出场尚未绑定叙事组，保留为待修正项"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-d73a07e07462",
+          "shotId": "S32",
+          "startUs": 18166667,
+          "endUs": 18375000,
+          "code": "animal_motion_unsupported",
+          "message": "动物代理与动作求解尚未实现，尚未在三维中还原"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-d73a07e07462",
+          "shotId": "S32",
+          "startUs": 18166667,
+          "endUs": 18375000,
+          "code": "motion_gap",
+          "message": "该区间动物尚未在三维中还原"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-9b4cc05b578b",
+          "shotId": "S33",
+          "startUs": 18666667,
+          "endUs": 18958333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-8ab91c8814ec",
+          "shotId": "S33",
+          "startUs": 18750000,
+          "endUs": 18791667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-3fffa3cc5dc2",
+          "shotId": "S34",
+          "startUs": 19000000,
+          "endUs": 19458333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-39423be40afc",
+          "shotId": "S35",
+          "startUs": 19500000,
+          "endUs": 20125000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-c5a2e2eb6f95",
+          "shotId": "S35",
+          "startUs": 19500000,
+          "endUs": 19708334,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-1c93eed9fb9c",
+          "shotId": "S35",
+          "startUs": 20000000,
+          "endUs": 20041667,
+          "code": "unbound_subject",
+          "message": "出场尚未绑定叙事组，保留为待修正项"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-1c93eed9fb9c",
+          "shotId": "S35",
+          "startUs": 20000000,
+          "endUs": 20041667,
+          "code": "animal_motion_unsupported",
+          "message": "动物代理与动作求解尚未实现，尚未在三维中还原"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-1c93eed9fb9c",
+          "shotId": "S35",
+          "startUs": 20000000,
+          "endUs": 20041667,
+          "code": "motion_gap",
+          "message": "该区间动物尚未在三维中还原"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-d57cbbabd40d",
+          "shotId": "S36",
+          "startUs": 20333333,
+          "endUs": 20791667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-11dfe8766314",
+          "shotId": "S36",
+          "startUs": 20416667,
+          "endUs": 20458333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-3625c9c203ec",
+          "shotId": "S37",
+          "startUs": 20833333,
+          "endUs": 21208333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-615a639a2ee8",
+          "shotId": "S37",
+          "startUs": 20833333,
+          "endUs": 22375000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-8d5100438fb6",
+          "shotId": "S37",
+          "startUs": 21416667,
+          "endUs": 21458334,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-8d5100438fb6",
+          "shotId": "S37",
+          "startUs": 21541667,
+          "endUs": 21708334,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-8d5100438fb6",
+          "shotId": "S37",
+          "startUs": 21875000,
+          "endUs": 21958334,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-8d5100438fb6",
+          "shotId": "S37",
+          "startUs": 22041667,
+          "endUs": 22208334,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-8d5100438fb6",
+          "shotId": "S37",
+          "startUs": 22291667,
+          "endUs": 22375000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-072008e031f4",
+          "shotId": "S38",
+          "startUs": 22500000,
+          "endUs": 24041667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-5b1faa93ae1a",
+          "shotId": "S39",
+          "startUs": 24083333,
+          "endUs": 24708333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-c3463b429ae6",
+          "shotId": "S39",
+          "startUs": 24750000,
+          "endUs": 27625000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-fba911de0ff2",
+          "shotId": "S39",
+          "startUs": 24750000,
+          "endUs": 27625000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-2b506434d9ff",
+          "shotId": "S39",
+          "startUs": 24916667,
+          "endUs": 24958333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-881a88cabd6b",
+          "shotId": "S39",
+          "startUs": 25666667,
+          "endUs": 25708333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-827eafa5b3cc",
+          "shotId": "S40",
+          "startUs": 27666667,
+          "endUs": 27708334,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-827eafa5b3cc",
+          "shotId": "S40",
+          "startUs": 27791667,
+          "endUs": 27875000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-827eafa5b3cc",
+          "shotId": "S40",
+          "startUs": 27958334,
+          "endUs": 28458333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-ea6ba7be67be",
+          "shotId": "S40",
+          "startUs": 27666667,
+          "endUs": 27958334,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-ea6ba7be67be",
+          "shotId": "S40",
+          "startUs": 28125000,
+          "endUs": 28291667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-ea6ba7be67be",
+          "shotId": "S40",
+          "startUs": 28375000,
+          "endUs": 28458334,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-ea6ba7be67be",
+          "shotId": "S40",
+          "startUs": 28541667,
+          "endUs": 28625000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-ea6ba7be67be",
+          "shotId": "S40",
+          "startUs": 28791667,
+          "endUs": 28958334,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-ea6ba7be67be",
+          "shotId": "S40",
+          "startUs": 29208334,
+          "endUs": 29375000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-767fc4fafcf6",
+          "shotId": "S40",
+          "startUs": 28750000,
+          "endUs": 29041667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-767fc4fafcf6",
+          "shotId": "S40",
+          "startUs": 29125000,
+          "endUs": 29208334,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-767fc4fafcf6",
+          "shotId": "S40",
+          "startUs": 29291667,
+          "endUs": 29375000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-df6dbcfe5f40",
+          "shotId": "S41",
+          "startUs": 29583333,
+          "endUs": 30958333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-f5e280597306",
+          "shotId": "S41",
+          "startUs": 30083333,
+          "endUs": 30291667,
+          "code": "unbound_subject",
+          "message": "出场尚未绑定叙事组，保留为待修正项"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-f5e280597306",
+          "shotId": "S41",
+          "startUs": 30083333,
+          "endUs": 30291667,
+          "code": "animal_motion_unsupported",
+          "message": "动物代理与动作求解尚未实现，尚未在三维中还原"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-f5e280597306",
+          "shotId": "S41",
+          "startUs": 30083333,
+          "endUs": 30291667,
+          "code": "motion_gap",
+          "message": "该区间动物尚未在三维中还原"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-19426d784889",
+          "shotId": "S41",
+          "startUs": 30666667,
+          "endUs": 30875000,
+          "code": "unbound_subject",
+          "message": "出场尚未绑定叙事组，保留为待修正项"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-19426d784889",
+          "shotId": "S41",
+          "startUs": 30666667,
+          "endUs": 30875000,
+          "code": "animal_motion_unsupported",
+          "message": "动物代理与动作求解尚未实现，尚未在三维中还原"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-19426d784889",
+          "shotId": "S41",
+          "startUs": 30666667,
+          "endUs": 30875000,
+          "code": "motion_gap",
+          "message": "该区间动物尚未在三维中还原"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-9d89211f3fc0",
+          "shotId": "S41",
+          "startUs": 30750000,
+          "endUs": 30791667,
+          "code": "unbound_subject",
+          "message": "出场尚未绑定叙事组，保留为待修正项"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-9d89211f3fc0",
+          "shotId": "S41",
+          "startUs": 30750000,
+          "endUs": 30791667,
+          "code": "animal_motion_unsupported",
+          "message": "动物代理与动作求解尚未实现，尚未在三维中还原"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-9d89211f3fc0",
+          "shotId": "S41",
+          "startUs": 30750000,
+          "endUs": 30791667,
+          "code": "motion_gap",
+          "message": "该区间动物尚未在三维中还原"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-27265e2218aa",
+          "shotId": "S42",
+          "startUs": 31000000,
+          "endUs": 32541667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-4fa7be7bcf61",
+          "shotId": "S43",
+          "startUs": 32583333,
+          "endUs": 33125000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-d5caf3fdf97d",
+          "shotId": "S44",
+          "startUs": 33166667,
+          "endUs": 37208333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-6a93a1e73bd6",
+          "shotId": "S44",
+          "startUs": 33250000,
+          "endUs": 33291667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-19c95232b330",
+          "shotId": "S44",
+          "startUs": 33333333,
+          "endUs": 37208333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-5bd4eec8e698",
+          "shotId": "S44",
+          "startUs": 33666667,
+          "endUs": 33708333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-78ddb65c9461",
+          "shotId": "S44",
+          "startUs": 35166667,
+          "endUs": 35375000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-3bc49dbe077b",
+          "shotId": "S44",
+          "startUs": 35416667,
+          "endUs": 35458333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-3c73f16a823f",
+          "shotId": "S44",
+          "startUs": 36083333,
+          "endUs": 36125000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-b381e78f91be",
+          "shotId": "S44",
+          "startUs": 36333333,
+          "endUs": 36375000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-52ce7edd240e",
+          "shotId": "S44",
+          "startUs": 36833333,
+          "endUs": 36875000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-052a36751909",
+          "shotId": "S45",
+          "startUs": 37250000,
+          "endUs": 37958333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-e19db5b9a3e4",
+          "shotId": "S45",
+          "startUs": 37250000,
+          "endUs": 39041667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-ab9597796409",
+          "shotId": "S45",
+          "startUs": 38000000,
+          "endUs": 38041667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-89cd0c7dce8d",
+          "shotId": "S45",
+          "startUs": 38166667,
+          "endUs": 38208333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-0d588903c198",
+          "shotId": "S45",
+          "startUs": 38416667,
+          "endUs": 39041667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-1aedeef8feed",
+          "shotId": "S45",
+          "startUs": 38500000,
+          "endUs": 38541667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-c608a1421254",
+          "shotId": "S46",
+          "startUs": 39083333,
+          "endUs": 39875000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-25e03b847d27",
+          "shotId": "S46",
+          "startUs": 39250000,
+          "endUs": 39875000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-ea9ba22b718c",
+          "shotId": "S46",
+          "startUs": 39500000,
+          "endUs": 39625000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-88840b9650da",
+          "shotId": "S47",
+          "startUs": 39916667,
+          "endUs": 42208333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-bbf6dd60f529",
+          "shotId": "S47",
+          "startUs": 39916667,
+          "endUs": 42208333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-75a306d13e30",
+          "shotId": "S47",
+          "startUs": 42000000,
+          "endUs": 42041667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-2dca289f188a",
+          "shotId": "S48",
+          "startUs": 42250000,
+          "endUs": 42958333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-fc91da3ae5cc",
+          "shotId": "S48",
+          "startUs": 42750000,
+          "endUs": 42958333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-ad035ceaafce",
+          "shotId": "S49",
+          "startUs": 43000000,
+          "endUs": 43541667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-4a9184ff22b1",
+          "shotId": "S49",
+          "startUs": 43083333,
+          "endUs": 43125000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-19f180dd551f",
+          "shotId": "S50",
+          "startUs": 43583333,
+          "endUs": 43791667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-ce3dbc883814",
+          "shotId": "S50",
+          "startUs": 43583333,
+          "endUs": 43958333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-a0dafb18b854",
+          "shotId": "S51",
+          "startUs": 44000000,
+          "endUs": 44041667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-c326ef905534",
+          "shotId": "S52",
+          "startUs": 44083333,
+          "endUs": 44208334,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-c326ef905534",
+          "shotId": "S52",
+          "startUs": 44375000,
+          "endUs": 44458333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-f207ce4844a9",
+          "shotId": "S52",
+          "startUs": 44083333,
+          "endUs": 44375000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-f207ce4844a9",
+          "shotId": "S52",
+          "startUs": 44458334,
+          "endUs": 44541667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-f207ce4844a9",
+          "shotId": "S52",
+          "startUs": 44625000,
+          "endUs": 44791667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-3357c5a49d5e",
+          "shotId": "S52",
+          "startUs": 44750000,
+          "endUs": 44791667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-31a31a35f323",
+          "shotId": "S53",
+          "startUs": 44833333,
+          "endUs": 45041667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-2da900d01ca6",
+          "shotId": "S54",
+          "startUs": 45083333,
+          "endUs": 45625000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-c13b80ac4fe3",
+          "shotId": "S54",
+          "startUs": 45166667,
+          "endUs": 45375000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-4b473f11f022",
+          "shotId": "S55",
+          "startUs": 45666667,
+          "endUs": 46958333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-14e3beb581b3",
+          "shotId": "S55",
+          "startUs": 45750000,
+          "endUs": 46958333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-eb536b2711d7",
+          "shotId": "S55",
+          "startUs": 46750000,
+          "endUs": 46875000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-4e729a423cf5",
+          "shotId": "S55",
+          "startUs": 46833333,
+          "endUs": 46958333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-526e50f41e36",
+          "shotId": "S56",
+          "startUs": 47000000,
+          "endUs": 49291667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-3165b399706b",
+          "shotId": "S56",
+          "startUs": 47000000,
+          "endUs": 49291667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-54eab59ee7e7",
+          "shotId": "S56",
+          "startUs": 48416667,
+          "endUs": 48458333,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-96bf60bcefff",
+          "shotId": "S56",
+          "startUs": 49250000,
+          "endUs": 49291667,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "severity": "warning",
+          "trackId": "t-6ab44fcf2222",
+          "shotId": "S57",
+          "startUs": 49333333,
+          "endUs": 50125000,
+          "code": "motion_gap",
+          "message": "该区间没有有效动作，播放时使用占位代理"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S01",
+          "startUs": 0,
+          "endUs": 541667,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S02",
+          "startUs": 541667,
+          "endUs": 916667,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S03",
+          "startUs": 916667,
+          "endUs": 1000000,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S04",
+          "startUs": 1000000,
+          "endUs": 1208333,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S05",
+          "startUs": 1208333,
+          "endUs": 1625000,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S06",
+          "startUs": 1625000,
+          "endUs": 1916667,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S07",
+          "startUs": 1916667,
+          "endUs": 2333333,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S08",
+          "startUs": 2333333,
+          "endUs": 3208333,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S09",
+          "startUs": 3208333,
+          "endUs": 4083333,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S10",
+          "startUs": 4083333,
+          "endUs": 4458333,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S11",
+          "startUs": 4458333,
+          "endUs": 5375000,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S12",
+          "startUs": 5375000,
+          "endUs": 5541667,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S13",
+          "startUs": 5541667,
+          "endUs": 5625000,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S14",
+          "startUs": 5625000,
+          "endUs": 5708333,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S15",
+          "startUs": 5708333,
+          "endUs": 6416667,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S16",
+          "startUs": 6416667,
+          "endUs": 6500000,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S17",
+          "startUs": 6500000,
+          "endUs": 6958333,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S18",
+          "startUs": 6958333,
+          "endUs": 7500000,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S19",
+          "startUs": 7500000,
+          "endUs": 8166667,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S20",
+          "startUs": 8166667,
+          "endUs": 9625000,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S21",
+          "startUs": 9625000,
+          "endUs": 10166667,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S22",
+          "startUs": 10166667,
+          "endUs": 10666667,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S23",
+          "startUs": 10666667,
+          "endUs": 11750000,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S24",
+          "startUs": 11750000,
+          "endUs": 12083333,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S25",
+          "startUs": 12083333,
+          "endUs": 13333333,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S26",
+          "startUs": 13333333,
+          "endUs": 14708333,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S27",
+          "startUs": 14708333,
+          "endUs": 15291667,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S28",
+          "startUs": 15291667,
+          "endUs": 16083333,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S29",
+          "startUs": 16083333,
+          "endUs": 16625000,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S30",
+          "startUs": 16625000,
+          "endUs": 17458333,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S31",
+          "startUs": 17458333,
+          "endUs": 17875000,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S32",
+          "startUs": 17875000,
+          "endUs": 18666667,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S33",
+          "startUs": 18666667,
+          "endUs": 18958333,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S34",
+          "startUs": 18958333,
+          "endUs": 19458333,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S35",
+          "startUs": 19458333,
+          "endUs": 20333333,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S36",
+          "startUs": 20333333,
+          "endUs": 20833333,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S37",
+          "startUs": 20833333,
+          "endUs": 22416667,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S38",
+          "startUs": 22416667,
+          "endUs": 24083333,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S39",
+          "startUs": 24083333,
+          "endUs": 27625000,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S40",
+          "startUs": 27625000,
+          "endUs": 29583333,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S41",
+          "startUs": 29583333,
+          "endUs": 30958333,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S42",
+          "startUs": 30958333,
+          "endUs": 32541667,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S43",
+          "startUs": 32541667,
+          "endUs": 33166667,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S44",
+          "startUs": 33166667,
+          "endUs": 37250000,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S45",
+          "startUs": 37250000,
+          "endUs": 39041667,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S46",
+          "startUs": 39041667,
+          "endUs": 39875000,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S47",
+          "startUs": 39875000,
+          "endUs": 42250000,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S48",
+          "startUs": 42250000,
+          "endUs": 43000000,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S49",
+          "startUs": 43000000,
+          "endUs": 43541667,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S50",
+          "startUs": 43541667,
+          "endUs": 44000000,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S51",
+          "startUs": 44000000,
+          "endUs": 44083333,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S52",
+          "startUs": 44083333,
+          "endUs": 44833333,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S53",
+          "startUs": 44833333,
+          "endUs": 45083333,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S54",
+          "startUs": 45083333,
+          "endUs": 45625000,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S55",
+          "startUs": 45625000,
+          "endUs": 47000000,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S56",
+          "startUs": 47000000,
+          "endUs": 49333333,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        },
+        {
+          "code": "camera_missing",
+          "severity": "warning",
+          "shotId": "S57",
+          "startUs": 49333333,
+          "endUs": 50125000,
+          "message": "镜头没有可用相机解，使用默认场景相机"
+        }
+      ],
+      "note": "全片初稿可播放；动作缺口、动物能力和相机问题集中列出待修正"
+    }
+  },
+  "status": "passed",
+  "finishedAt": "2026-09-26T20:00:27.228Z",
+  "previousAttempts": [
+    {
+      "status": "passed",
+      "errors": [],
+      "finishedAt": "2026-09-26T19:54:41.325Z"
+    }
+  ],
+  "cutMetrics": {
+    "rule": "one-to-one match within two source frames",
+    "truthShots": 47,
+    "predictedShots": 57,
+    "matches": 46,
+    "recall": 1,
+    "precision": 0.8214285714285714
+  },
+  "verification": {
+    "automatedTests": 132,
+    "failedTests": 0,
+    "skippedTests": 0,
+    "build": "passed",
+    "independentReview": "R01-R14 closed; quality limitations remain",
+    "serviceNote": "Original 8199 service restart rejected by environment policy; final version runs at 8211."
+  },
+  "samplerCoverageVerification": {
+    "bakedHumanSolvedUs": 3583331,
+    "bakedHumanVisibleUs": 70125001,
+    "serverHumanSolvedUs": 3583330,
+    "serverHumanVisibleUs": 70125001,
+    "differenceUs": 1
+  }
+}

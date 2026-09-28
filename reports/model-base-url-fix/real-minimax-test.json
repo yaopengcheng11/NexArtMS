@@ -1,0 +1,15 @@
+{
+  "scope": "One real MiniMax-M3 request using the saved configuration; synthetic PNG only, no project video.",
+  "endpoint": "https://api.minimax.cn/v1",
+  "requestEndpoint": "https://api.minimax.cn/v1/chat/completions",
+  "elapsedMs": 2643,
+  "profileUnchanged": true,
+  "test": {
+    "status": "success",
+    "visionPassed": true,
+    "message": "测试图识别正确，图片输入和 JSON 输出验证通过。",
+    "testedAt": "2026-09-27T06:55:55.310Z",
+    "modelId": "MiniMax-M3",
+    "profileRevision": "25cfba4b-a36a-4add-b80d-ee4c2015cb35"
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "passed": true,
+  "readOnly": true,
+  "project": "p-a581fb7a8dd2",
+  "base": "http://127.0.0.1:8214",
+  "runId": "sa-cbb409c451d6",
+  "checks": [
+    {
+      "name": "Honest blocked status, 0 of 57 analyzed, one actionable provider issue",
+      "passed": true
+    },
+    {
+      "name": "Preview decodes and actually plays",
+      "passed": true,
+      "readyState": 4,
+      "duration": 50.133,
+      "playedTo": 0.106155
+    },
+    {
+      "name": "Selected-shot source evidence images decode",
+      "passed": true,
+      "images": [
+        {
+          "width": 768,
+          "height": 432
+        },
+        {
+          "width": 768,
+          "height": 432
+        },
+        {
+          "width": 768,
+          "height": 432
+        },
+        {
+          "width": 768,
+          "height": 432
+        },
+        {
+          "width": 768,
+          "height": 432
+        }
+      ]
+    },
+    {
+      "name": "Read-only report link report.html",
+      "passed": true,
+      "status": 200
+    },
+    {
+      "name": "Read-only report link report.json",
+      "passed": true,
+      "status": 200
+    },
+    {
+      "name": "390 px mobile fits viewport; later 3D stage remains folded",
+      "passed": true,
+      "scrollWidth": 390,
+      "viewport": 390
+    }
+  ],
+  "errors": [],
+  "writes": [],
+  "final": {
+    "status": "blocked",
+    "counts": {
+      "total": 57,
+      "analyzed": 0,
+      "failed": 0,
+      "needsReview": 0,
+      "userEdited": 0
+    },
+    "issues": 1
+  }
+}

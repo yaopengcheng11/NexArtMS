@@ -5,15 +5,20 @@ import {canonicalBones, liftFrame, buildMotion, refineSkeleton} from '../studio/
 const WIDTH = 1280, HEIGHT = 720, FOCAL = 1500, CX = 640, CY = 360;
 const BODY_HEIGHT = 1.75;
 
-test('single hidden wrist, missing head and non-finite y are skipped without crashing', () => {
+test('a single hidden joint is estimated, never dropping the whole frame (P6 partial pose)', () => {
   for (const kind of ['wrist','head','y']) {
     const {keypoints}=makePose();
     if(kind==='wrist')keypoints[9].v=0.1;
     if(kind==='head')keypoints[0]=null;
     if(kind==='y')keypoints[10].y=NaN;
-    assert.equal(liftFrame(keypoints,{width:WIDTH,height:HEIGHT},canonicalBones(BODY_HEIGHT)),null);
-    const motion=buildMotion([{frame:0,timeS:0,keypoints}],{width:WIDTH,height:HEIGHT});
-    assert.equal(motion.report.skippedFrames,1);
+    const lifted = liftFrame(keypoints,{width:WIDTH,height:HEIGHT},canonicalBones(BODY_HEIGHT),{focalPx:FOCAL});
+    assert.ok(lifted, `${kind}: 部分姿态应可解而不是丢弃`);
+    assert.ok(lifted.estimated.size >= 1, `${kind}: 缺失关节应记入 estimated`);
+    const motion=buildMotion([{frame:0,timeS:0,keypoints}],{width:WIDTH,height:HEIGHT,focalPx:FOCAL});
+    assert.equal(motion.report.skippedFrames,0);
+    assert.equal(motion.report.frameCount,1);
+    // 骨长仍由构造保证
+    assert.ok(motion.report.maxBoneDeviationPct <= 0.1);
   }
 });
 
@@ -83,14 +88,68 @@ test('buildMotion produces fixed-bone frames, contacts and reports the A6 metric
   assert.equal(motion.frames.length, 8);
 });
 
-test('insufficient visible keypoints are skipped honestly', () => {
+test('legs-only close-up solves with estimated upper body; truly unanchored frames are skipped', () => {
   const {keypoints} = makePose({});
-  const poor = keypoints.map((point, index) => index < 11 ? null : point); // 只剩腿部
+  const legsOnly = keypoints.map((point, index) => index < 11 ? null : point); // 只剩腿部（髋/膝/踝）
   const bones = canonicalBones(BODY_HEIGHT);
-  assert.equal(liftFrame(poor, {width: WIDTH, height: HEIGHT}, bones, {focalPx: FOCAL}), null);
-  const motion = buildMotion([{frame: 0, timeS: 0, keypoints: poor}], {width: WIDTH, height: HEIGHT, bodyHeight: BODY_HEIGHT, focalPx: FOCAL});
-  assert.equal(motion.report.frameCount, 0);
-  assert.equal(motion.report.skippedFrames, 1);
+  const lifted = liftFrame(legsOnly, {width: WIDTH, height: HEIGHT}, bones, {focalPx: FOCAL});
+  assert.ok(lifted, '缺上身不应导致整帧丢弃（V2 §8.2）');
+  assert.equal(lifted.provenance, 'estimated');
+  for (const name of ['neck', 'head', 'shoulderL', 'shoulderR']) assert.ok(lifted.estimated.has(name), `${name} 应为估计关节`);
+  const motion = buildMotion([{frame: 0, timeS: 0, keypoints: legsOnly}], {width: WIDTH, height: HEIGHT, bodyHeight: BODY_HEIGHT, focalPx: FOCAL});
+  assert.equal(motion.report.frameCount, 1);
+  assert.equal(motion.report.estimatedFrames, 1);
+  // 上半身近景（无腿）同样可解
+  const upperOnly = keypoints.map((point, index) => index >= 11 && index <= 16 ? null : point);
+  const upper = liftFrame(upperOnly, {width: WIDTH, height: HEIGHT}, bones, {focalPx: FOCAL});
+  assert.ok(upper, '缺腿近景不应导致上半身全部丢弃');
+  for (const name of ['hipL', 'hipR', 'kneeL', 'kneeR', 'ankleL', 'ankleR']) assert.ok(upper.estimated.has(name), `${name} 应为估计关节`);
+  // 无锚点（只有两个踝和一个头，无髋/肩）→ 如实跳过
+  const unanchored = keypoints.map((point, index) => [0, 15, 16].includes(index) ? point : null);
+  assert.equal(liftFrame(unanchored, {width: WIDTH, height: HEIGHT}, bones, {focalPx: FOCAL}), null);
+  const skipped = buildMotion([{frame: 0, timeS: 0, keypoints: unanchored}], {width: WIDTH, height: HEIGHT, bodyHeight: BODY_HEIGHT, focalPx: FOCAL});
+  assert.equal(skipped.report.frameCount, 0);
+  assert.equal(skipped.report.skippedFrames, 1);
+});
+
+test('P6: short gaps are interpolated (marked), long gaps stay empty', () => {
+  const series = [];
+  for (let index = 0; index < 10; index++) {
+    const {keypoints} = makePose({height: 4 + index * 0.02});
+    series.push({frame: index, timeS: index / 10, keypoints: index === 4 ? null : keypoints});
+  }
+  const motion = buildMotion(series, {width: WIDTH, height: HEIGHT, bodyHeight: BODY_HEIGHT, focalPx: FOCAL, maxGapSeconds: 0.2});
+  assert.equal(motion.report.interpolatedFrames, 1, '10fps 下 0.2s 的单帧缺口应插值');
+  assert.equal(motion.frames[4].provenance, 'interpolated');
+  const between = motion.frames[4].joints.neck[2];
+  assert.ok(between > motion.frames[3].joints.neck[2] && between < motion.frames[5].joints.neck[2], '插值应在邻帧之间');
+  // 长缺口（0.5s）不插值
+  const longGap = series.map((item, index) => index >= 3 && index <= 7 ? {...item, keypoints: null} : item);
+  const motion2 = buildMotion(longGap, {width: WIDTH, height: HEIGHT, bodyHeight: BODY_HEIGHT, focalPx: FOCAL, maxGapSeconds: 0.2});
+  assert.equal(motion2.report.interpolatedFrames, 0);
+  assert.ok([3, 4, 5, 6, 7].every(index => motion2.frames[index] === null), '长缺口保持空洞');
+});
+
+test('P6: root facing comes from the chest normal instead of forcing camera-facing', () => {
+  const {keypoints} = makePose({});
+  const motion = buildMotion([{frame: 0, timeS: 0, keypoints}, {frame: 1, timeS: 0.1, keypoints}], {width: WIDTH, height: HEIGHT, bodyHeight: BODY_HEIGHT, focalPx: FOCAL});
+  const forward = motion.frames[0].forward;
+  assert.ok(forward, '观测帧应给出朝向');
+  assert.ok(Math.abs(forward[1]) > 0.9, `正面姿势的前向应主要在 ±Z：${forward}`);
+});
+
+test('P6: contact-phase foot planting removes world slide via root compensation', () => {
+  const series = [];
+  for (let index = 0; index < 12; index++) {
+    const {keypoints} = makePose({height: 4});
+    // 模拟缓慢的水平漂移（低于接触速度阈值，但足以累积可见脚滑）
+    for (const point of keypoints) if (point) point.x += index * 0.0006;
+    series.push({frame: index, timeS: index / 24, keypoints});
+  }
+  const motion = buildMotion(series, {width: WIDTH, height: HEIGHT, bodyHeight: BODY_HEIGHT, focalPx: FOCAL});
+  assert.ok(motion.report.plantedRuns >= 1, '应检出至少一段支撑接触');
+  assert.ok(motion.report.footSlideAfterPct <= 1.0, `锁定后残留脚滑应接近 0：${motion.report.footSlideAfterPct}%`);
+  assert.ok(motion.report.footSlideBeforePct > motion.report.footSlideAfterPct, '锁定前的脚滑应大于锁定后');
 });
 
 test('refineSkeleton converges from a perturbed realistic start', () => {
@@ -102,7 +161,10 @@ test('refineSkeleton converges from a perturbed realistic start', () => {
   for (const [name, index] of Object.entries(indexBy)) {
     if (index === null) continue;
     const point = keypoints[index];
-    jointPixels[name] = {u: point.x * WIDTH + (Math.random() - 0.5) * 8, v: point.y * HEIGHT + (Math.random() - 0.5) * 8};
+    // 确定性偏移（避免随机数导致的偶发收敛差异）
+    const jitterU = ((index * 37) % 9 - 4) * 0.8;
+    const jitterV = ((index * 53) % 9 - 4) * 0.8;
+    jointPixels[name] = {u: point.x * WIDTH + jitterU, v: point.y * HEIGHT + jitterV};
   }
   jointPixels.neck = {u: (jointPixels.shoulderL.u + jointPixels.shoulderR.u) / 2, v: (jointPixels.shoulderL.v + jointPixels.shoulderR.v) / 2};
   jointPixels.pelvis = {u: (jointPixels.hipL.u + jointPixels.hipR.u) / 2, v: (jointPixels.hipL.v + jointPixels.hipR.v) / 2};

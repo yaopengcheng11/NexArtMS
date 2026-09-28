@@ -1,0 +1,265 @@
+{
+  "startedAt": "2026-09-27T03:03:03.299Z",
+  "finishedAt": "2026-09-27T03:03:19.625Z",
+  "status": "passed_source_evidence_and_blocked_state",
+  "base": "http://127.0.0.1:8214",
+  "projectId": "p-a581fb7a8dd2",
+  "runId": "sa-cbb409c451d6",
+  "source": {
+    "sha256": "886e0c2c24b30b46a8e5c9112f3af6b6ecbcc97c3cf097578672ed29c7e36861",
+    "durationUs": 50125000,
+    "presentedFrames": 1203
+  },
+  "shots": 57,
+  "keyframes": 317,
+  "comparison": {
+    "referenceCuts": 46,
+    "detectedCuts": 56,
+    "matchedWithinOneFrame": 46,
+    "matches": [
+      {
+        "reference": 12,
+        "detected": 13
+      },
+      {
+        "reference": 23,
+        "detected": 22
+      },
+      {
+        "reference": 29,
+        "detected": 29
+      },
+      {
+        "reference": 39,
+        "detected": 39
+      },
+      {
+        "reference": 56,
+        "detected": 56
+      },
+      {
+        "reference": 77,
+        "detected": 77
+      },
+      {
+        "reference": 98,
+        "detected": 98
+      },
+      {
+        "reference": 107,
+        "detected": 107
+      },
+      {
+        "reference": 129,
+        "detected": 129
+      },
+      {
+        "reference": 137,
+        "detected": 137
+      },
+      {
+        "reference": 154,
+        "detected": 154
+      },
+      {
+        "reference": 167,
+        "detected": 167
+      },
+      {
+        "reference": 180,
+        "detected": 180
+      },
+      {
+        "reference": 196,
+        "detected": 196
+      },
+      {
+        "reference": 231,
+        "detected": 231
+      },
+      {
+        "reference": 244,
+        "detected": 244
+      },
+      {
+        "reference": 256,
+        "detected": 256
+      },
+      {
+        "reference": 290,
+        "detected": 290
+      },
+      {
+        "reference": 320,
+        "detected": 320
+      },
+      {
+        "reference": 353,
+        "detected": 353
+      },
+      {
+        "reference": 367,
+        "detected": 367
+      },
+      {
+        "reference": 386,
+        "detected": 386
+      },
+      {
+        "reference": 399,
+        "detected": 399
+      },
+      {
+        "reference": 419,
+        "detected": 419
+      },
+      {
+        "reference": 448,
+        "detected": 448
+      },
+      {
+        "reference": 455,
+        "detected": 455
+      },
+      {
+        "reference": 467,
+        "detected": 467
+      },
+      {
+        "reference": 488,
+        "detected": 488
+      },
+      {
+        "reference": 500,
+        "detected": 500
+      },
+      {
+        "reference": 538,
+        "detected": 538
+      },
+      {
+        "reference": 578,
+        "detected": 578
+      },
+      {
+        "reference": 663,
+        "detected": 663
+      },
+      {
+        "reference": 710,
+        "detected": 710
+      },
+      {
+        "reference": 743,
+        "detected": 743
+      },
+      {
+        "reference": 781,
+        "detected": 781
+      },
+      {
+        "reference": 894,
+        "detected": 894
+      },
+      {
+        "reference": 937,
+        "detected": 937
+      },
+      {
+        "reference": 957,
+        "detected": 957
+      },
+      {
+        "reference": 1014,
+        "detected": 1014
+      },
+      {
+        "reference": 1032,
+        "detected": 1032
+      },
+      {
+        "reference": 1045,
+        "detected": 1045
+      },
+      {
+        "reference": 1058,
+        "detected": 1058
+      },
+      {
+        "reference": 1076,
+        "detected": 1076
+      },
+      {
+        "reference": 1095,
+        "detected": 1095
+      },
+      {
+        "reference": 1128,
+        "detected": 1128
+      },
+      {
+        "reference": 1184,
+        "detected": 1184
+      }
+    ],
+    "missed": [],
+    "extra": [
+      24,
+      46,
+      133,
+      135,
+      156,
+      282,
+      429,
+      796,
+      1056,
+      1082
+    ]
+  },
+  "analysisStatus": "blocked",
+  "semanticShots": 0,
+  "provider": {
+    "configured": false,
+    "provider": null,
+    "model": null,
+    "reason": "视觉模型未配置：请明确设置 PROVIDER、MODEL、ENDPOINT 和 PROTOCOL；没有默认供应商。"
+  },
+  "jobs": [
+    {
+      "kind": "shot_report",
+      "state": "done",
+      "error": null
+    },
+    {
+      "kind": "shot_validate",
+      "state": "done",
+      "error": null
+    },
+    {
+      "kind": "shot_analyze",
+      "state": "failed",
+      "error": "视觉模型未配置：请明确设置 PROVIDER、MODEL、ENDPOINT 和 PROTOCOL；没有默认供应商。"
+    },
+    {
+      "kind": "shot_frames",
+      "state": "done",
+      "error": null
+    },
+    {
+      "kind": "cuts",
+      "state": "done",
+      "error": null
+    },
+    {
+      "kind": "pts",
+      "state": "done",
+      "error": null
+    },
+    {
+      "kind": "proxy",
+      "state": "done",
+      "error": null
+    }
+  ],
+  "limitation": "真实素材完成全片切镜、源帧证据与报告；尚未配置视觉模型，真实逐镜语义、人物/动物一致性和运镜判断未验收。localhost fixture只验证软件行为。"
+}

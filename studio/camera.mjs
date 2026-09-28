@@ -280,3 +280,44 @@ export function estimateCameraFromPersonBox({box, imageWidth, imageHeight, assum
     needsManualReview: true,
   };
 }
+
+// ---- P6-e 运镜时序：人物尺度推拉估计（明确标注为估计，不含真实外参）----
+// 由逐帧人物框高度拟合相机距离：d = f·H / h_px；中值滤波抑制抖动。
+// 输出 CameraSample 序列供播放/导出按时间采样，替代"每镜一个固定距离"。
+
+export function fitPersonDolly(frames, {imageHeight, assumedHeight = 1.75, fovDegrees = 55, windowSize = 5} = {}) {
+  const focalPx = (imageHeight / 2) / Math.tan((fovDegrees / 2) * Math.PI / 180);
+  const raw = [];
+  for (const frame of frames) {
+    const boxHeightPx = (frame.box?.h ?? 0) * imageHeight;
+    if (boxHeightPx < 4) continue;
+    raw.push({timeS: frame.timeS, distance: focalPx * assumedHeight / boxHeightPx});
+  }
+  if (raw.length < 2) return null;
+  // 中值滤波（窗口 windowSize）
+  const half = Math.floor(windowSize / 2);
+  const samples = raw.map((item, index) => {
+    const window = [];
+    for (let offset = -half; offset <= half; offset++) {
+      const neighbor = raw[index + offset];
+      if (neighbor) window.push(neighbor.distance);
+    }
+    window.sort((a, b) => a - b);
+    const distance = Math.max(1.5, Math.min(80, window[Math.floor(window.length / 2)]));
+    return {timeS: Number(item.timeS.toFixed(3)), distance: Number(distance.toFixed(3))};
+  });
+  const distances = samples.map(sample => sample.distance);
+  return {samples, minDistance: Math.min(...distances), maxDistance: Math.max(...distances), focalPx};
+}
+
+/** 由推拉距离生成相机样本：方向固定（默认 +Z 后方），目标为人物站立的舞台点。 */
+export function dollyCameraSamples(dolly, {target = [0, 1.0, 0], cameraHeight = 1.55, direction = null} = {}) {
+  if (!dolly) return null;
+  const dir = direction ? (() => {const norm = Math.hypot(direction[0], direction[1]) || 1;return [direction[0] / norm, direction[1] / norm];})() : [0, 1];
+  return dolly.samples.map(sample => ({
+    timeS: sample.timeS,
+    distance: sample.distance,
+    position: [Number((target[0] + dir[0] * sample.distance).toFixed(3)), cameraHeight, Number((target[2] + dir[1] * sample.distance).toFixed(3))],
+    target: [target[0], target[1], target[2]],
+  }));
+}

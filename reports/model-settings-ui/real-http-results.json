@@ -1,0 +1,119 @@
+{
+  "realHttp": true,
+  "isolatedFixtureRoot": true,
+  "base": "http://127.0.0.1:14157",
+  "calls": 1,
+  "secretStorage": "windows-dpapi",
+  "checks": [
+    "Actual full server GET returns 11 preset cards in native modal",
+    "Browser POST persists actual Windows DPAPI credential without plaintext in response, form, or saved JSON",
+    "Browser PATCH updates profile while omitted API key retains encrypted credential",
+    "Actual localhost HTTP vision test decodes random PNG; chosen model is verified and selected as default",
+    "Reload retains selected provider and test evidence; mobile layout remains within 390px width",
+    "Explicit clear-key PATCH removes stored credential and invalidates test; cancel-default disables automatic model",
+    "Confirmed browser DELETE removes fixture profile; all requests remained on localhost"
+  ],
+  "errors": [],
+  "requests": [
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:14157/?settings=models"
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:14157/assets/index-C7jyXAHy.js"
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:14157/assets/index-BrjLztZF.css"
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:14157/assets/studio-XqHtwKz8.js"
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:14157/assets/rig-Y2IhSNRP.js"
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:14157/assets/studio-BPC0ANen.css"
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:14157/api/studio/projects"
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:14157/api/studio/capabilities"
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:14157/api/studio/model-settings"
+    },
+    {
+      "method": "POST",
+      "url": "http://127.0.0.1:14157/api/studio/model-settings/profiles"
+    },
+    {
+      "method": "PATCH",
+      "url": "http://127.0.0.1:14157/api/studio/model-settings/profiles/provider-e0fc1521-6cf1-4e49-a9d4-3a7b34716cc0"
+    },
+    {
+      "method": "POST",
+      "url": "http://127.0.0.1:14157/api/studio/model-settings/profiles/provider-e0fc1521-6cf1-4e49-a9d4-3a7b34716cc0/test"
+    },
+    {
+      "method": "POST",
+      "url": "http://127.0.0.1:14157/api/studio/model-settings/select"
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:14157/?settings=models"
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:14157/assets/index-C7jyXAHy.js"
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:14157/assets/index-BrjLztZF.css"
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:14157/assets/studio-XqHtwKz8.js"
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:14157/assets/rig-Y2IhSNRP.js"
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:14157/assets/studio-BPC0ANen.css"
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:14157/api/studio/projects"
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:14157/api/studio/capabilities"
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:14157/api/studio/model-settings"
+    },
+    {
+      "method": "PATCH",
+      "url": "http://127.0.0.1:14157/api/studio/model-settings/profiles/provider-e0fc1521-6cf1-4e49-a9d4-3a7b34716cc0"
+    },
+    {
+      "method": "POST",
+      "url": "http://127.0.0.1:14157/api/studio/model-settings/select"
+    },
+    {
+      "method": "DELETE",
+      "url": "http://127.0.0.1:14157/api/studio/model-settings/profiles/provider-e0fc1521-6cf1-4e49-a9d4-3a7b34716cc0"
+    }
+  ]
+}

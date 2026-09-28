@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "before": {
+    "images": 46,
+    "buttons": 34,
+    "duration": 50.125,
+    "overflow": false
+  },
+  "download": "http://127.0.0.1:8212/dense/f0000.jpg",
+  "playback": {
+    "time": 20.344075,
+    "readyState": 4,
+    "error": null
+  },
+  "mobile": {
+    "overflow": false
+  },
+  "rawImages": 34,
+  "errors": [],
+  "failed": []
+}

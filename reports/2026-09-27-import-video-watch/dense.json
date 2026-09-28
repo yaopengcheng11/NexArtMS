@@ -1,0 +1,1145 @@
+{
+  "method": "4fps throughout; 12fps at 0-3.25s; original end frame",
+  "frames": [
+    {
+      "frame": 0,
+      "timestamp": 0.0,
+      "path": "dense/f0000.jpg"
+    },
+    {
+      "frame": 2,
+      "timestamp": 0.08333333333333333,
+      "path": "dense/f0002.jpg"
+    },
+    {
+      "frame": 4,
+      "timestamp": 0.16666666666666666,
+      "path": "dense/f0004.jpg"
+    },
+    {
+      "frame": 6,
+      "timestamp": 0.25,
+      "path": "dense/f0006.jpg"
+    },
+    {
+      "frame": 8,
+      "timestamp": 0.3333333333333333,
+      "path": "dense/f0008.jpg"
+    },
+    {
+      "frame": 10,
+      "timestamp": 0.4166666666666667,
+      "path": "dense/f0010.jpg"
+    },
+    {
+      "frame": 12,
+      "timestamp": 0.5,
+      "path": "dense/f0012.jpg"
+    },
+    {
+      "frame": 14,
+      "timestamp": 0.5833333333333334,
+      "path": "dense/f0014.jpg"
+    },
+    {
+      "frame": 16,
+      "timestamp": 0.6666666666666666,
+      "path": "dense/f0016.jpg"
+    },
+    {
+      "frame": 18,
+      "timestamp": 0.75,
+      "path": "dense/f0018.jpg"
+    },
+    {
+      "frame": 20,
+      "timestamp": 0.8333333333333334,
+      "path": "dense/f0020.jpg"
+    },
+    {
+      "frame": 22,
+      "timestamp": 0.9166666666666666,
+      "path": "dense/f0022.jpg"
+    },
+    {
+      "frame": 24,
+      "timestamp": 1.0,
+      "path": "dense/f0024.jpg"
+    },
+    {
+      "frame": 26,
+      "timestamp": 1.0833333333333333,
+      "path": "dense/f0026.jpg"
+    },
+    {
+      "frame": 28,
+      "timestamp": 1.1666666666666667,
+      "path": "dense/f0028.jpg"
+    },
+    {
+      "frame": 30,
+      "timestamp": 1.25,
+      "path": "dense/f0030.jpg"
+    },
+    {
+      "frame": 32,
+      "timestamp": 1.3333333333333333,
+      "path": "dense/f0032.jpg"
+    },
+    {
+      "frame": 34,
+      "timestamp": 1.4166666666666667,
+      "path": "dense/f0034.jpg"
+    },
+    {
+      "frame": 36,
+      "timestamp": 1.5,
+      "path": "dense/f0036.jpg"
+    },
+    {
+      "frame": 38,
+      "timestamp": 1.5833333333333333,
+      "path": "dense/f0038.jpg"
+    },
+    {
+      "frame": 40,
+      "timestamp": 1.6666666666666667,
+      "path": "dense/f0040.jpg"
+    },
+    {
+      "frame": 42,
+      "timestamp": 1.75,
+      "path": "dense/f0042.jpg"
+    },
+    {
+      "frame": 44,
+      "timestamp": 1.8333333333333333,
+      "path": "dense/f0044.jpg"
+    },
+    {
+      "frame": 46,
+      "timestamp": 1.9166666666666667,
+      "path": "dense/f0046.jpg"
+    },
+    {
+      "frame": 48,
+      "timestamp": 2.0,
+      "path": "dense/f0048.jpg"
+    },
+    {
+      "frame": 50,
+      "timestamp": 2.0833333333333335,
+      "path": "dense/f0050.jpg"
+    },
+    {
+      "frame": 52,
+      "timestamp": 2.1666666666666665,
+      "path": "dense/f0052.jpg"
+    },
+    {
+      "frame": 54,
+      "timestamp": 2.25,
+      "path": "dense/f0054.jpg"
+    },
+    {
+      "frame": 56,
+      "timestamp": 2.3333333333333335,
+      "path": "dense/f0056.jpg"
+    },
+    {
+      "frame": 58,
+      "timestamp": 2.4166666666666665,
+      "path": "dense/f0058.jpg"
+    },
+    {
+      "frame": 60,
+      "timestamp": 2.5,
+      "path": "dense/f0060.jpg"
+    },
+    {
+      "frame": 62,
+      "timestamp": 2.5833333333333335,
+      "path": "dense/f0062.jpg"
+    },
+    {
+      "frame": 64,
+      "timestamp": 2.6666666666666665,
+      "path": "dense/f0064.jpg"
+    },
+    {
+      "frame": 66,
+      "timestamp": 2.75,
+      "path": "dense/f0066.jpg"
+    },
+    {
+      "frame": 68,
+      "timestamp": 2.8333333333333335,
+      "path": "dense/f0068.jpg"
+    },
+    {
+      "frame": 70,
+      "timestamp": 2.9166666666666665,
+      "path": "dense/f0070.jpg"
+    },
+    {
+      "frame": 72,
+      "timestamp": 3.0,
+      "path": "dense/f0072.jpg"
+    },
+    {
+      "frame": 74,
+      "timestamp": 3.0833333333333335,
+      "path": "dense/f0074.jpg"
+    },
+    {
+      "frame": 76,
+      "timestamp": 3.1666666666666665,
+      "path": "dense/f0076.jpg"
+    },
+    {
+      "frame": 78,
+      "timestamp": 3.25,
+      "path": "dense/f0078.jpg"
+    },
+    {
+      "frame": 84,
+      "timestamp": 3.5,
+      "path": "dense/f0084.jpg"
+    },
+    {
+      "frame": 90,
+      "timestamp": 3.75,
+      "path": "dense/f0090.jpg"
+    },
+    {
+      "frame": 96,
+      "timestamp": 4.0,
+      "path": "dense/f0096.jpg"
+    },
+    {
+      "frame": 102,
+      "timestamp": 4.25,
+      "path": "dense/f0102.jpg"
+    },
+    {
+      "frame": 108,
+      "timestamp": 4.5,
+      "path": "dense/f0108.jpg"
+    },
+    {
+      "frame": 114,
+      "timestamp": 4.75,
+      "path": "dense/f0114.jpg"
+    },
+    {
+      "frame": 120,
+      "timestamp": 5.0,
+      "path": "dense/f0120.jpg"
+    },
+    {
+      "frame": 126,
+      "timestamp": 5.25,
+      "path": "dense/f0126.jpg"
+    },
+    {
+      "frame": 132,
+      "timestamp": 5.5,
+      "path": "dense/f0132.jpg"
+    },
+    {
+      "frame": 138,
+      "timestamp": 5.75,
+      "path": "dense/f0138.jpg"
+    },
+    {
+      "frame": 144,
+      "timestamp": 6.0,
+      "path": "dense/f0144.jpg"
+    },
+    {
+      "frame": 150,
+      "timestamp": 6.25,
+      "path": "dense/f0150.jpg"
+    },
+    {
+      "frame": 156,
+      "timestamp": 6.5,
+      "path": "dense/f0156.jpg"
+    },
+    {
+      "frame": 162,
+      "timestamp": 6.75,
+      "path": "dense/f0162.jpg"
+    },
+    {
+      "frame": 168,
+      "timestamp": 7.0,
+      "path": "dense/f0168.jpg"
+    },
+    {
+      "frame": 174,
+      "timestamp": 7.25,
+      "path": "dense/f0174.jpg"
+    },
+    {
+      "frame": 180,
+      "timestamp": 7.5,
+      "path": "dense/f0180.jpg"
+    },
+    {
+      "frame": 186,
+      "timestamp": 7.75,
+      "path": "dense/f0186.jpg"
+    },
+    {
+      "frame": 192,
+      "timestamp": 8.0,
+      "path": "dense/f0192.jpg"
+    },
+    {
+      "frame": 198,
+      "timestamp": 8.25,
+      "path": "dense/f0198.jpg"
+    },
+    {
+      "frame": 204,
+      "timestamp": 8.5,
+      "path": "dense/f0204.jpg"
+    },
+    {
+      "frame": 210,
+      "timestamp": 8.75,
+      "path": "dense/f0210.jpg"
+    },
+    {
+      "frame": 216,
+      "timestamp": 9.0,
+      "path": "dense/f0216.jpg"
+    },
+    {
+      "frame": 222,
+      "timestamp": 9.25,
+      "path": "dense/f0222.jpg"
+    },
+    {
+      "frame": 228,
+      "timestamp": 9.5,
+      "path": "dense/f0228.jpg"
+    },
+    {
+      "frame": 234,
+      "timestamp": 9.75,
+      "path": "dense/f0234.jpg"
+    },
+    {
+      "frame": 240,
+      "timestamp": 10.0,
+      "path": "dense/f0240.jpg"
+    },
+    {
+      "frame": 246,
+      "timestamp": 10.25,
+      "path": "dense/f0246.jpg"
+    },
+    {
+      "frame": 252,
+      "timestamp": 10.5,
+      "path": "dense/f0252.jpg"
+    },
+    {
+      "frame": 258,
+      "timestamp": 10.75,
+      "path": "dense/f0258.jpg"
+    },
+    {
+      "frame": 264,
+      "timestamp": 11.0,
+      "path": "dense/f0264.jpg"
+    },
+    {
+      "frame": 270,
+      "timestamp": 11.25,
+      "path": "dense/f0270.jpg"
+    },
+    {
+      "frame": 276,
+      "timestamp": 11.5,
+      "path": "dense/f0276.jpg"
+    },
+    {
+      "frame": 282,
+      "timestamp": 11.75,
+      "path": "dense/f0282.jpg"
+    },
+    {
+      "frame": 288,
+      "timestamp": 12.0,
+      "path": "dense/f0288.jpg"
+    },
+    {
+      "frame": 294,
+      "timestamp": 12.25,
+      "path": "dense/f0294.jpg"
+    },
+    {
+      "frame": 300,
+      "timestamp": 12.5,
+      "path": "dense/f0300.jpg"
+    },
+    {
+      "frame": 306,
+      "timestamp": 12.75,
+      "path": "dense/f0306.jpg"
+    },
+    {
+      "frame": 312,
+      "timestamp": 13.0,
+      "path": "dense/f0312.jpg"
+    },
+    {
+      "frame": 318,
+      "timestamp": 13.25,
+      "path": "dense/f0318.jpg"
+    },
+    {
+      "frame": 324,
+      "timestamp": 13.5,
+      "path": "dense/f0324.jpg"
+    },
+    {
+      "frame": 330,
+      "timestamp": 13.75,
+      "path": "dense/f0330.jpg"
+    },
+    {
+      "frame": 336,
+      "timestamp": 14.0,
+      "path": "dense/f0336.jpg"
+    },
+    {
+      "frame": 342,
+      "timestamp": 14.25,
+      "path": "dense/f0342.jpg"
+    },
+    {
+      "frame": 348,
+      "timestamp": 14.5,
+      "path": "dense/f0348.jpg"
+    },
+    {
+      "frame": 354,
+      "timestamp": 14.75,
+      "path": "dense/f0354.jpg"
+    },
+    {
+      "frame": 360,
+      "timestamp": 15.0,
+      "path": "dense/f0360.jpg"
+    },
+    {
+      "frame": 366,
+      "timestamp": 15.25,
+      "path": "dense/f0366.jpg"
+    },
+    {
+      "frame": 372,
+      "timestamp": 15.5,
+      "path": "dense/f0372.jpg"
+    },
+    {
+      "frame": 378,
+      "timestamp": 15.75,
+      "path": "dense/f0378.jpg"
+    },
+    {
+      "frame": 384,
+      "timestamp": 16.0,
+      "path": "dense/f0384.jpg"
+    },
+    {
+      "frame": 390,
+      "timestamp": 16.25,
+      "path": "dense/f0390.jpg"
+    },
+    {
+      "frame": 396,
+      "timestamp": 16.5,
+      "path": "dense/f0396.jpg"
+    },
+    {
+      "frame": 402,
+      "timestamp": 16.75,
+      "path": "dense/f0402.jpg"
+    },
+    {
+      "frame": 408,
+      "timestamp": 17.0,
+      "path": "dense/f0408.jpg"
+    },
+    {
+      "frame": 414,
+      "timestamp": 17.25,
+      "path": "dense/f0414.jpg"
+    },
+    {
+      "frame": 420,
+      "timestamp": 17.5,
+      "path": "dense/f0420.jpg"
+    },
+    {
+      "frame": 426,
+      "timestamp": 17.75,
+      "path": "dense/f0426.jpg"
+    },
+    {
+      "frame": 432,
+      "timestamp": 18.0,
+      "path": "dense/f0432.jpg"
+    },
+    {
+      "frame": 438,
+      "timestamp": 18.25,
+      "path": "dense/f0438.jpg"
+    },
+    {
+      "frame": 444,
+      "timestamp": 18.5,
+      "path": "dense/f0444.jpg"
+    },
+    {
+      "frame": 450,
+      "timestamp": 18.75,
+      "path": "dense/f0450.jpg"
+    },
+    {
+      "frame": 456,
+      "timestamp": 19.0,
+      "path": "dense/f0456.jpg"
+    },
+    {
+      "frame": 462,
+      "timestamp": 19.25,
+      "path": "dense/f0462.jpg"
+    },
+    {
+      "frame": 468,
+      "timestamp": 19.5,
+      "path": "dense/f0468.jpg"
+    },
+    {
+      "frame": 474,
+      "timestamp": 19.75,
+      "path": "dense/f0474.jpg"
+    },
+    {
+      "frame": 480,
+      "timestamp": 20.0,
+      "path": "dense/f0480.jpg"
+    },
+    {
+      "frame": 486,
+      "timestamp": 20.25,
+      "path": "dense/f0486.jpg"
+    },
+    {
+      "frame": 492,
+      "timestamp": 20.5,
+      "path": "dense/f0492.jpg"
+    },
+    {
+      "frame": 498,
+      "timestamp": 20.75,
+      "path": "dense/f0498.jpg"
+    },
+    {
+      "frame": 504,
+      "timestamp": 21.0,
+      "path": "dense/f0504.jpg"
+    },
+    {
+      "frame": 510,
+      "timestamp": 21.25,
+      "path": "dense/f0510.jpg"
+    },
+    {
+      "frame": 516,
+      "timestamp": 21.5,
+      "path": "dense/f0516.jpg"
+    },
+    {
+      "frame": 522,
+      "timestamp": 21.75,
+      "path": "dense/f0522.jpg"
+    },
+    {
+      "frame": 528,
+      "timestamp": 22.0,
+      "path": "dense/f0528.jpg"
+    },
+    {
+      "frame": 534,
+      "timestamp": 22.25,
+      "path": "dense/f0534.jpg"
+    },
+    {
+      "frame": 540,
+      "timestamp": 22.5,
+      "path": "dense/f0540.jpg"
+    },
+    {
+      "frame": 546,
+      "timestamp": 22.75,
+      "path": "dense/f0546.jpg"
+    },
+    {
+      "frame": 552,
+      "timestamp": 23.0,
+      "path": "dense/f0552.jpg"
+    },
+    {
+      "frame": 558,
+      "timestamp": 23.25,
+      "path": "dense/f0558.jpg"
+    },
+    {
+      "frame": 564,
+      "timestamp": 23.5,
+      "path": "dense/f0564.jpg"
+    },
+    {
+      "frame": 570,
+      "timestamp": 23.75,
+      "path": "dense/f0570.jpg"
+    },
+    {
+      "frame": 576,
+      "timestamp": 24.0,
+      "path": "dense/f0576.jpg"
+    },
+    {
+      "frame": 582,
+      "timestamp": 24.25,
+      "path": "dense/f0582.jpg"
+    },
+    {
+      "frame": 588,
+      "timestamp": 24.5,
+      "path": "dense/f0588.jpg"
+    },
+    {
+      "frame": 594,
+      "timestamp": 24.75,
+      "path": "dense/f0594.jpg"
+    },
+    {
+      "frame": 600,
+      "timestamp": 25.0,
+      "path": "dense/f0600.jpg"
+    },
+    {
+      "frame": 606,
+      "timestamp": 25.25,
+      "path": "dense/f0606.jpg"
+    },
+    {
+      "frame": 612,
+      "timestamp": 25.5,
+      "path": "dense/f0612.jpg"
+    },
+    {
+      "frame": 618,
+      "timestamp": 25.75,
+      "path": "dense/f0618.jpg"
+    },
+    {
+      "frame": 624,
+      "timestamp": 26.0,
+      "path": "dense/f0624.jpg"
+    },
+    {
+      "frame": 630,
+      "timestamp": 26.25,
+      "path": "dense/f0630.jpg"
+    },
+    {
+      "frame": 636,
+      "timestamp": 26.5,
+      "path": "dense/f0636.jpg"
+    },
+    {
+      "frame": 642,
+      "timestamp": 26.75,
+      "path": "dense/f0642.jpg"
+    },
+    {
+      "frame": 648,
+      "timestamp": 27.0,
+      "path": "dense/f0648.jpg"
+    },
+    {
+      "frame": 654,
+      "timestamp": 27.25,
+      "path": "dense/f0654.jpg"
+    },
+    {
+      "frame": 660,
+      "timestamp": 27.5,
+      "path": "dense/f0660.jpg"
+    },
+    {
+      "frame": 666,
+      "timestamp": 27.75,
+      "path": "dense/f0666.jpg"
+    },
+    {
+      "frame": 672,
+      "timestamp": 28.0,
+      "path": "dense/f0672.jpg"
+    },
+    {
+      "frame": 678,
+      "timestamp": 28.25,
+      "path": "dense/f0678.jpg"
+    },
+    {
+      "frame": 684,
+      "timestamp": 28.5,
+      "path": "dense/f0684.jpg"
+    },
+    {
+      "frame": 690,
+      "timestamp": 28.75,
+      "path": "dense/f0690.jpg"
+    },
+    {
+      "frame": 696,
+      "timestamp": 29.0,
+      "path": "dense/f0696.jpg"
+    },
+    {
+      "frame": 702,
+      "timestamp": 29.25,
+      "path": "dense/f0702.jpg"
+    },
+    {
+      "frame": 708,
+      "timestamp": 29.5,
+      "path": "dense/f0708.jpg"
+    },
+    {
+      "frame": 714,
+      "timestamp": 29.75,
+      "path": "dense/f0714.jpg"
+    },
+    {
+      "frame": 720,
+      "timestamp": 30.0,
+      "path": "dense/f0720.jpg"
+    },
+    {
+      "frame": 726,
+      "timestamp": 30.25,
+      "path": "dense/f0726.jpg"
+    },
+    {
+      "frame": 732,
+      "timestamp": 30.5,
+      "path": "dense/f0732.jpg"
+    },
+    {
+      "frame": 738,
+      "timestamp": 30.75,
+      "path": "dense/f0738.jpg"
+    },
+    {
+      "frame": 744,
+      "timestamp": 31.0,
+      "path": "dense/f0744.jpg"
+    },
+    {
+      "frame": 750,
+      "timestamp": 31.25,
+      "path": "dense/f0750.jpg"
+    },
+    {
+      "frame": 756,
+      "timestamp": 31.5,
+      "path": "dense/f0756.jpg"
+    },
+    {
+      "frame": 762,
+      "timestamp": 31.75,
+      "path": "dense/f0762.jpg"
+    },
+    {
+      "frame": 768,
+      "timestamp": 32.0,
+      "path": "dense/f0768.jpg"
+    },
+    {
+      "frame": 774,
+      "timestamp": 32.25,
+      "path": "dense/f0774.jpg"
+    },
+    {
+      "frame": 780,
+      "timestamp": 32.5,
+      "path": "dense/f0780.jpg"
+    },
+    {
+      "frame": 786,
+      "timestamp": 32.75,
+      "path": "dense/f0786.jpg"
+    },
+    {
+      "frame": 792,
+      "timestamp": 33.0,
+      "path": "dense/f0792.jpg"
+    },
+    {
+      "frame": 798,
+      "timestamp": 33.25,
+      "path": "dense/f0798.jpg"
+    },
+    {
+      "frame": 804,
+      "timestamp": 33.5,
+      "path": "dense/f0804.jpg"
+    },
+    {
+      "frame": 810,
+      "timestamp": 33.75,
+      "path": "dense/f0810.jpg"
+    },
+    {
+      "frame": 816,
+      "timestamp": 34.0,
+      "path": "dense/f0816.jpg"
+    },
+    {
+      "frame": 822,
+      "timestamp": 34.25,
+      "path": "dense/f0822.jpg"
+    },
+    {
+      "frame": 828,
+      "timestamp": 34.5,
+      "path": "dense/f0828.jpg"
+    },
+    {
+      "frame": 834,
+      "timestamp": 34.75,
+      "path": "dense/f0834.jpg"
+    },
+    {
+      "frame": 840,
+      "timestamp": 35.0,
+      "path": "dense/f0840.jpg"
+    },
+    {
+      "frame": 846,
+      "timestamp": 35.25,
+      "path": "dense/f0846.jpg"
+    },
+    {
+      "frame": 852,
+      "timestamp": 35.5,
+      "path": "dense/f0852.jpg"
+    },
+    {
+      "frame": 858,
+      "timestamp": 35.75,
+      "path": "dense/f0858.jpg"
+    },
+    {
+      "frame": 864,
+      "timestamp": 36.0,
+      "path": "dense/f0864.jpg"
+    },
+    {
+      "frame": 870,
+      "timestamp": 36.25,
+      "path": "dense/f0870.jpg"
+    },
+    {
+      "frame": 876,
+      "timestamp": 36.5,
+      "path": "dense/f0876.jpg"
+    },
+    {
+      "frame": 882,
+      "timestamp": 36.75,
+      "path": "dense/f0882.jpg"
+    },
+    {
+      "frame": 888,
+      "timestamp": 37.0,
+      "path": "dense/f0888.jpg"
+    },
+    {
+      "frame": 894,
+      "timestamp": 37.25,
+      "path": "dense/f0894.jpg"
+    },
+    {
+      "frame": 900,
+      "timestamp": 37.5,
+      "path": "dense/f0900.jpg"
+    },
+    {
+      "frame": 906,
+      "timestamp": 37.75,
+      "path": "dense/f0906.jpg"
+    },
+    {
+      "frame": 912,
+      "timestamp": 38.0,
+      "path": "dense/f0912.jpg"
+    },
+    {
+      "frame": 918,
+      "timestamp": 38.25,
+      "path": "dense/f0918.jpg"
+    },
+    {
+      "frame": 924,
+      "timestamp": 38.5,
+      "path": "dense/f0924.jpg"
+    },
+    {
+      "frame": 930,
+      "timestamp": 38.75,
+      "path": "dense/f0930.jpg"
+    },
+    {
+      "frame": 936,
+      "timestamp": 39.0,
+      "path": "dense/f0936.jpg"
+    },
+    {
+      "frame": 942,
+      "timestamp": 39.25,
+      "path": "dense/f0942.jpg"
+    },
+    {
+      "frame": 948,
+      "timestamp": 39.5,
+      "path": "dense/f0948.jpg"
+    },
+    {
+      "frame": 954,
+      "timestamp": 39.75,
+      "path": "dense/f0954.jpg"
+    },
+    {
+      "frame": 960,
+      "timestamp": 40.0,
+      "path": "dense/f0960.jpg"
+    },
+    {
+      "frame": 966,
+      "timestamp": 40.25,
+      "path": "dense/f0966.jpg"
+    },
+    {
+      "frame": 972,
+      "timestamp": 40.5,
+      "path": "dense/f0972.jpg"
+    },
+    {
+      "frame": 978,
+      "timestamp": 40.75,
+      "path": "dense/f0978.jpg"
+    },
+    {
+      "frame": 984,
+      "timestamp": 41.0,
+      "path": "dense/f0984.jpg"
+    },
+    {
+      "frame": 990,
+      "timestamp": 41.25,
+      "path": "dense/f0990.jpg"
+    },
+    {
+      "frame": 996,
+      "timestamp": 41.5,
+      "path": "dense/f0996.jpg"
+    },
+    {
+      "frame": 1002,
+      "timestamp": 41.75,
+      "path": "dense/f1002.jpg"
+    },
+    {
+      "frame": 1008,
+      "timestamp": 42.0,
+      "path": "dense/f1008.jpg"
+    },
+    {
+      "frame": 1014,
+      "timestamp": 42.25,
+      "path": "dense/f1014.jpg"
+    },
+    {
+      "frame": 1020,
+      "timestamp": 42.5,
+      "path": "dense/f1020.jpg"
+    },
+    {
+      "frame": 1026,
+      "timestamp": 42.75,
+      "path": "dense/f1026.jpg"
+    },
+    {
+      "frame": 1032,
+      "timestamp": 43.0,
+      "path": "dense/f1032.jpg"
+    },
+    {
+      "frame": 1038,
+      "timestamp": 43.25,
+      "path": "dense/f1038.jpg"
+    },
+    {
+      "frame": 1044,
+      "timestamp": 43.5,
+      "path": "dense/f1044.jpg"
+    },
+    {
+      "frame": 1050,
+      "timestamp": 43.75,
+      "path": "dense/f1050.jpg"
+    },
+    {
+      "frame": 1056,
+      "timestamp": 44.0,
+      "path": "dense/f1056.jpg"
+    },
+    {
+      "frame": 1062,
+      "timestamp": 44.25,
+      "path": "dense/f1062.jpg"
+    },
+    {
+      "frame": 1068,
+      "timestamp": 44.5,
+      "path": "dense/f1068.jpg"
+    },
+    {
+      "frame": 1074,
+      "timestamp": 44.75,
+      "path": "dense/f1074.jpg"
+    },
+    {
+      "frame": 1080,
+      "timestamp": 45.0,
+      "path": "dense/f1080.jpg"
+    },
+    {
+      "frame": 1086,
+      "timestamp": 45.25,
+      "path": "dense/f1086.jpg"
+    },
+    {
+      "frame": 1092,
+      "timestamp": 45.5,
+      "path": "dense/f1092.jpg"
+    },
+    {
+      "frame": 1098,
+      "timestamp": 45.75,
+      "path": "dense/f1098.jpg"
+    },
+    {
+      "frame": 1104,
+      "timestamp": 46.0,
+      "path": "dense/f1104.jpg"
+    },
+    {
+      "frame": 1110,
+      "timestamp": 46.25,
+      "path": "dense/f1110.jpg"
+    },
+    {
+      "frame": 1116,
+      "timestamp": 46.5,
+      "path": "dense/f1116.jpg"
+    },
+    {
+      "frame": 1122,
+      "timestamp": 46.75,
+      "path": "dense/f1122.jpg"
+    },
+    {
+      "frame": 1128,
+      "timestamp": 47.0,
+      "path": "dense/f1128.jpg"
+    },
+    {
+      "frame": 1134,
+      "timestamp": 47.25,
+      "path": "dense/f1134.jpg"
+    },
+    {
+      "frame": 1140,
+      "timestamp": 47.5,
+      "path": "dense/f1140.jpg"
+    },
+    {
+      "frame": 1146,
+      "timestamp": 47.75,
+      "path": "dense/f1146.jpg"
+    },
+    {
+      "frame": 1152,
+      "timestamp": 48.0,
+      "path": "dense/f1152.jpg"
+    },
+    {
+      "frame": 1158,
+      "timestamp": 48.25,
+      "path": "dense/f1158.jpg"
+    },
+    {
+      "frame": 1164,
+      "timestamp": 48.5,
+      "path": "dense/f1164.jpg"
+    },
+    {
+      "frame": 1170,
+      "timestamp": 48.75,
+      "path": "dense/f1170.jpg"
+    },
+    {
+      "frame": 1176,
+      "timestamp": 49.0,
+      "path": "dense/f1176.jpg"
+    },
+    {
+      "frame": 1182,
+      "timestamp": 49.25,
+      "path": "dense/f1182.jpg"
+    },
+    {
+      "frame": 1188,
+      "timestamp": 49.5,
+      "path": "dense/f1188.jpg"
+    },
+    {
+      "frame": 1194,
+      "timestamp": 49.75,
+      "path": "dense/f1194.jpg"
+    },
+    {
+      "frame": 1200,
+      "timestamp": 50.0,
+      "path": "dense/f1200.jpg"
+    },
+    {
+      "frame": 1202,
+      "timestamp": 50.083333333333336,
+      "path": "dense/f1202.jpg"
+    }
+  ]
+}

@@ -9,12 +9,12 @@ export const newId = prefix => prefix + '-' + crypto.randomUUID().replaceAll('-'
 export const nowIso = () => new Date().toISOString();
 export const stableHash = value => crypto.createHash('sha256').update(JSON.stringify(value)).digest('hex').slice(0, 16);
 
-export const SCHEMA_VERSION = 5;
+export const SCHEMA_VERSION = 9;
 export const PHASES = ['draft', 'analyzed', 'cast_confirmed', 'keyframes_confirmed', 'motion_confirmed', 'delivered'];
 export const PHASE_LABELS = {draft: '草稿', analyzed: '素材已分析', cast_confirmed: '角色已确认', keyframes_confirmed: '关键姿态已确认（未实现）', motion_confirmed: '动作已确认（未实现）', delivered: '已交付（未实现）'};
 export const SCENE_MODES = ['proxy', 'reconstruct'];
 export const SCENE_STATUSES = ['not_requested', 'pending', 'approved'];
-export const ALGORITHM_VERSIONS = {cuts: 'histogram-v1', tracker: 'iou-observations-v2', detector: 'none', motion: 'fixed-bone-lift-v1', camera: 'dlt-gn-pnp-v1', export: 'proxy-segments-package-v2'};
+export const ALGORITHM_VERSIONS = {cuts: 'histogram-v1', tracker: 'iou-observations-v2', detector: 'none', motion: 'fixed-bone-lift-v1', camera: 'dlt-gn-pnp-v1', export: 'timeline-rigid-proxy-v3', shot_frames: 'source-pts-keyframes-v1', shot_analyze: 'reelbench-vision-v1', shot_validate: 'shot-evidence-v1', shot_report: 'shot-report-v1'};
 
 const SCHEMA = `
 CREATE TABLE IF NOT EXISTS projects(
@@ -51,6 +51,8 @@ CREATE TABLE IF NOT EXISTS tracks(
   start_us INTEGER NOT NULL, end_us INTEGER NOT NULL,
   box TEXT NOT NULL, confidence REAL NOT NULL DEFAULT 1, provenance TEXT NOT NULL,
   status TEXT NOT NULL DEFAULT 'active', observations_ref TEXT, motion_ref TEXT,
+  subject TEXT NOT NULL DEFAULT 'person',
+  species TEXT,
   created_at TEXT NOT NULL, updated_at TEXT NOT NULL
 );
 CREATE INDEX IF NOT EXISTS tracks_project ON tracks(project_id, shot_id, status);
@@ -58,6 +60,8 @@ CREATE TABLE IF NOT EXISTS characters(
   id TEXT PRIMARY KEY, project_id TEXT NOT NULL, revision TEXT NOT NULL,
   name TEXT NOT NULL, color TEXT NOT NULL, scale REAL NOT NULL,
   rig_ref TEXT NOT NULL DEFAULT '', allow_simultaneous INTEGER NOT NULL DEFAULT 0,
+  proxy_level TEXT NOT NULL DEFAULT 'CL1', rig_family TEXT NOT NULL DEFAULT 'humanoid',
+  provisional INTEGER NOT NULL DEFAULT 0,
   created_at TEXT NOT NULL, updated_at TEXT NOT NULL
 );
 CREATE INDEX IF NOT EXISTS characters_project ON characters(project_id);
@@ -71,7 +75,7 @@ CREATE TABLE IF NOT EXISTS jobs(
   id TEXT PRIMARY KEY, project_id TEXT NOT NULL, kind TEXT NOT NULL,
   state TEXT NOT NULL, progress REAL NOT NULL DEFAULT 0,
   input_hash TEXT NOT NULL DEFAULT '', algorithm_version TEXT NOT NULL DEFAULT '',
-  error TEXT, output TEXT, cancel_requested INTEGER NOT NULL DEFAULT 0,
+  error TEXT, output TEXT, cancel_requested INTEGER NOT NULL DEFAULT 0, options TEXT,
   created_at TEXT NOT NULL, updated_at TEXT NOT NULL, heartbeat_at TEXT NOT NULL
 );
 CREATE INDEX IF NOT EXISTS jobs_project ON jobs(project_id, created_at);
@@ -86,6 +90,20 @@ CREATE TABLE IF NOT EXISTS camera_tracks(
   evidence TEXT NOT NULL, created_at TEXT NOT NULL
 );
 CREATE INDEX IF NOT EXISTS camera_tracks_project ON camera_tracks(project_id, shot_id);
+CREATE TABLE IF NOT EXISTS shot_analysis_runs(
+  id TEXT PRIMARY KEY, project_id TEXT NOT NULL, revision TEXT NOT NULL,
+  media_hash TEXT NOT NULL, shot_set_hash TEXT NOT NULL, base_shot_set_hash TEXT NOT NULL,
+  candidate INTEGER NOT NULL DEFAULT 0, status TEXT NOT NULL, stage TEXT NOT NULL,
+  metadata TEXT NOT NULL DEFAULT '{}', created_at TEXT NOT NULL, updated_at TEXT NOT NULL
+);
+CREATE INDEX IF NOT EXISTS shot_analysis_runs_project ON shot_analysis_runs(project_id, created_at);
+CREATE TABLE IF NOT EXISTS shot_annotations(
+  run_id TEXT NOT NULL, shot_id TEXT NOT NULL, idx INTEGER NOT NULL,
+  shot_revision TEXT NOT NULL, snapshot TEXT NOT NULL, status TEXT NOT NULL,
+  generated TEXT, overrides TEXT NOT NULL DEFAULT '{}', evidence_frames TEXT NOT NULL DEFAULT '[]',
+  issues TEXT NOT NULL DEFAULT '[]', updated_at TEXT NOT NULL,
+  PRIMARY KEY(run_id, shot_id)
+);
 `;
 
 export function createStudioStore(root, options = {}) {
@@ -106,7 +124,23 @@ export function createStudioStore(root, options = {}) {
       db.exec(SCHEMA);
       const columns = db.prepare('PRAGMA table_info(tracks)').all().map(row => row.name);
       if (!columns.includes('motion_ref')) db.exec('ALTER TABLE tracks ADD COLUMN motion_ref TEXT');
+      if (!columns.includes('subject')) db.exec("ALTER TABLE tracks ADD COLUMN subject TEXT NOT NULL DEFAULT 'person'");
+      const jobColumns = db.prepare('PRAGMA table_info(jobs)').all().map(row => row.name);
+      if (!jobColumns.includes('options')) db.exec('ALTER TABLE jobs ADD COLUMN options TEXT');
+      if (version < 7) {
+        if (!columns.includes('species')) db.exec('ALTER TABLE tracks ADD COLUMN species TEXT');
+        const characterColumns = db.prepare('PRAGMA table_info(characters)').all().map(row => row.name);
+        if (!characterColumns.includes('proxy_level')) db.exec("ALTER TABLE characters ADD COLUMN proxy_level TEXT NOT NULL DEFAULT 'CL1'");
+        if (!characterColumns.includes('rig_family')) db.exec("ALTER TABLE characters ADD COLUMN rig_family TEXT NOT NULL DEFAULT 'humanoid'");
+        if (!characterColumns.includes('provisional')) db.exec('ALTER TABLE characters ADD COLUMN provisional INTEGER NOT NULL DEFAULT 0');
+      }
       if (version < 3) migratePeople(db);
+      if (version < 8) {
+        // V2 P4：素材身份层支持人物与动物（兼容层复用 source_people 表）
+        const entityColumns = db.prepare('PRAGMA table_info(source_people)').all().map(row => row.name);
+        if (!entityColumns.includes('subject')) db.exec("ALTER TABLE source_people ADD COLUMN subject TEXT NOT NULL DEFAULT 'person'");
+        if (!entityColumns.includes('species')) db.exec('ALTER TABLE source_people ADD COLUMN species TEXT');
+      }
       const projectColumns = db.prepare('PRAGMA table_info(projects)').all().map(row => row.name);
       if (!projectColumns.includes('source_people_count')) db.exec('ALTER TABLE projects ADD COLUMN source_people_count INTEGER');
       const peopleColumns = db.prepare('PRAGMA table_info(source_people)').all().map(row => row.name);
@@ -121,6 +155,7 @@ export function createStudioStore(root, options = {}) {
   if (recoverInterrupted) {
     const interrupted = db.prepare("UPDATE jobs SET state='failed', error='服务进程重启，任务中断；可重试。', updated_at=? WHERE state IN ('queued','running')").run(nowIso());
     if (interrupted.changes > 0) console.log(`[studio] 恢复：${interrupted.changes} 个中断任务已标记为失败`);
+    db.prepare("UPDATE shot_analysis_runs SET status='failed', metadata=json_set(metadata, '$.error', '服务进程重启，拉片任务中断；可重试。'), updated_at=? WHERE status='processing'").run(nowIso());
   }
 
   const tx = fn => {db.exec('BEGIN');try {const result = fn();db.exec('COMMIT');return result;} catch (cause) {try {db.exec('ROLLBACK');} catch {}throw cause;}};
@@ -171,7 +206,7 @@ export function createStudioStore(root, options = {}) {
   const createProject = input => {
     const name = typeof input?.name === 'string' ? input.name.trim() : '';
     if (!name || name.length > 80) throw fail('项目名称必须是 1–80 个字符', 400);
-    const sceneMode = input?.sceneMode;
+    const sceneMode = input?.sceneMode ?? 'proxy'; // 新流程：创建时不再询问场景，默认内置舞台（proxy）
     if (!SCENE_MODES.includes(sceneMode)) throw fail('场景模式必须是 proxy 或 reconstruct', 400);
     const id = newId('p');
     const time = nowIso();
@@ -262,23 +297,27 @@ export function createStudioStore(root, options = {}) {
     if (box.x + box.w > 1 || box.y + box.h > 1) throw fail('人物框超出画面', 400);
   };
 
-  const insertTrack = (projectId, shotId, {startFrame, endFrame, box, confidence, provenance}, baseRevision) => {
+  const insertTrack = (projectId, shotId, {startFrame, endFrame, box, confidence, provenance, subject = 'person', species}, baseRevision) => {
     assertRevision(projectId, baseRevision);
+    if (!['person', 'animal'].includes(subject)) throw fail('出场类别必须为人物或动物', 400);
+    const resolvedSpecies = subject === 'animal' ? (typeof species === 'string' ? species.trim() : species === undefined || species === null ? '未知动物' : '') : null;
+    if (subject === 'animal' && (!resolvedSpecies || resolvedSpecies.length > 40)) throw fail('动物物种必须是 1–40 个字符', 400);
     const shot = assertTrackRange(projectId, shotId, startFrame, endFrame);
     assertBox(box);
     const media = query.media.get(projectId);
     const pts = loadPtsFor(media);
     const id = newId('t');
     const time = nowIso();
+    const resolvedSubject = subject === 'animal' ? 'animal' : 'person';
     tx(() => {
-      db.prepare(`INSERT INTO tracks(id, project_id, shot_id, start_frame, end_frame, start_us, end_us, box, confidence, provenance, status, observations_ref, created_at, updated_at)
-        VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)`).run(id, projectId, shotId, startFrame, endFrame,
+      db.prepare(`INSERT INTO tracks(id, project_id, shot_id, start_frame, end_frame, start_us, end_us, box, confidence, provenance, status, observations_ref, subject, species, created_at, updated_at)
+        VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`).run(id, projectId, shotId, startFrame, endFrame,
         frameTimeUs(media, pts, startFrame), endFrame + 1 < media.pts_count ? frameTimeUs(media, pts, endFrame + 1) : media.duration_us, JSON.stringify(box),
         Number.isFinite(confidence) ? Math.min(1, Math.max(0, confidence)) : 1, provenance, 'active',
-        `observations/tracks/${id}.json`, time, time);
-      operations.ensurePerson(id, projectId);
-      if (query.approval.get(projectId)) invalidateApprovalLocked(projectId, '人物候选被修改');
-      bumpRevision(projectId, `新增${provenance === 'user' ? '人工补标' : '自动'}出场候选 ${id}`);
+        `observations/tracks/${id}.json`, resolvedSubject, resolvedSpecies, time, time);
+      operations.ensurePerson(id, projectId, {subject: resolvedSubject, species: resolvedSpecies});
+      if (query.approval.get(projectId)) invalidateApprovalLocked(projectId, '出场候选被修改');
+      bumpRevision(projectId, `新增${provenance === 'user' ? '人工补标' : '自动'}${resolvedSubject === 'animal' ? '动物' : ''}出场候选 ${id}`);
     });
     return query.track.get(id, projectId);
   };
@@ -303,7 +342,7 @@ export function createStudioStore(root, options = {}) {
   };
 
   // 批量写入（自动分析任务用）：整个候选集算一次正式变更，只校验/推进一次版本。
-  const insertTracks = (projectId, specs, baseRevision) => {
+  const insertTracks = (projectId, specs, baseRevision, detectedSubjects) => {
     assertRevision(projectId, baseRevision);
     const media = query.media.get(projectId);
     if (!media) throw fail('项目还没有导入媒体', 422);
@@ -313,21 +352,35 @@ export function createStudioStore(root, options = {}) {
       assertBox(spec.box);
       return spec;
     });
+    // 检测替换与保护都按 subject 限定范围（V2 计划 B1）：人物重跑不动动物，动物重跑不动人物。
+    // Scope comes from successful detector branches, including branches with zero results.
+    // Omitted scope remains compatible with older store callers.
+    const scope = detectedSubjects === undefined ? prepared.map(spec => spec.subject === 'animal' ? 'animal' : 'person')
+      : detectedSubjects === 'both' ? ['person', 'animal'] : typeof detectedSubjects === 'string' ? [detectedSubjects] : detectedSubjects;
+    if (!Array.isArray(scope) || scope.some(subject => !['person', 'animal'].includes(subject))) throw fail('检测范围必须为人物或动物', 400);
+    const subjects = [...new Set(scope)];
+    if (prepared.some(spec => !subjects.includes(spec.subject === 'animal' ? 'animal' : 'person'))) throw fail('检测结果超出本次成功检测范围', 422);
     const created = [];
     tx(() => {
-      const protectedAuto = db.prepare(`SELECT t.id FROM tracks t LEFT JOIN bindings b ON b.track_id=t.id LEFT JOIN source_people p ON p.id=t.person_id
-        WHERE t.project_id=? AND t.status='active' AND t.provenance='auto' AND (p.reviewed=1 OR b.disposition IN ('bound','ignored'))`).get(projectId);
-      if (protectedAuto) throw fail('已有人工核对或归组的自动候选，重新检测会替换它们。请新建项目重新检测，或继续修正现有候选。', 409);
-      db.prepare("UPDATE tracks SET status='superseded',motion_ref=NULL WHERE project_id=? AND provenance='auto' AND status='active'").run(projectId);
+      for (const subject of subjects) {
+        const protectedAuto = db.prepare(`SELECT t.id FROM tracks t LEFT JOIN bindings b ON b.track_id=t.id LEFT JOIN source_people p ON p.id=t.person_id LEFT JOIN characters c ON c.id=b.character_id
+          WHERE t.project_id=? AND t.status='active' AND t.provenance='auto' AND (t.subject=?)
+          AND (p.reviewed=1 OR p.method='user' OR (b.track_id IS NOT NULL AND COALESCE(b.updated_by,'')<>'auto')
+            OR (b.disposition='bound' AND COALESCE(c.provisional,0)=0))`).get(projectId, subject);
+        if (protectedAuto) throw fail(`已有人工核对或归组的${subject === 'animal' ? '动物' : '人物'}自动候选，重新${subject === 'animal' ? '动物' : '人物'}检测会替换它们。请先在界面中处理，或只重跑另一类。`, 409);
+        db.prepare("UPDATE tracks SET status='superseded',motion_ref=NULL WHERE project_id=? AND provenance='auto' AND status='active' AND subject=?").run(projectId, subject);
+      }
       const time = nowIso();
       for (const spec of prepared) {
         const id = newId('t');
-        db.prepare(`INSERT INTO tracks(id, project_id, shot_id, start_frame, end_frame, start_us, end_us, box, confidence, provenance, status, observations_ref, created_at, updated_at)
-          VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)`).run(id, projectId, spec.shotId, spec.startFrame, spec.endFrame,
+        const subject = spec.subject === 'animal' ? 'animal' : 'person';
+        db.prepare(`INSERT INTO tracks(id, project_id, shot_id, start_frame, end_frame, start_us, end_us, box, confidence, provenance, status, observations_ref, subject, species, created_at, updated_at)
+          VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`).run(id, projectId, spec.shotId, spec.startFrame, spec.endFrame,
           frameTimeUs(media, pts, spec.startFrame), spec.endFrame + 1 < media.pts_count ? frameTimeUs(media, pts, spec.endFrame + 1) : media.duration_us, JSON.stringify(spec.box),
           Number.isFinite(spec.confidence) ? Math.min(1, Math.max(0, spec.confidence)) : 1, spec.provenance, 'active',
-          `observations/tracks/${id}.json`, time, time);
-        operations.ensurePerson(id, projectId, spec);
+          `observations/tracks/${id}.json`, subject, spec.species || null, time, time);
+        if (subject === 'person') operations.ensurePerson(id, projectId, spec);
+        else if (spec.appearance) db.prepare('UPDATE tracks SET appearance=? WHERE id=?').run(JSON.stringify(spec.appearance), id);
         created.push(query.track.get(id, projectId));
       }
       if (query.approval.get(projectId)) invalidateApprovalLocked(projectId, '人物候选被重新分析');
@@ -349,7 +402,7 @@ export function createStudioStore(root, options = {}) {
     let created = null;
     const result = mutateTrack(projectId, trackId, baseRevision, `在帧 ${splitFrame} 拆分出场候选 ${trackId}`, () => {
       db.prepare('UPDATE tracks SET end_frame=?, end_us=?, updated_at=? WHERE id=?').run(splitFrame - 1, frameTimeUs(query.media.get(projectId), loadPtsFor(query.media.get(projectId)), splitFrame), nowIso(), trackId);
-      created = insertTrackLocked(projectId, track.shot_id, {startFrame: splitFrame, endFrame: track.end_frame, box: JSON.parse(track.box), confidence: track.confidence, provenance: 'user'});
+      created = insertTrackLocked(projectId, track.shot_id, {startFrame: splitFrame, endFrame: track.end_frame, box: JSON.parse(track.box), confidence: track.confidence, provenance: 'user', subject: track.subject, species: track.species});
       const poseFile = path.join(observationsDir(projectId), 'poses', `${track.id}.json`);
       if (fs.existsSync(poseFile)) {
         const pose = JSON.parse(fs.readFileSync(poseFile, 'utf8'));
@@ -368,11 +421,13 @@ export function createStudioStore(root, options = {}) {
     const pts = loadPtsFor(media);
     const id = newId('t');
     const time = nowIso();
-    db.prepare(`INSERT INTO tracks(id, project_id, shot_id, start_frame, end_frame, start_us, end_us, box, confidence, provenance, status, observations_ref, created_at, updated_at)
-      VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)`).run(id, projectId, shotId, spec.startFrame, spec.endFrame,
+    const subject = spec.subject === 'animal' ? 'animal' : 'person';
+    db.prepare(`INSERT INTO tracks(id, project_id, shot_id, start_frame, end_frame, start_us, end_us, box, confidence, provenance, status, observations_ref, subject, species, created_at, updated_at)
+      VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`).run(id, projectId, shotId, spec.startFrame, spec.endFrame,
       frameTimeUs(media, pts, spec.startFrame), (spec.endFrame + 1 < media.pts_count ? frameTimeUs(media, pts, spec.endFrame + 1) : media.duration_us), JSON.stringify(spec.box),
-      spec.confidence ?? 1, spec.provenance, 'active', `observations/tracks/${id}.json`, time, time);
-    operations.ensurePerson(id, projectId);
+      spec.confidence ?? 1, spec.provenance, 'active', `observations/tracks/${id}.json`, subject, spec.species || null, time, time);
+    if (subject === 'person') operations.ensurePerson(id, projectId, spec);
+    else if (spec.appearance) db.prepare('UPDATE tracks SET appearance=? WHERE id=?').run(JSON.stringify(spec.appearance), id);
     return query.track.get(id, projectId);
   };
 
@@ -382,6 +437,7 @@ export function createStudioStore(root, options = {}) {
     if (!track || !other) throw fail('出场候选不存在', 404);
     if (track.shot_id !== other.shot_id) throw fail('跨切镜的出场不能自动连接为同一条轨迹', 422);
     if (track.status !== 'active' || other.status !== 'active') throw fail('已删除的候选不能连接', 422);
+    if ((track.subject || 'person') !== (other.subject || 'person')) throw fail('动物与人物候选不能连接为同一条轨迹', 422);
     const bindingState = id => {const binding = query.bindings.all(projectId).find(row => row.track_id === id);return [binding?.disposition || 'unassigned', binding?.character_id || ''].join(':');};
     if (bindingState(track.id) !== bindingState(other.id)) throw fail('两段出场的代理分组不同，请先统一分组后再连接', 422);
     const [first, second] = track.start_frame <= other.start_frame ? [track, other] : [other, track];
@@ -404,24 +460,44 @@ export function createStudioStore(root, options = {}) {
   const getTracks = projectId => query.tracks.all(projectId);
 
   // ---- 角色资产与归并 ----
+  // 自动配色：可区分调色板，已用色跳过（V2 R4；超过容量时靠名称/编号区分）
+  const GROUP_PALETTE = ['#d9773e', '#547a94', '#6f9e58', '#b0567c', '#8a6fb0', '#b99a3f', '#4f9e9e', '#a05f4f', '#5d8a6c', '#7a7a4f', '#946fb0', '#4f6d9e'];
+  const nextGroupColor = projectId => {
+    const used = new Set(query.characters.all(projectId).map(row => row.color.toUpperCase()));
+    const free = GROUP_PALETTE.find(color => !used.has(color.toUpperCase()));
+    return (free || GROUP_PALETTE[query.characters.all(projectId).length % GROUP_PALETTE.length]).toUpperCase();
+  };
+  const assertProxyLevel = value => {
+    if (value === undefined || value === null) return 'CL1';
+    if (!['CL0', 'CL1', 'CL2'].includes(value)) throw fail('proxyLevel 必须是 CL0、CL1 或 CL2', 400);
+    return value;
+  };
+  const assertRigFamily = value => {
+    if (value === undefined || value === null) return 'humanoid';
+    if (value !== 'humanoid') throw fail(`骨架家族 ${value} 暂不支持：当前仅 humanoid 可用，跨家族组与动物骨架在后续里程碑开放`, 422);
+    return value;
+  };
   const assertCharacterInput = input => {
     const name = typeof input?.name === 'string' ? input.name.trim() : '';
     if (!name || name.length > 40) throw fail('角色名称必须是 1–40 个字符', 400);
-    const color = typeof input?.color === 'string' && /^#[0-9a-fA-F]{6}$/.test(input.color) ? input.color.toUpperCase() : null;
-    if (!color) throw fail('角色颜色必须是 #RRGGBB', 400);
+    let color;
+    if (input?.color === undefined || input?.color === null) color = nextGroupColor(input?.projectId); // 未提供 → 自动配色
+    else if (typeof input.color === 'string' && /^#[0-9a-fA-F]{6}$/.test(input.color)) color = input.color.toUpperCase();
+    else throw fail('角色颜色必须是 #RRGGBB', 400);
     const scale = input?.scale;
     if (typeof scale !== 'number' || !Number.isFinite(scale) || scale < 0.2 || scale > 3) throw fail('角色身高比例必须是 0.2–3 之间的数字（米）', 400);
-    return {name, color, scale, rigRef: String(input?.rigRef || '').slice(0, 200), allowSimultaneous: input?.allowSimultaneous === true};
+    return {name, color, scale, rigRef: String(input?.rigRef || '').slice(0, 200), allowSimultaneous: input?.allowSimultaneous === true,
+      proxyLevel: assertProxyLevel(input?.proxyLevel), rigFamily: assertRigFamily(input?.rigFamily), provisional: input?.provisional === true};
   };
 
   const createCharacter = (projectId, input, baseRevision) => {
     assertRevision(projectId, baseRevision);
-    const fields = assertCharacterInput(input);
+    const fields = assertCharacterInput({...input, projectId});
     const id = newId('c');
     tx(() => {
       const time = nowIso();
-      db.prepare('INSERT INTO characters(id, project_id, revision, name, color, scale, rig_ref, allow_simultaneous, created_at, updated_at) VALUES(?,?,?,?,?,?,?,?,?,?)')
-        .run(id, projectId, 'r-' + crypto.randomUUID().replaceAll('-', '').slice(0, 12), fields.name, fields.color, fields.scale, fields.rigRef, fields.allowSimultaneous ? 1 : 0, time, time);
+      db.prepare('INSERT INTO characters(id, project_id, revision, name, color, scale, rig_ref, allow_simultaneous, proxy_level, rig_family, provisional, created_at, updated_at) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)')
+        .run(id, projectId, 'r-' + crypto.randomUUID().replaceAll('-', '').slice(0, 12), fields.name, fields.color, fields.scale, fields.rigRef, fields.allowSimultaneous ? 1 : 0, fields.proxyLevel, fields.rigFamily, fields.provisional ? 1 : 0, time, time);
       bumpRevision(projectId, `创建角色资产「${fields.name}」`);
     });
     return query.character.get(id, projectId);
@@ -432,12 +508,15 @@ export function createStudioStore(root, options = {}) {
     const character = query.character.get(characterId, projectId);
     if (!character) throw fail('角色不存在', 404);
     const merged = assertCharacterInput({
-      name: input?.name ?? character.name, color: input?.color ?? character.color, scale: input?.scale ?? character.scale,
+      projectId, name: input?.name ?? character.name, color: input?.color ?? character.color, scale: input?.scale ?? character.scale,
       rigRef: input?.rigRef ?? character.rig_ref, allowSimultaneous: input?.allowSimultaneous ?? !!character.allow_simultaneous,
+      proxyLevel: input?.proxyLevel ?? character.proxy_level, rigFamily: input?.rigFamily ?? character.rig_family,
+      // Editing an automatically created group is an explicit user decision.
+      provisional: false,
     });
     tx(() => {
-      db.prepare('UPDATE characters SET revision=?, name=?, color=?, scale=?, rig_ref=?, allow_simultaneous=?, updated_at=? WHERE id=?')
-        .run('r-' + crypto.randomUUID().replaceAll('-', '').slice(0, 12), merged.name, merged.color, merged.scale, merged.rigRef, merged.allowSimultaneous ? 1 : 0, nowIso(), characterId);
+      db.prepare('UPDATE characters SET revision=?, name=?, color=?, scale=?, rig_ref=?, allow_simultaneous=?, proxy_level=?, rig_family=?, provisional=?, updated_at=? WHERE id=?')
+        .run('r-' + crypto.randomUUID().replaceAll('-', '').slice(0, 12), merged.name, merged.color, merged.scale, merged.rigRef, merged.allowSimultaneous ? 1 : 0, merged.proxyLevel, merged.rigFamily, merged.provisional ? 1 : 0, nowIso(), characterId);
       if (Math.abs(merged.scale - character.scale) > 1e-9) db.prepare('UPDATE tracks SET motion_ref=NULL WHERE id IN (SELECT track_id FROM bindings WHERE character_id=?)').run(characterId);
       if (query.approval.get(projectId)) invalidateApprovalLocked(projectId, '角色设置被修改');
       bumpRevision(projectId, `修改角色资产「${merged.name}」`);
@@ -485,7 +564,7 @@ export function createStudioStore(root, options = {}) {
     const allowSimultaneous = new Set(characters.filter(row => row.allow_simultaneous).map(row => row.id));
     const byShot = new Map();
     for (const track of tracks) {
-      if (track.status !== 'active') continue;
+      if (track.status !== 'active' || track.subject === 'animal') continue;
       const binding = bindingByTrack.get(track.id);
       if (binding?.disposition !== 'bound' || !binding.character_id) continue;
       if (!byShot.has(track.shot_id)) byShot.set(track.shot_id, []);
@@ -511,7 +590,9 @@ export function createStudioStore(root, options = {}) {
     const bindings = query.bindings.all(projectId);
     const bindingByTrack = new Map(bindings.map(row => [row.track_id, row]));
     // 未处理候选：没有任何绑定，或被明确标为 unassigned —— 都会阻止正式确认。
+    // 动物候选仅作标注，不参与人物确认门槛。
     const pending = tracks.filter(track => {
+      if (track.subject === 'animal') return false;
       const binding = bindingByTrack.get(track.id);
       return !binding || binding.disposition === 'unassigned';
     }).map(track => track.id);
@@ -581,12 +662,12 @@ export function createStudioStore(root, options = {}) {
   };
 
   // ---- 任务 ----
-  const createJob = (projectId, kind, {inputHash = '', algorithmVersion = ''} = {}) => {
+  const createJob = (projectId, kind, {inputHash = '', algorithmVersion = '', options = null} = {}) => {
     if (!query.project.get(projectId)) throw fail('项目不存在', 404);
     const id = newId('j');
     const time = nowIso();
-    db.prepare('INSERT INTO jobs(id, project_id, kind, state, progress, input_hash, algorithm_version, error, output, cancel_requested, created_at, updated_at, heartbeat_at) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)')
-      .run(id, projectId, kind, 'queued', 0, inputHash, algorithmVersion, null, null, 0, time, time, time);
+    db.prepare('INSERT INTO jobs(id, project_id, kind, state, progress, input_hash, algorithm_version, error, output, cancel_requested, options, created_at, updated_at, heartbeat_at) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)')
+      .run(id, projectId, kind, 'queued', 0, inputHash, algorithmVersion, null, null, 0, options ? JSON.stringify(options) : null, time, time, time);
     return query.job.get(id);
   };
   const updateJob = (id, fields) => {
@@ -620,9 +701,9 @@ export function createStudioStore(root, options = {}) {
     assertRevision(projectId, evidence?.baseRevision);
     const shot = db.prepare('SELECT * FROM shots WHERE project_id=? AND id=?').get(projectId, shotId);
     if (!shot) throw fail('镜头不存在', 404);
-    if (!['landmark-pnp', 'person-estimate', 'manual'].includes(source)) throw fail('相机来源必须是 landmark-pnp、person-estimate 或 manual', 400);
+    if (!['landmark-pnp', 'person-estimate', 'person-track-dolly', 'manual'].includes(source)) throw fail('相机来源必须是 landmark-pnp、person-estimate、person-track-dolly 或 manual', 400);
     const storedError = Number.isFinite(medianErrorPx) ? medianErrorPx : -1; // person-estimate 无重投影误差，记 -1
-    if (storedError < 0 && source !== 'person-estimate') throw fail('重投影误差无效', 400);
+    if (storedError < 0 && source !== 'person-estimate' && source !== 'person-track-dolly') throw fail('重投影误差无效', 400);
     const id = newId('cam');
     tx(() => {
       db.prepare('DELETE FROM camera_tracks WHERE project_id=? AND shot_id=? AND source=?').run(projectId, shotId, source);
