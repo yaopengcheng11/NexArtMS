@@ -88,7 +88,12 @@ test('all failed and unconfigured runs produce honest error drafts, never ready'
     const f = await fixture();
     try {
       const engine = f.engine(provider({status: () => ({configured, provider: null, model: null, reason: 'fixture not configured'}), analyzeBatch: async () => {throw new Error('fixture all failed');}}));
-      await assert.rejects(engine.analyze(f.id, f.runId), e => e.code === (configured ? 'analysis_all_failed' : 'provider_unconfigured'));
+      if (configured) await assert.rejects(engine.analyze(f.id, f.runId), e => e.code === 'analysis_all_failed');
+      else {
+        await engine.analyze(f.id, f.runId);
+        assert.equal(f.current().status, 'blocked');
+        assert.match(f.current().error, /语义分析未执行/);assert.match(f.current().error, /fixture not configured/);
+      }
       await engine.validate(f.id, f.runId);await engine.report(f.id, f.runId);assert.equal(f.current().status, configured ? 'failed' : 'blocked');assert.equal(f.current().counts.analyzed, 0);assert.ok(f.current().error);
       if (!configured) {
         const current = f.current(), checks = current.quality.engineChecks;
@@ -105,7 +110,7 @@ test('blocked semantic analysis still fails real source evidence validation', as
   const f = await fixture();
   try {
     const engine = f.engine(provider({status: () => ({configured: false, provider: null, model: null, reason: 'fixture not configured'})}));
-    await assert.rejects(engine.analyze(f.id, f.runId), e => e.code === 'provider_unconfigured');
+    await engine.analyze(f.id, f.runId);assert.equal(f.current().status, 'blocked');
     const evidence = f.current().shots[0].evidenceFrames[0];fs.writeFileSync(path.join(f.analysis.runDirectory(f.id, f.runId), evidence.imageRef), 'invalid JPEG');
     await assert.rejects(engine.validate(f.id, f.runId), /源帧时间或证据校验失败/);
     assert.equal(f.current().status, 'failed');assert.equal(f.current().quality.engineChecks.find(c => c.id === 'source-frame-evidence').status, 'failed');

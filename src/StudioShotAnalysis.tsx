@@ -4,7 +4,7 @@ import {analysisFieldLabel,analysisIssues,analysisShotAt,editedCutFrames,isSessi
 
 type Props={detail:ProjectDetail;show:(message:string)=>void;onChanged:()=>void;selectedShotId:string;selectShot:(id:string)=>void;onModelSettings?:()=>void};
 type AnalysisResponse={analysis:ShotAnalysis|null;provider:ShotProviderStatus};
-const STATUS:Record<string,string>={processing:'正在拉片',ready:'全片分析完成',ready_with_issues:'全片扫描结束 · 有待修正项',blocked:'分析受阻',failed:'分析失败',cancelled:'已取消',stale:'结果已过期'};
+const STATUS:Record<string,string>={processing:'正在拉片',ready:'全片分析完成',ready_with_issues:'全片扫描结束 · 有待修正项',blocked:'语义待配置 · 底稿已保留',failed:'分析失败',cancelled:'已取消',stale:'结果已过期'};
 const STAGE:Record<string,string>={proxy:'生成素材预览',pts:'读取源帧时间戳',cuts:'检测候选切镜',frames:'提取关键帧',analyze:'逐镜语义分析',validate:'检查全片结果',report:'生成报告',done:'扫描结束'};
 const SHOT_STATUS:Record<string,string>={pending:'待分析',analyzed:'已分析',needs_review:'待核对',failed:'失败',user_edited:'人工已修正'};
 const CORE_FIELDS=[['size','景别'],['category','镜头类别'],['camera','运镜']] as const;
@@ -126,7 +126,7 @@ export function StudioShotAnalysis({detail,show,onChanged,selectedShotId,selectS
     {loadError&&<div className="studio-banner studio-banner-error" role="alert"><b>拉片数据未能读取</b><p>{loadError}</p><button onClick={()=>void refresh()}>重新读取</button></div>}
     {sessionAnalysis&&<div className="studio-banner"><b>{run?.parameters?.analysisLabel||'本次会话视觉分析'}</b><p>这一版由会话中的视觉分析写入，结果可逐镜审查和修正。后续视频的自动分析需要另行配置视觉 API 模型。</p></div>}
     {provider&&!provider.configured&&<div className="studio-banner"><b>自动语义分析尚未配置视觉模型</b><p>{sessionAnalysis?'本次会话的分析结果已保留；后台自动调用尚未启用。':`${provider.reason||'关键帧和镜头底稿可生成；逐镜语义需配置视觉模型后重试。'}当前不能视为全片语义分析完成。`}</p>{onModelSettings&&<button onClick={onModelSettings}>配置视觉模型</button>}</div>}
-    {run?.error&&<div className="studio-banner studio-banner-error" role="alert"><b>{STATUS[run.status]}</b><p>{run.error}</p></div>}
+    {run?.error&&<div className={`studio-banner${run.status==='failed'?' studio-banner-error':''}`} role={run.status==='failed'?'alert':undefined}><b>{STATUS[run.status]||run.status}</b><p>{run.error}</p></div>}
     {run&&<div className="analysis-progress" aria-live="polite"><div><b>{STAGE[run.stage]||run.stage}</b><span>已分析 {run.counts.analyzed}/{run.counts.total} 镜 · 失败 {run.counts.failed} · 待核对 {run.counts.needsReview} · 人工修正 {run.counts.userEdited}</span></div>{run.status==='processing'&&<div className="studio-progress"><div style={{width:`${Math.max(1,Math.min(100,run.progress*100))}%`}}/></div>}</div>}
     <div className="studio-toolbar">
       <button onClick={()=>void start()} disabled={!!busy||run?.status==='processing'||draftCount>0}>{busy==='start'?'提交中…':run?'更新 / 重试拉片':'开始自动拉片'}</button>

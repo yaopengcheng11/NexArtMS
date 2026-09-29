@@ -11,7 +11,7 @@ import {frameStream} from './vision.mjs';
 import {appearanceDescriptor, aggregateAppearance, PEOPLE_ALGORITHM} from './people.mjs';
 import {draftQuality, readMotionArtifact} from './draft-quality.mjs';
 import {createShotAnalysisStore} from './shot-analysis-store.mjs';
-import {createShotAnalysisEngine} from './shot-analysis.mjs';
+import {createShotAnalysisEngine, SEMANTIC_UNAVAILABLE_CODES} from './shot-analysis.mjs';
 import {createModelSettings} from './model-settings.mjs';
 
 // 多数票：className 出现次数最多者；空输入返回 null。
@@ -406,7 +406,8 @@ export function createJobRunner(store, root, limits, analysisOptions = {}) {
         if (options.analysisRunId) {
           const previous = analysisStore.getRun(projectId, options.analysisRunId);
           if (previous && !['stale', 'cancelled'].includes(previous.status)) {
-            const resultStatus = isCancel ? 'cancelled' : previous.status === 'blocked' || cause?.code === 'provider_unconfigured' ? 'blocked' : 'failed';
+            // 语义不可用（未配置/缺密钥）降级为 blocked 底稿；网络与鉴权类瞬时失败仍按 failed 可重试。
+            const resultStatus = isCancel ? 'cancelled' : previous.status === 'blocked' || SEMANTIC_UNAVAILABLE_CODES.includes(cause?.code) ? 'blocked' : 'failed';
             analysisStore.updateRun(projectId, options.analysisRunId, {status: resultStatus, error: String(cause?.message || cause)});
             // Terminal diagnostics can be exported even when semantic analysis cannot run.
             // The failed model job remains failed, and the report retains blocked/failed.
@@ -425,7 +426,9 @@ export function createJobRunner(store, root, limits, analysisOptions = {}) {
       }
     });
     chain.set(projectId, next);
-    next.finally(() => {
+    // 任务状态在 catch 首句已落库；其后收尾逻辑（链式入队等）的意外失败不得变成
+    // 未处理的 Promise 拒绝把进程带崩。
+    next.catch(() => {}).finally(() => {
       if (scheduled.get(job.id) === generation) scheduled.delete(job.id);
       if (chain.get(projectId) === next && store.listJobs(projectId).every(item => item.state !== 'queued')) chain.delete(projectId);
     });

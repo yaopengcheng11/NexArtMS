@@ -2,12 +2,14 @@ import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import {spawn} from 'node:child_process';
-import {createShotAnalysisProvider, ShotAnalysisProviderError} from './shot-analysis-provider.mjs';
+import {createShotAnalysisProvider} from './shot-analysis-provider.mjs';
 import {SHOT_ANALYSIS_SCHEMA_VERSION, SHOT_ANALYSIS_PROMPT_VERSION, validateAnnotation, validateSubjects, validateIssues} from './shot-analysis-schema.mjs';
 import {validate as validateReelbench, renderMd as renderReelbenchMd, shotNo} from '../vendor/reelbench/video-shots/scripts/video-shots.mjs';
 
 const issue = (code, message, extra = {}) => ({code, severity: 'warning', message, ...extra});
 const problem = (message, code = 'analysis_invalid', status = 422) => Object.assign(new Error(message), {code, status});
+// Errors that mean "semantics cannot run right now" — a degraded draft, not a malfunction.
+export const SEMANTIC_UNAVAILABLE_CODES = ['provider_unconfigured', 'missing_api_key', 'secret_unavailable', 'secret_codec_failed'];
 const atomic = (file, data) => {fs.mkdirSync(path.dirname(file), {recursive: true});const tmp = `${file}.${crypto.randomUUID()}.tmp`;fs.writeFileSync(tmp, typeof data === 'string' ? data : JSON.stringify(data, null, 2));fs.renameSync(tmp, file);};
 const safe = (directory, relative) => {
   if (typeof relative !== 'string' || path.isAbsolute(relative)) throw problem('分析文件路径无效');
@@ -37,6 +39,50 @@ function ffmpegFrames(source, indices, directory, guard, timeoutMs = 120000) {
   });
 }
 
+// 联系表（contact sheet）：上游 video-shots 的看片方式——多帧拼成一张大图、每格标注
+// shot 与源帧号，单次请求的图片数降一个数量级；同镜相邻格即 a/b 运镜对照。
+const SHEET = {tileW: 480, tileH: 270, cols: 3, per: 12};
+const sheetFont = () => {
+  if (process.platform !== 'win32') return null;
+  for (const name of ['arial.ttf', 'Arial.ttf', 'segoeui.ttf']) {
+    const candidate = path.join(process.env.WINDIR || 'C:\\Windows', 'Fonts', name);
+    if (fs.existsSync(candidate)) return candidate.replaceAll('\\', '/');
+  }
+  return null;
+};
+const composeSheet = (inputs, labels, output, font, guard, timeoutMs = 90000) => new Promise((resolve, reject) => {
+  let settled = false, stderr = '';
+  const rows = Math.ceil(inputs.length / SHEET.cols);
+  const filter = [
+    ...inputs.map((_, i) => `[${i}:v]scale=${SHEET.tileW}:${SHEET.tileH}:force_original_aspect_ratio=decrease,pad=${SHEET.tileW}:${SHEET.tileH}:(ow-iw)/2:(oh-ih)/2:color=black,drawtext=fontfile='${font.replaceAll(':', '\\:')}':text='${labels[i]}':x=8:y=6:fontsize=20:fontcolor=white:box=1:boxcolor=black@0.55:boxborderw=6[t${i}]`),
+    `[${inputs.map((_, i) => `t${i}`).join('][')}]concat=n=${inputs.length}:v=1:a=0[c]`,
+    `[c]tile=${SHEET.cols}x${rows}:padding=4:margin=4:color=white[out]`,
+  ].join(';');
+  const child = spawn(process.env.FFMPEG || 'ffmpeg', ['-hide_banner', '-loglevel', 'error', '-nostdin', ...inputs.flatMap(file => ['-i', file]), '-filter_complex', filter, '-map', '[out]', '-frames:v', '1', '-q:v', '4', output], {windowsHide: true, stdio: ['ignore', 'ignore', 'pipe']});
+  const finish = error => {if (settled) return;settled = true;clearTimeout(timer);clearInterval(poll);error ? reject(error) : resolve();};
+  const timer = setTimeout(() => {child.kill();finish(problem('联系表生成超时', 'sheet_timeout', 504));}, timeoutMs);
+  const poll = setInterval(() => {try {guard();} catch (error) {child.kill();finish(error);}}, 100);
+  child.stderr.on('data', chunk => {stderr = (stderr + chunk.toString()).slice(-400);});
+  child.on('error', () => finish(problem('无法启动 FFmpeg，联系表回退逐帧', 'sheet_failed', 500)));
+  child.on('close', code => {if (code !== 0) return finish(problem(`联系表生成失败 (${code})：${stderr}`, 'sheet_failed', 500));try {guard();if (!jpeg(output)) throw problem('联系表输出缺失', 'sheet_failed', 500);finish();} catch (error) {finish(error);}});
+});
+const buildSheets = async (directory, frames, guard) => {
+  const font = sheetFont();
+  if (!font || frames.length < 3) return null;
+  const temp = path.join(directory, `sheet-${crypto.randomUUID()}`);
+  fs.mkdirSync(temp);
+  try {
+    const sheets = [];
+    for (let i = 0; i < frames.length; i += SHEET.per) {
+      const chunk = frames.slice(i, i + SHEET.per), output = path.join(temp, `${sheets.length}.jpg`);
+      await composeSheet(chunk.map(f => safe(directory, f.imageRef)), chunk.map(f => `${f.shotId || 'ref'} f${f.frameIndex}`), output, font, guard);
+      sheets.push({tiles: chunk.map(({frameIndex, ptsUs, shotId}) => ({frameIndex, ptsUs, shotId: shotId || null})), dataUrl: `data:image/jpeg;base64,${fs.readFileSync(output).toString('base64')}`});
+    }
+    return sheets;
+  } catch {return null;}
+  finally {fs.rmSync(temp, {recursive: true, force: true, maxRetries: 5});}
+};
+
 export function createShotAnalysisEngine({store, analysisStore, root, provider, providerResolver}) {
   const defaultVisual = provider?.overview && provider?.analyzeBatch ? provider : createShotAnalysisProvider(provider);
   const get = (projectId, runId) => {const run = analysisStore.getRun(projectId, runId);if (!run) throw problem('拉片运行不存在', 'analysis_missing', 404);return run;};
@@ -59,7 +105,7 @@ export function createShotAnalysisEngine({store, analysisStore, root, provider, 
     for (const frame of extra) if (!map.has(frame.frameIndex)) map.set(frame.frameIndex, frame);
     return [...map.values()].map(evidence => {
       const file = safe(directory, evidence.imageRef);if (!jpeg(file)) throw problem(`证据帧 ${evidence.frameIndex} 缺失或不是 JPEG`);
-      return {frameIndex: evidence.frameIndex, ptsUs: evidence.ptsUs, shotId: evidence.shotId, dataUrl: `data:image/jpeg;base64,${fs.readFileSync(file).toString('base64')}`};
+      return {frameIndex: evidence.frameIndex, ptsUs: evidence.ptsUs, shotId: evidence.shotId, imageRef: evidence.imageRef, dataUrl: `data:image/jpeg;base64,${fs.readFileSync(file).toString('base64')}`};
     });
   };
   const extract = async (projectId, runId, shots, opts, dense = false) => {
@@ -102,10 +148,22 @@ export function createShotAnalysisEngine({store, analysisStore, root, provider, 
   };
   const analyze = async (projectId, runId, opts = {}) => {
     const guard = guardFor(projectId, runId, opts);guard();
-    const visual = providerResolver ? await providerResolver(projectId, runId) : defaultVisual;
+    // 语义模型不可用（未配置/缺密钥/密钥不可解密）时降级为 blocked 底稿返回：
+    // 任务正常完成，自动链继续校验、报告与检测；重试语义在配置模型后进行。
+    const blockedAnalysis = reason => {
+      const message = `全片语义分析未执行：${reason}。镜头表与关键帧底稿已保留，配置视觉模型后可重试；后续检测与动作任务不受影响。`;
+      mutate(projectId, runId, guard, {status: 'blocked', stage: 'analyze', error: message, issues: [issue('provider_unconfigured', reason, {severity: 'error'})]});
+      return get(projectId, runId);
+    };
+    let visual;
+    try {visual = providerResolver ? await providerResolver(projectId, runId) : defaultVisual;}
+    catch (error) {
+      if (!SEMANTIC_UNAVAILABLE_CODES.includes(error.code)) throw error;
+      return blockedAnalysis(error.message);
+    }
     guard();
     const status = visual.status();
-    if (!status.configured) {mutate(projectId, runId, guard, {status: 'blocked', stage: 'analyze', error: status.reason, issues: [issue('provider_unconfigured', status.reason, {severity: 'error'})]});throw new ShotAnalysisProviderError(status.reason, 'provider_unconfigured', 422);}
+    if (!status.configured) return blockedAnalysis(status.reason);
     const provenance = {provider: status.provider, model: status.model, schemaVersion: SHOT_ANALYSIS_SCHEMA_VERSION, promptVersion: SHOT_ANALYSIS_PROMPT_VERSION};
     let run = get(projectId, runId);
     if (Object.entries(provenance).some(([key, value]) => run[key] !== value)) {
@@ -118,7 +176,7 @@ export function createShotAnalysisEngine({store, analysisStore, root, provider, 
       for (const shot of run.shots) {guard();analysisStore.updateShot(projectId, runId, shot.id, {generated: null, status: 'pending', issues: []}, {shotRevision: shot.shotRevision});}
     }
     run = mutate(projectId, runId, guard, {status: 'processing', stage: 'analyze', progress: 0, ...provenance, error: null});
-    const directory = analysisStore.runDirectory(projectId, runId), settings = {batchSize: 4, maxCalls: 64, ...visual.settings};
+    const directory = analysisStore.runDirectory(projectId, runId), settings = {batchSize: 6, maxCalls: 64, ...visual.settings};
     let calls = 0, completed = run.shots.filter(s => s.generated).length;
     let quality = {...(run.quality || {}), schemaVersion: SHOT_ANALYSIS_SCHEMA_VERSION, providerSettings: settings};
     let runIssues = (run.issues || []).filter(i => !['provider_unconfigured', 'overview_failed', 'batch_failed', 'analysis_budget'].includes(i.code));
@@ -140,7 +198,8 @@ export function createShotAnalysisEngine({store, analysisStore, root, provider, 
     if (!quality.overview?.completed) {
       const evidence = sample(run.shots.flatMap(s => (s.evidenceFrames || []).map(f => ({...f, shotId: s.id}))), 32);
       try {
-        const result = await invoke('overview', {...base(), shots: run.shots.map(({id, startFrame, endFrameExclusive, startUs, endUs}) => ({id, startFrame, endFrameExclusive, startUs, endUs})), evidenceFrames: framePayload(directory, [], evidence)});
+        const frames = framePayload(directory, [], evidence), sheets = await buildSheets(directory, frames, guard);
+        const result = await invoke('overview', {...base(), shots: run.shots.map(({id, startFrame, endFrameExclusive, startUs, endUs}) => ({id, startFrame, endFrameExclusive, startUs, endUs})), evidenceFrames: sheets ? frames.map(({dataUrl, imageRef, ...meta}) => meta) : frames, ...(sheets ? {sheets} : {})});
         const output = result.output;
         const subjects = validateSubjects(output?.subjects, {allowedFrames: evidence.map(f => f.frameIndex)}), issues = validateIssues(output?.issues);
         if (typeof output?.summary !== 'string' || !output.summary.trim() || output.summary.length > 4000 || !subjects.valid || !issues.valid || Object.keys(output).some(k => !['summary', 'subjects', 'issues'].includes(k))) throw problem('全片概览响应 schema 无效', 'overview_schema');
@@ -159,10 +218,16 @@ export function createShotAnalysisEngine({store, analysisStore, root, provider, 
     for (let index = 0; index < pending.length; index += settings.batchSize) {
       guard();run = get(projectId, runId);let batch = pending.slice(index, index + settings.batchSize).map(s => run.shots.find(current => current.id === s.id));
       const referenceFrames = sample((run.subjects || []).flatMap(s => s.referenceFrames || []).map(f => run.shots.flatMap(s => s.evidenceFrames.map(e => ({...e, shotId: s.id}))).find(e => e.frameIndex === f)).filter(Boolean), 8);
-      const payload = () => ({...base(), shots: batch.map(({id, startFrame, endFrameExclusive, startUs, endUs}) => ({id, startFrame, endFrameExclusive, startUs, endUs})), neighboringShots: run.shots.filter((s, i) => batch.some(b => run.shots[i - 1]?.id === b.id || run.shots[i + 1]?.id === b.id)).map(({id, startFrame, endFrameExclusive, effective}) => ({id, startFrame, endFrameExclusive, frame: effective?.frame || null})), evidenceFrames: framePayload(directory, batch, referenceFrames)});
-      const parseBatch = (result, input) => {
+      // 单次请求每镜均匀采样最多 5 帧：完整证据仍保存在本地与报告，采样子集只用于控制单请求规模。
+      // 密集复核（frameCap 为 0）不采样——它的目的就是补充更多帧。有联系表时图片合并发送，逐帧仅留元数据。
+      const payload = async (frameCap = 5, group = batch) => {
+        const sampled = frameCap ? group.map(s => ({...s, evidenceFrames: sample(s.evidenceFrames, frameCap)})) : group;
+        const frames = framePayload(directory, sampled, referenceFrames), sheets = await buildSheets(directory, frames, guard);
+        return {...base(), shots: group.map(({id, startFrame, endFrameExclusive, startUs, endUs}) => ({id, startFrame, endFrameExclusive, startUs, endUs})), neighboringShots: run.shots.filter((s, i) => group.some(b => run.shots[i - 1]?.id === b.id || run.shots[i + 1]?.id === b.id)).map(({id, startFrame, endFrameExclusive, effective}) => ({id, startFrame, endFrameExclusive, frame: effective?.frame || null})), evidenceFrames: sheets ? frames.map(({dataUrl, imageRef, ...meta}) => meta) : frames, ...(sheets ? {sheets} : {})};
+      };
+      const parseBatch = (result, input, group = batch) => {
         const output = result.output;
-        if (!output || Object.keys(output).some(k => !['annotations', 'subjects', 'issues'].includes(k)) || !Array.isArray(output.annotations) || output.annotations.length !== batch.length) throw problem('逐镜分析响应数量或 schema 无效', 'batch_schema');
+        if (!output || Object.keys(output).some(k => !['annotations', 'subjects', 'issues'].includes(k)) || !Array.isArray(output.annotations) || output.annotations.length !== group.length) throw problem('逐镜分析响应数量或 schema 无效', 'batch_schema');
         const subjects = validateSubjects(output.subjects || [], {allowedFrames: input.evidenceFrames.map(f => f.frameIndex)}), issues = validateIssues(output.issues);
         if (!subjects.valid || !issues.valid) throw problem([...subjects.errors, ...issues.errors].join('；'), 'batch_schema');
         const catalog = new Map((run.subjects || []).map(s => [s.id, s]));
@@ -172,7 +237,7 @@ export function createShotAnalysisEngine({store, analysisStore, root, provider, 
         }
         const seen = new Set(), values = [];
         for (const entry of output.annotations) {
-          const shot = batch.find(s => s.id === entry.shotId);
+          const shot = group.find(s => s.id === entry.shotId);
           if (!shot || seen.has(entry.shotId) || Object.keys(entry).some(k => !['shotId', 'annotation'].includes(k))) throw problem('逐镜分析 ID 无效、重复或含未允许字段', 'batch_schema');
           seen.add(entry.shotId);
           const validation = validateAnnotation(entry.annotation, {allowedFrames: shot.evidenceFrames.map(f => f.frameIndex), subjectIds: catalog.keys(), shot});
@@ -184,15 +249,19 @@ export function createShotAnalysisEngine({store, analysisStore, root, provider, 
         return {values, subjects: [...catalog.values()], issues: issues.value};
       };
       try {
-        let input = payload(), result = await invoke('analyzeBatch', input), parsed = parseBatch(result, input);
+        let input = await payload(), result = await invoke('analyzeBatch', input), parsed = parseBatch(result, input);
         const uncertain = parsed.values.filter(v => v.annotation.uncertainties?.length || v.annotation.cutSuggestions?.length).map(v => v.shot).filter(s => evidenceIndices(s, true).some(f => !s.evidenceFrames.some(e => e.frameIndex === f)));
         if (uncertain.length && calls < settings.maxCalls) {
-          // At most one denser visual pass; successful first-pass semantics remain useful if this optional call fails.
+          // 密集复核只重发不确定的镜头：已成功且确定的首轮语义原样保留，本次可选调用失败也不影响它们。
           try {
             await extract(projectId, runId, uncertain, {...opts, onProgress: undefined}, true);
-            run = get(projectId, runId);batch = batch.map(s => run.shots.find(x => x.id === s.id));input = payload();
-            const retry = await invoke('analyzeBatch', {...input, refinement: '追加密集帧后复核动作、切点及不确定项；仍不能判定时保留 unknown 和原因。'});
-            parsed = parseBatch(retry, input);result = retry;
+            run = get(projectId, runId);
+            const denseGroup = uncertain.map(s => run.shots.find(x => x.id === s.id));
+            const denseInput = {...(await payload(0, denseGroup)), refinement: '追加密集帧后复核动作、切点及不确定项；仍不能判定时保留 unknown 和原因。'};
+            const retry = await invoke('analyzeBatch', denseInput);
+            const dense = parseBatch(retry, denseInput, denseGroup);
+            const denseById = new Map(dense.values.map(v => [v.shot.id, v])), denseIds = new Set(denseById.keys());
+            parsed = {...parsed, values: parsed.values.map(v => denseById.get(v.shot.id) || v), subjects: dense.subjects, issues: [...parsed.issues.filter(i => !i.shotId || !denseIds.has(i.shotId)), ...dense.issues]};
           } catch (error) {classifyFailure(error);parsed.issues.push(issue('dense_review_failed', `密集帧二次核查未完成：${error.message}`));}
         }
         guard();atomic(path.join(directory, 'batches', `${String(index).padStart(5, '0')}-${crypto.randomUUID().slice(0, 8)}.json`), {...provenance, shotIds: batch.map(s => s.id), ...result});

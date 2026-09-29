@@ -283,10 +283,13 @@ export function createStudioRouter(store, root, {limits = DEFAULT_LIMITS, jobs} 
       store.assertRevision(id, body?.baseRevision);
       const media = requireMedia(id);
       requireAnalysisIdle(id);
-      const source = analysisStore.getRun(id);
+      const current = analysisStore.getRun(id);
+      // sourceRunId 缺省或指向当前运行时保持原行为；显式给历史运行 id 时允许从它续种已生成的语义。
+      const source = body?.sourceRunId && body.sourceRunId !== current?.id ? analysisStore.getRun(id, body.sourceRunId) : current;
+      if (body?.sourceRunId && !source) throw fail('来源拉片运行不存在', 404);
       if (body?.sourceRunId && (source?.id !== body.sourceRunId || source?.revision !== body.sourceRunRevision)) throw fail('拉片版本已变化，请刷新后再重试', 409);
       const candidate = source?.candidate && source.status !== 'stale' ? {shots: source.shots, candidate: true, sourceRunId: source.id} : {};
-      const run = analysisStore.createRun(id, {...candidate, reuse: !body?.force, ...analysisModelOptions()});
+      const run = analysisStore.createRun(id, {...candidate, ...(body?.sourceRunId && source ? {sourceRunId: source.id} : {}), reuse: !body?.force, ...analysisModelOptions()});
       const firstKind = media.pts_count && store.getShots(id).length ? 'shot_frames' : 'proxy';
       const job = queueAnalysis(id, run.id, firstKind);
       return {analysis: publicAnalysis(run), job: {id: job.id, kind: job.kind, state: job.state}};

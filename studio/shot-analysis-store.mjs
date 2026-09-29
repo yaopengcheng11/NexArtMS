@@ -115,8 +115,11 @@ export function createShotAnalysisStore(store, root) {
     const id = newId('sa'), time = nowIso();
     const metadata = {provider: options.provider ?? null, model: options.model ?? null, schemaVersion: SHOT_ANALYSIS_SCHEMA_VERSION, promptVersion: SHOT_ANALYSIS_PROMPT_VERSION, error: null, progress: 0,
       subjects: clone(previous?.subjects || []), issues: [], sourceRunId: previous?.id ?? null, parameters: clone(options.parameters || {})};
+    // 复用的语义条件是"产生结果的服务身份一致"；batchSize/超时等调优参数不改变已有标注的有效性。
+    // 双方都无快照（如同为本地 fixture）视为同源。
+    const sameService = (a, b) => (!a && !b) || (!!a && !!b && ['provider', 'model', 'endpoint', 'protocol'].every(key => a[key] === b[key]));
     const reuseGenerated = options.reuse !== false && previous && ['provider', 'model', 'schemaVersion', 'promptVersion'].every(key => previous[key] === metadata[key])
-      && previous.parameters?.modelSnapshot?.fingerprint === metadata.parameters?.modelSnapshot?.fingerprint;
+      && sameService(previous.parameters?.modelSnapshot, metadata.parameters?.modelSnapshot);
     tx(() => {
       db.prepare('INSERT INTO shot_analysis_runs(id,project_id,revision,media_hash,shot_set_hash,base_shot_set_hash,candidate,status,stage,metadata,created_at,updated_at) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)')
         .run(id, projectId, nextRevision(), media.sha256, signature(media.sha256, shots), baseHash, candidate ? 1 : 0, 'processing', shots.length ? 'frames' : 'proxy', JSON.stringify(metadata), time, time);

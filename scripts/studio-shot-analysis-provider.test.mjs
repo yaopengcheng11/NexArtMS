@@ -90,12 +90,13 @@ test('saved Base URL uses the same origin API route and MiniMax separates thinki
     res.end(JSON.stringify({choices: [{message: {content: '{"subjects":[]}'}}]}));
   });
   try {
-    const p = createShotAnalysisProvider({...options(new URL('/v1', f.url).href), provider: 'minimax', model: 'MiniMax-M3', protocol: 'openai-chat-completions', apiKey: 'fixture-only-token'});
+    const p = createShotAnalysisProvider({...options(new URL('/v1', f.url).href), provider: 'minimax', model: 'MiniMax-M3.1-Flash-Preview', protocol: 'openai-chat-completions', apiKey: 'fixture-only-token'});
     await p.visionTest(payload);await p.overview(payload);
-    assert.ok(calls.every(call => call.url === '/v1/chat/completions' && call.body.model === 'MiniMax-M3' && call.body.reasoning_split === true));
-    assert.deepEqual(calls[0].body.thinking, {type: 'disabled'});
-    assert.equal(calls[0].body.max_completion_tokens, 1024);
-    assert.equal(calls[1].body.thinking, undefined, 'analysis retains the model default thinking');
+    assert.ok(calls.every(call => call.url === '/v1/chat/completions' && call.body.model === 'MiniMax-M3.1-Flash-Preview' && call.body.reasoning_split === true));
+    // M3.1（非整型 M3）不接受 thinking 参数（实测 400）：任何模式都不得发送。
+    assert.equal(calls[0].body.thinking, undefined);
+    assert.equal(calls[0].body.max_completion_tokens, undefined);
+    assert.equal(calls[1].body.thinking, undefined);
     assert.equal(calls[0].body.messages[0].content[2].image_url.url, payload.evidenceFrames[0].dataUrl);
   } finally {await f.close();}
 });

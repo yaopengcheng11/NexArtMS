@@ -163,7 +163,7 @@ export function createModelSettings(root, {secretCodec, providerFactory = create
   function snapshot() {
     refresh();
     let value;
-    if (state.active) {const p = find(state.active.profileId);value = {source: 'profile', profileId: p.id, profileRevision: p.revision, provider: p.provider, model: state.active.modelId, protocol: p.protocol, endpoint: p.endpoint, settings: {timeoutMs: 60000, maxAttempts: 2, batchSize: 4, maxCalls: 64, protocol: p.protocol}};}
+    if (state.active) {const p = find(state.active.profileId);value = {source: 'profile', profileId: p.id, profileRevision: p.revision, provider: p.provider, model: state.active.modelId, protocol: p.protocol, endpoint: p.endpoint, settings: {...envSettings(), protocol: p.protocol}};}
     else if (state.selectionMode === 'disabled') value = {source: 'disabled', profileId: null, profileRevision: null, provider: '', model: '', protocol: '', endpoint: '', settings: {}};
     else {
       const configured = environment();

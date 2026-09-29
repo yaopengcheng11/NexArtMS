@@ -10,6 +10,7 @@ import {createStudioStore} from '../studio/db.mjs';
 import {createJobRunner} from '../studio/jobs.mjs';
 import {createStudioRouter} from '../studio/router.mjs';
 import {createShotAnalysisProvider} from '../studio/shot-analysis-provider.mjs';
+import {createModelSettings} from '../studio/model-settings.mjs';
 import {ANNOTATION_ENUMS} from '../studio/shot-analysis-schema.mjs';
 import {DEFAULT_LIMITS} from '../studio/media.mjs';
 
@@ -17,9 +18,9 @@ const exec = promisify(execFile);
 const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
 async function until(predicate, timeout = 60000) {const deadline = Date.now() + timeout;while (Date.now() < deadline) {const result = await predicate();if (result) return result;await wait(50);}throw new Error('Timed out waiting for fixture');}
 const listen = server => new Promise(resolve => server.listen(0, '127.0.0.1', () => resolve(`http://127.0.0.1:${server.address().port}`)));
-async function harness(provider) {
+async function harness(provider, {modelSettings} = {}) {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'shot-analysis-http-'));
-  const store = createStudioStore(root), jobs = createJobRunner(store, root, DEFAULT_LIMITS, {provider});
+  const store = createStudioStore(root), jobs = createJobRunner(store, root, DEFAULT_LIMITS, {provider, ...(modelSettings ? {modelSettings} : {})});
   const router = createStudioRouter(store, root, {limits: DEFAULT_LIMITS, jobs});
   const server = http.createServer((req, res) => router(req, res).then(handled => {if (!handled) {res.writeHead(404);res.end('{}');}}).catch(error => {res.writeHead(500);res.end(JSON.stringify({error: error.message}));}));
   const base = await listen(server);
@@ -75,7 +76,9 @@ test('blocked shot report stays honest while detection auto-continues (V2 R1: �
     const d = await h.idle(), run = d.shotAnalysis;
     assert.equal(d.workflowTarget, 'shot_analysis');assert.equal(run.status, 'blocked');assert.equal(run.shots.length, 2);
     assert.equal(run.counts.analyzed, 0);assert.ok(run.shots.every(s => s.generated === null && s.evidenceFrames.length >= 3));
-    assert.equal(d.jobs.find(j => j.kind === 'shot_analyze').state, 'failed');
+    // 语义模型未配置是可降级状态：shot_analyze 任务正常完成（底稿保留），不再记为失败。
+    const analyzeJob = d.jobs.find(j => j.kind === 'shot_analyze');
+    assert.equal(analyzeJob.state, 'done');assert.match(analyzeJob.output, /语义分析未执行/);
     assert.equal(d.jobs.find(j => j.kind === 'shot_report').state, 'done');
     // V2 R1/A02：拉片为可降级分支，失败后检测分支仍自动执行；测试环境无检测模型 → 如实失败
     const detectJob = d.jobs.find(j => j.kind === 'detect');
@@ -95,12 +98,33 @@ test('blocked shot report stays honest while detection auto-continues (V2 R1: �
   } finally {await h.close();}
 });
 
+test('missing API key in model settings degrades to a blocked draft instead of a failed chain', {timeout: 120000}, async () => {
+  const settingsRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'shot-analysis-settings-'));
+  try {
+    const modelSettings = createModelSettings(settingsRoot);
+    const added = await modelSettings.addProfile({name: 'MM', provider: 'minimax', protocol: 'openai-chat-completions', endpoint: 'https://api.minimax.example/v1', models: ['MiniMax-M3'], baseRevision: modelSettings.publicState().revision});
+    await modelSettings.select({profileId: added.profiles[0].id, modelId: 'MiniMax-M3', baseRevision: added.revision});
+    const h = await harness(undefined, {modelSettings});
+    try {
+      await h.upload();
+      const d = await h.idle(), run = d.shotAnalysis;
+      // 供应商已选择但密钥未保存：任务正常完成并降级 blocked，链路继续产出底稿报告。
+      assert.equal(run.status, 'blocked');assert.match(run.error, /语义分析未执行/);assert.match(run.error, /API 密钥/);
+      assert.equal(d.jobs.find(j => j.kind === 'shot_analyze').state, 'done');
+      assert.equal(d.jobs.find(j => j.kind === 'shot_report').state, 'done');
+      const report = await h.api('GET', `${h.route}/shot-analysis/${run.id}/file?path=report.json`);
+      assert.equal(report.status, 200);assert.equal(report.data.status, 'blocked');
+    } finally {await h.close();}
+  } finally {fs.rmSync(settingsRoot, {recursive: true, force: true, maxRetries: 5});}
+});
+
 test('local provider HTTP: semantic results, protected edits, candidate recut and adoption', {timeout: 120000}, async () => {
   const provider = await fixtureProvider(), h = await harness(provider.provider);
   try {
     await h.upload();let d = await h.idle(), run = d.shotAnalysis;
     assert.ok(['ready', 'ready_with_issues'].includes(run.status), JSON.stringify(run));assert.equal(run.counts.analyzed, 2);
-    assert.ok(provider.state.payloads.some(p => p.input.evidenceFrames.every(f => f.dataUrl.startsWith('data:image/jpeg;base64,'))));
+    // 有系统字体与 ffmpeg 时发联系表（sheets），否则回退逐帧图文；两种模式都必须带 JPEG 图像。
+    assert.ok(provider.state.payloads.some(p => (p.input.sheets?.length ? p.input.sheets : p.input.evidenceFrames).some(item => item.dataUrl?.startsWith('data:image/jpeg;base64,'))));
     const projectRevision = d.project.revision, originalIds = d.shots.map(s => s.id);
     const edited = await h.api('PATCH', `${h.route}/shot-analysis/${run.id}/shots/${run.shots[1].id}`, {baseRevision: run.revision, overrides: {action: '人工确认：保持静止'}});
     assert.equal(edited.status, 200);assert.equal((await h.detail()).project.revision, projectRevision);
