@@ -14,3 +14,6 @@ playwright-report/
 *.tmp
 *.blend1
 *.tsbuildinfo
+
+# 本地编辑器工具配置，不入库
+.zcodeignore
