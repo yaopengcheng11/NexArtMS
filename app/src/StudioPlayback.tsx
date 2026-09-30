@@ -4,7 +4,8 @@ import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 import {createRigidCharacter} from './rig';
 import {sampleAt, shotAt} from './studio-timeline';
 import {useStudioMotions} from './studio-motion-cache';
-import {playbackTimeLabel, sourceTimeOrigin, sourceUsToVideoTime, videoTimeToSourceUs} from './studio-playback-clock';
+import {playbackTimeLabel, playbackTimeOrigin, sourceUsToVideoTime, videoTimeToSourceUs} from './studio-playback-clock';
+import {StudioShotStrip} from './StudioShotStrip';
 import type {ProjectDetail} from './studio';
 import './studio-playback-workspace.css';
 
@@ -56,20 +57,20 @@ function PlaybackViewport({detail, videoRef, originUs, mode, onStatus, onPositio
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
     hostElement.appendChild(renderer.domElement);
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color('#e9ede5');
+    scene.background = new THREE.Color('#141920');
     const camera = new THREE.PerspectiveCamera(40, 16 / 9, 0.01, 2000);
     camera.position.set(0, 1.8, 6);
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.target.set(0, 0.9, 0);
     controls.enableDamping = true;
-    scene.add(new THREE.HemisphereLight('#ffffff', '#8e987c', 2.7));
+    scene.add(new THREE.HemisphereLight('#ffffff', '#687487', 2.7));
     const sun = new THREE.DirectionalLight('#fff5e7', 3);
     sun.position.set(-4, 7, 5);
     scene.add(sun);
-    const floor = new THREE.Mesh(new THREE.PlaneGeometry(60, 60), new THREE.MeshStandardMaterial({color: '#d6ddcf', roughness: 1}));
+    const floor = new THREE.Mesh(new THREE.PlaneGeometry(60, 60), new THREE.MeshStandardMaterial({color: '#202833', roughness: 1}));
     floor.rotation.x = -Math.PI / 2;
     scene.add(floor);
-    const grid = new THREE.GridHelper(20, 20, '#9db3a0', '#c3cfc2');
+    const grid = new THREE.GridHelper(20, 20, '#68778c', '#354151');
     (grid.material as THREE.Material).transparent = true;
     (grid.material as THREE.Material).opacity = 0.4;
     scene.add(grid);
@@ -181,7 +182,7 @@ function PlaybackViewport({detail, videoRef, originUs, mode, onStatus, onPositio
     };
   }, [detail.project.id, videoRef]);
 
-  return <div className="studio-stage-canvas studio-playback-canvas" ref={hostRef} style={{aspectRatio: `${detail.media?.width || 16} / ${detail.media?.height || 9}`}}>
+  return <div className="studio-stage-canvas studio-playback-canvas" ref={hostRef} style={{aspectRatio: `${detail.media?.width || 16} / ${detail.media?.height || 9}`, maxWidth: `${56 * (detail.media?.width || 16) / (detail.media?.height || 9)}vh`}}>
     {renderError && <p className="studio-playback-unavailable" role="status">{renderError}</p>}
   </div>;
 }
@@ -189,12 +190,22 @@ export function StudioPlayback({detail, active = true, playbackPosition, onPosit
   const videoRef = useRef<HTMLVideoElement>(null);
   const [mode, setMode] = useState<ViewMode>('free');
   const [retry, setRetry] = useState(0);
+  const [videoError, setVideoError] = useState(false);
   const [clock, setClock] = useState<{key: string; originUs: number | null; error: string}>({key: '', originUs: null, error: ''});
   const [status, setStatus] = useState<PlaybackStatus>({shotId: '', shotIndex: -1, time: '0:00.00', placeholders: 0, missingPeople: 0, cameraNote: ''});
   const mediaKey = `${detail.project.id}:${detail.media?.id || ''}`;
+  const proxyVersion = detail.jobs.filter(job => job.kind === 'proxy').map(job => `${job.id}:${job.state}`).join('|');
   const originUs = clock.key === mediaKey ? clock.originUs : null;
   const current = useRef({detail, active, originUs, playbackPosition, onPositionChange});
   current.current = {detail, active, originUs, playbackPosition, onPositionChange};
+  const analysis = detail.shotAnalysis && !detail.shotAnalysis.candidate && detail.shotAnalysis.mediaHash === detail.media?.sha256 ? detail.shotAnalysis : null;
+  const stripItems = detail.shots.map(shot => {
+    const analyzed = analysis?.shots.find(item => item.id === shot.id && item.startUs === shot.startUs && item.endUs === shot.endUs);
+    const evidence = analyzed?.evidenceFrames[0];
+    const thumbnail = evidence ? evidence.url || `/api/studio/projects/${encodeURIComponent(detail.project.id)}/shot-analysis/${encodeURIComponent(analysis!.id)}/file?path=${encodeURIComponent(evidence.imageRef)}` : undefined;
+    return {id: shot.id, index: shot.idx, startUs: shot.startUs, endUs: shot.endUs, thumbnail,
+      description: analyzed?.effective?.action || analyzed?.effective?.frame};
+  });
 
   useEffect(() => {
     const controller = new AbortController();
@@ -203,12 +214,12 @@ export function StudioPlayback({detail, active = true, playbackPosition, onPosit
       .then(async response => {
         if (!response.ok) throw new Error('读取视频时间信息失败');
         const result = await response.json();
-        const origin = sourceTimeOrigin(result.ptsUs);
-        if (origin === null) throw new Error('视频时间信息尚未就绪');
+        const origin = playbackTimeOrigin(result.playback);
+        if (origin === null) throw new Error(result.playbackError || '视频时间信息尚未就绪');
         if (!controller.signal.aborted) setClock({key: mediaKey, originUs: origin, error: ''});
       }).catch(error => {if (!controller.signal.aborted) setClock({key: mediaKey, originUs: null, error: (error as Error).message});});
     return () => controller.abort();
-  }, [mediaKey, detail.project.id, detail.media?.ptsCount, retry]);
+  }, [mediaKey, detail.project.id, detail.media?.ptsCount, proxyVersion, retry]);
 
   const publishPosition = () => {
     const {detail: latestDetail, active: isActive, originUs: origin, onPositionChange: publish} = current.current;
@@ -240,17 +251,23 @@ export function StudioPlayback({detail, active = true, playbackPosition, onPosit
     const video = videoRef.current;
     return () => {video?.pause();};
   }, [mediaKey]);
+  useEffect(() => {setVideoError(false);}, [mediaKey, proxyVersion]);
+
+  const hasActiveTracks = detail.tracks.some(track => track.status === 'active' && track.subject !== 'animal');
 
   return <div className="studio-playback studio-playback-workspace" data-active={active}>
     <div className="studio-playback-grid">
       <div className="studio-playback-pane">
-        <div className="studio-playback-pane-label"><b>原片</b><span>播放与拖动进度同步三维画面</span></div>
+        <div className="studio-playback-pane-label"><b>原片</b></div>
         <video ref={videoRef} className="studio-media-video" src={`/api/studio/projects/${detail.project.id}/media/preview?media=${encodeURIComponent(detail.media?.id || '')}`} controls preload="metadata"
+          style={{aspectRatio: `${detail.media?.width || 16} / ${detail.media?.height || 9}`}} aria-label="三维还原原片预览"
           onTimeUpdate={publishPosition} onSeeked={publishPosition} onPause={publishPosition} onLoadedMetadata={restorePosition}
+          onError={() => setVideoError(true)} onLoadedData={() => setVideoError(false)}
           onPlay={() => {if (!current.current.active) videoRef.current?.pause();}}/>
+        {videoError && <p className="studio-playback-source-error" role="alert">原片预览暂不可播放。<button onClick={() => {videoRef.current?.load();setRetry(value => value + 1);}}>重载视频</button></p>}
       </div>
       <div className="studio-playback-pane">
-        <div className="studio-playback-pane-label"><b>三维初稿</b><span>人物与相机为近似还原</span></div>
+        <div className="studio-playback-pane-label"><b>三维初稿</b><span>近似还原</span></div>
         {active && originUs !== null
           ? <PlaybackViewport detail={detail} videoRef={videoRef} originUs={originUs} mode={mode} onStatus={setStatus} onPositionChange={publishPosition}/>
           : <div className="studio-stage-canvas studio-playback-canvas"><div className="studio-playback-unavailable" role="status">
@@ -261,20 +278,15 @@ export function StudioPlayback({detail, active = true, playbackPosition, onPosit
     <div className="studio-playback-toolbar">
       <div className="studio-playback-status" aria-live="off">
         <b>{status.shotIndex >= 0 ? `第 ${status.shotIndex + 1} 镜` : '等待镜头'}</b><span>{status.time}</span>
+        {!hasActiveTracks && <span className="studio-playback-warn">尚无可还原的人物结果</span>}
         {status.placeholders > 0 && <span className="studio-playback-warn">{status.placeholders} 人缺少动作，暂用站立占位</span>}
         {status.missingPeople > 0 && <span className="studio-playback-warn">{status.missingPeople} 人尚未还原</span>}
         {status.cameraNote && <span className="studio-playback-warn">{status.cameraNote}</span>}
       </div>
-      <div className="segmented studio-playback-views" role="group" aria-label="三维观察视角">
-        {([['shot', '镜头视角'], ['free', '自由观察'], ['top', '俯视']] as const).map(([value, label]) =>
-          <button key={value} className={mode === value ? 'chosen' : ''} aria-pressed={mode === value} onClick={() => setMode(value)}>{label}</button>)}
-      </div>
+      <label className="studio-playback-view">视角<select aria-label="三维观察视角" value={mode} onChange={event => setMode(event.target.value as ViewMode)}>
+        <option value="shot">镜头视角</option><option value="free">自由观察</option><option value="top">俯视</option>
+      </select></label>
     </div>
-    <div className="studio-shot-strip" aria-label="三维镜头时间轴">
-      {detail.shots.map((shot, index) => <button key={shot.id} className={`studio-shot-card ${shot.id === status.shotId ? 'selected' : ''}`}
-        aria-label={`跳到第 ${index + 1} 镜`} aria-current={shot.id === status.shotId ? 'true' : undefined} disabled={originUs === null} onClick={() => seek(shot.startUs)}>
-        <span>第 {index + 1} 镜</span><small>{((shot.endUs - shot.startUs) / 1e6).toFixed(2)} 秒</small>
-      </button>)}
-    </div>
+    <StudioShotStrip items={stripItems} selectedId={status.shotId} onSelect={item => seek(item.startUs)} disabled={originUs === null} scopeLabel="全部镜头" emptyMessage="镜头尚未生成，请查看处理状态。"/>
   </div>;
 }

@@ -1,6 +1,11 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import {createHash} from 'node:crypto';
 import {clusterPeople, clusterPeopleWithSuggestions, clusterAnimalTracks, clusterKnownPeople, appearanceSimilarity, PEOPLE_ALGORITHM} from './people.mjs';
+
+export function semanticPersonId(projectId, subjectId) {
+  return `person-semantic-${createHash('sha256').update(JSON.stringify([projectId, String(subjectId)])).digest('hex')}`;
+}
 
 export function migratePeople(db) {
   db.exec(`CREATE TABLE IF NOT EXISTS source_people(
@@ -184,19 +189,32 @@ export function projectOperations({db, root, tx, query, fail, newId, nowIso, ass
     if (semantic?.groups?.length) {
       const protectedPeople = people.filter(person => person.method === 'legacy' ? person.reviewed : identityProtected(person));
       if (protectedPeople.length) throw fail('已有核对或分组结果，请从角色详情调整出场；自动整理不会覆盖这些人工决定。', 409);
-      const previousSlots = people.filter(person => person.method === 'semantic-v1');
+      const previousSlots = new Map(db.prepare("SELECT * FROM source_people WHERE project_id=? AND method='semantic-v1'").all(projectId).map(person => [person.id, person]));
+      const legacyId = subjectId => `person-${String(subjectId).toLowerCase().replace(/[^a-z0-9]/g, '')}`;
+      const legacyCounts = new Map();
+      for (const group of semantic.groups) {
+        const id = legacyId(group.subjectId);
+        legacyCounts.set(id, (legacyCounts.get(id) || 0) + 1);
+      }
       tx(() => {
         db.prepare("UPDATE tracks SET person_id=NULL WHERE project_id=? AND status='active' AND (subject IS NULL OR subject='person')").run(projectId);
         db.prepare("DELETE FROM bindings WHERE project_id=? AND updated_by='auto' AND track_id IN (SELECT id FROM tracks WHERE project_id=? AND status='active' AND (subject IS NULL OR subject='person'))").run(projectId, projectId);
         const keep = new Set();
         for (const group of semantic.groups) {
-          const id = previousSlots.find(person => person.name === group.name)?.id || `person-${String(group.subjectId).toLowerCase().replace(/[^a-z0-9]/g, '') || newId('person').slice(7)}`;
+          // Identity comes from the exact subject ID within its project, never its display name or a lossy slug.
+          const id = semanticPersonId(projectId, group.subjectId);
+          // Old semantic-v1 records can retain their automatic group on rerun only when their old key is unambiguous.
+          // Reviewed/user decisions were rejected above; loading a project does not migrate any identity.
+          const oldId = legacyId(group.subjectId);
+          const previous = previousSlots.get(id) || (oldId !== 'person-' && legacyCounts.get(oldId) === 1 ? previousSlots.get(oldId) : null);
           keep.add(id);
-          db.prepare('INSERT OR IGNORE INTO source_people(id,project_id,name,method,subject) VALUES(?,?,?,?,?)').run(id, projectId, group.name, 'semantic-v1', 'person');
+          db.prepare(`INSERT INTO source_people(id,project_id,name,method,subject,assignment) VALUES(?,?,?,?,?,?)
+            ON CONFLICT(id) DO UPDATE SET name=excluded.name WHERE source_people.project_id=excluded.project_id`)
+            .run(id, projectId, group.name, 'semantic-v1', 'person', previous?.assignment || 'unassigned');
           for (const trackId of group.trackIds) {
             const appearance = descriptors?.get(trackId);
             db.prepare('UPDATE tracks SET person_id=?,appearance=? WHERE id=?').run(id, appearance ? JSON.stringify(appearance) : null, trackId);
-            restoreAutoBinding(projectId, trackId, previousSlots.find(person => person.id === id));
+            restoreAutoBinding(projectId, trackId, previous);
           }
         }
         for (const person of people) if (!keep.has(person.id)) db.prepare('DELETE FROM source_people WHERE id=? AND id NOT IN (SELECT person_id FROM tracks WHERE person_id IS NOT NULL)').run(person.id);
@@ -320,10 +338,12 @@ export function projectOperations({db, root, tx, query, fail, newId, nowIso, ass
     const created = [];
     let removedStale = 0;
     tx(() => {
-      // 失效临时组清理：身份重整后，没有任何有效绑定（指向 active 轨迹）的历史临时组一并删除，
-      // 避免旧身份拆分遗留的空组长期堆积。
+      // 自动身份重整后可清理无有效绑定的旧组；人工档案/绑定仍引用的组必须保留，
+      // 包括用户把最后一段出场移回待核对后留下的角色档案分组。
       const stale = db.prepare(`SELECT c.id FROM characters c WHERE c.project_id=? AND c.provisional=1 AND NOT EXISTS (
-        SELECT 1 FROM bindings b JOIN tracks t ON t.id=b.track_id WHERE b.character_id=c.id AND t.status='active')`).all(projectId);
+        SELECT 1 FROM bindings b JOIN tracks t ON t.id=b.track_id WHERE b.character_id=c.id AND t.status='active')
+        AND NOT EXISTS (SELECT 1 FROM source_people p WHERE p.project_id=c.project_id AND p.assignment=c.id AND (p.reviewed=1 OR p.method='user'))
+        AND NOT EXISTS (SELECT 1 FROM bindings b WHERE b.character_id=c.id AND COALESCE(b.updated_by,'')<>'auto')`).all(projectId);
       for (const row of stale) {
         db.prepare('DELETE FROM bindings WHERE character_id=?').run(row.id);
         db.prepare("UPDATE source_people SET assignment='unassigned' WHERE project_id=? AND assignment=?").run(projectId, row.id);

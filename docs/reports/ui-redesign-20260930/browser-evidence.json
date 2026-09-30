@@ -1,0 +1,336 @@
+{
+  "analysisDefault": {
+    "editors": 0,
+    "forms": 0,
+    "locators": 1
+  },
+  "switches20": {
+    "draftNotice": "1 镜有未保存修正 · 切换镜头和视图会保留草稿继续未保存修正",
+    "selected": "第2镜 · 00:02.000",
+    "time": "2.000 s · 源帧 60"
+  },
+  "draftRetained": true,
+  "peopleDraftRetained": "测试中的人物草稿",
+  "peopleScopeCleared": "全部镜头 · 4 镜\n展开镜头表\n第 1 镜\n00:00.000\n第 2 镜\n00:02.000\n第 3 镜\n00:04.000\n第 4 镜\n00:06.000",
+  "conflict": {
+    "error": "操作尚未完成\n\n隔离版本冲突：后台版本已更新，当前输入保留。\n\n已了解",
+    "value": "close"
+  },
+  "conflictVisibleWhenClosed": true,
+  "conflictRecovered": true,
+  "focusReturn": "项目菜单",
+  "mobileFocus": {
+    "focusInside": true,
+    "modal": true,
+    "overflow": false,
+    "width": 390
+  },
+  "viewportChecks": [
+    {
+      "height": 900,
+      "locators": 1,
+      "overflow": false,
+      "scrollWidth": 1440,
+      "videoFit": "contain",
+      "videoWidth": 1358,
+      "width": 1440
+    },
+    {
+      "height": 800,
+      "locators": 1,
+      "overflow": false,
+      "scrollWidth": 1280,
+      "videoFit": "contain",
+      "videoWidth": 1198,
+      "width": 1280
+    },
+    {
+      "height": 768,
+      "locators": 1,
+      "overflow": false,
+      "scrollWidth": 1024,
+      "videoFit": "contain",
+      "videoWidth": 942,
+      "width": 1024
+    },
+    {
+      "height": 1024,
+      "locators": 1,
+      "overflow": false,
+      "scrollWidth": 768,
+      "videoFit": "contain",
+      "videoWidth": 718,
+      "width": 768
+    },
+    {
+      "height": 844,
+      "locators": 1,
+      "overflow": false,
+      "scrollWidth": 390,
+      "videoFit": "contain",
+      "videoWidth": 340,
+      "width": 390
+    }
+  ],
+  "reconstructionViewport": [
+    {
+      "canvases": [
+        {
+          "height": 375.4375,
+          "width": 669
+        }
+      ],
+      "locators": 1,
+      "overflow": false,
+      "width": 1440
+    },
+    {
+      "canvases": [
+        {
+          "height": 330.4375,
+          "width": 589
+        }
+      ],
+      "locators": 1,
+      "overflow": false,
+      "width": 1280
+    },
+    {
+      "canvases": [
+        {
+          "height": 258.4375,
+          "width": 461
+        }
+      ],
+      "locators": 1,
+      "overflow": false,
+      "width": 1024
+    },
+    {
+      "canvases": [
+        {
+          "height": 401.875,
+          "width": 716
+        }
+      ],
+      "locators": 1,
+      "overflow": false,
+      "width": 768
+    },
+    {
+      "canvases": [
+        {
+          "height": 189.25,
+          "width": 338
+        }
+      ],
+      "locators": 1,
+      "overflow": false,
+      "width": 390
+    }
+  ],
+  "toolDraftGuard": "有未保存的修正\n\n返回项目列表会丢弃 1 项未保存修正。留在当前项目可以继续编辑。\n\n继续编辑\n丢弃草稿并返回",
+  "toolDraftRetained": "未保存的代理角色",
+  "denseExpanded": {
+    "buttons": 200,
+    "locators": 1,
+    "strip": false,
+    "table": true
+  },
+  "denseSelected": {
+    "overflow": false,
+    "pageScroll": 59,
+    "selected": "第200镜 · 01:19.600"
+  },
+  "emptyAnalysis": "导入媒体\nMP4/MOV · H.264/H.265\n\n原片只读保存并计算 SHA-256；分析一律使用源时间戳（支持可变帧率），不会以固定帧率推算。超出范围会得到明确原因与预处理建议。",
+  "emptyPeople": "导入媒体\nMP4/MOV · H.264/H.265\n\n原片只读保存并计算 SHA-256；分析一律使用源时间戳（支持可变帧率），不会以固定帧率推算。超出范围会得到明确原因与预处理建议。\n\n人物\n0 位人物\n更多人物工具\n片内筛选\n\n人物出场尚未生成。\n\n已有镜头仍可浏览；检测与整理可从“更多人物工具”查看。\n全部镜头 · 0 镜\n展开镜头表\n\n还没有镜头。",
+  "emptyReconstruction": "导入媒体\nMP4/MOV · H.264/H.265\n\n原片只读保存并计算 SHA-256；分析一律使用源时间戳（支持可变帧率），不会以固定帧率推算。超出范围会得到明确原因与预处理建议。\n\n三维还原\n原片与白模对照 · 动作、相机为近似估计\n更新还原\n\n镜头准备好后即可查看三维初稿。\n\n0 个代理角色 · 0 条动作\n修正角色与相机",
+  "offsetSync": [
+    {
+      "clock": "2.400 s · 源帧 0",
+      "mediaTime": 0,
+      "paused": true
+    },
+    {
+      "clock": "2.433 s · 源帧 1",
+      "mediaTime": 0.033333,
+      "paused": true
+    },
+    {
+      "clock": "2.467 s · 源帧 2",
+      "mediaTime": 0.066667,
+      "paused": true
+    },
+    {
+      "clock": "2.500 s · 源帧 3",
+      "mediaTime": 0.1,
+      "paused": true
+    },
+    {
+      "clock": "2.533 s · 源帧 4",
+      "mediaTime": 0.133333,
+      "paused": true
+    },
+    {
+      "clock": "2.567 s · 源帧 5",
+      "mediaTime": 0.166667,
+      "paused": true
+    },
+    {
+      "clock": "2.600 s · 源帧 6",
+      "mediaTime": 0.2,
+      "paused": true
+    },
+    {
+      "clock": "2.633 s · 源帧 7",
+      "mediaTime": 0.233333,
+      "paused": true
+    },
+    {
+      "clock": "2.667 s · 源帧 8",
+      "mediaTime": 0.266667,
+      "paused": true
+    },
+    {
+      "clock": "2.700 s · 源帧 9",
+      "mediaTime": 0.3,
+      "paused": true
+    }
+  ],
+  "offsetCrossView": {
+    "stageText": "三维还原\n原片与白模对照 · 动作、相机为近似估计\n更新还原\n原片\n三维初稿\n近似还原\n第 1 镜\n0:00.30\n1 人尚未还原\n使用默认相机\n视角\n镜头视角\n自由观察\n俯视\n全部镜头 · 4 镜\n展开镜头表\n第 1 镜\n00:02.400\n第 2 镜\n00:04.400\n第 3 镜\n00:06.400\n第 4 镜\n00:08.400\n2 个代理角色 · 0 条动作 · 1 项待核对\n修正角色与相机\n还原中待核对的内容（1）",
+    "video": 0.3
+  },
+  "offsetShotJumps": [
+    {
+      "clock": "8.400 s · 源帧 180",
+      "mediaTime": 6
+    },
+    {
+      "clock": "4.400 s · 源帧 60",
+      "mediaTime": 2
+    },
+    {
+      "clock": "6.400 s · 源帧 120",
+      "mediaTime": 4
+    },
+    {
+      "clock": "2.400 s · 源帧 0",
+      "mediaTime": 0
+    }
+  ],
+  "zeroSync": [
+    {
+      "clock": "0.000 s · 源帧 0",
+      "mediaTime": 0,
+      "paused": true
+    },
+    {
+      "clock": "0.033 s · 源帧 1",
+      "mediaTime": 0.033333,
+      "paused": true
+    },
+    {
+      "clock": "0.067 s · 源帧 2",
+      "mediaTime": 0.066667,
+      "paused": true
+    },
+    {
+      "clock": "0.100 s · 源帧 3",
+      "mediaTime": 0.1,
+      "paused": true
+    },
+    {
+      "clock": "0.133 s · 源帧 4",
+      "mediaTime": 0.133333,
+      "paused": true
+    },
+    {
+      "clock": "0.167 s · 源帧 5",
+      "mediaTime": 0.166667,
+      "paused": true
+    },
+    {
+      "clock": "0.200 s · 源帧 6",
+      "mediaTime": 0.2,
+      "paused": true
+    },
+    {
+      "clock": "0.233 s · 源帧 7",
+      "mediaTime": 0.233333,
+      "paused": true
+    },
+    {
+      "clock": "0.267 s · 源帧 8",
+      "mediaTime": 0.266667,
+      "paused": true
+    },
+    {
+      "clock": "0.300 s · 源帧 9",
+      "mediaTime": 0.3,
+      "paused": true
+    }
+  ],
+  "zeroCrossView": 0.3,
+  "externalDraftVersionGuard": {
+    "disabled": true,
+    "instruction": "处理记录\n生成素材预览\n已完成\n隔离夹具已准备\n自动切镜\n已完成\n隔离夹具已准备\n拉片 · 逐镜语义分析\n已完成\n隔离夹具已准备\n\n人物或修正工具有 1 项未保存输入。请先保存或撤回，再更新拉片、调整切点或采用候选版本。\n\n更新 / 重试拉片"
+  },
+  "denseCollapsed": {
+    "strip": true,
+    "table": false
+  },
+  "mobileTouchTargets": [
+    {
+      "h": 36,
+      "name": "修正",
+      "w": 54
+    },
+    {
+      "h": 36,
+      "name": "展开镜头表",
+      "w": 76
+    }
+  ],
+  "mobileTouchTargetsAfter": [],
+  "peopleViewport": [
+    {
+      "locators": 1,
+      "overflow": false,
+      "width": 1440
+    },
+    {
+      "locators": 1,
+      "overflow": false,
+      "width": 1280
+    },
+    {
+      "locators": 1,
+      "overflow": false,
+      "width": 1024
+    },
+    {
+      "locators": 1,
+      "overflow": false,
+      "width": 768
+    },
+    {
+      "locators": 1,
+      "overflow": false,
+      "width": 390
+    }
+  ],
+  "settingsBackGuard": "有未保存的修正\n\n返回项目列表会丢弃 1 项未保存修正。留在当前项目可以继续编辑。\n\n继续编辑\n丢弃草稿并返回",
+  "settingsDraftRetained": "保留的设置草稿",
+  "delayedSubmit": "1 镜有未保存修正 · 切换镜头和视图会保留草稿\n上一镜\n上一帧\n下一帧\n下一镜\n0.000 s · 源帧 0\n第 1 镜\n人工已修正\n0.000 s — 2.000 s\n本镜未保存\n特写\n主体\n固定\n\n两位人物停步交谈，背景保持静止。\n\n第 1 镜 · 修正\n未保存修改\n收起\n景别\n尚未分析\n不适用\n大远景\n远景\n全景 / 中远景\n中景\n中近景\n近景\n特写\n不确定\n镜头类别\n尚未分析\n建立镜头\n主体\n对话\n反应\n插入细节\n主观视角\n空镜\n产品\n字幕卡\n转场\n档案素材\n不确定\n运镜\n尚未分析\n固定\n推进\n拉远\n变焦放大\n变焦缩小\n向左摇\n向右摇\n向上摇\n向下摇\n向左平移\n向右平移\n上升\n下降\n跟拍\n环绕\n甩镜\n手持\n抖动\n移焦\n轻微推进\n滚转\n航拍\n不确定\n更多修正工具\n保存中…\n撤回本镜草稿\n全部镜头 · 4 镜\n展开镜头表\n第 1 镜\n00:00.000\n未保存\n第 2 镜\n00:02.000\n第 3 镜\n00:04.000\n第 4 镜\n00:06.000",
+  "submitFailure": {
+    "error": "操作尚未完成\n\n隔离提交失败：服务暂不可用，当前输入保留。\n\n已了解",
+    "value": "extreme-close"
+  },
+  "failureWhenClosed": true,
+  "failureRecovered": true,
+  "liveLogs": [],
+  "fixtureLogs": [],
+  "livePeopleEmpty": "人物\n0 位人物\n更多人物工具\n片内筛选\n\n人物出场尚未生成。\n\n已有镜头仍可浏览；检测与整理可从“更多人物工具”查看。\n全部镜头 · 57 镜\n展开镜头表\n第 1 镜\n00:00.000\n第 2 镜\n00:00.542\n第 3 镜\n00:00.917\n第 4 镜\n00:01.000\n第 5 镜\n00:01.208\n第 6 镜\n00:01.625\n第 7 镜\n00:01.917\n第 8 镜\n00:02.333\n第 9 镜\n00:03.208\n第 10 镜\n00:04.083\n第 11 镜\n00:04.458\n第 12 镜\n00:05.375\n第 13 镜\n00:05.542\n第 14 镜\n00:05.625\n第 15 镜\n00:05.708\n第 16 镜\n00:06.417\n第 17 镜\n00:06.500\n第 18 镜\n00:06.958\n第 19 镜\n00:07.500\n第 20 镜\n00:08.167\n第 21 镜\n00:09.625\n第 22 镜\n00:10.167\n第 23 镜\n00:10.667\n第 24 镜\n00:11.750\n第 25 镜\n00:12.083\n第 26 镜\n00:13.333\n第 27 镜\n00:14.708\n第 28 镜\n00:15.292\n第 29 镜\n00:16.083\n第 30 镜\n00:16.625\n第 31 镜\n00:17.458\n第 32 镜\n00:17.875\n第 33 镜\n00:18.667\n第 34 镜\n00:18.958\n第 35 镜\n00:19.458\n第 36 镜\n00:20.333\n第 37 镜\n00:20.833\n第 38 镜\n00:22.417\n第 39 镜\n00:24.083\n第 40 镜\n00:27.625\n第 41 镜\n00:29.583\n第 42 镜\n00:30.958\n第 43 镜\n00:32.542\n第 44 镜\n00:33.167\n第 45 镜\n00:37.250\n第 46 镜\n00:39.042\n第 47 镜\n00:39.875\n第 48 镜\n00:42.250\n第 49 镜\n00:43.000\n第 50 镜\n00:43.542\n第 51 镜\n00:44.000\n第 52 镜\n00:44.083\n第 53 镜\n00:44.833\n第 54 镜\n00:45.083\n第 55 镜\n00:45.625\n第 56 镜\n00:47.000\n第 57 镜\n00:49.333",
+  "liveReconstruction": "三维还原\n原片与白模对照 · 动作、相机为近似估计\n更新还原\n原片\n三维初稿\n近似还原\n第 1 镜\n0:00.00\n尚无可还原的人物结果\n使用默认相机\n视角\n镜头视角\n自由观察\n俯视\n全部镜头 · 57 镜\n展开镜头表\n第 1 镜\n00:00.000\n第 2 镜\n00:00.542\n第 3 镜\n00:00.917\n第 4 镜\n00:01.000\n第 5 镜\n00:01.208\n第 6 镜\n00:01.625\n第 7 镜\n00:01.917\n第 8 镜\n00:02.333\n第 9 镜\n00:03.208\n第 10 镜\n00:04.083\n第 11 镜\n00:04.458\n第 12 镜\n00:05.375\n第 13 镜\n00:05.542\n第 14 镜\n00:05.625\n第 15 镜\n00:05.708\n第 16 镜\n00:06.417\n第 17 镜\n00:06.500\n第 18 镜\n00:06.958\n第 19 镜\n00:07.500\n第 20 镜\n00:08.167\n第 21 镜\n00:09.625\n第 22 镜\n00:10.167\n第 23 镜\n00:10.667\n第 24 镜\n00:11.750\n第 25 镜\n00:12.083\n第 26 镜\n00:13.333\n第 27 镜\n00:14.708\n第 28 镜\n00:15.292\n第 29 镜\n00:16.083\n第 30 镜\n00:16.625\n第 31 镜\n00:17.458\n第 32 镜\n00:17.875\n第 33 镜\n00:18.667\n第 34 镜\n00:18.958\n第 35 镜\n00:19.458\n第 36 镜\n00:20.333\n第 37 镜\n00:20.833\n第 38 镜\n00:22.417\n第 39 镜\n00:24.083\n第 40 镜\n00:27.625\n第 41 镜\n00:29.583\n第 42 镜\n00:30.958\n第 43 镜\n00:32.542\n第 44 镜\n00:33.167\n第 45 镜\n00:37.250\n第 46 镜\n00:39.042\n第 47 镜\n00:39.875\n第 48 镜\n00:42.250\n第 49 镜\n00:43.000\n第 50 镜\n00:43.542\n第 51 镜\n00:44.000\n第 52 镜\n00:44.083\n第 53 镜\n00:44.833\n第 54 镜\n00:45.083\n第 55 镜\n00:45.625\n第 56 镜\n00:47.000\n第 57 镜\n00:49.333\n2 个代理角色 · 0 条动作 · 57 项待核对\n修正角色与相机\n还原中待核对的内容（58）"
+}

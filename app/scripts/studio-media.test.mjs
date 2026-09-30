@@ -6,7 +6,7 @@ import path from 'node:path';
 import {PassThrough} from 'node:stream';
 import {execFile} from 'node:child_process';
 import {promisify} from 'node:util';
-import {DEFAULT_LIMITS, probeMedia, extractPtsMap, extractSignatures, buildProxy, receiveUpload} from '../studio/media.mjs';
+import {DEFAULT_LIMITS, probeMedia, extractPtsMap, extractSignatures, buildProxy, receiveUpload, readPlaybackClock} from '../studio/media.mjs';
 import {computeScores, detectCutsFromScores} from '../studio/cuts.mjs';
 import {frameStream} from '../studio/vision.mjs';
 
@@ -120,5 +120,45 @@ test('proxy transcode produces a playable file close to the source duration', as
     assert.ok(fs.statSync(proxy).size > 1000);
     const probe = await probeMedia(proxy, DEFAULT_LIMITS);
     assert.ok(Math.abs(probe.durationUs - 3_000_000) < 600_000);
+  } finally {fs.rmSync(dir, {recursive: true, force: true});}
+});
+
+test('existing audio-leading proxies keep their video offset in the source clock', async t => {
+  if (!hasFfmpeg) return t.skip('需要 FFmpeg');
+  const dir = tempDir('studio-playback-offset-');
+  try {
+    const source = path.join(dir, 'audio-leading.mp4'), preview = path.join(dir, 'preview.mp4');
+    await execFileAsync('ffmpeg', ['-v', 'error', '-y', '-itsoffset', '0.5', '-f', 'lavfi', '-i', 'testsrc2=size=120x80:rate=10:duration=2',
+      '-f', 'lavfi', '-i', 'anullsrc=r=48000:cl=stereo', '-map', '0:v', '-map', '1:a', '-t', '2.5', '-c:v', 'libx264', '-c:a', 'aac', source]);
+    const originalPts = (await extractPtsMap(source, dir, 'source')).pts;
+    await buildProxy(source, preview);
+    const before = fs.readFileSync(preview);
+    const clock = await readPlaybackClock(preview, Math.round(originalPts[0] * 1e6));
+    assert.deepEqual(clock, {sourceOriginUs: 500000, mediaOriginUs: 500000});
+    const previewPts = (await extractPtsMap(preview, dir, 'preview')).pts;
+    assert.deepEqual(previewPts, originalPts, 'the preview retained the leading half-second of audio');
+    assert.equal(1000000 + clock.sourceOriginUs - clock.mediaOriginUs, 1000000, 'browser 1s must sample source 1s');
+    assert.deepEqual(fs.readFileSync(preview), before, 'probing an existing proxy never rewrites it');
+  } finally {fs.rmSync(dir, {recursive: true, force: true});}
+});
+
+test('a rebased proxy and the original media have distinct clocks for nonzero source PTS', async t => {
+  if (!hasFfmpeg) return t.skip('需要 FFmpeg');
+  const dir = tempDir('studio-playback-rebased-');
+  try {
+    const source = path.join(dir, 'nonzero.mp4'), preview = path.join(dir, 'preview.mp4');
+    await execFileAsync('ffmpeg', ['-v', 'error', '-y', '-f', 'lavfi', '-i', 'testsrc2=size=120x80:rate=12:duration=2',
+      '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-output_ts_offset', '2.4', source]);
+    const originalPts = (await extractPtsMap(source, dir, 'source')).pts;
+    const sourceOriginUs = Math.round(originalPts[0] * 1e6);
+    await buildProxy(source, preview);
+    const previewPts = (await extractPtsMap(preview, dir, 'preview')).pts;
+    const clock = await readPlaybackClock(preview, sourceOriginUs);
+    assert.ok(sourceOriginUs > 2300000);
+    assert.equal(clock.mediaOriginUs, 0);
+    assert.equal(previewPts.length, originalPts.length);
+    originalPts.forEach((pts, index) => assert.ok(Math.abs(Math.round(previewPts[index] * 1e6) + sourceOriginUs - Math.round(pts * 1e6)) <= 1));
+    assert.deepEqual(await readPlaybackClock(source, sourceOriginUs), {sourceOriginUs, mediaOriginUs: sourceOriginUs}, 'original fallback keeps absolute browser PTS');
+    await assert.rejects(() => readPlaybackClock(source, NaN), error => error.status === 409);
   } finally {fs.rmSync(dir, {recursive: true, force: true});}
 });

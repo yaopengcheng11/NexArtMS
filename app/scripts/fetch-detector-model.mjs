@@ -35,10 +35,10 @@ const DET_FILES = [ // 溯源与类别映射依据（运行时不加载）
 ];
 async function ensure(spec) {
   if (!process.env.FORCE && fs.existsSync(path.join(modelDir(repoRoot), spec.file))) {
-    const record = recordLocalModel(root, spec);
+    const record = recordLocalModel(repoRoot, spec);
     if (record) {console.log(`本地已有权重 ${spec.file}，直接登记（FORCE=1 强制重新下载）。`);return record;}
   }
-  return fetchModel(root, spec);
+  return fetchModel(repoRoot, spec);
 }
 const poseRecord = await ensure(SPEC).catch(cause => {console.error('姿态模型获取失败：', cause.message);return null;});
 const detRecord = await ensure(DET_SPEC).catch(cause => {console.error('动物检测模型获取失败（动物检测将不可用，人物检测不受影响）：', cause.message);return null;});

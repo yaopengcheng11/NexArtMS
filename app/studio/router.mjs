@@ -1,13 +1,14 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {fail, newId, ALGORITHM_VERSIONS, SCHEMA_VERSION} from './db.mjs';
-import {DEFAULT_LIMITS, receiveUpload, probeMedia, hasFfmpeg, extractStill} from './media.mjs';
+import {DEFAULT_LIMITS, receiveUpload, probeMedia, hasFfmpeg, extractStill, readPlaybackClock} from './media.mjs';
 import {hasDetector, listDetectors} from './person.mjs';
 import {loadModelRecord, loadDetRecord} from './vision.mjs';
 import {solveCamera, estimateCameraFromPersonBox} from './camera.mjs';
 import {draftQuality, readMotionArtifact} from './draft-quality.mjs';
 import {matchesMotionContext} from './motion-validation.mjs';
 import {createShotAnalysisStore} from './shot-analysis-store.mjs';
+import {semanticPersonId} from './project-operations.mjs';
 import {createModelSettings} from './model-settings.mjs';
 import {createModelSettingsRouter, guardLocalStudioRequest} from './model-settings-router.mjs';
 
@@ -29,6 +30,18 @@ export function createStudioRouter(store, root, {limits = DEFAULT_LIMITS, jobs} 
   const deletingProjects = new Set();
   const fileStreams = new Map();
   const motionCache = new Map();
+  const playbackClockCache = new Map();
+  const playbackClockFor = async (file, sourceOriginUs) => {
+    const stat = fs.statSync(file);
+    const key = `${file}:${stat.ino}:${stat.size}:${stat.mtimeMs}:${sourceOriginUs}`;
+    if (!playbackClockCache.has(key)) {
+      // Cache pending probes as well; concurrent workspace reads share one ffprobe process.
+      if (playbackClockCache.size >= 128) playbackClockCache.delete(playbackClockCache.keys().next().value);
+      const pending = readPlaybackClock(file, sourceOriginUs).catch(error => {playbackClockCache.delete(key);throw error;});
+      playbackClockCache.set(key, pending);
+    }
+    return playbackClockCache.get(key);
+  };
   const currentAlgorithms = () => {
     const detector = listDetectors()[0]; // runDetection 也选择第一个已注册检测器
     return {...ALGORITHM_VERSIONS, detector: detector ? `${detector.name}@${detector.version}` : 'none'};
@@ -121,7 +134,18 @@ export function createStudioRouter(store, root, {limits = DEFAULT_LIMITS, jobs} 
     const media = store.getMedia(projectId);
     const cast = store.getCast(projectId);
     const tracks = store.getTracks(projectId), shots = store.getShots(projectId), cameraTracks = store.getCameraTracks(projectId), jobs = store.listJobs(projectId);
-    const characters = store.getCharacters(projectId), people = store.getPeople(projectId);
+    const characters = store.getCharacters(projectId), shotAnalysis = analysisStore.getRun(projectId);
+    const subjects = (shotAnalysis?.subjects || []).filter(subject => subject.kind === 'person');
+    const descriptions = new Map(subjects.map(subject => [semanticPersonId(projectId, subject.id), subject.description]));
+    // Preserve descriptions for unambiguous legacy IDs until an explicit identity rerun migrates them.
+    const legacySubjects = new Map();
+    for (const subject of subjects) {
+      const id = `person-${subject.id.toLowerCase().replace(/[^a-z0-9]/g, '')}`;
+      legacySubjects.set(id, legacySubjects.has(id) ? null : subject);
+    }
+    for (const [id, subject] of legacySubjects) if (id !== 'person-' && subject) descriptions.set(id, subject.description);
+    const people = store.getPeople(projectId).map(person => person.method === 'semantic-v1' && descriptions.has(person.id)
+      ? {...person, description: descriptions.get(person.id)} : person);
     const ignoredTrackIds = people.filter(person => person.assignment === 'ignored').flatMap(person => person.trackIds);
     const motionRefs = {}, motionVersions = {}, motions = {}, artifactErrors = {};
     const bound = new Set(cast.bindings.filter(row => row.disposition === 'bound').map(row => row.track_id));
@@ -138,8 +162,8 @@ export function createStudioRouter(store, root, {limits = DEFAULT_LIMITS, jobs} 
       } catch (cause) {artifactErrors[track.id] = cause.message;}
     }
     return {
-      shotAnalysis: publicAnalysis(analysisStore.getRun(projectId)),
-      workflowTarget: analysisStore.getRun(projectId) || jobs.some(job => {try {return JSON.parse(job.options || '{}').targetStage === 'shot_analysis';} catch {return false;}}) ? 'shot_analysis' : 'legacy',
+      shotAnalysis: publicAnalysis(shotAnalysis),
+      workflowTarget: shotAnalysis || jobs.some(job => {try {return JSON.parse(job.options || '{}').targetStage === 'shot_analysis';} catch {return false;}}) ? 'shot_analysis' : 'legacy',
       shotAnalysisProvider: modelSettings.status(),
       project: {id: project.id, schemaVersion: project.schema_version, revision: project.revision, name: project.name, sceneMode: project.scene_mode, phase: project.phase, sceneStatus: project.scene_status, note: project.note, sourcePeopleCount: project.source_people_count, createdAt: project.created_at, updatedAt: project.updated_at},
       media: media ? mediaSummary(media) : null,
@@ -271,10 +295,18 @@ export function createStudioRouter(store, root, {limits = DEFAULT_LIMITS, jobs} 
       const media = requireMedia(id);
       await serveFile(req, res, path.join(root, media.original_ref), 'video/mp4');
     },
-    'GET /api/studio/projects/:id/media/pts': async (_req, _res, {id}) => {
+    'GET /api/studio/projects/:id/media/pts': async (_req, _res, {id}, _body, query) => {
       const media = requireMedia(id);
       const pts = store.loadPtsFor(media);
-      return {ptsUs: pts.map(value => Math.round(value * 1e6)), ready: pts.length > 0};
+      const ptsUs = pts.map(value => Math.round(value * 1e6));
+      let playback = null, playbackError = '';
+      if (ptsUs.length) {
+        const mediaKind = query.get('playback') === 'original' ? 'original' : 'preview';
+        const file = path.join(root, mediaKind === 'original' ? media.original_ref : media.proxy_ref);
+        try {playback = {...await playbackClockFor(file, ptsUs[0]), mediaKind};}
+        catch {playbackError = mediaKind === 'preview' ? '预览视频时间信息尚未就绪，请等待代理任务完成后重试' : '原片时间信息不可用';}
+      }
+      return {ptsUs, ready: pts.length > 0, playback, ...(playbackError ? {playbackError} : {})};
     },
     'GET /api/studio/projects/:id/shot-analysis': async (_req, _res, {id}) => {
       projectRow(id);

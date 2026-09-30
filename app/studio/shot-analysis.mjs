@@ -217,20 +217,20 @@ export function createShotAnalysisEngine({store, analysisStore, root, provider, 
     const pending = run.shots.filter(s => !s.generated || !validateAnnotation(s.generated, {allowedFrames: s.evidenceFrames.map(f => f.frameIndex), subjectIds: run.subjects.map(s => s.id), shot: s}).valid);
     for (let index = 0; index < pending.length; index += settings.batchSize) {
       guard();run = get(projectId, runId);let batch = pending.slice(index, index + settings.batchSize).map(s => run.shots.find(current => current.id === s.id));
-      const referenceFrames = sample((run.subjects || []).flatMap(s => s.referenceFrames || []).map(f => run.shots.flatMap(s => s.evidenceFrames.map(e => ({...e, shotId: s.id}))).find(e => e.frameIndex === f)).filter(Boolean), 8);
       // 单次请求每镜均匀采样最多 5 帧：完整证据仍保存在本地与报告，采样子集只用于控制单请求规模。
       // 密集复核（frameCap 为 0）不采样——它的目的就是补充更多帧。有联系表时图片合并发送，逐帧仅留元数据。
-      const payload = async (frameCap = 5, group = batch) => {
+      const payload = async (frameCap = 5, group = batch, subjectCatalog = run.subjects || []) => {
+        const referenceFrames = sample(subjectCatalog.flatMap(s => s.referenceFrames || []).map(f => run.shots.flatMap(s => s.evidenceFrames.map(e => ({...e, shotId: s.id}))).find(e => e.frameIndex === f)).filter(Boolean), 8);
         const sampled = frameCap ? group.map(s => ({...s, evidenceFrames: sample(s.evidenceFrames, frameCap)})) : group;
         const frames = framePayload(directory, sampled, referenceFrames), sheets = await buildSheets(directory, frames, guard);
-        return {...base(), shots: group.map(({id, startFrame, endFrameExclusive, startUs, endUs}) => ({id, startFrame, endFrameExclusive, startUs, endUs})), neighboringShots: run.shots.filter((s, i) => group.some(b => run.shots[i - 1]?.id === b.id || run.shots[i + 1]?.id === b.id)).map(({id, startFrame, endFrameExclusive, effective}) => ({id, startFrame, endFrameExclusive, frame: effective?.frame || null})), evidenceFrames: sheets ? frames.map(({dataUrl, imageRef, ...meta}) => meta) : frames, ...(sheets ? {sheets} : {})};
+        return {...base(), subjectCatalog, shots: group.map(({id, startFrame, endFrameExclusive, startUs, endUs}) => ({id, startFrame, endFrameExclusive, startUs, endUs})), neighboringShots: run.shots.filter((s, i) => group.some(b => run.shots[i - 1]?.id === b.id || run.shots[i + 1]?.id === b.id)).map(({id, startFrame, endFrameExclusive, effective}) => ({id, startFrame, endFrameExclusive, frame: effective?.frame || null})), evidenceFrames: sheets ? frames.map(({dataUrl, imageRef, ...meta}) => meta) : frames, ...(sheets ? {sheets} : {})};
       };
       const parseBatch = (result, input, group = batch) => {
         const output = result.output;
         if (!output || Object.keys(output).some(k => !['annotations', 'subjects', 'issues'].includes(k)) || !Array.isArray(output.annotations) || output.annotations.length !== group.length) throw problem('逐镜分析响应数量或 schema 无效', 'batch_schema');
         const subjects = validateSubjects(output.subjects || [], {allowedFrames: input.evidenceFrames.map(f => f.frameIndex)}), issues = validateIssues(output.issues);
         if (!subjects.valid || !issues.valid) throw problem([...subjects.errors, ...issues.errors].join('；'), 'batch_schema');
-        const catalog = new Map((run.subjects || []).map(s => [s.id, s]));
+        const catalog = new Map((input.subjectCatalog || []).map(s => [s.id, s]));
         for (const sub of subjects.value) {
           if (catalog.has(sub.id)) {if (catalog.get(sub.id).kind !== sub.kind) throw problem('模型试图改变已建立主体类型', 'subject_conflict');}
           else catalog.set(sub.id, sub);
@@ -240,7 +240,8 @@ export function createShotAnalysisEngine({store, analysisStore, root, provider, 
           const shot = group.find(s => s.id === entry.shotId);
           if (!shot || seen.has(entry.shotId) || Object.keys(entry).some(k => !['shotId', 'annotation'].includes(k))) throw problem('逐镜分析 ID 无效、重复或含未允许字段', 'batch_schema');
           seen.add(entry.shotId);
-          const validation = validateAnnotation(entry.annotation, {allowedFrames: shot.evidenceFrames.map(f => f.frameIndex), subjectIds: catalog.keys(), shot});
+          // Catalog references can span shots; annotation evidence must come from this shot's images in this request.
+          const validation = validateAnnotation(entry.annotation, {allowedFrames: input.evidenceFrames.filter(f => f.shotId === shot.id).map(f => f.frameIndex), subjectIds: catalog.keys(), shot});
           if (!validation.valid) throw problem(`${shot.id}：${validation.errors.join('；')}`, 'batch_schema');
           // Images contain no audio. Do not accept confident dialogue or invented transcriptions from this adapter.
           if (validation.value.audio?.trim() || validation.value.category === 'dialogue') throw problem(`${shot.id}：当前接口未提供音频，不能生成对白或对话类别`, 'unsupported_audio');
@@ -257,8 +258,10 @@ export function createShotAnalysisEngine({store, analysisStore, root, provider, 
             await extract(projectId, runId, uncertain, {...opts, onProgress: undefined}, true);
             run = get(projectId, runId);
             const denseGroup = uncertain.map(s => run.shots.find(x => x.id === s.id));
-            const denseInput = {...(await payload(0, denseGroup)), refinement: '追加密集帧后复核动作、切点及不确定项；仍不能判定时保留 unknown 和原因。'};
+            // Preserve first-pass discoveries even when only a subset of shots needs refinement.
+            const denseInput = {...(await payload(0, denseGroup, parsed.subjects)), refinement: '追加密集帧后复核动作、切点及不确定项；仍不能判定时保留 unknown 和原因。'};
             const retry = await invoke('analyzeBatch', denseInput);
+            guard();atomic(path.join(directory, 'batches', `${String(index).padStart(5, '0')}-dense-${crypto.randomUUID().slice(0, 8)}.json`), {...provenance, shotIds: denseGroup.map(s => s.id), pass: 'dense', ...retry});
             const dense = parseBatch(retry, denseInput, denseGroup);
             const denseById = new Map(dense.values.map(v => [v.shot.id, v])), denseIds = new Set(denseById.keys());
             parsed = {...parsed, values: parsed.values.map(v => denseById.get(v.shot.id) || v), subjects: dense.subjects, issues: [...parsed.issues.filter(i => !i.shotId || !denseIds.has(i.shotId)), ...dense.issues]};

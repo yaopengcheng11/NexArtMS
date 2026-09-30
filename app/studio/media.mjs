@@ -142,6 +142,18 @@ export async function buildProxy(originalPath, proxyPath, onProgress, totalDurat
   return proxyPath;
 }
 
+// 浏览器 MP4 时间轴保留呈现帧 PTS（音轨先开始时，第一视频帧并不在 0）。
+// 只读探测已有预览：不改文件，也不要求重新生成旧项目的代理。
+export async function readPlaybackClock(mediaPath, sourceOriginUs) {
+  if (!Number.isFinite(sourceOriginUs)) throw fail('源视频时间信息尚未就绪', 409);
+  const output = await run(ffprobeBin(), ['-v', 'error', '-read_intervals', '%+#64', '-select_streams', 'v:0',
+    '-show_entries', 'frame=pts_time', '-of', 'json', mediaPath], {timeoutMs: 30000});
+  const frames = JSON.parse(output.toString('utf8')).frames || [];
+  const first = frames.find(frame => frame.pts_time !== undefined && Number.isFinite(Number(frame.pts_time)));
+  if (!first) throw fail('未能读取预览视频首帧时间戳', 500);
+  return {sourceOriginUs: Math.round(sourceOriginUs), mediaOriginUs: Math.round(Number(first.pts_time) * 1e6)};
+}
+
 // ---- PTS 映射：逐呈现帧记录源时间戳（VFR 以实际时间戳为准，不按固定 fps 推算）----
 export async function extractPtsMap(originalPath, outputDir, mediaId) {
   fs.mkdirSync(outputDir, {recursive: true});

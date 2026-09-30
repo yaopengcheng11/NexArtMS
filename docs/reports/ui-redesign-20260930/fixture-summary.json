@@ -1,0 +1,27 @@
+{
+  "isolation": "memory only; no provider calls",
+  "mutationCount": 5,
+  "mutations": [
+    {
+      "method": "PATCH",
+      "path": "/api/studio/projects/fixture/shot-analysis/analysis-fixture/shots/S001"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/studio/projects/fixture/shot-analysis/analysis-fixture/shots/S001"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/studio/projects/fixture/shot-analysis/analysis-fixture/shots/S001"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/studio/projects/fixture/shot-analysis/analysis-fixture/shots/S001"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/studio/projects/fixture/shot-analysis/analysis-fixture/shots/S001"
+    }
+  ],
+  "revision": "project-r4"
+}

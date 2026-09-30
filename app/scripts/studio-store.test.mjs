@@ -384,6 +384,136 @@ function identityFixture() {
   return {...f,project,rev};
 }
 
+test('semantic identities belong to their project even when both projects use P01',()=>{
+  const f=fixture();
+  try {
+    const snapshots=[];
+    for(const name of ['第一项目','第二项目']) {
+      const project=f.store.createProject({name,sceneMode:'proxy'}),id=project.id;
+      const rev=()=>f.store.getProjectRow(id).revision;
+      f.store.insertMedia(id,mediaRecord(rev(),{id:`m-${id}`}));
+      f.store.replaceShots(id,shotsFor(id),'auto',rev());
+      const [track]=f.store.insertTracks(id,[personSpec('S01',0,10,null)],rev(),'person');
+      f.store.summarizePeople(id,rev(),new Map(),{groups:[{subjectId:'P01',name:'主角',trackIds:[track.id]}]});
+      f.store.ensureProvisionalGroups(id,rev());
+      const people=f.store.getPeople(id),cast=f.store.getCast(id);
+      assert.equal(people.length,1);assert.deepEqual(people[0].trackIds,[track.id]);
+      assert.equal(cast.characters.length,1);assert.deepEqual(cast.pendingTrackIds,[]);
+      assert.equal(f.store.db.prepare('SELECT project_id FROM source_people WHERE id=?').get(people[0].id).project_id,id);
+      snapshots.push({id,people,cast});
+    }
+    assert.notEqual(snapshots[0].people[0].id,snapshots[1].people[0].id);
+    const reopened=f.reopen();
+    for(const snapshot of snapshots)assert.deepEqual(reopened.getPeople(snapshot.id),snapshot.people);
+  } finally {f.clean();}
+});
+
+test('same-name semantic subjects remain distinct with stable groups on reordered reruns',()=>{
+  const f=identityFixture(),id=f.project.id;
+  try {
+    const tracks=f.store.insertTracks(id,[personSpec('S01',0,10,null),personSpec('S01',0,10,null)],f.rev(),'person');
+    const groups=tracks.map((track,index)=>({subjectId:`P0${index+1}`,name:'黑衣男子',trackIds:[track.id]}));
+    f.store.summarizePeople(id,f.rev(),new Map(),{groups});
+    f.store.ensureProvisionalGroups(id,f.rev());
+    const before=f.store.getPeople(id),characters=f.store.getCharacters(id);
+    assert.equal(before.length,2);assert.equal(characters.length,2);
+    assert.equal(f.store.getCast(id).conflicts.length,0);
+    f.store.summarizePeople(id,f.rev(),new Map(),{groups:[...groups].reverse()});
+    f.store.ensureProvisionalGroups(id,f.rev());
+    assert.deepEqual(f.store.getPeople(id),before,'名称和遍历顺序不应决定素材身份或代理组');
+    assert.deepEqual(f.store.getCharacters(id),characters);
+    assert.equal(f.store.getCast(id).conflicts.length,0);
+    // Updating an automatic display name also leaves the subject's identity and group intact.
+    f.store.summarizePeople(id,f.rev(),new Map(),{groups:groups.map(group=>({...group,name:'新的显示名'}))});
+    f.store.ensureProvisionalGroups(id,f.rev());
+    assert.deepEqual(f.store.getPeople(id).map(person=>({id:person.id,assignment:person.assignment,trackIds:person.trackIds})),
+      before.map(person=>({id:person.id,assignment:person.assignment,trackIds:person.trackIds})));
+    const replacements=f.store.insertTracks(id,[personSpec('S01',1,9,null),personSpec('S01',1,9,null)],f.rev(),'person');
+    f.store.summarizePeople(id,f.rev(),new Map(),{groups:groups.map((group,index)=>({...group,trackIds:[replacements[index].id]}))});
+    f.store.ensureProvisionalGroups(id,f.rev());
+    assert.deepEqual(f.store.getPeople(id).map(person=>({id:person.id,assignment:person.assignment})),
+      before.map(person=>({id:person.id,assignment:person.assignment})),'重新检测替换轨迹后仍复用各自身份和自动分组');
+    assert.equal(f.store.getCharacters(id).length,2);assert.equal(f.store.getCast(id).conflicts.length,0);
+  } finally {f.clean();}
+});
+
+test('semantic subject IDs that share a legacy slug do not share an identity',()=>{
+  const f=identityFixture(),id=f.project.id;
+  try {
+    const tracks=f.store.insertTracks(id,[personSpec('S01',0,10,null),personSpec('S01',0,10,null)],f.rev(),'person');
+    const groups=[{subjectId:'P-A',name:'甲',trackIds:[tracks[0].id]},{subjectId:'P_A',name:'乙',trackIds:[tracks[1].id]}];
+    f.store.summarizePeople(id,f.rev(),new Map(),{groups});
+    f.store.ensureProvisionalGroups(id,f.rev());
+    const before=f.store.getPeople(id);
+    assert.equal(before.length,2);assert.notEqual(before[0].id,before[1].id);
+    f.store.summarizePeople(id,f.rev(),new Map(),{groups});
+    f.store.ensureProvisionalGroups(id,f.rev());
+    assert.deepEqual(f.store.getPeople(id),before);
+    assert.equal(f.store.getCharacters(id).length,2);
+    assert.equal(f.store.getCast(id).conflicts.length,0);
+  } finally {f.clean();}
+});
+
+test('old semantic-v1 subject keys retain their automatic groups without matching display names',()=>{
+  const f=identityFixture(),id=f.project.id;
+  try {
+    const [track]=f.store.insertTracks(id,[personSpec('S01',0,10,null)],f.rev(),'person');
+    const groups=[{subjectId:'P01',name:'旧的名称',trackIds:[track.id]}];
+    f.store.summarizePeople(id,f.rev(),new Map(),{groups});
+    f.store.ensureProvisionalGroups(id,f.rev());
+    const person=f.store.getPeople(id)[0],group=f.store.getCharacters(id)[0];
+    // Represent a database written by the old implementation, entirely inside this disposable fixture.
+    f.store.db.prepare('UPDATE source_people SET id=? WHERE id=?').run('person-p01',person.id);
+    f.store.db.prepare('UPDATE tracks SET person_id=? WHERE id=?').run('person-p01',track.id);
+    assert.equal(f.store.getPeople(id)[0].id,'person-p01');
+    f.store.summarizePeople(id,f.rev(),new Map(),{groups:groups.map(group=>({...group,name:'新的名称'}))});
+    f.store.ensureProvisionalGroups(id,f.rev());
+    const migrated=f.store.getPeople(id)[0];
+    assert.equal(migrated.id,person.id);assert.equal(migrated.assignment,group.id);
+    assert.equal(migrated.name,'新的名称');assert.deepEqual(migrated.trackIds,[track.id]);
+    assert.deepEqual(f.store.getCharacters(id),[group]);
+    f.store.editPeople(id,f.rev(),{action:'review',personIds:[migrated.id]});
+    const reviewed=f.store.getPeople(id);
+    assert.throws(()=>f.store.summarizePeople(id,f.rev(),new Map(),{groups}),error=>error.status===409);
+    assert.deepEqual(f.store.getPeople(id),reviewed,'已核对身份不应被兼容路径迁移或覆盖');
+  } finally {f.clean();}
+});
+
+test('releasing the last appearance retains the reviewed profile and its provisional group on automatic rerun',()=>{
+  const f=identityFixture(),id=f.project.id;
+  try {
+    f.store.insertTracks(id,[personSpec('S01',0,10,look(5,69))],f.rev(),'person');
+    f.store.ensureProvisionalGroups(id,f.rev());
+    const person=f.store.getPeople(id)[0],group=f.store.getCharacters(id)[0];
+    f.store.editPeople(id,f.rev(),{action:'release-appearances',personIds:[person.id],trackIds:person.trackIds});
+    const released=f.store.getPeople(id);
+    assert.equal(released[0].reviewed,true);assert.equal(released[0].assignment,group.id);
+    assert.deepEqual(released[0].trackIds,[]);
+    f.store.summarizePeople(id,f.rev());
+    assert.deepEqual(f.store.ensureProvisionalGroups(id,f.rev()),[]);
+    assert.deepEqual(f.store.getPeople(id),released);
+    assert.deepEqual(f.store.getCharacters(id),[group]);
+    assert.equal(f.store.getCast(id).bindings[0].disposition,'unassigned');
+    const reopened=f.reopen();
+    assert.deepEqual(reopened.getPeople(id),released);assert.deepEqual(reopened.getCharacters(id),[group]);
+  } finally {f.clean();}
+});
+
+test('unreferenced stale automatic groups are removed after their last active appearance is replaced',()=>{
+  const f=identityFixture(),id=f.project.id;
+  try {
+    f.store.insertTracks(id,[personSpec('S01',0,10,null)],f.rev(),'person');
+    f.store.ensureProvisionalGroups(id,f.rev());
+    const person=f.store.getPeople(id)[0],oldGroup=f.store.getCharacters(id)[0];
+    f.store.insertTracks(id,[personSpec('S02',24,34,null)],f.rev(),'person');
+    f.store.ensureProvisionalGroups(id,f.rev());
+    assert.ok(!f.store.getCharacters(id).some(group=>group.id===oldGroup.id));
+    assert.ok(!f.store.getCast(id).bindings.some(binding=>binding.character_id===oldGroup.id));
+    assert.equal(f.store.db.prepare('SELECT assignment FROM source_people WHERE id=?').get(person.id).assignment,'unassigned');
+    assert.equal(f.store.getCharacters(id).length,1,'新身份仍得到一个有效自动组');
+  } finally {f.clean();}
+});
+
 test('R05: automatic drafts can rerun with stable groups, while user edits and confirmations stay protected',()=>{
   for(const decision of ['none','review','binding','group']) {
     const f=identityFixture(), id=f.project.id;
