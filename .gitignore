@@ -2,7 +2,7 @@ node_modules/
 dist/
 /data/
 .checks/
-/examples/jwm-v2/app.bundle.js
+app/examples/jwm-v2/app.bundle.js
 coverage/
 test-results/
 playwright-report/

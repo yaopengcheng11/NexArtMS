@@ -1,3 +1,25 @@
+> **2026-09-30 修复：素材身份以拉片语义主体为准（消除外观过度拆分）**
+>
+> 用户实测：拉片人物候选 2 个（P01/P02），素材身份却拆出 107 个——本地身份层只用颜色外观聚类（保守完全联结），跨镜光照/姿态差异导致同一人被反复拆分。现 people 任务优先按拉片语义主体归组：镜内语义标注唯一主体时全部出场直接归属该主体；同镜多主体按时序占位（同框不共享）+ 主体名建身份；语义未覆盖的片段保留待核对。身份数量与拉片候选一致，ID 跨重跑稳定（semantic-v1）。
+>
+> 连带修复：`ensureProvisionalGroups` 增加失效临时组清理（无有效绑定的历史临时组随整理自动删除，此前只建不删，实测 96 个遗留组堆积）；`POST /analysis` 对 people 任务透传 auto——手动整理与临时组收敛本为一体，此前路由丢弃该参数导致手动整理后失效组永不清理。
+>
+> 验证：新增语义归组回归（分组/幂等/失效组清理），`npm run check` 207/207；实机项目重新整理后素材身份 107→2（与拉片 P01/P02 一致），临时叙事组 96→2。
+
+> **2026-09-29 移除 JWM 样片入口：场景工作台与流程演练下线**
+>
+> 主页混剪工作台已是唯一产品主线，JWM 样片的 `/?mode=scene` 场景工作台、`/?mode=rehearsal` 五阶段演练与 `/?lab=rig` 试验页整体移除（用户确认）。删除范围：场景/演练/对照播放器源码（main 场景分支、Rehearsal、SceneViewport、environment、VideoComparison、comparison-clock、types、project-store、rehearsal-store 及 server 的 5 个 JWM API）、JWM 专属资源（reference.mp4、141 张参考帧、demo、probes、examples，约 42MB）、样例数据（data/project.json、rehearsal.json 等）与 10 个专属测试/脚本。**rig.ts 保留**（混剪三维预览与播放器依赖）。acceptance-shot-analysis 素材改为 SOURCE 环境变量；baseline-mixed-cut（依赖 JWM 切镜真值）移除。
+>
+> 验证：build 与全量测试通过；服务仅暴露混剪工作台（主页 + /api/studio/*）。
+
+> **2026-09-29 仓库结构重组：根目录四文件夹（plans / docs / app / data）**
+>
+> 根目录收敛为四类内容：`plans/`（需求规格与开发/实施/接入计划，自 docs/ 拆出）、`docs/`（开发文档 + `docs/reports/` 验证记录，原根目录 reports/ 移入）、`app/`（全部源代码与 npm 工程：src、studio、scripts、public、vendor、examples、server.mjs 与 package.json 等配置，npm 命令在 app/ 内执行）、`data/`（项目数据，位置不变）。全部移动使用 `git mv` 保留历史。
+>
+> 代码适配：`server.mjs` 拆分双根——代码/静态资源根（app/）与数据根（默认仓库根，`STUDIO_DATA_ROOT` 语义不变）；`project-store.mjs` 的初始样例改按模块自身定位 public/；脚本报告输出统一改写 `docs/reports/`（repoRoot 变量），模型权重下载指向仓库根 data/models，`.checks` 临时目录回到仓库根。README 重写结构树与全部命令；plans/docs/reports 三组 md 交叉链接按新相对路径修复；.gitignore 锚定规则（examples bundle）同步。
+>
+> 验证：app/ 内 `npm run build` 与全量测试通过；服务从 `node app/server.mjs` 启动，既有 data/（项目、数据库、模型）零迁移直接可用。
+
 > **2026-09-29 前端重设计：简约白卡片设计系统（纯样式，零功能改动）**
 >
 > 建立统一设计令牌（style.css :root）：冷灰纸底 `--paper` + 纯白卡片 + 单一松绿主色（#1e6247 系，含 tint/line/ring 层次）+ 语义色（amber/red）+ 几何令牌（16/10/8 圆角、双层柔和投影、focus ring）。全部选择器保留、只改视觉值，功能与交互逻辑零改动。覆盖：顶栏（白底毛玻璃、胶囊按钮、渐变品牌标）、阶段步骤条（sticky 白条）、项目卡（hover 抬升）、拉片工作台（绿色指引框、镜头行选中态、证据帧深底圆角）、后续工作台（相机/角色/确认）、模型设置对话框（毛玻璃遮罩、密钥状态行）、项目设置对话框、toast 与所有 banner/表单/进度条；桌面 1440 与窄屏 390 双宽度截图验证，控制台 0 错误。截图见 `reports/redesign/*.png`。
@@ -36,7 +58,7 @@
 >
 > 169 项自动测试及构建通过。50.125 秒真实原片生成 57 个候选镜头、317 张证据图；全部 46 个参考切点在 ±1 帧内命中，另有 10 个多切候选。浏览器桌面/移动端与编辑/候选采用通过。
 >
-> **真实语义尚未验收：未配置视觉模型，报告如实为 blocked、0/57 镜语义已分析。** 最新隔离验收入口为 8214。详见 [拉片验收记录](../reports/shot-analysis-acceptance/README.md) 和 [模型配置](shot-analysis-provider.md)。
+> **真实语义尚未验收：未配置视觉模型，报告如实为 blocked、0/57 镜语义已分析。** 最新隔离验收入口为 8214。详见 [拉片验收记录](reports/shot-analysis-acceptance/README.md) 和 [模型配置](shot-analysis-provider.md)。
 
 > **2026-09-27 Review 修复与完整实片验证（此前三维阶段记录）**
 >
@@ -46,7 +68,7 @@
 >
 > [修复清单、实片指标、预览及服务说明](G:/AITOOLS/NexArtMotionStage/NexArtMS/reports/v2-fix-acceptance/README.md)
 
-> **2026-09-27 V2 自动混剪还原（按 [automatic-reconstruction-plan-v2](automatic-reconstruction-plan-v2.md) 首批任务执行；以下为此前记录）**
+> **2026-09-27 V2 自动混剪还原（按 [automatic-reconstruction-plan-v2](../plans/automatic-reconstruction-plan-v2.md) 首批任务执行；以下为此前记录）**
 >
 > 已完成并实机验证：
 > - **P1（B1–B3）**：检测重跑的替换与保护均按 subject 限定（人物/动物互不覆盖，T01–T03 回归）；动物拆分/补标保留 subject+species，不再误建人物卡（T04）；动物出场归入人物身份被 422 拒绝（T05）。
@@ -102,7 +124,7 @@
 
 ## 〇一、混剪视频还原：M1–M3 第一闭环（2026-09-25 第一轮）
 
-按 [混剪开发计划](development-plan-mixed-cut.md) 完成了 M1（多项目与媒体基础）、M2 的可实现部分（切镜与出场候选，自动检测待模型选型）与 M3（版本化角色归并与正式确认），并以端到端测试与浏览器冒烟验证。**这不是"视频还原为三维影片"的完成**：M0 基准、M2 模型接入、M4–M6（相机/姿态/动作/导出）与 M4S 可见场景分支仍按计划待做。
+按 [混剪开发计划](../plans/development-plan-mixed-cut.md) 完成了 M1（多项目与媒体基础）、M2 的可实现部分（切镜与出场候选，自动检测待模型选型）与 M3（版本化角色归并与正式确认），并以端到端测试与浏览器冒烟验证。**这不是"视频还原为三维影片"的完成**：M0 基准、M2 模型接入、M4–M6（相机/姿态/动作/导出）与 M4S 可见场景分支仍按计划待做。
 
 | 交付物 | 状态 | 说明 |
 |---|---|---|
